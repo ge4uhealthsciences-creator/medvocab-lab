@@ -11,7 +11,7 @@
 
 <section class="card" id="order"><h2>Đặt mua và nhận hướng dẫn thanh toán</h2>
 <p>Giá thử nghiệm: <strong>99.000đ</strong>. Khi bạn gửi biểu mẫu, GE4u sẽ gửi thông báo yêu cầu mua đến người bán. Việc gửi biểu mẫu không xác nhận đã thanh toán.</p>
-<form id="orderForm">
+<form id="orderForm" action="https://script.google.com/macros/s/AKfycbzgnwBJ6Joq_uzDlK8DdJfbkuzwPko8zRgaeZAn3CAUhVdsOge3dNQ3PIkgn64Rto7-ig/exec" method="POST" target="_blank">
 <label for="buyerName">Tên của bạn</label><br><input id="buyerName" name="name" required maxlength="100" autocomplete="name" style="width:100%;margin:6px 0 12px"><br>
 <label for="buyerContact">Email hoặc số điện thoại để liên hệ</label><br><input id="buyerContact" name="contact" required maxlength="200" autocomplete="email" style="width:100%;margin:6px 0 12px"><br>
 <div style="position:absolute;left:-10000px" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -24,28 +24,16 @@
 \n<section class="card"><h2>Phản hồi sản phẩm</h2><p>Chúng tôi chưa bật biểu mẫu thu thập dữ liệu. Bạn có thể dùng thử bộ học liệu và gửi góp ý trực tiếp cho người phát triển qua kênh liên hệ mà bạn đã biết; website hiện không lưu thông tin người dùng.</p></section>
 </main><footer>GE4u · General English for you · Pilot version 1.0</footer>
 <script>
-const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbzgnwBJ6Joq_uzDlK8DdJfbkuzwPko8zRgaeZAn3CAUhVdsOge3dNQ3PIkgn64Rto7-ig/exec";
 const orderForm = document.getElementById('orderForm');
 if (orderForm) {
   const status = document.getElementById('orderStatus');
   const submit = document.getElementById('orderSubmit');
-  orderForm.addEventListener('submit', async function(ev) {
-    ev.preventDefault();
-    if (!ORDER_ENDPOINT || !/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(ORDER_ENDPOINT)) {
-      status.textContent = 'Chưa bật nhận đơn: người quản trị cần triển khai Google Apps Script và cấu hình URL /exec trước.';
-      return;
-    }
+  orderForm.addEventListener('submit', function() {
+    status.textContent = 'Đang mở trang xử lý yêu cầu trong tab mới. Hãy đợi trang xác nhận từ Google Apps Script trước khi đóng tab đó.';
     submit.disabled = true;
-    status.textContent = 'Đang gửi yêu cầu…';
-    try {
-      const data = new URLSearchParams(new FormData(orderForm));
-      const response = await fetch(ORDER_ENDPOINT, {method:'POST', body:data, redirect:'follow'});
-      if (!response.ok) throw new Error('Request failed');
-      status.textContent = 'Đã gửi yêu cầu. Hãy kiểm tra trang xác nhận; việc gửi yêu cầu không đồng nghĩa đã thanh toán.';
-      orderForm.reset();
-    } catch (err) {
-      status.textContent = 'Không thể xác nhận việc gửi biểu mẫu từ trình duyệt. Vui lòng thử lại hoặc liên hệ người bán. Không chuyển tiền khi chưa xác minh hướng dẫn thanh toán.';
-    } finally { submit.disabled = false; }
+    // Native HTML form POST avoids browser CORS restrictions that blocked fetch().
+    // The Apps Script response opens in a new tab; the site cannot infer email delivery.
+    window.setTimeout(function() { submit.disabled = false; }, 3000);
   });
 }
 </script>
