@@ -30,3 +30,11 @@ Never put API keys in source files. Do not enable paid API generation unless you
 - AI-generated medical content must be reviewed by a qualified subject-matter expert before official use.
 - No checkout, payment, email delivery, customer analytics, or guaranteed revenue is included.
 - GitHub Pages and Actions limits depend on GitHub's current plan and policies.
+
+## GE4u Dental English pilot
+- Product overview: [ge4u-dental-english.html](ge4u-dental-english.html)
+- Interactive practice tool: [dental-english-practice.html](dental-english-practice.html)
+- Dental vocabulary dataset: [data/dental-english-pack.json](data/dental-english-pack.json)
+- The web page supports browser Print → Save as PDF.
+
+The pilot contains 30 dental English terms across five topic areas and 10 multiple-choice questions. The product page is a preview only: payment collection and automatic delivery have not been enabled.
