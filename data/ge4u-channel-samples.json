@@ -1,0 +1,1052 @@
+{
+  "title": "GE4u Health Sciences Channel Samples",
+  "version": "Pilot 1.0",
+  "disclaimer": "Educational English-learning material only. Not clinical guidance. Clinical and technical content should be reviewed by qualified subject experts.",
+  "channels": [
+    {
+      "id": "medical",
+      "vi": "Y khoa",
+      "name": "Medical English",
+      "desc": "Symptoms, anatomy, clinical history and patient communication.",
+      "terms": [
+        [
+          "symptom",
+          "/ˈsɪmptəm/",
+          "triệu chứng",
+          "A change in health noticed by a patient.",
+          "The patient described each symptom."
+        ],
+        [
+          "diagnosis",
+          "/ˌdaɪəɡˈnəʊsɪs/",
+          "chẩn đoán",
+          "Identification of a disease or condition.",
+          "The diagnosis followed the examination."
+        ],
+        [
+          "medical history",
+          "/ˈmedɪkəl ˈhɪstəri/",
+          "tiền sử bệnh",
+          "Information about past and current health.",
+          "The clinician reviewed the medical history."
+        ],
+        [
+          "physical examination",
+          "/ˈfɪzɪkəl ɪɡˌzæmɪˈneɪʃən/",
+          "khám thực thể",
+          "Assessment of the body for clinical signs.",
+          "A physical examination was performed."
+        ],
+        [
+          "prognosis",
+          "/prɒɡˈnəʊsɪs/",
+          "tiên lượng",
+          "The expected course or outcome of a condition.",
+          "The physician explained the prognosis."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "vi": "Dược học",
+      "name": "Pharmacy English",
+      "desc": "Pharmacology, indications, adverse effects and medication counselling.",
+      "terms": [
+        [
+          "indication",
+          "/ˌɪndɪˈkeɪʃən/",
+          "chỉ định",
+          "A reason for using a medicine or treatment.",
+          "The pharmacist checked the indication."
+        ],
+        [
+          "contraindication",
+          "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+          "chống chỉ định",
+          "A factor that makes a treatment inadvisable.",
+          "An allergy may be a contraindication."
+        ],
+        [
+          "adverse drug reaction",
+          "/ˈædvɜːs drʌɡ riˈækʃən/",
+          "phản ứng có hại của thuốc",
+          "An unintended harmful response to a medicine.",
+          "The patient reported an adverse drug reaction."
+        ],
+        [
+          "dosage",
+          "/ˈdəʊsɪdʒ/",
+          "liều dùng",
+          "The amount and frequency of a medicine taken.",
+          "Follow the prescribed dosage."
+        ],
+        [
+          "drug interaction",
+          "/drʌɡ ˌɪntərˈækʃən/",
+          "tương tác thuốc",
+          "An effect when one substance affects another medicine.",
+          "The pharmacist checked for drug interactions."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "nursing",
+      "vi": "Điều dưỡng",
+      "name": "Nursing English",
+      "desc": "Vital signs, nursing assessment, handover and patient safety.",
+      "terms": [
+        [
+          "vital signs",
+          "/ˈvaɪtəl saɪnz/",
+          "dấu hiệu sinh tồn",
+          "Measurements including pulse, respiration and blood pressure.",
+          "The nurse recorded vital signs."
+        ],
+        [
+          "wound dressing",
+          "/wuːnd ˈdresɪŋ/",
+          "băng vết thương",
+          "Material used to protect a wound.",
+          "The nurse changed the wound dressing."
+        ],
+        [
+          "intake and output",
+          "/ˈɪnteɪk ən ˈaʊtpʊt/",
+          "lượng dịch vào và ra",
+          "A record of fluid intake and excretion.",
+          "Intake and output were monitored."
+        ],
+        [
+          "handover",
+          "/ˈhændəʊvə/",
+          "bàn giao ca",
+          "Transfer of relevant patient information.",
+          "The nurse gave a structured handover."
+        ],
+        [
+          "patient safety",
+          "/ˈpeɪʃənt ˈseɪfti/",
+          "an toàn người bệnh",
+          "Prevention of avoidable harm in healthcare.",
+          "Patient safety is a priority."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "midwifery",
+      "vi": "Hộ sinh",
+      "name": "Midwifery English",
+      "desc": "Antenatal care, labour, postpartum care and newborn assessment.",
+      "terms": [
+        [
+          "antenatal care",
+          "/ˌæntiˈneɪtəl keə/",
+          "chăm sóc trước sinh",
+          "Healthcare provided during pregnancy.",
+          "Antenatal care supports maternal health."
+        ],
+        [
+          "labour",
+          "/ˈleɪbə/",
+          "chuyển dạ",
+          "The process leading to childbirth.",
+          "The midwife assessed labour."
+        ],
+        [
+          "contraction",
+          "/kənˈtrækʃən/",
+          "cơn co tử cung",
+          "Tightening of uterine muscle, especially during labour.",
+          "The patient described the contractions."
+        ],
+        [
+          "postpartum",
+          "/ˌpəʊstˈpɑːtəm/",
+          "sau sinh",
+          "The period following childbirth.",
+          "Postpartum care includes assessment."
+        ],
+        [
+          "newborn",
+          "/ˈnjuːbɔːn/",
+          "trẻ sơ sinh",
+          "A recently born infant.",
+          "The midwife assessed the newborn."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "social-work",
+      "vi": "Công tác xã hội",
+      "name": "Healthcare Social Work",
+      "desc": "Client-centred communication, needs assessment and service coordination.",
+      "terms": [
+        [
+          "case management",
+          "/ˈkeɪs ˌmænɪdʒmənt/",
+          "quản lý ca",
+          "Coordination of services around a person's needs.",
+          "Case management coordinated support."
+        ],
+        [
+          "needs assessment",
+          "/niːdz əˈsesmənt/",
+          "đánh giá nhu cầu",
+          "A process to identify needs and resources.",
+          "The social worker completed a needs assessment."
+        ],
+        [
+          "confidentiality",
+          "/ˌkɒnfɪdenʃiˈæləti/",
+          "tính bảo mật",
+          "Protection of private information under applicable rules.",
+          "Confidentiality matters in client discussions."
+        ],
+        [
+          "referral",
+          "/rɪˈfɜːrəl/",
+          "chuyển gửi",
+          "Directing a person to another service or professional.",
+          "The client received a referral."
+        ],
+        [
+          "informed choice",
+          "/ɪnˌfɔːmd tʃɔɪs/",
+          "lựa chọn có đầy đủ thông tin",
+          "A choice made after understandable relevant information.",
+          "The worker supported informed choice."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "pharmaceutical-chemistry",
+      "vi": "Hóa dược",
+      "name": "Pharmaceutical Chemistry",
+      "desc": "Chemical structure, synthesis, analysis and structure–activity relationships.",
+      "terms": [
+        [
+          "molecular structure",
+          "/məˈlekjələ ˈstrʌktʃə/",
+          "cấu trúc phân tử",
+          "Arrangement of atoms in a molecule.",
+          "The molecular structure was examined."
+        ],
+        [
+          "active pharmaceutical ingredient",
+          "/ˈæktɪv ˌfɑːməˈsuːtɪkəl ɪnˈɡriːdiənt/",
+          "dược chất",
+          "Substance responsible for intended pharmacological activity.",
+          "The active pharmaceutical ingredient was identified."
+        ],
+        [
+          "solubility",
+          "/ˌsɒljʊˈbɪləti/",
+          "độ tan",
+          "Ability of a substance to dissolve in a solvent.",
+          "Solubility affects formulation."
+        ],
+        [
+          "synthesis",
+          "/ˈsɪnθəsɪs/",
+          "sự tổng hợp",
+          "Production of a compound through chemical reactions.",
+          "The synthesis route was documented."
+        ],
+        [
+          "structure–activity relationship",
+          "/ˈstrʌktʃə ækˈtɪvəti rɪˌleɪʃənʃɪp/",
+          "mối liên hệ cấu trúc–tác dụng",
+          "Relationship between molecular structure and biological activity.",
+          "The team discussed the structure–activity relationship."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "pharmaceutical-technology",
+      "vi": "Công nghệ dược phẩm",
+      "name": "Pharmaceutical Technology",
+      "desc": "Dosage forms, excipients, manufacturing and quality control.",
+      "terms": [
+        [
+          "dosage form",
+          "/ˈdəʊsɪdʒ fɔːm/",
+          "dạng bào chế",
+          "The physical form in which a medicine is produced.",
+          "A tablet is a solid dosage form."
+        ],
+        [
+          "excipient",
+          "/ɪkˈsɪpiənt/",
+          "tá dược",
+          "A formulation ingredient other than the active substance.",
+          "The excipient supported product stability."
+        ],
+        [
+          "dissolution",
+          "/ˌdɪsəˈluːʃən/",
+          "sự hòa tan",
+          "The process by which a substance goes into solution.",
+          "Dissolution testing was performed."
+        ],
+        [
+          "batch",
+          "/bætʃ/",
+          "lô sản xuất",
+          "A defined quantity made in one manufacturing cycle.",
+          "Each batch was documented."
+        ],
+        [
+          "quality control",
+          "/ˈkwɒləti kənˈtrəʊl/",
+          "kiểm soát chất lượng",
+          "Activities that verify product quality.",
+          "Quality control results were reviewed."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "traditional-medicine",
+      "vi": "Y học cổ truyền",
+      "name": "Traditional Medicine English",
+      "desc": "Traditional medicine terminology, medicinal materials and academic description.",
+      "terms": [
+        [
+          "medicinal herb",
+          "/məˈdɪsɪnəl hɜːb/",
+          "dược liệu / thảo dược",
+          "A plant used in a medicinal context.",
+          "The medicinal herb was identified."
+        ],
+        [
+          "herbal preparation",
+          "/ˈhɜːbəl ˌprepəˈreɪʃən/",
+          "chế phẩm thảo dược",
+          "A product prepared from herbal materials.",
+          "The herbal preparation was described."
+        ],
+        [
+          "traditional diagnosis",
+          "/trəˈdɪʃənəl ˌdaɪəɡˈnəʊsɪs/",
+          "chẩn đoán theo y học cổ truyền",
+          "Assessment using a traditional medicine framework.",
+          "The practitioner documented the traditional diagnosis."
+        ],
+        [
+          "decoction",
+          "/dɪˈkɒkʃən/",
+          "thuốc sắc",
+          "A preparation made by boiling plant material in liquid.",
+          "The decoction was prepared as directed."
+        ],
+        [
+          "evidence base",
+          "/ˈevɪdəns beɪs/",
+          "cơ sở bằng chứng",
+          "Evidence supporting a claim or practice.",
+          "The review discussed the evidence base."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "public-health",
+      "vi": "Y tế công cộng",
+      "name": "Public Health English",
+      "desc": "Epidemiology, prevention, health promotion and population-level data.",
+      "terms": [
+        [
+          "incidence",
+          "/ˈɪnsɪdəns/",
+          "tỷ lệ mới mắc",
+          "Occurrence of new cases in a population over time.",
+          "The study measured incidence."
+        ],
+        [
+          "prevalence",
+          "/ˈprevələns/",
+          "tỷ lệ hiện mắc",
+          "Proportion of a population with a condition at a given time.",
+          "Prevalence was estimated from survey data."
+        ],
+        [
+          "risk factor",
+          "/ˈrɪsk ˌfæktə/",
+          "yếu tố nguy cơ",
+          "A characteristic associated with increased likelihood of an outcome.",
+          "Smoking is a risk factor."
+        ],
+        [
+          "health promotion",
+          "/helθ prəˈməʊʃən/",
+          "nâng cao sức khỏe",
+          "Enabling people to improve control over their health.",
+          "Health promotion may include community education."
+        ],
+        [
+          "surveillance",
+          "/sɜːˈveɪləns/",
+          "giám sát dịch tễ",
+          "Ongoing collection and interpretation of health data.",
+          "Surveillance can identify trends."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "psychology",
+      "vi": "Tâm lý học",
+      "name": "Psychology English",
+      "desc": "Cognition, behaviour, emotion, assessment and mental well-being.",
+      "terms": [
+        [
+          "cognition",
+          "/kɒɡˈnɪʃən/",
+          "nhận thức",
+          "Mental processes involved in acquiring and using knowledge.",
+          "Attention and memory are aspects of cognition."
+        ],
+        [
+          "behaviour",
+          "/bɪˈheɪvjə/",
+          "hành vi",
+          "Observable actions or responses of a person.",
+          "The study examined health-related behaviour."
+        ],
+        [
+          "coping strategy",
+          "/ˈkəʊpɪŋ ˌstrætədʒi/",
+          "chiến lược ứng phó",
+          "A method used to manage stress or difficult situations.",
+          "The counsellor discussed coping strategies."
+        ],
+        [
+          "assessment",
+          "/əˈsesmənt/",
+          "đánh giá",
+          "A systematic process of gathering information.",
+          "The assessment considered several sources."
+        ],
+        [
+          "well-being",
+          "/ˌwel ˈbiːɪŋ/",
+          "sức khỏe và trạng thái an lạc",
+          "A state involving health and positive functioning.",
+          "Social connection can support well-being."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    },
+    {
+      "id": "nutrition",
+      "vi": "Dinh dưỡng",
+      "name": "Nutrition English",
+      "desc": "Nutritional assessment, deficiencies, clinical nutrition and diet therapy.",
+      "terms": [
+        [
+          "macronutrient",
+          "/ˌmækrəʊˈnjuːtriənt/",
+          "chất dinh dưỡng đa lượng",
+          "A nutrient needed in relatively large amounts.",
+          "Protein is a macronutrient."
+        ],
+        [
+          "micronutrient",
+          "/ˌmaɪkrəʊˈnjuːtriənt/",
+          "vi chất dinh dưỡng",
+          "A nutrient needed in small amounts.",
+          "Iron is an essential micronutrient."
+        ],
+        [
+          "malnutrition",
+          "/ˌmælnjuːˈtrɪʃən/",
+          "suy dinh dưỡng / rối loạn dinh dưỡng",
+          "A state caused by inadequate, excessive or imbalanced intake.",
+          "Malnutrition can affect recovery."
+        ],
+        [
+          "dietary intake",
+          "/ˈdaɪətəri ˈɪnteɪk/",
+          "lượng ăn vào",
+          "The food and nutrients consumed by a person.",
+          "Dietary intake was assessed."
+        ],
+        [
+          "diet therapy",
+          "/ˈdaɪət ˌθerəpi/",
+          "liệu pháp dinh dưỡng",
+          "Dietary changes used to help manage a condition.",
+          "Diet therapy was tailored to the patient."
+        ]
+      ],
+      "quiz": [
+        {
+          "q": "Which term means a reason for using a medicine?",
+          "opts": [
+            "Indication",
+            "Prognosis",
+            "Incidence"
+          ],
+          "a": "Indication",
+          "why": "An indication is a reason for which a medicine or intervention is used."
+        },
+        {
+          "q": "Which record documents fluids taken in and fluids excreted?",
+          "opts": [
+            "Handover",
+            "Intake and output",
+            "Medical history"
+          ],
+          "a": "Intake and output",
+          "why": "Intake and output records fluid input and output."
+        },
+        {
+          "q": "Which term means the occurrence of new cases over time?",
+          "opts": [
+            "Prevalence",
+            "Incidence",
+            "Solubility"
+          ],
+          "a": "Incidence",
+          "why": "Incidence measures new cases over a defined period."
+        },
+        {
+          "q": "Which term means an ingredient other than the active substance in a formulation?",
+          "opts": [
+            "Excipient",
+            "Contraindication",
+            "Contraction"
+          ],
+          "a": "Excipient",
+          "why": "An excipient is a formulation ingredient other than the active substance."
+        },
+        {
+          "q": "Which phrase means information about a person's past and current health?",
+          "opts": [
+            "Medical history",
+            "Informed choice",
+            "Quality control"
+          ],
+          "a": "Medical history",
+          "why": "Medical history records relevant past and current health information."
+        }
+      ]
+    }
+  ]
+}
