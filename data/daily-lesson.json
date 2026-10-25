@@ -1,0 +1,40 @@
+{
+  "topic": "Respiratory system",
+  "title": "Gas exchange and oxygenation",
+  "objective": "Distinguish common terms used to describe breathing and gas exchange.",
+  "vocabulary": [
+    {
+      "term": "dyspnea",
+      "ipa": "/dɪspˈniːə/",
+      "meaning": "khó thở",
+      "definition": "Subjective difficulty or discomfort in breathing.",
+      "example": "The patient reported dyspnea on exertion."
+    },
+    {
+      "term": "hypoxemia",
+      "ipa": "/ˌhaɪpɒkˈsiːmiə/",
+      "meaning": "giảm oxy máu",
+      "definition": "An abnormally low level of oxygen in arterial blood.",
+      "example": "The team monitored the patient for hypoxemia."
+    },
+    {
+      "term": "respiratory rate",
+      "ipa": "/rɪˈspɪrətri reɪt/",
+      "meaning": "tần số thở",
+      "definition": "The number of breaths taken per minute.",
+      "example": "The nurse recorded the respiratory rate."
+    }
+  ],
+  "quiz": {
+    "question": "Which term means an abnormally low level of oxygen in arterial blood?",
+    "options": [
+      "Dyspnea",
+      "Hypoxemia",
+      "Respiratory rate"
+    ],
+    "answer": "Hypoxemia",
+    "explanation": "Hypoxemia refers to low oxygen in arterial blood."
+  },
+  "date": "2026-10-25",
+  "source_mode": "curated-fallback"
+}
