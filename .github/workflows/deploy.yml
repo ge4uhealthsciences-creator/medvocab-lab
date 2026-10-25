@@ -31,8 +31,8 @@ jobs:
       - name: Prepare site artifact
         run: |
           mkdir -p _site/data
-          cp index.html daily-lessons.html _site/
-          cp data/daily-lesson.json _site/data/
+          cp *.html _site/
+          cp data/*.json _site/data/
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
