@@ -1,0 +1,351 @@
+{
+  "title": "GE4u Dental English Starter Pack",
+  "subtitle": "Core vocabulary for dental students",
+  "level": "Pre-intermediate to intermediate",
+  "version": "Pilot 1.0",
+  "disclaimer": "Educational English-learning material only. It is not a clinical protocol or a substitute for faculty-approved textbooks and clinical supervision.",
+  "topics": [
+    {
+      "id": "anatomy",
+      "name": "Oral anatomy",
+      "words": [
+        {
+          "term": "tooth",
+          "ipa": "/tuːθ/",
+          "meaning": "răng",
+          "definition": "A hard structure in the mouth used for biting and chewing.",
+          "example": "The tooth is sensitive to cold drinks."
+        },
+        {
+          "term": "enamel",
+          "ipa": "/ɪˈnæməl/",
+          "meaning": "men răng",
+          "definition": "The hard outer covering of the crown of a tooth.",
+          "example": "Enamel protects the underlying tissues of the tooth."
+        },
+        {
+          "term": "dentin",
+          "ipa": "/ˈdentɪn/",
+          "meaning": "ngà răng",
+          "definition": "The hard tissue beneath enamel and cementum.",
+          "example": "Dentin may become sensitive when it is exposed."
+        },
+        {
+          "term": "pulp",
+          "ipa": "/pʌlp/",
+          "meaning": "tủy răng",
+          "definition": "The soft tissue inside a tooth containing nerves and blood vessels.",
+          "example": "The dental pulp contains nerves and blood vessels."
+        },
+        {
+          "term": "gingiva",
+          "ipa": "/ˈdʒɪndʒɪvə/",
+          "meaning": "nướu, lợi",
+          "definition": "The soft tissue that surrounds the teeth and covers the jawbone.",
+          "example": "Healthy gingiva is usually firm and does not bleed easily."
+        },
+        {
+          "term": "plaque",
+          "ipa": "/plæk/",
+          "meaning": "mảng bám răng",
+          "definition": "A sticky biofilm that forms on tooth surfaces.",
+          "example": "Dental plaque can contribute to gingival inflammation."
+        }
+      ]
+    },
+    {
+      "id": "conditions",
+      "name": "Common conditions",
+      "words": [
+        {
+          "term": "dental caries",
+          "ipa": "/ˈdentəl ˈkeəriːz/",
+          "meaning": "sâu răng",
+          "definition": "A disease process that causes demineralisation and damage to tooth structure.",
+          "example": "The dentist detected dental caries during the examination."
+        },
+        {
+          "term": "gingivitis",
+          "ipa": "/ˌdʒɪndʒɪˈvaɪtɪs/",
+          "meaning": "viêm nướu",
+          "definition": "Inflammation of the gingiva, commonly associated with dental plaque.",
+          "example": "Bleeding during brushing can be a sign of gingivitis."
+        },
+        {
+          "term": "periodontitis",
+          "ipa": "/ˌperiəˌdɒnˈtaɪtɪs/",
+          "meaning": "viêm nha chu",
+          "definition": "An inflammatory disease affecting the supporting tissues of the teeth.",
+          "example": "Periodontitis can lead to loss of periodontal attachment."
+        },
+        {
+          "term": "malocclusion",
+          "ipa": "/ˌmæləˈkluːʒən/",
+          "meaning": "sai khớp cắn",
+          "definition": "An abnormal relationship between the upper and lower teeth when the jaws close.",
+          "example": "The orthodontist assessed the patient's malocclusion."
+        },
+        {
+          "term": "halitosis",
+          "ipa": "/ˌhælɪˈtəʊsɪs/",
+          "meaning": "hôi miệng",
+          "definition": "An unpleasant odour of the breath.",
+          "example": "The patient asked about persistent halitosis."
+        },
+        {
+          "term": "toothache",
+          "ipa": "/ˈtuːθeɪk/",
+          "meaning": "đau răng",
+          "definition": "Pain in or around a tooth.",
+          "example": "The patient reported a severe toothache at night."
+        }
+      ]
+    },
+    {
+      "id": "examination",
+      "name": "Examination and procedures",
+      "words": [
+        {
+          "term": "oral examination",
+          "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
+          "meaning": "khám miệng",
+          "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
+          "example": "An oral examination is part of the initial dental assessment."
+        },
+        {
+          "term": "radiograph",
+          "ipa": "/ˈreɪdiəɡrɑːf/",
+          "meaning": "phim X-quang",
+          "definition": "An image produced using X-rays for diagnostic assessment.",
+          "example": "The dentist reviewed the dental radiograph."
+        },
+        {
+          "term": "restoration",
+          "ipa": "/ˌrestəˈreɪʃən/",
+          "meaning": "phục hồi răng",
+          "definition": "A filling or other material used to restore damaged tooth structure.",
+          "example": "The restoration was checked for marginal integrity."
+        },
+        {
+          "term": "extraction",
+          "ipa": "/ɪkˈstrækʃən/",
+          "meaning": "nhổ răng",
+          "definition": "The removal of a tooth from its socket.",
+          "example": "The dentist explained the extraction procedure."
+        },
+        {
+          "term": "impression",
+          "ipa": "/ɪmˈpreʃən/",
+          "meaning": "dấu răng",
+          "definition": "A negative reproduction of oral structures used to make a model or appliance.",
+          "example": "The clinician took an impression of the upper arch."
+        },
+        {
+          "term": "local anaesthetic",
+          "ipa": "/ˈləʊkəl ˌænəsˈθetɪk/",
+          "meaning": "thuốc gây tê tại chỗ",
+          "definition": "A medicine that temporarily blocks sensation in a limited area.",
+          "example": "The dentist discussed the use of a local anaesthetic."
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Patient communication",
+      "words": [
+        {
+          "term": "chief complaint",
+          "ipa": "/tʃiːf kəmˈpleɪnt/",
+          "meaning": "lý do khám chính",
+          "definition": "The main problem or symptom that brings a patient to seek care.",
+          "example": "What is your chief complaint today?"
+        },
+        {
+          "term": "medical history",
+          "ipa": "/ˈmedɪkəl ˈhɪstəri/",
+          "meaning": "tiền sử bệnh",
+          "definition": "Information about a person's past and current health conditions and treatments.",
+          "example": "Please tell me about your medical history."
+        },
+        {
+          "term": "allergy",
+          "ipa": "/ˈælədʒi/",
+          "meaning": "dị ứng",
+          "definition": "An immune-mediated reaction to a substance that is usually harmless to most people.",
+          "example": "Do you have any known drug allergies?"
+        },
+        {
+          "term": "informed consent",
+          "ipa": "/ɪnˌfɔːmd kənˈsent/",
+          "meaning": "đồng thuận sau khi được cung cấp thông tin",
+          "definition": "Voluntary agreement after receiving and understanding relevant information about a procedure.",
+          "example": "The clinician obtained informed consent before the procedure."
+        },
+        {
+          "term": "follow-up appointment",
+          "ipa": "/ˈfɒləʊ ʌp əˈpɔɪntmənt/",
+          "meaning": "lịch hẹn tái khám",
+          "definition": "A planned visit after an initial consultation or treatment.",
+          "example": "Please book a follow-up appointment in two weeks."
+        },
+        {
+          "term": "postoperative instructions",
+          "ipa": "/ˌpəʊstˈɒpərətɪv ɪnˈstrʌkʃənz/",
+          "meaning": "hướng dẫn sau phẫu thuật",
+          "definition": "Guidance provided to a patient for care and recovery after an operation.",
+          "example": "The patient received written postoperative instructions."
+        }
+      ]
+    },
+    {
+      "id": "instruments",
+      "name": "Instruments and materials",
+      "words": [
+        {
+          "term": "dental mirror",
+          "ipa": "/ˈdentəl ˈmɪrə/",
+          "meaning": "gương nha khoa",
+          "definition": "An instrument used to view oral surfaces indirectly and retract soft tissues.",
+          "example": "The dentist used a dental mirror to inspect the lingual surface."
+        },
+        {
+          "term": "probe",
+          "ipa": "/prəʊb/",
+          "meaning": "thám trâm nha chu / đầu dò",
+          "definition": "A slender instrument used to examine a surface or measure a periodontal pocket.",
+          "example": "The clinician used a periodontal probe during the assessment."
+        },
+        {
+          "term": "scaler",
+          "ipa": "/ˈskeɪlə/",
+          "meaning": "dụng cụ lấy cao răng",
+          "definition": "An instrument used to remove deposits from tooth surfaces.",
+          "example": "The hygienist selected a scaler for deposit removal."
+        },
+        {
+          "term": "composite resin",
+          "ipa": "/ˈkɒmpəzɪt ˈrezɪn/",
+          "meaning": "nhựa composite",
+          "definition": "A tooth-coloured restorative material made from a resin matrix and filler particles.",
+          "example": "Composite resin was selected for the restoration."
+        },
+        {
+          "term": "impression tray",
+          "ipa": "/ɪmˈpreʃən treɪ/",
+          "meaning": "khay lấy dấu",
+          "definition": "A device that holds impression material while an impression is made.",
+          "example": "The assistant prepared an impression tray."
+        },
+        {
+          "term": "sterilisation",
+          "ipa": "/ˌsterəlaɪˈzeɪʃən/",
+          "meaning": "tiệt khuẩn",
+          "definition": "A validated process intended to eliminate all forms of microbial life.",
+          "example": "Reusable instruments must undergo the required cleaning and sterilisation process."
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which structure is the hard outer covering of the crown of a tooth?",
+      "options": [
+        "Enamel",
+        "Pulp",
+        "Gingiva"
+      ],
+      "answer": "Enamel",
+      "explanation": "Enamel covers the crown and protects the underlying tooth tissues."
+    },
+    {
+      "q": "Which term means inflammation of the gingiva?",
+      "options": [
+        "Halitosis",
+        "Gingivitis",
+        "Malocclusion"
+      ],
+      "answer": "Gingivitis",
+      "explanation": "Gingivitis is inflammation of the gingiva."
+    },
+    {
+      "q": "What is a dental radiograph?",
+      "options": [
+        "An X-ray image",
+        "A tooth-coloured filling",
+        "A medical history"
+      ],
+      "answer": "An X-ray image",
+      "explanation": "A radiograph is an image produced using X-rays."
+    },
+    {
+      "q": "Which phrase means the main problem that brings a patient to seek care?",
+      "options": [
+        "Follow-up appointment",
+        "Chief complaint",
+        "Informed consent"
+      ],
+      "answer": "Chief complaint",
+      "explanation": "The chief complaint is the patient's main reason for seeking care."
+    },
+    {
+      "q": "Which instrument is used to inspect oral surfaces indirectly?",
+      "options": [
+        "Dental mirror",
+        "Impression tray",
+        "Scaler"
+      ],
+      "answer": "Dental mirror",
+      "explanation": "A dental mirror provides indirect vision and can retract soft tissues."
+    },
+    {
+      "q": "What does 'dental caries' mean in Vietnamese?",
+      "options": [
+        "Sâu răng",
+        "Viêm nha chu",
+        "Hôi miệng"
+      ],
+      "answer": "Sâu răng",
+      "explanation": "Dental caries is commonly translated as sâu răng."
+    },
+    {
+      "q": "Which term describes voluntary agreement after relevant information is explained?",
+      "options": [
+        "Informed consent",
+        "Medical history",
+        "Extraction"
+      ],
+      "answer": "Informed consent",
+      "explanation": "Informed consent involves understanding relevant information and agreeing voluntarily."
+    },
+    {
+      "q": "What is a 'restoration' in dentistry?",
+      "options": [
+        "A material used to restore damaged tooth structure",
+        "A radiographic image",
+        "A patient's main symptom"
+      ],
+      "answer": "A material used to restore damaged tooth structure",
+      "explanation": "A restoration repairs or replaces damaged tooth structure."
+    },
+    {
+      "q": "Which term refers to an unpleasant odour of the breath?",
+      "options": [
+        "Halitosis",
+        "Periodontitis",
+        "Dentin"
+      ],
+      "answer": "Halitosis",
+      "explanation": "Halitosis means unpleasant breath odour."
+    },
+    {
+      "q": "Which process is intended to eliminate all forms of microbial life from reusable instruments?",
+      "options": [
+        "Sterilisation",
+        "Impression taking",
+        "Restoration"
+      ],
+      "answer": "Sterilisation",
+      "explanation": "Sterilisation is a validated process to eliminate microbial life."
+    }
+  ]
+}
