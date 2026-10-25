@@ -28,6 +28,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
         run: python scripts/generate_daily_lesson.py
+      - name: Test GE4u pages
+        run: python scripts/test_ge4u_site.py
       - name: Prepare site artifact
         run: |
           mkdir -p _site/data
