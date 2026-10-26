@@ -5,8 +5,8 @@
  * Who has access: Anyone
  * Then paste the deployed /exec URL into ge4u-dental-english.html.
  *
- * This sends an email when a customer submits an order request.
- * It does NOT verify bank transfers or confirm payment.
+ * Sends an order notification and, when GE4U_ORDERS_SHEET_ID is configured in Script Properties,
+ * appends the order to the private Orders tab. It never verifies bank transfers or confirms payment.
  */
 const NOTIFICATION_EMAIL = "mtleduvn.edu.vn@gmail.com";
 const PRODUCT_PRICE_VND = 99000;
@@ -39,7 +39,8 @@ function doPost(e) {
     return output_("Vui lòng kiểm tra thông tin liên hệ.");
   }
 
-  const orderId = "GE4U-" + Utilities.formatDate(new Date(), "Asia/Ho_Chi_Minh", "yyMMdd-HHmmss");
+  const now = new Date();
+  const orderId = "GE4U-" + Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "yyMMdd-HHmmss") + "-" + Utilities.getUuid().slice(0, 6).toUpperCase();
   const subject = "[GE4u] Yêu cầu mua mới " + orderId;
   const body = [
     "Có khách hàng vừa gửi yêu cầu mua sản phẩm GE4u.",
@@ -57,6 +58,33 @@ function doPost(e) {
     "Chỉ phản hồi khách qua kênh liên hệ do khách cung cấp."
   ].join("\n");
 
+  // Persist minimal order data to the private Sheet if configured. Never expose Sheet contents.
+  let savedToSheet = false;
+  try {
+    savedToSheet = appendOrderToPrivateSheet_({
+      orderId: orderId,
+      createdAt: now,
+      productId: productId,
+      productName: product.name,
+      amountVnd: PRODUCT_PRICE_VND,
+      customerName: name,
+      contact: contact,
+      status: "REQUESTED",
+      paymentVerifiedAt: "",
+      paymentVerifiedBy: "",
+      transactionReference: "",
+      deliveryStatus: "NOT_SENT",
+      fulfilledAt: "",
+      deliveryError: "",
+      adminNote: ""
+    });
+  } catch (err) {
+    // Do not silently pretend the order was saved. Include the persistence error in the alert.
+    body += "\\n\\nCẢNH BÁO: Không lưu được vào Orders sheet: " + String(err.message || err);
+  }
+  body += savedToSheet
+    ? "\\n\\nĐã ghi vào private Orders sheet."
+    : "\\n\\nCẢNH BÁO: Chưa ghi vào private Orders sheet; cần cấu hình GE4U_ORDERS_SHEET_ID.";
   MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, name: "GE4u Order Notice"});
   return HtmlService.createHtmlOutput(
     '<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
@@ -76,4 +104,21 @@ function output_(message) {
 }
 function escapeHtml_(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+
+function appendOrderToPrivateSheet_(order) {
+  const sheetId = PropertiesService.getScriptProperties().getProperty("GE4U_ORDERS_SHEET_ID");
+  if (!sheetId) return false;
+  const ss = SpreadsheetApp.openById(sheetId);
+  let sh = ss.getSheetByName("Orders");
+  if (!sh) throw new Error("Không tìm thấy tab Orders. Hãy chạy setupPrivateSheets trong dự án admin.");
+  const headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0].map(String);
+  const required = ["orderId","createdAt","productId","productName","amountVnd","customerName","contact","status","paymentVerifiedAt","paymentVerifiedBy","transactionReference","deliveryStatus","fulfilledAt","deliveryError","adminNote"];
+  required.forEach(function(h) { if (headers.indexOf(h) < 0) throw new Error("Thiếu cột " + h + " trong Orders."); });
+  const row = headers.map(function(h) { return Object.prototype.hasOwnProperty.call(order, h) ? order[h] : ""; });
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try { sh.appendRow(row); } finally { lock.releaseLock(); }
+  return true;
 }
