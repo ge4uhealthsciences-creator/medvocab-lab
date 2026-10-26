@@ -32,71 +32,80 @@ function doPost(e) {
   const consent = String(p.consent || "") === "yes";
   const productId = String(p.product || "").trim();
   const product = PRODUCTS[productId];
-  const website = String(p.website || "").trim(); // honeypot field
-  if (website) return output_("Yêu cầu không hợp lệ.");
-  if (!name || !contact || !consent || !product) return output_("Vui lòng nhập tên, thông tin liên hệ và đồng ý xử lý thông tin để gửi yêu cầu.");
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) && contact.length < 8) {
+  const website = String(p.website || "").trim();
+
+  // Record even rejected requests when the shared sheet is configured.
+  if (website) {
+    auditOrderEvent_("ORDER_REJECTED", "", "Honeypot field was populated.");
+    return output_("Yêu cầu không hợp lệ.");
+  }
+  if (!name || !contact || !consent || !product) {
+    auditOrderEvent_("ORDER_REJECTED", "", "Missing name/contact/consent or invalid product. productId=" + productId);
+    return output_("Chưa gửi được yêu cầu. Vui lòng kiểm tra tên, thông tin liên hệ, sản phẩm và ô đồng ý xử lý thông tin.");
+  }
+  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact) && contact.length < 8) {
+    auditOrderEvent_("ORDER_REJECTED", "", "Invalid contact format.");
     return output_("Vui lòng kiểm tra thông tin liên hệ.");
   }
 
   const now = new Date();
   const orderId = "GE4U-" + Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "yyMMdd-HHmmss") + "-" + Utilities.getUuid().slice(0, 6).toUpperCase();
+  const order = {
+    orderId: orderId, createdAt: now, productId: productId, productName: product.name,
+    amountVnd: PRODUCT_PRICE_VND, customerName: name, contact: contact, status: "REQUESTED",
+    paymentVerifiedAt: "", paymentVerifiedBy: "", transactionReference: "",
+    deliveryStatus: "NOT_SENT", fulfilledAt: "", deliveryError: "", adminNote: ""
+  };
+
+  // Fail visibly if the order cannot be persisted. Never show a success confirmation for an unsaved order.
+  try {
+    const saved = appendOrderToPrivateSheet_(order);
+    if (!saved) throw new Error("GE4U_ORDERS_SHEET_ID is missing in Order Intake Script Properties.");
+    auditOrderEvent_("ORDER_SAVED", orderId, "Order row appended to Orders.");
+  } catch (err) {
+    auditOrderEvent_("ORDER_SAVE_FAILED", orderId, String(err.message || err));
+    return output_("Chưa ghi nhận được đơn hàng do lỗi kết nối Google Sheet. Vui lòng chưa thanh toán. Mã tham chiếu: " + orderId + ". Người quản trị cần kiểm tra Script Properties và tab Orders.");
+  }
+
   const subject = "[GE4u] Yêu cầu mua mới " + orderId;
   const body = [
-    "Có khách hàng vừa gửi yêu cầu mua sản phẩm GE4u.",
-    "",
+    "Có khách hàng vừa gửi yêu cầu mua sản phẩm GE4u.", "",
     "Mã yêu cầu: " + orderId,
     "Ngành: " + product.vi,
     "Sản phẩm: " + product.name,
     "Giá tham khảo: " + PRODUCT_PRICE_VND.toLocaleString("vi-VN") + " VND",
     "Tên khách: " + name,
     "Thông tin liên hệ khách cung cấp: " + contact,
-    "Thời điểm: " + Utilities.formatDate(new Date(), "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
-    "",
-    "Đây chỉ là yêu cầu đặt mua, KHÔNG phải xác nhận thanh toán.",
-    "Hãy kiểm tra tài khoản ngân hàng trực tiếp trước khi giao tài liệu.",
-    "Chỉ phản hồi khách qua kênh liên hệ do khách cung cấp."
-  ].join("\n");
+    "Thời điểm: " + Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
+    "", "Đây chỉ là yêu cầu đặt mua, KHÔNG phải xác nhận thanh toán.",
+    "Hãy kiểm tra tài khoản ngân hàng trực tiếp trước khi giao tài liệu."
+  ].join("\\n");
 
-  // Persist minimal order data to the private Sheet if configured. Never expose Sheet contents.
-  let savedToSheet = false;
   try {
-    savedToSheet = appendOrderToPrivateSheet_({
-      orderId: orderId,
-      createdAt: now,
-      productId: productId,
-      productName: product.name,
-      amountVnd: PRODUCT_PRICE_VND,
-      customerName: name,
-      contact: contact,
-      status: "REQUESTED",
-      paymentVerifiedAt: "",
-      paymentVerifiedBy: "",
-      transactionReference: "",
-      deliveryStatus: "NOT_SENT",
-      fulfilledAt: "",
-      deliveryError: "",
-      adminNote: ""
-    });
+    MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, name: "GE4u Order Notice"});
+    auditOrderEvent_("ORDER_EMAIL_SENT", orderId, "MailApp accepted notification for " + NOTIFICATION_EMAIL);
   } catch (err) {
-    // Do not silently pretend the order was saved. Include the persistence error in the alert.
-    body += "\\n\\nCẢNH BÁO: Không lưu được vào Orders sheet: " + String(err.message || err);
+    auditOrderEvent_("ORDER_EMAIL_FAILED", orderId, String(err.message || err));
+    return output_("Đã lưu yêu cầu " + orderId + " vào hệ thống nhưng chưa gửi được email thông báo. Người quản trị cần kiểm tra quyền gửi thư và Executions.");
   }
-  body += savedToSheet
-    ? "\\n\\nĐã ghi vào private Orders sheet."
-    : "\\n\\nCẢNH BÁO: Chưa ghi vào private Orders sheet; cần cấu hình GE4U_ORDERS_SHEET_ID.";
-  MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, name: "GE4u Order Notice"});
+
   return HtmlService.createHtmlOutput(
     '<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
     '<body style="font:16px/1.6 system-ui,sans-serif;max-width:650px;margin:48px auto;padding:20px;color:#173047">' +
-    '<h1>Đã gửi yêu cầu đặt mua</h1><p>Mã yêu cầu: <strong>' + orderId + '</strong></p>' +
-    '<p>Yêu cầu đã được gửi. Đây chưa phải xác nhận thanh toán hoặc đơn hàng đã thanh toán.</p>' +
-    '<p>Bạn hãy làm theo hướng dẫn thanh toán trên trang GE4u và lưu lại mã yêu cầu.</p></body></html>'
+    '<h1>Đã ghi nhận yêu cầu đặt mua</h1><p>Mã yêu cầu: <strong>' + escapeHtml_(orderId) + '</strong></p>' +
+    '<p>Yêu cầu đã được lưu vào hệ thống. Đây chưa phải xác nhận thanh toán.</p>' +
+    '<p>Vui lòng lưu mã yêu cầu để đối chiếu khi liên hệ.</p></body></html>'
   ).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 
 function doGet() {
-  return ContentService.createTextOutput("GE4u order endpoint is running. Submit orders using the website form.");
+  const sheetConfigured = Boolean(PropertiesService.getScriptProperties().getProperty("GE4U_ORDERS_SHEET_ID"));
+  return ContentService.createTextOutput(
+    "GE4u Order Intake diagnostic\\n" +
+    "Notification recipient configured in this deployed code: " + NOTIFICATION_EMAIL + "\\n" +
+    "GE4U_ORDERS_SHEET_ID configured: " + (sheetConfigured ? "YES" : "NO") + "\\n" +
+    "This diagnostic does not create an order. Submit the website form to test POST."
+  ).setMimeType(ContentService.MimeType.TEXT);
 }
 
 function output_(message) {
@@ -106,6 +115,24 @@ function escapeHtml_(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
+
+function auditOrderEvent_(eventName, orderId, details) {
+  try {
+    const sheetId = PropertiesService.getScriptProperties().getProperty("GE4U_ORDERS_SHEET_ID");
+    if (!sheetId) return;
+    const ss = SpreadsheetApp.openById(sheetId);
+    let sh = ss.getSheetByName("AutomationLog");
+    if (!sh) {
+      sh = ss.insertSheet("AutomationLog");
+      sh.appendRow(["timestamp","event","entityId","status","details"]);
+    } else if (sh.getLastRow() === 0) {
+      sh.appendRow(["timestamp","event","entityId","status","details"]);
+    }
+    sh.appendRow([new Date(), eventName, orderId || "", eventName.indexOf("FAILED") >= 0 || eventName === "ORDER_REJECTED" ? "ERROR" : "OK", String(details || "").slice(0, 1000)]);
+  } catch (err) {
+    console.error("Order audit logging failed: " + String(err.message || err));
+  }
+}
 
 function appendOrderToPrivateSheet_(order) {
   const sheetId = PropertiesService.getScriptProperties().getProperty("GE4U_ORDERS_SHEET_ID");
