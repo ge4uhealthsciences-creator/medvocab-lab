@@ -66,8 +66,46 @@ if len(channels) != 11:
 if len({c.get("id") for c in channels}) != len(channels):
     raise SystemExit("FAIL: duplicate channel IDs in sample data")
 
+expected_sample_ids = {
+    "medical", "pharmacy", "nursing", "midwifery", "social-work",
+    "pharmaceutical-chemistry", "pharmaceutical-technology",
+    "traditional-medicine", "public-health", "psychology", "nutrition",
+}
+if {c.get("id") for c in channels} != expected_sample_ids:
+    raise SystemExit("FAIL: the 11 non-dental sample channels do not match the expected 12-discipline architecture")
+for channel in channels:
+    if len(channel.get("terms", [])) < 3:
+        raise SystemExit(f"FAIL: {channel.get('id')} needs at least 3 terms")
+    quiz = channel.get("quiz", [])
+    if len(quiz) != 5:
+        raise SystemExit(f"FAIL: {channel.get('id')} should have 5 channel-specific quiz items")
+    for item in quiz:
+        if len(item.get("opts", [])) != 3 or item.get("a") not in item.get("opts", []):
+            raise SystemExit(f"FAIL: invalid quiz answer/options for {channel.get('id')}")
+        if "reason for using a medicine" in item.get("q", "").lower() and channel.get("id") != "pharmacy":
+            raise SystemExit(f"FAIL: generic pharmacy quiz leaked into {channel.get('id')}")
+
+dental_path = ROOT / "data/dental-english-pack.json"
+with dental_path.open(encoding="utf-8") as f:
+    dental = json.load(f)
+if not dental.get("topics") or not dental.get("quiz"):
+    raise SystemExit("FAIL: dental source data is missing topics or quiz items")
+
+daily_path = ROOT / "data/daily-lesson.json"
+if not daily_path.is_file():
+    raise SystemExit("FAIL: daily lesson was not generated")
+with daily_path.open(encoding="utf-8") as f:
+    daily = json.load(f)
+if daily.get("channel_id") not in {"dentistry"} | expected_sample_ids:
+    raise SystemExit(f"FAIL: daily lesson has unknown channel_id: {daily.get('channel_id')}")
+if len(daily.get("vocabulary", [])) != 3:
+    raise SystemExit("FAIL: daily lesson must contain exactly 3 vocabulary items")
+if len(daily.get("quiz", {}).get("options", [])) != 3 or daily.get("quiz", {}).get("answer") not in daily.get("quiz", {}).get("options", []):
+    raise SystemExit("FAIL: daily lesson quiz is invalid")
+
 print("PASS: required public pages and data files exist")
 print("PASS: 12 case scenarios each contain 3 turns")
 print("PASS: deep-practice JavaScript syntax and core interactions")
 print("PASS: hub links to deep practice and print/PDF action exists")
-print("PASS: 11 channel sample datasets parse as valid JSON")
+print("PASS: 11 channel sample datasets and quizzes are valid")
+print("PASS: daily lesson is generated from one of all 12 disciplines")
