@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{color-scheme:light;--ink:#173047;--muted:#5d6c79;--line:#dbe3ea;--bg:#f4f7fa;--accent:#145c9e}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+    header{background:#173047;color:white;padding:22px max(18px,calc((100% - 1200px)/2))}header h1{margin:0;font-size:24px}header p{margin:5px 0 0;color:#d9e6f0}
+    main{max-width:1200px;margin:22px auto;padding:0 16px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.card,section{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}.metric{font-size:24px;font-weight:750;margin-top:4px}.muted{color:var(--muted);font-size:13px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+    button,input,select,textarea{font:inherit;padding:9px 11px;border:1px solid #c7d2dd;border-radius:8px;background:white;color:var(--ink)}button{cursor:pointer;font-weight:650}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.5;cursor:not-allowed}
+    .tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:850px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}td small{display:block;color:var(--muted)}.pill{display:inline-block;border-radius:99px;padding:3px 8px;background:#edf2f7;font-size:12px;white-space:nowrap}.danger{color:#a12626}.notice{padding:12px;border-radius:8px;background:#fff8e5;margin:12px 0}.ok{background:#e9f7ee}.error{background:#fff0f0}.hidden{display:none}.rowform{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.rowform label{display:block;font-size:13px;color:var(--muted)}.rowform input,.rowform select{display:block;width:100%;margin-top:4px}
+    @media(max-width:600px){header h1{font-size:20px}.metric{font-size:20px}}
+  </style>
+</head>
+<body>
+<header><h1>GE4u — Admin Dashboard</h1><p>Quản lý đơn hàng · xác nhận tiền thực nhận · giao học liệu · thu chi</p></header>
+<main>
+  <div id="notice" class="notice hidden" role="status"></div>
+  <div class="toolbar"><button class="primary" onclick="loadData()">↻ Tải dữ liệu mới</button><span class="muted">Chỉ xác nhận thanh toán sau khi kiểm tra giao dịch trong tài khoản ngân hàng thực nhận.</span></div>
+  <div class="cards" id="metrics"></div>
+  <section><h2>Đơn hàng</h2><p class="muted">Nhập mã giao dịch ngân hàng rồi chọn “Xác nhận tiền & gửi học liệu”. Chỉ dùng khi đã đối chiếu số tiền và người chuyển trong tài khoản nhận.</p>
+    <div class="toolbar"><input id="search" placeholder="Tìm mã đơn, tên, ngành..." oninput="renderOrders()"><select id="statusFilter" onchange="renderOrders()"><option value="">Tất cả trạng thái</option><option>REQUESTED</option><option>CONFIRMED</option><option>PAYMENT_PENDING</option><option>PAYMENT_REVIEW</option><option>PAID_VERIFIED</option><option>FULFILLED</option><option>CANCELLED</option><option>REFUNDED</option></select></div>
+    <div class="tablewrap"><table><thead><tr><th>Mã đơn / ngày</th><th>Khách hàng</th><th>Sản phẩm</th><th>Số tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="orders"><tr><td colspan="6">Đang tải…</td></tr></tbody></table></div>
+  </section>
+  <section><h2>Ghi nhận chi phí</h2><form id="expenseForm" onsubmit="saveExpense(event)"><div class="rowform">
+    <label>Ngày<input type="date" id="expenseDate" required></label>
+    <label>Danh mục<input id="expenseCategory" placeholder="Hosting, phần mềm..." required></label>
+    <label>Số tiền (VND)<input type="number" id="expenseAmount" min="1" step="1" required></label>
+    <label>Nhà cung cấp<input id="expenseVendor"></label>
+    <label>Mô tả<input id="expenseDescription"></label>
+    <label>Mã hóa đơn/chứng từ<input id="expenseReference"></label>
+  </div><p><button class="primary" type="submit">Lưu chi phí</button></p></form></section>
+  <section><h2>Sản phẩm & giao học liệu</h2><p>Danh sách sản phẩm, giá thương mại và link giao riêng tư được quản lý trong tab <b>Products</b> của Google Sheet. Điền <code>deliveryLink</code> và kiểm tra link trước khi xác nhận đơn thật. Không đặt link tài liệu trả phí vào website công khai.</p></section>
+</main>
+<script>
+let data={orders:[],summary:{},products:[]};
+const money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function showNotice(msg,kind){const el=document.getElementById('notice');el.textContent=msg;el.className='notice '+(kind||'');}
+function loadData(){showNotice('Đang tải dữ liệu…');google.script.run.withSuccessHandler(d=>{data=d;renderMetrics();renderOrders();showNotice('Đã tải dữ liệu dashboard.','ok');}).withFailureHandler(e=>showNotice(e.message||String(e),'error')).getDashboardData();}
+function renderMetrics(){const s=data.summary||{};const cards=[['Tổng đơn',s.orders],['Chờ xử lý',s.pending],['Đã xác nhận tiền',s.paid],['Đã giao',s.fulfilled],['Tiền thực nhận',money(s.verifiedReceiptsVnd)],['Chi phí',money(s.expensesVnd)],['Dòng tiền ròng',money(s.netCashFlowVnd)]];document.getElementById('metrics').innerHTML=cards.map(c=>'<div class="card"><div class="muted">'+esc(c[0])+'</div><div class="metric">'+esc(c[1]??0)+'</div></div>').join('');}
+function renderOrders(){const q=document.getElementById('search').value.toLowerCase(),st=document.getElementById('statusFilter').value;const rows=(data.orders||[]).filter(o=>(!st||o.status===st)&&[o.orderId,o.customerName,o.productName,o.productId,o.contact].join(' ').toLowerCase().includes(q));const body=document.getElementById('orders');if(!rows.length){body.innerHTML='<tr><td colspan="6">Không có đơn phù hợp.</td></tr>';return;}body.innerHTML=rows.map(o=>{const eligible=['REQUESTED','CONFIRMED','PAYMENT_PENDING','PAYMENT_REVIEW','PAID_VERIFIED'].includes(o.status);return '<tr><td><b>'+esc(o.orderId)+'</b><small>'+esc(o.createdAt)+'</small></td><td>'+esc(o.customerName)+'<small>'+esc(o.contact)+'</small></td><td>'+esc(o.productName||o.productId)+'</td><td>'+money(o.amountVnd)+'</td><td><span class="pill">'+esc(o.status)+'</span><small>Giao: '+esc(o.deliveryStatus||'—')+'</small></td><td>'+(eligible&&o.status!=='FULFILLED'?'<input id="tx-'+esc(o.orderId)+'" placeholder="Mã giao dịch ngân hàng" aria-label="Mã giao dịch" style="width:190px;margin-bottom:6px"><button class="primary" onclick="confirmAndSend(\''+esc(o.orderId)+'\')">Xác nhận tiền & gửi học liệu</button><div class="toolbar"><button onclick="setStatus(\''+esc(o.orderId)+'\',\'PAYMENT_REVIEW\')">Cần kiểm tra</button><button onclick="setStatus(\''+esc(o.orderId)+'\',\'CANCELLED\')">Hủy đơn</button></div>':'—')+'</td></tr>';}).join('');}
+function confirmAndSend(id){const tx=document.getElementById('tx-'+id).value.trim();if(!tx){showNotice('Hãy nhập mã tham chiếu giao dịch ngân hàng.','error');return;}if(!confirm('Bạn đã kiểm tra tài khoản ngân hàng và xác nhận số tiền thực nhận cho đơn '+id+'? Hệ thống sẽ gửi email học liệu ngay.'))return;showNotice('Đang xác nhận và gửi học liệu…');google.script.run.withSuccessHandler(r=>{showNotice(r.message,'ok');loadData();}).withFailureHandler(e=>showNotice(e.message||String(e),'error')).verifyPaymentAndDeliver(id,tx);}
+function setStatus(id,status){if(!confirm('Chuyển đơn '+id+' sang '+status+'?'))return;google.script.run.withSuccessHandler(()=>{showNotice('Đã cập nhật trạng thái.','ok');loadData();}).withFailureHandler(e=>showNotice(e.message||String(e),'error')).updateOrderStatus(id,status,'Cập nhật từ dashboard');}
+function saveExpense(e){e.preventDefault();const entry={date:document.getElementById('expenseDate').value,category:document.getElementById('expenseCategory').value,amountVnd:document.getElementById('expenseAmount').value,vendor:document.getElementById('expenseVendor').value,description:document.getElementById('expenseDescription').value,reference:document.getElementById('expenseReference').value};google.script.run.withSuccessHandler(()=>{showNotice('Đã lưu khoản chi.','ok');document.getElementById('expenseForm').reset();loadData();}).withFailureHandler(err=>showNotice(err.message||String(err),'error')).addExpense(entry);}
+document.getElementById('expenseDate').value=new Date().toISOString().slice(0,10);loadData();
+</script>
+</body></html>
