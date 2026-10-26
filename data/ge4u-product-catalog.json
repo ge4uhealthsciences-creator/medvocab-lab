@@ -1,0 +1,188 @@
+{
+  "title": "GE4u Health Sciences Product Catalogue",
+  "currency": "VND",
+  "pilot_price": 99000,
+  "price_status": "pilot",
+  "products": [
+    {
+      "id": "dentistry",
+      "vi": "Răng Hàm Mặt",
+      "name": "Dental English Learning Pack",
+      "subtitle": "Core dental terminology, clinical communication and interactive practice.",
+      "formats": [
+        "Vocabulary with IPA and Vietnamese meaning",
+        "Interactive quizzes with explanations",
+        "Case-based communication practice",
+        "Printable review sheets"
+      ],
+      "source": "data/dental-english-pack.json",
+      "sample_url": "ge4u-dental-english.html",
+      "practice_url": "dental-english-practice.html"
+    },
+    {
+      "id": "medical",
+      "vi": "Y khoa",
+      "name": "Medical English Learning Pack",
+      "subtitle": "Symptoms, anatomy, clinical history and patient communication.",
+      "formats": [
+        "Core medical vocabulary",
+        "Interactive knowledge checks",
+        "Case-based communication practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=medical",
+      "practice_url": "ge4u-case-deep-practice.html?channel=medical"
+    },
+    {
+      "id": "pharmacy",
+      "vi": "Dược học",
+      "name": "Pharmacy English Learning Pack",
+      "subtitle": "Pharmacology, indications, adverse effects and medication counselling.",
+      "formats": [
+        "Pharmacy terminology with IPA",
+        "Interactive quizzes with explanations",
+        "Medication-counselling language practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=pharmacy",
+      "practice_url": "ge4u-case-deep-practice.html?channel=pharmacy"
+    },
+    {
+      "id": "nursing",
+      "vi": "Điều dưỡng",
+      "name": "Nursing English Learning Pack",
+      "subtitle": "Vital signs, nursing assessment, handover and patient safety.",
+      "formats": [
+        "Nursing terminology with IPA",
+        "Interactive quizzes with explanations",
+        "Handover and patient communication practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=nursing",
+      "practice_url": "ge4u-case-deep-practice.html?channel=nursing"
+    },
+    {
+      "id": "midwifery",
+      "vi": "Hộ sinh",
+      "name": "Midwifery English Learning Pack",
+      "subtitle": "Antenatal care, labour, postpartum care and newborn assessment.",
+      "formats": [
+        "Midwifery terminology with IPA",
+        "Interactive quizzes with explanations",
+        "Maternal-care communication practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=midwifery",
+      "practice_url": "ge4u-case-deep-practice.html?channel=midwifery"
+    },
+    {
+      "id": "social-work",
+      "vi": "Công tác xã hội",
+      "name": "Healthcare Social Work English Learning Pack",
+      "subtitle": "Client-centred communication, needs assessment and service coordination.",
+      "formats": [
+        "Social-work terminology with IPA",
+        "Interactive quizzes with explanations",
+        "Client-centred communication practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=social-work",
+      "practice_url": "ge4u-case-deep-practice.html?channel=social-work"
+    },
+    {
+      "id": "pharmaceutical-chemistry",
+      "vi": "Hóa dược",
+      "name": "Pharmaceutical Chemistry English Learning Pack",
+      "subtitle": "Chemical structure, synthesis, analysis and structure–activity relationships.",
+      "formats": [
+        "Pharmaceutical chemistry terminology",
+        "Interactive quizzes with explanations",
+        "Scientific description and reading practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=pharmaceutical-chemistry",
+      "practice_url": "ge4u-case-deep-practice.html?channel=pharmaceutical-chemistry"
+    },
+    {
+      "id": "pharmaceutical-technology",
+      "vi": "Công nghệ dược phẩm",
+      "name": "Pharmaceutical Technology English Learning Pack",
+      "subtitle": "Dosage forms, excipients, manufacturing and quality control.",
+      "formats": [
+        "Pharmaceutical technology terminology",
+        "Interactive quizzes with explanations",
+        "Manufacturing and quality-control language practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=pharmaceutical-technology",
+      "practice_url": "ge4u-case-deep-practice.html?channel=pharmaceutical-technology"
+    },
+    {
+      "id": "traditional-medicine",
+      "vi": "Y học cổ truyền",
+      "name": "Traditional Medicine English Learning Pack",
+      "subtitle": "Traditional medicine terminology, medicinal materials and academic description.",
+      "formats": [
+        "Traditional medicine terminology",
+        "Interactive quizzes with explanations",
+        "Academic description and comparison practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=traditional-medicine",
+      "practice_url": "ge4u-case-deep-practice.html?channel=traditional-medicine"
+    },
+    {
+      "id": "public-health",
+      "vi": "Y tế công cộng",
+      "name": "Public Health English Learning Pack",
+      "subtitle": "Epidemiology, prevention, health promotion and population-level data.",
+      "formats": [
+        "Public health terminology",
+        "Interactive quizzes with explanations",
+        "Epidemiology and health-promotion language practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=public-health",
+      "practice_url": "ge4u-case-deep-practice.html?channel=public-health"
+    },
+    {
+      "id": "psychology",
+      "vi": "Tâm lý học",
+      "name": "Psychology English Learning Pack",
+      "subtitle": "Cognition, behaviour, emotion, assessment and mental well-being.",
+      "formats": [
+        "Psychology terminology",
+        "Interactive quizzes with explanations",
+        "Interview and communication language practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=psychology",
+      "practice_url": "ge4u-case-deep-practice.html?channel=psychology"
+    },
+    {
+      "id": "nutrition",
+      "vi": "Dinh dưỡng",
+      "name": "Nutrition English Learning Pack",
+      "subtitle": "Nutritional assessment, deficiencies, clinical nutrition and diet therapy.",
+      "formats": [
+        "Nutrition terminology",
+        "Interactive quizzes with explanations",
+        "Nutrition-assessment language practice",
+        "Printable review sheets"
+      ],
+      "source": "data/ge4u-channel-samples.json",
+      "sample_url": "ge4u-channel.html?channel=nutrition",
+      "practice_url": "ge4u-case-deep-practice.html?channel=nutrition"
+    }
+  ]
+}
