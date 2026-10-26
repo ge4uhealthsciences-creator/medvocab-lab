@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GE4u: bộ học liệu tiếng Anh chuyên ngành và bài tập tương tác cho 12 ngành khoa học sức khỏe.">
+<title>GE4u · Bộ học liệu 12 ngành</title>
+<style>
+:root{--ink:#173047;--muted:#5f7385;--teal:#087e83;--paper:#f4f8fa;--line:#dce6ec;--soft:#e0f5f3}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+header{background:linear-gradient(135deg,#15334b,#087e83);color:white;padding:40px 20px}main,.wrap{max-width:1100px;margin:auto}main{padding:24px 20px 55px}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.4rem 0}header p{max-width:760px;color:#e4f6f5}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:9px}.card h2{font-size:1.12rem;line-height:1.3;margin:0}.card p{margin:0}.tag{align-self:flex-start;background:var(--soft);color:#075e62;border-radius:99px;padding:3px 9px;font-size:.78rem;font-weight:700}.btn,button{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:white;color:var(--ink);font:inherit;font-weight:650;text-decoration:none;cursor:pointer}.btn.primary,button.primary{background:var(--teal);color:white;border-color:var(--teal)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.notice{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0}.price{font-weight:800;font-size:1.2rem}label{display:block;font-weight:600;margin:10px 0 4px}input,select{width:100%;font:inherit;padding:10px;border:1px solid #bdccd5;border-radius:9px;background:white}form{max-width:650px}footer{text-align:center;padding:24px;color:var(--muted)}
+</style></head>
+<body>
+<header><div class="wrap"><div>GE4u · English for Health Sciences</div><h1>Learn by discipline.<br>Practise interactively.</h1><p>Chọn ngành để xem mẫu học thử, luyện bài tập tương tác và gửi yêu cầu mua bộ học liệu phù hợp.</p><div class="actions"><a class="btn primary" href="ge4u-health-sciences.html">Khám phá tất cả kênh</a><a class="btn" href="./">MedVocab Lab</a></div></div></header>
+<main>
+<section class="notice"><strong>Mỗi bộ học liệu được tổ chức theo ngành.</strong><p class="muted">Trang mẫu hiện có từ vựng, IPA, nghĩa tiếng Việt, ví dụ và bài kiểm tra nhanh. Bài luyện tình huống và tài liệu có thể in được cung cấp tùy theo từng kênh. Giá hiển thị là mức thử nghiệm; việc gửi yêu cầu chưa xác nhận thanh toán hoặc giao tài liệu tự động.</p></section>
+<section id="products" class="grid"><p>Đang tải danh mục…</p></section>
+<section class="notice" id="order">
+<h2>Gửi yêu cầu mua học liệu</h2><p class="muted">Chọn bộ học liệu. Người bán sẽ nhận yêu cầu qua email và liên hệ để xác nhận giá, phương thức thanh toán và cách nhận tài liệu.</p>
+<form id="orderForm" action="https://script.google.com/macros/s/AKfycbzgnwBJ6Joq_uzDlK8DdJfbkuzwPko8zRgaeZAn3CAUhVdsOge3dNQ3PIkgn64Rto7-ig/exec" method="POST" target="_blank">
+<label for="product">Bộ học liệu</label><select id="product" name="product" required></select>
+<label for="name">Tên của bạn</label><input id="name" name="name" required maxlength="100" autocomplete="name">
+<label for="contact">Email hoặc số điện thoại</label><input id="contact" name="contact" required maxlength="200" autocomplete="email">
+<div style="position:absolute;left:-10000px" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label style="display:flex;gap:8px;align-items:flex-start;font-weight:400"><input type="checkbox" name="consent" value="yes" required style="width:auto;margin-top:6px"><span>Tôi đồng ý cung cấp thông tin trên để GE4u xử lý yêu cầu mua và liên hệ về đơn hàng.</span></label>
+<p><button class="primary" type="submit">Gửi yêu cầu mua</button></p>
+<p class="muted" id="orderStatus" aria-live="polite">Không gửi mật khẩu, mã OTP hoặc thông tin đăng nhập ngân hàng.</p>
+</form>
+</section>
+</main>
+<footer>GE4u · English for Health Sciences · Practical language learning for future healthcare professionals.</footer>
+<script>
+const catalogueUrl='data/ge4u-product-catalog.json';
+const cards=document.getElementById('products');
+const select=document.getElementById('product');
+function link(path,label,primary){const a=document.createElement('a');a.className='btn'+(primary?' primary':'');a.href=path;a.textContent=label;return a}
+fetch(catalogueUrl).then(r=>{if(!r.ok)throw Error('catalogue');return r.json()}).then(data=>{
+ cards.innerHTML='';
+ data.products.forEach(p=>{
+   const article=document.createElement('article');article.className='card';
+   const tag=document.createElement('span');tag.className='tag';tag.textContent=p.vi;article.append(tag);
+   const h=document.createElement('h2');h.textContent=p.name;article.append(h);
+   const desc=document.createElement('p');desc.className='muted';desc.textContent=p.subtitle;article.append(desc);
+   const ul=document.createElement('ul');p.formats.forEach(f=>{const li=document.createElement('li');li.textContent=f;ul.append(li)});article.append(ul);
+   const actions=document.createElement('div');actions.className='actions';actions.append(link(p.sample_url,'Học thử',true),link(p.practice_url,'Luyện tập',false));article.append(actions);
+   const choose=link('#order','Chọn bộ này',false);choose.addEventListener('click',()=>{select.value=p.id});actions.append(choose);
+   cards.append(article);
+   const option=document.createElement('option');option.value=p.id;option.textContent=p.vi+' — '+p.name;select.append(option);
+ });
+}).catch(()=>{cards.textContent='Danh mục hiện không tải được. Vui lòng tải lại trang.'});
+document.getElementById('orderForm').addEventListener('submit',()=>{document.getElementById('orderStatus').textContent='Đang gửi yêu cầu trong tab mới. Chờ thông báo xác nhận từ hệ thống trước khi đóng tab.'});
+</script>
+</body></html>
