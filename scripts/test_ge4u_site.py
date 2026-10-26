@@ -13,6 +13,8 @@ required = [
     "ge4u-case-deep-practice.html",
     "ge4u-channel.html",
     "ge4u-dental-english.html",
+    "ge4u-products.html",
+    "data/ge4u-product-catalog.json",
     "data/ge4u-channel-samples.json",
 ]
 missing = [p for p in required if not (ROOT / p).is_file()]
@@ -108,4 +110,26 @@ print("PASS: 12 case scenarios each contain 3 turns")
 print("PASS: deep-practice JavaScript syntax and core interactions")
 print("PASS: hub links to deep practice and print/PDF action exists")
 print("PASS: 11 channel sample datasets and quizzes are valid")
+catalog_path = ROOT / "data/ge4u-product-catalog.json"
+with catalog_path.open(encoding="utf-8") as f:
+    catalog = json.load(f)
+products = catalog.get("products", [])
+if len(products) != 12:
+    raise SystemExit(f"FAIL: expected 12 products, found {len(products)}")
+if {p.get("id") for p in products} != (expected_sample_ids | {"dentistry"}):
+    raise SystemExit("FAIL: product catalogue IDs do not cover exactly all 12 disciplines")
+for product in products:
+    for key in ("name", "vi", "subtitle", "sample_url", "practice_url"):
+        if not product.get(key):
+            raise SystemExit(f"FAIL: product {product.get('id')} missing {key}")
+
+apps_script_path = ROOT / "google-apps-script/Code.gs"
+apps_script = apps_script_path.read_text(encoding="utf-8")
+for product_id in expected_sample_ids | {"dentistry"}:
+    if product_id not in apps_script:
+        raise SystemExit(f"FAIL: order endpoint does not recognize product {product_id}")
+if 'p.product' not in apps_script or 'PRODUCTS[productId]' not in apps_script:
+    raise SystemExit("FAIL: order endpoint does not validate the selected product")
+
 print("PASS: daily lesson is generated from one of all 12 disciplines")
+print("PASS: 12-product catalogue and order endpoint product mapping")
