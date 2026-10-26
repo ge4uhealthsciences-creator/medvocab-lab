@@ -44,8 +44,8 @@ The pilot contains 30 dental English terms across five topic areas and 10 multip
 
 The live GE4u website submits order requests to the Order Intake Apps Script web app. Deployment URLs are managed in Google Apps Script and must match the URLs configured in the website source.
 
-- Order Intake endpoint: https://script.google.com/macros/s/AKfycbzoqYYzk1sC7uMfclqphxirXOApDTfCsXrCUhMz2IS-mOzjBVMGxdGrT50umpM-w7abxw/exec
-- Private Admin Dashboard endpoint: https://script.google.com/macros/s/AKfycbzCxBMVGMm_Iwhy2DBpctXuRenCJBuVnQiuS-9f3E-4OFGPisaQA1e4Cmp1739cmjmh/exec
+- Order Intake endpoint: https://script.google.com/macros/s/AKfycbwUfx0ac8xLA-C0B8OyTanGwNlM3Cp_LCr4Trsj-QmSBkK93Nh72Qeb98J3s2IH7OB0sQ/exec
+- Private Admin Dashboard endpoint: https://script.google.com/macros/s/AKfycbxV51p_aGq-oD9gbBQvMK91P0ZJuYmBl8StH15s0N6rX0pIKRMLqYMJ0d3fHbMgTWBz/exec
 - Order notification recipient configured in `google-apps-script/Code.gs`: `ge4u.health.sciences@gmail.com`
 
 ### Required Google Apps Script configuration
