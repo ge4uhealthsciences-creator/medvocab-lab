@@ -8,7 +8,7 @@
  * Sends an order notification and, when GE4U_ORDERS_SHEET_ID is configured in Script Properties,
  * appends the order to the private Orders tab. It never verifies bank transfers or confirms payment.
  */
-const NOTIFICATION_EMAIL = "mtleduvn.edu.vn@gmail.com";
+const NOTIFICATION_EMAIL = "ge4u.health.sciences@gmail.com";
 const PRODUCT_PRICE_VND = 99000;
 const PRODUCTS = {
   dentistry: {name: "Dental English Learning Pack", vi: "Răng Hàm Mặt"},
