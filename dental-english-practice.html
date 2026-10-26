@@ -9,7 +9,7 @@
 <section class="card"><h2>Vocabulary bank</h2><div id="vocabulary">Loading vocabulary…</div></section>
 <section class="card" id="quiz"><h2>Quick check</h2><p class="muted">Choose one answer for each question. Feedback appears immediately.</p><div id="questions"></div><div class="actions no-print"><button class="btn primary" id="score">Check score</button><button class="btn" id="reset">Reset quiz</button></div><p id="scoreResult" aria-live="polite"></p></section>
 <section class="card"><h2>Study reflection</h2><p>Three terms I need to review:</p><p>1. __________________________________________</p><p>2. __________________________________________</p><p>3. __________________________________________</p><p>One phrase I can use with a patient:</p><p>____________________________________________________________</p></section>
-<footer class="muted small">GE4u · Dental English practice for language learning and classroom use.</footer></main>
+<footer class="muted small">GE4u · Dental English practice for students and educators. Follow your course materials and faculty guidance for clinical decisions.</footer></main>
 <script>
 let pack=null;
 async function init(){try{const r=await fetch('data/dental-english-pack.json');if(!r.ok)throw Error('Unable to load pack');pack=await r.json();document.getElementById('meta').textContent=pack.version+' · '+pack.level+' · '+pack.disclaimer;
