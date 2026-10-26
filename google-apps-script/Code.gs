@@ -8,7 +8,7 @@
  * This sends an email when a customer submits an order request.
  * It does NOT verify bank transfers or confirm payment.
  */
-const NOTIFICATION_EMAIL = "trungminhle.lmt@gmail.com";
+const NOTIFICATION_EMAIL = "mtleduvn.edu.vn@gmail.com";
 const PRODUCT_PRICE_VND = 99000;
 const PRODUCTS = {
   dentistry: {name: "Dental English Learning Pack", vi: "Răng Hàm Mặt"},
