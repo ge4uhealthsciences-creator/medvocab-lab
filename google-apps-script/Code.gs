@@ -105,7 +105,7 @@ function doGet() {
   return ContentService.createTextOutput(
     "GE4u Order Intake diagnostic\n" +
     "Notification recipient configured in this deployed code: " + NOTIFICATION_EMAIL + "\n" +
-    "GE4U_ORDERS_SHEET_ID configured: " + (sheetConfigured ? "YES" : "NO") + "\\n" +
+    "GE4U_ORDERS_SHEET_ID configured: " + (sheetConfigured ? "YES" : "NO") + "\n" +
     "This diagnostic does not create an order. Submit the website form to test POST."
   ).setMimeType(ContentService.MimeType.TEXT);
 }
