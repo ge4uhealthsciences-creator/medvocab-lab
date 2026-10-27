@@ -7,7 +7,7 @@
 <style>
 :root{--ink:#173047;--muted:#5f7385;--teal:#087e83;--paper:#f4f8fa;--line:#dce6ec;--soft:#e0f5f3}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
-header{background:linear-gradient(135deg,#15334b,#087e83);color:white;padding:40px 20px}main,.wrap{max-width:1100px;margin:auto}main{padding:24px 20px 55px}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.4rem 0}header p{max-width:760px;color:#e4f6f5}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:9px}.card h2{font-size:1.12rem;line-height:1.3;margin:0}.card p{margin:0}.tag{align-self:flex-start;background:var(--soft);color:#075e62;border-radius:99px;padding:3px 9px;font-size:.78rem;font-weight:700}.btn,button{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:white;color:var(--ink);font:inherit;font-weight:650;text-decoration:none;cursor:pointer}.btn.primary,button.primary{background:var(--teal);color:white;border-color:var(--teal)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.notice{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0}.price{font-weight:800;font-size:1.2rem}label{display:block;font-weight:600;margin:10px 0 4px}input,select{width:100%;font:inherit;padding:10px;border:1px solid #bdccd5;border-radius:9px;background:white}form{max-width:650px}footer{text-align:center;padding:24px;color:var(--muted)}
+header{background:linear-gradient(135deg,#15334b,#087e83);color:white;padding:40px 20px}main,.wrap{max-width:1100px;margin:auto}main{padding:24px 20px 55px}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.4rem 0}header p{max-width:760px;color:#e4f6f5}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:9px}.card h2{font-size:1.12rem;line-height:1.3;margin:0}.card p{margin:0}.tag{align-self:flex-start;background:var(--soft);color:#075e62;border-radius:99px;padding:3px 9px;font-size:.78rem;font-weight:700}.btn,button{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:white;color:var(--ink);font:inherit;font-weight:650;text-decoration:none;cursor:pointer}.btn.primary,button.primary{background:var(--teal);color:white;border-color:var(--teal)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.notice{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0}.price{font-weight:800;font-size:1.2rem}.price-note{font-size:.82rem;color:var(--muted)}label{display:block;font-weight:600;margin:10px 0 4px}input,select{width:100%;font:inherit;padding:10px;border:1px solid #bdccd5;border-radius:9px;background:white}form{max-width:650px}.buy-now{width:100%;text-align:center}.selected-product{border-color:var(--teal);box-shadow:0 0 0 2px #087e8320}.status{padding:10px;border-radius:8px;background:#f4f8fa}footer{text-align:center;padding:24px;color:var(--muted)}
 </style></head>
 <body>
 <header><div class="wrap"><div>GE4u · English for Health Sciences</div><h1>Learn by discipline.<br>Practise interactively.</h1><p>Chọn ngành để xem mẫu học thử, luyện bài tập tương tác và gửi yêu cầu mua bộ học liệu phù hợp.</p><div class="actions"><a class="btn primary" href="ge4u-health-sciences.html">Khám phá tất cả kênh</a><a class="btn" href="./">MedVocab Lab</a></div></div></header>
@@ -32,21 +32,41 @@ header{background:linear-gradient(135deg,#15334b,#087e83);color:white;padding:40
 const catalogueUrl='data/ge4u-product-catalog.json';
 const cards=document.getElementById('products');
 const select=document.getElementById('product');
+const form=document.getElementById('orderForm');
+const status=document.getElementById('orderStatus');
 function link(path,label,primary){const a=document.createElement('a');a.className='btn'+(primary?' primary':'');a.href=path;a.textContent=label;return a}
+function chooseProduct(id,card){
+  select.value=id;
+  document.querySelectorAll('.product-card').forEach(el=>el.classList.remove('selected-product'));
+  if(card)card.classList.add('selected-product');
+  const product=window.ge4uProducts?.find(p=>p.id===id);
+  status.textContent=product?'Đã chọn: '+product.vi+' — '+product.name+'. Điền thông tin bên dưới để gửi yêu cầu; chưa cần thanh toán.':'Đã chọn bộ học liệu. Điền thông tin bên dưới để gửi yêu cầu.';
+  history.replaceState(null,'','#order?product='+encodeURIComponent(id));
+  document.getElementById('order').scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('name').focus({preventScroll:true});
+}
 fetch(catalogueUrl).then(r=>{if(!r.ok)throw Error('catalogue');return r.json()}).then(data=>{
- cards.innerHTML='';
- data.products.forEach(p=>{
-   const article=document.createElement('article');article.className='card';
-   const tag=document.createElement('span');tag.className='tag';tag.textContent=p.vi;article.append(tag);
-   const h=document.createElement('h2');h.textContent=p.name;article.append(h);
-   const desc=document.createElement('p');desc.className='muted';desc.textContent=p.subtitle;article.append(desc);
-   const ul=document.createElement('ul');p.formats.forEach(f=>{const li=document.createElement('li');li.textContent=f;ul.append(li)});article.append(ul);
-   const actions=document.createElement('div');actions.className='actions';actions.append(link(p.sample_url,'Học thử',true),link(p.practice_url,'Luyện tập',false));article.append(actions);
-   const choose=link('#order','Chọn bộ này',false);choose.addEventListener('click',()=>{select.value=p.id});actions.append(choose);
-   cards.append(article);
-   const option=document.createElement('option');option.value=p.id;option.textContent=p.vi+' — '+p.name;select.append(option);
- });
+  window.ge4uProducts=data.products;
+  cards.innerHTML='';
+  data.products.forEach(p=>{
+    const article=document.createElement('article');article.className='card product-card';article.dataset.product=p.id;
+    const tag=document.createElement('span');tag.className='tag';tag.textContent=p.vi;article.append(tag);
+    const h=document.createElement('h2');h.textContent=p.name;article.append(h);
+    const desc=document.createElement('p');desc.className='muted';desc.textContent=p.subtitle;article.append(desc);
+    const price=document.createElement('p');price.className='price';price.textContent=Number(data.pilot_price).toLocaleString('vi-VN')+'đ';article.append(price);
+    const priceNote=document.createElement('p');priceNote.className='price-note';priceNote.textContent='Giá thử nghiệm, chưa phải giá bán được xác nhận';article.append(priceNote);
+    const ul=document.createElement('ul');p.formats.forEach(f=>{const li=document.createElement('li');li.textContent=f;ul.append(li)});article.append(ul);
+    const actions=document.createElement('div');actions.className='actions';
+    actions.append(link(p.sample_url,'Học thử',true),link(p.practice_url,'Luyện tập',false));
+    const buy=document.createElement('button');buy.type='button';buy.className='primary buy-now';buy.textContent='Chọn mua bộ này';buy.addEventListener('click',()=>chooseProduct(p.id,article));actions.append(buy);
+    article.append(actions);cards.append(article);
+    const option=document.createElement('option');option.value=p.id;option.textContent=p.vi+' — '+p.name;select.append(option);
+  });
+  const params=new URLSearchParams(location.search);
+  const requested=params.get('product')||new URLSearchParams(location.hash.split('?')[1]||'').get('product');
+  if(requested&&data.products.some(p=>p.id===requested)){select.value=requested;const card=document.querySelector('[data-product="'+CSS.escape(requested)+'"]');if(card)card.classList.add('selected-product')}
 }).catch(()=>{cards.textContent='Danh mục hiện không tải được. Vui lòng tải lại trang.'});
-document.getElementById('orderForm').addEventListener('submit',()=>{document.getElementById('orderStatus').textContent='Đang mở trang xử lý yêu cầu trong tab mới. Chỉ coi là đã gửi khi trang đó hiển thị mã yêu cầu; nếu có lỗi, vui lòng chưa thanh toán.'});
+select.addEventListener('change',()=>{document.querySelectorAll('.product-card').forEach(el=>el.classList.toggle('selected-product',el.dataset.product===select.value));const p=window.ge4uProducts?.find(item=>item.id===select.value);if(p)status.textContent='Đã chọn: '+p.vi+' — '+p.name+'. Điền thông tin để gửi yêu cầu; chưa cần thanh toán.'});
+form.addEventListener('submit',()=>{status.textContent='Đang mở trang xử lý yêu cầu trong tab mới. Chỉ coi là đã gửi khi trang đó hiển thị mã yêu cầu; nếu có lỗi, vui lòng chưa thanh toán.'});
 </script>
 </body></html>
