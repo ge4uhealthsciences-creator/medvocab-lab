@@ -1,0 +1,230 @@
+{
+  "title": "GE4u Pharmacy English — Clinical Pharmacokinetics Module 01",
+  "version": "1.0-draft",
+  "discipline": "pharmacy",
+  "language_variant": "British English IPA",
+  "disclaimer": "For English-learning purposes only. Clinical examples require qualified pharmacist/physician review and current local product-information verification. Not a treatment or dosing protocol.",
+  "learning_outcomes": [
+    "Distinguish Cmax, Tmax, AUC, Ctrough, clearance and half-life.",
+    "Explain enzyme inhibition versus induction using cautious scientific language.",
+    "Use specialist collocations in a clinical-pharmacy case discussion.",
+    "Identify when to escalate a suspected interaction rather than recommend an independent dose change."
+  ],
+  "terms": [
+    {
+      "term": "pharmacokinetics",
+      "ipa": "/ˌfɑːməkəʊkɪˈnetɪks/",
+      "vi": "dược động học",
+      "word_parts": "pharmaco- (drug) + kinetics (movement/change)",
+      "definition": "Study of the time course of drug absorption, distribution, metabolism and excretion.",
+      "collocations": [
+        "pharmacokinetic profile",
+        "pharmacokinetic interaction"
+      ],
+      "example": "The review compared the pharmacokinetic profiles of the two formulations.",
+      "confusion": "Do not confuse pharmacokinetics (what the body does to a drug) with pharmacodynamics (what the drug does to the body)."
+    },
+    {
+      "term": "Cmax",
+      "ipa": "/ˌsiː ˈmæks/",
+      "vi": "nồng độ đỉnh quan sát được",
+      "word_parts": "C (concentration) + max (maximum)",
+      "definition": "The maximum observed concentration in a specified sampling interval.",
+      "collocations": [
+        "measure Cmax",
+        "peak plasma concentration"
+      ],
+      "example": "The study reported a higher Cmax but did not establish a proportional increase in total exposure.",
+      "confusion": "Cmax is a concentration, not a time."
+    },
+    {
+      "term": "Tmax",
+      "ipa": "/ˈtiː mæks/",
+      "vi": "thời gian đạt nồng độ đỉnh",
+      "word_parts": "T (time) + max (maximum)",
+      "definition": "The time at which the observed maximum concentration occurs.",
+      "collocations": [
+        "time to peak concentration",
+        "shorter Tmax"
+      ],
+      "example": "A shorter Tmax may indicate more rapid absorption under the study conditions.",
+      "confusion": "Tmax describes timing; Cmax describes peak magnitude."
+    },
+    {
+      "term": "AUC (area under the concentration–time curve)",
+      "ipa": "/ˌeɪ juː ˈsiː/",
+      "vi": "diện tích dưới đường cong nồng độ–thời gian",
+      "word_parts": "area + under + curve",
+      "definition": "An integrated measure of drug exposure over a defined interval.",
+      "collocations": [
+        "AUC over 24 hours",
+        "systemic exposure",
+        "compare AUC values"
+      ],
+      "example": "AUC was used to compare systemic exposure over the prespecified interval.",
+      "confusion": "AUC and Cmax describe different aspects of exposure and are not interchangeable."
+    },
+    {
+      "term": "Ctrough",
+      "ipa": "/ˌsiː trɒf/",
+      "vi": "nồng độ đáy",
+      "word_parts": "C (concentration) + trough (lowest point)",
+      "definition": "A concentration sampled near the end of a dosing interval, commonly immediately before the next dose when specified by the protocol.",
+      "collocations": [
+        "trough concentration",
+        "whole-blood trough monitoring"
+      ],
+      "example": "The clinical team interpreted the trough concentration alongside timing, adherence and the patient's clinical context.",
+      "confusion": "Sampling time matters; a level taken at the wrong time may be difficult to interpret."
+    },
+    {
+      "term": "clearance",
+      "ipa": "/ˈklɪərəns/",
+      "vi": "độ thanh thải",
+      "word_parts": "clear + -ance (state/process)",
+      "definition": "The apparent volume of plasma cleared of drug per unit time.",
+      "collocations": [
+        "renal clearance",
+        "reduced clearance",
+        "drug clearance"
+      ],
+      "example": "Reduced clearance can contribute to increased exposure, depending on the drug and circumstances.",
+      "confusion": "Clearance is a volume-per-time measure, not simply the amount of drug excreted."
+    },
+    {
+      "term": "elimination half-life",
+      "ipa": "/ɪˌlɪmɪˈneɪʃən ˈhɑːf laɪf/",
+      "vi": "thời gian bán thải",
+      "word_parts": "eliminate + half + life",
+      "definition": "The time required for the amount or concentration to decrease by half under the applicable kinetic conditions.",
+      "collocations": [
+        "prolonged half-life",
+        "terminal elimination half-life"
+      ],
+      "example": "A prolonged half-life may delay the time required to approach steady state.",
+      "confusion": "Half-life does not alone determine a safe dose or dosing interval."
+    },
+    {
+      "term": "steady state",
+      "ipa": "/ˌstedi ˈsteɪt/",
+      "vi": "trạng thái ổn định",
+      "word_parts": "steady + state",
+      "definition": "A dynamic condition in which the average rate of drug input equals the average rate of drug elimination over a dosing interval.",
+      "collocations": [
+        "reach steady state",
+        "steady-state concentration"
+      ],
+      "example": "The sampling schedule was designed to assess concentrations at steady state.",
+      "confusion": "Steady state does not mean the concentration is constant at every moment."
+    },
+    {
+      "term": "enzyme inhibitor",
+      "ipa": "/ˈenzaɪm ɪnˈhɪbɪtə/",
+      "vi": "chất ức chế enzyme",
+      "word_parts": "inhibit + -or (agent)",
+      "definition": "A substance that reduces enzyme activity; for a susceptible substrate, inhibition may reduce metabolism and increase exposure.",
+      "collocations": [
+        "strong CYP3A inhibitor",
+        "inhibit drug metabolism"
+      ],
+      "example": "The team reviewed whether the newly prescribed medicine inhibits a pathway responsible for the substrate's metabolism.",
+      "confusion": "The direction and clinical size of an interaction depend on the specific drug and pathway."
+    },
+    {
+      "term": "enzyme inducer",
+      "ipa": "/ˈenzaɪm ɪnˈdjuːsə/",
+      "vi": "chất cảm ứng enzyme",
+      "word_parts": "induce + -er (agent)",
+      "definition": "A substance that increases enzyme expression or activity over time; a susceptible substrate may be metabolised more rapidly.",
+      "collocations": [
+        "enzyme induction",
+        "induce CYP activity"
+      ],
+      "example": "The pharmacist considered whether induction could reduce exposure to the affected medicine.",
+      "confusion": "Induction may take time to develop and resolve; do not treat it as an immediate mirror image of inhibition."
+    },
+    {
+      "term": "therapeutic drug monitoring (TDM)",
+      "ipa": "/ˌθerəˈpjuːtɪk drʌɡ ˈmɒnɪtərɪŋ/",
+      "vi": "theo dõi nồng độ thuốc trong điều trị",
+      "word_parts": "therapeutic + drug + monitoring",
+      "definition": "Measurement and interpretation of drug concentrations to support therapy where monitoring is appropriate.",
+      "collocations": [
+        "perform TDM",
+        "interpret a trough level",
+        "therapeutic range"
+      ],
+      "example": "TDM results were interpreted with the sample time and clinical context documented.",
+      "confusion": "A measured concentration must be interpreted using drug-specific guidance, not in isolation."
+    }
+  ],
+  "case": {
+    "title": "Potential CYP3A interaction in a transplant recipient",
+    "scenario": "A transplant recipient taking tacrolimus is prescribed clarithromycin. This is a high-risk interaction scenario used for language practice; consult current local product information and the transplant service's protocol.",
+    "model_response": "This combination raises a clinically significant interaction concern because clarithromycin inhibits CYP3A-mediated metabolism and may increase tacrolimus exposure. I would promptly escalate the issue to the transplant team or clinical pharmacist and follow the approved monitoring protocol. I would not make an independent dose change.",
+    "target_collocations": [
+      "raise an interaction concern",
+      "inhibit metabolism",
+      "increase systemic exposure",
+      "monitor whole-blood trough concentrations",
+      "escalate to the treating team",
+      "follow the approved protocol"
+    ],
+    "clinical_review_required": true
+  },
+  "quiz": [
+    {
+      "q": "Which measure integrates concentration over a defined time interval?",
+      "options": [
+        "Tmax",
+        "AUC",
+        "Cmax"
+      ],
+      "answer": "AUC",
+      "explanation": "AUC represents integrated exposure over time. Tmax is a time measure and Cmax is the maximum observed concentration."
+    },
+    {
+      "q": "A strong inhibitor is added to a susceptible enzyme substrate. Which statement is most defensible?",
+      "options": [
+        "Exposure may increase",
+        "Exposure must decrease",
+        "Toxicity is certain"
+      ],
+      "answer": "Exposure may increase",
+      "explanation": "Inhibition may reduce metabolism and increase exposure, but the actual magnitude and clinical outcome depend on the drug and patient."
+    },
+    {
+      "q": "Why is Ctrough not interchangeable with Cmax?",
+      "options": [
+        "They are sampled/defined at different points in the concentration–time profile",
+        "Both always mean average concentration",
+        "Ctrough is a measure of time"
+      ],
+      "answer": "They are sampled/defined at different points in the concentration–time profile",
+      "explanation": "Cmax describes the peak concentration; Ctrough is the concentration near the end of a dosing interval."
+    },
+    {
+      "q": "In the case, what is the appropriate learner response?",
+      "options": [
+        "Independently change the dose",
+        "Ignore the interaction unless symptoms appear",
+        "Escalate promptly and follow approved monitoring guidance"
+      ],
+      "answer": "Escalate promptly and follow approved monitoring guidance",
+      "explanation": "The exercise teaches communication and risk recognition, not independent prescribing."
+    }
+  ],
+  "qa_status": {
+    "content_schema": "structured JSON",
+    "specialist_terms": 10,
+    "quiz_items": 4,
+    "answer_explanations": true,
+    "ipa": true,
+    "vietnamese_definitions": true,
+    "collocations": true,
+    "roots_affixes": true,
+    "clinical_distinctions": true,
+    "case_based_exercise": true,
+    "clinical_review": "REQUIRED before professional deployment"
+  }
+}
