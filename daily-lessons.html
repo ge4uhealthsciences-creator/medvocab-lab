@@ -42,8 +42,11 @@ document.getElementById('question').textContent=d.quiz?.question||'Review the vo
 (d.quiz?.options||[]).forEach(o=>{const b=document.createElement('button');b.textContent=o;b.onclick=()=>{document.getElementById('feedback').textContent=o===d.quiz.answer?'Correct! '+(d.quiz.explanation||''):'Not quite. Review the vocabulary and try again.'};opts.append(b)});
 document.getElementById('sourceStatus').textContent=source;
 }
-const day=Math.floor(Date.now()/86400000);const fallback=lessons[((day%lessons.length)+lessons.length)%lessons.length];
-render({...fallback,date:new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Ho_Chi_Minh'})},'Daily lesson ready · built-in fallback');
+const dateKey=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const [year,month,dayOfMonth]=dateKey.split('-').map(Number);
+const day=Math.floor(Date.UTC(year,month-1,dayOfMonth)/86400000);
+const fallback=lessons[((day%lessons.length)+lessons.length)%lessons.length];
+render({...fallback,date:dateKey},'Daily lesson ready · built-in fallback');
 fetch('./data/daily-lesson.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(d=>{if(d&&Array.isArray(d.vocabulary)&&d.vocabulary.length&&d.quiz&&Array.isArray(d.quiz.options)){render(d,'Daily lesson ready · repository data');}}).catch(()=>{});
 })();
 </script>
