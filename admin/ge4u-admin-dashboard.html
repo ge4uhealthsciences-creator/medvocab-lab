@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>GE4u Admin & Developer Control Center — Local Prototype</title>
+<style>
+:root{color-scheme:light;--navy:#102b40;--navy2:#183e55;--ink:#1b3447;--muted:#637889;--line:#dce5eb;--paper:#f3f7fa;--teal:#087e83;--tealbg:#e3f5f2;--amber:#8a5b08;--amberbg:#fff2d7;--red:#9e3434;--redbg:#ffeded;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}a{color:inherit}.layout{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}aside{background:var(--navy);color:#e9f1f6;padding:22px 14px}.brand{display:flex;gap:11px;align-items:center;padding:3px 8px 22px}.logo{display:grid;place-items:center;background:#2a9b90;color:white;border-radius:12px;width:42px;height:42px;font-weight:850;font-size:20px}.brand strong{display:block;font-size:16px}.brand small{color:#b7cbd8}.navlabel{padding:14px 10px 6px;color:#91acbd;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.nav{display:grid;gap:4px}.nav button{border:0;border-radius:9px;padding:11px 12px;text-align:left;color:#dbe7ee;background:transparent;cursor:pointer}.nav button.active,.nav button:hover{background:#23485f;color:white}.asidefoot{margin-top:24px;border-top:1px solid #315066;padding:16px 10px;color:#b8cbd7;font-size:12px}main{min-width:0;padding:25px clamp(16px,3vw,38px) 48px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800}.topbar h1{font-size:clamp(24px,3vw,32px);margin:3px 0}.sub{color:var(--muted);margin:0}.topactions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:700;cursor:pointer}.btn.primary{background:var(--teal);color:white;border-color:var(--teal)}.notice{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid #efd9a7;background:var(--amberbg);border-radius:12px;margin-bottom:20px;color:#68470d}.notice strong{display:block}.notice p{margin:3px 0 0;font-size:13px}.section{display:none}.section.active{display:block}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:24px 0 13px}.sectionhead h2{margin:0;font-size:20px}.sectionhead p{margin:3px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:17px;min-width:0}.metriclabel{color:var(--muted);font-size:12px;font-weight:700}.metric{font-size:25px;letter-spacing:-.04em;font-weight:850;margin:8px 0 5px}.micro{font-size:12px;color:var(--muted)}.status{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:800;background:#eef1f4;color:#566977}.status.warn{background:var(--amberbg);color:var(--amber)}.status.good{background:var(--tealbg);color:#086b61}.status.bad{background:var(--redbg);color:var(--red)}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.two{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:14px}.card h3{font-size:15px;margin:0 0 12px}.list{display:grid;gap:0}.listrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #edf1f4}.listrow:first-child{border-top:0}.listrow strong{font-size:13px}.listrow small{display:block;color:var(--muted);font-size:12px}.channelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.channel{border:1px solid var(--line);border-radius:12px;padding:13px;background:white}.channel strong{display:block;font-size:13px;margin-bottom:8px}.channel .status{margin-top:4px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:600px}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid #edf1f4;font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.empty{border:1px dashed #c7d4dc;border-radius:12px;padding:24px;text-align:center;color:var(--muted);background:#fafcfd}.empty strong{display:block;color:var(--ink);margin-bottom:4px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.filters input,.filters select{border:1px solid var(--line);border-radius:9px;background:white;padding:9px 11px}.filters input{min-width:220px}.callout{border-left:3px solid var(--teal);padding:10px 13px;background:#edf8f6;border-radius:0 8px 8px 0;font-size:13px;margin-top:12px}.footnote{font-size:12px;color:var(--muted);margin-top:22px}.bar{height:7px;border-radius:99px;background:#e9eff2;overflow:hidden}.bar span{display:block;height:100%;width:0;background:var(--teal)}@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.channelgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.layout{grid-template-columns:1fr}aside{padding:12px}.brand{padding-bottom:10px}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}.navlabel,.asidefoot{display:none}main{padding-top:18px}.two{grid-template-columns:1fr}.channelgrid{grid-template-columns:1fr 1fr}}@media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.channelgrid{grid-template-columns:1fr}.metric{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+ <div class="brand"><div class="logo">G</div><div><strong>GE4u Control</strong><small>Admin & Developer</small></div></div>
+ <div class="navlabel">Workspace</div>
+ <nav class="nav" aria-label="Admin navigation">
+  <button class="active" data-section="overview">◫ &nbsp; Tổng quan</button>
+  <button data-section="channels">▦ &nbsp; 12 kênh học</button>
+  <button data-section="learners">♙ &nbsp; Người học</button>
+  <button data-section="analytics">▥ &nbsp; Learning analytics</button>
+  <button data-section="security">⬡ &nbsp; Backend & bảo mật</button>
+  <button data-section="deploy">⌘ &nbsp; GitHub & deploy</button>
+  <button data-section="audit">☷ &nbsp; Audit log</button>
+ </nav>
+ <div class="asidefoot">LOCAL PROTOTYPE<br>Không có xác thực admin hoặc kết nối dữ liệu trong bản này.</div>
+</aside>
+<main>
+ <div class="topbar">
+  <div><div class="eyebrow">GE4u · Private operations</div><h1 id="pageTitle">Tổng quan hệ thống</h1><p class="sub">Bảng điều khiển dành cho admin/dev · không phải dashboard học viên.</p></div>
+  <div class="topactions"><span class="status warn"><span class="dot"></span> Chưa kết nối live</span><a class="btn" href="https://github.com/ge4uhealthsciences-creator/medvocab-lab/actions" target="_blank" rel="noopener noreferrer">Mở GitHub Actions ↗</a></div>
+ </div>
+ <div class="notice"><div>⚠</div><div><strong>Prototype an toàn — không phải hệ thống quản trị đang chạy.</strong><p>Chỉ thông tin danh mục 12 lĩnh vực được xác nhận từ repository hiện có. Số người học, hoạt động, tiến độ, API health và deploy chưa được truy vấn trực tiếp nên để “Chưa tích hợp”; không có số liệu giả.</p></div></div>
+
+ <section class="section active" id="overview">
+  <div class="grid">
+   <article class="card"><div class="metriclabel">Lĩnh vực trong danh mục</div><div class="metric">12</div><span class="status good">Đã xác minh từ JSON</span><div class="micro">Catalog: data/ge4u-product-catalog.json</div></article>
+   <article class="card"><div class="metriclabel">Tài khoản người học</div><div class="metric">—</div><span class="status">Chưa tích hợp</span><div class="micro">Chưa có user database/auth API.</div></article>
+   <article class="card"><div class="metriclabel">Sự kiện học tập</div><div class="metric">—</div><span class="status">Chưa tích hợp</span><div class="micro">Chưa có event ingestion/learning log.</div></article>
+   <article class="card"><div class="metriclabel">Tình trạng deploy live</div><div class="metric">—</div><span class="status warn">Chưa truy vấn</span><div class="micro">Cần đọc workflow runs và Pages deployment.</div></article>
+  </div>
+  <div class="two">
+   <article class="card"><h3>Trạng thái năng lực hệ thống</h3><div class="list">
+    <div class="listrow"><div><strong>Public learning website</strong><small>Static HTML + JSON + JavaScript</small></div><span class="status good">Đã xác minh</span></div>
+    <div class="listrow"><div><strong>Daily lesson pipeline</strong><small>GitHub Actions + Python generator</small></div><span class="status good">Workflow có trong repo</span></div>
+    <div class="listrow"><div><strong>Unified account / SSO</strong><small>Đăng nhập dùng chung nhiều kênh</small></div><span class="status">Chưa triển khai</span></div>
+    <div class="listrow"><div><strong>Persistent learner progress</strong><small>Tiến bộ đồng bộ giữa thiết bị</small></div><span class="status">Chưa triển khai</span></div>
+    <div class="listrow"><div><strong>Private admin backend</strong><small>Role-based access + protected API</small></div><span class="status warn">Cần xây dựng</span></div>
+   </div></article>
+   <article class="card"><h3>Ưu tiên triển khai</h3><div class="list">
+    <div class="listrow"><div><strong>01 · Bảo vệ admin</strong><small>Auth, role checks, audit trail</small></div><span class="status warn">P0</span></div>
+    <div class="listrow"><div><strong>02 · Dữ liệu người học</strong><small>Database schema + privacy rules</small></div><span class="status warn">P0</span></div>
+    <div class="listrow"><div><strong>03 · Learning event API</strong><small>Record quiz, lesson and review events</small></div><span class="status">P1</span></div>
+    <div class="listrow"><div><strong>04 · Operational metrics</strong><small>Deploy status, API errors, freshness</small></div><span class="status">P1</span></div>
+   </div><div class="callout">Không đưa admin page vào public deployment trước khi có xác thực server-side. Ẩn link hoặc đặt noindex không phải biện pháp bảo vệ.</div></article>
+  </div>
+ </section>
+
+ <section class="section" id="channels">
+  <div class="sectionhead"><div><h2>Danh mục 12 kênh học</h2><p>Tên và mã kênh từ product catalogue trong repository; không khẳng định từng kênh đã có tài khoản, analytics hay backend.</p></div></div>
+  <div class="filters"><input id="channelSearch" type="search" placeholder="Tìm lĩnh vực…" aria-label="Tìm kênh học"></div>
+  <div class="channelgrid" id="channelGrid"></div>
+ </section>
+
+ <section class="section" id="learners">
+  <div class="sectionhead"><div><h2>Quản lý người học</h2><p>Chỉ hiển thị khi kết nối cơ sở dữ liệu và API admin đã được bảo vệ.</p></div></div>
+  <div class="grid"><article class="card"><div class="metriclabel">Tài khoản hoạt động</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Đăng ký mới</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Quyền truy cập kênh</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Tài khoản cần xem xét</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article></div>
+  <div class="empty" style="margin-top:14px"><strong>Chưa có nguồn dữ liệu người học được kết nối</strong>Không tạo user mẫu và không hiển thị danh sách giả. Khi xây dựng thật, quyền admin phải được kiểm tra tại API trên mỗi yêu cầu.</div>
+ </section>
+
+ <section class="section" id="analytics">
+  <div class="sectionhead"><div><h2>Learning analytics</h2><p>Không có biểu đồ xu hướng cho đến khi event được lưu và đọc từ nguồn dữ liệu thật.</p></div><select id="period"><option>7 ngày</option><option>30 ngày</option><option>90 ngày</option></select></div>
+  <div class="grid"><article class="card"><div class="metriclabel">Lượt học hoàn thành</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Tỷ lệ trả lời đúng</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Từ vựng thành thạo</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article><article class="card"><div class="metriclabel">Người học quay lại</div><div class="metric">—</div><span class="status">Chưa tích hợp</span></article></div>
+  <div class="card" style="margin-top:14px"><h3>Xu hướng tiến bộ theo thời gian</h3><div class="empty"><strong>Chưa có learning events</strong>Biểu đồ sẽ được dựng từ các sự kiện đã lưu: lesson_started, lesson_completed, quiz_answered và vocabulary_reviewed. Cần định nghĩa consent, retention và cách tính trước khi thu thập dữ liệu.</div></div>
+ </section>
+
+ <section class="section" id="security">
+  <div class="sectionhead"><div><h2>Backend & bảo mật</h2><p>Danh sách kiểm tra kiến trúc; trạng thái “chưa xác minh” không đồng nghĩa đã xảy ra sự cố.</p></div></div>
+  <div class="card"><div class="list">
+   <div class="listrow"><div><strong>Admin authentication</strong><small>Identity provider + MFA nếu khả dụng</small></div><span class="status warn">Chưa triển khai</span></div>
+   <div class="listrow"><div><strong>Server-side role authorization</strong><small>RBAC, deny-by-default, kiểm tra trên mọi API</small></div><span class="status warn">Chưa triển khai</span></div>
+   <div class="listrow"><div><strong>Secrets management</strong><small>Server environment / managed secret store; không nhúng vào JS</small></div><span class="status">Cần audit</span></div>
+   <div class="listrow"><div><strong>Database isolation</strong><small>Người học chỉ truy cập hồ sơ của mình; admin có quyền giới hạn</small></div><span class="status warn">Chưa triển khai</span></div>
+   <div class="listrow"><div><strong>Audit trail</strong><small>Actor, action, target, timestamp, outcome; không log secrets</small></div><span class="status warn">Chưa triển khai</span></div>
+   <div class="listrow"><div><strong>Privacy & retention</strong><small>Data minimization, retention policy, export/delete workflow</small></div><span class="status">Cần thiết kế</span></div>
+  </div></div>
+  <div class="callout">Repository hiện có website tĩnh. Một trang HTML quản trị đặt trên GitHub Pages không thể tự bảo vệ bằng mật khẩu JavaScript. Cần backend hoặc nền tảng auth có kiểm soát server-side trước khi hiển thị dữ liệu nhạy cảm.</div>
+ </section>
+
+ <section class="section" id="deploy">
+  <div class="sectionhead"><div><h2>GitHub & deployment</h2><p>Workflow được kiểm tra từ file deploy.yml; trạng thái lần chạy gần nhất chưa được lấy trong prototype này.</p></div></div>
+  <div class="grid"><article class="card"><div class="metriclabel">Default branch</div><div class="metric">main</div><span class="status good">Metadata repo đã xác minh</span></article><article class="card"><div class="metriclabel">Workflow</div><div class="metric" style="font-size:18px">Daily lesson and deploy</div><span class="status good">File có trong repo</span></article><article class="card"><div class="metriclabel">Lịch dự kiến</div><div class="metric" style="font-size:21px">23:00 UTC</div><span class="status">06:00 Việt Nam</span></article><article class="card"><div class="metriclabel">Latest run / deploy URL</div><div class="metric">—</div><span class="status warn">Chưa truy vấn live</span></article></div>
+  <div class="card" style="margin-top:14px"><h3>Pipeline theo workflow hiện tại</h3><div class="list">
+   <div class="listrow"><div><strong>Checkout + Python 3.12</strong><small>Chuẩn bị môi trường build</small></div><span class="status">Có trong YAML</span></div>
+   <div class="listrow"><div><strong>Generate daily lesson</strong><small>scripts/generate_channel_daily.py</small></div><span class="status">Có trong YAML</span></div>
+   <div class="listrow"><div><strong>Run regression tests</strong><small>scripts/test_ge4u_site.py</small></div><span class="status">Có trong YAML</span></div>
+   <div class="listrow"><div><strong>Publish GitHub Pages</strong><small>Build artifact then deploy-pages</small></div><span class="status">Có trong YAML</span></div>
+  </div><p style="margin:14px 0 0"><a class="btn primary" href="https://github.com/ge4uhealthsciences-creator/medvocab-lab/actions" target="_blank" rel="noopener noreferrer">Mở lịch sử workflow trên GitHub ↗</a> <a class="btn" href="https://github.com/ge4uhealthsciences-creator/medvocab-lab/blob/main/.github/workflows/deploy.yml" target="_blank" rel="noopener noreferrer">Xem workflow YAML ↗</a></p></div>
+ </section>
+
+ <section class="section" id="audit">
+  <div class="sectionhead"><div><h2>Audit log</h2><p>Nhật ký mẫu không được giả lập. Sự kiện thật sẽ được cung cấp từ backend và GitHub Actions.</p></div></div>
+  <div class="filters"><select id="auditFilter"><option value="all">Tất cả nguồn</option><option value="github">GitHub</option><option value="auth">Auth / Admin</option><option value="learning">Learning events</option></select><button class="btn" id="clearFilters" type="button">Xóa bộ lọc</button></div>
+  <div class="empty"><strong>Chưa kết nối audit event source</strong>Không có sự kiện nào được đưa ra như thể là log thật. Cần tích hợp GitHub Actions API, server audit table và event pipeline; ghi thời gian UTC, nguồn, trạng thái và mã tham chiếu.</div>
+  <div class="callout">Không ghi token, mật khẩu, OTP, nội dung nhạy cảm hoặc thông tin liên hệ đầy đủ vào log. Hạn chế quyền đọc log và đặt chính sách lưu trữ.</div>
+ </section>
+ <p class="footnote">GE4u Admin & Developer Control Center · Local-only prototype · Không xác thực, không backend, không live API. Không dùng để quản lý tài khoản thật hoặc đưa lên public hosting.</p>
+</main>
+</div>
+<script>
+const channels=[
+{id:"dentistry",name:"Răng Hàm Mặt",kind:"Product catalogue"},
+{id:"medical",name:"Y khoa",kind:"Product catalogue"},
+{id:"pharmacy",name:"Dược học",kind:"Product catalogue"},
+{id:"nursing",name:"Điều dưỡng",kind:"Product catalogue"},
+{id:"midwifery",name:"Hộ sinh",kind:"Product catalogue"},
+{id:"social-work",name:"Công tác xã hội",kind:"Product catalogue"},
+{id:"pharmaceutical-chemistry",name:"Hóa dược",kind:"Product catalogue"},
+{id:"pharmaceutical-technology",name:"Công nghệ dược phẩm",kind:"Product catalogue"},
+{id:"traditional-medicine",name:"Y học cổ truyền",kind:"Product catalogue"},
+{id:"public-health",name:"Y tế công cộng",kind:"Product catalogue"},
+{id:"psychology",name:"Tâm lý học",kind:"Product catalogue"},
+{id:"nutrition",name:"Dinh dưỡng",kind:"Product catalogue"}
+];
+const grid=document.getElementById("channelGrid");
+function renderChannels(q=""){grid.replaceChildren();channels.filter(c=>(c.name+" "+c.id).toLowerCase().includes(q.toLowerCase())).forEach(c=>{const el=document.createElement("article");el.className="channel";const name=document.createElement("strong");name.textContent=c.name;const id=document.createElement("div");id.className="micro";id.textContent=c.id;const tag=document.createElement("span");tag.className="status good";tag.textContent="Có trong catalogue";const api=document.createElement("div");api.className="micro";api.style.marginTop="7px";api.textContent="User analytics: chưa tích hợp";el.append(name,id,tag,api);grid.append(el)});if(!grid.children.length){const p=document.createElement("div");p.className="empty";p.textContent="Không tìm thấy kênh phù hợp.";grid.append(p)}}
+renderChannels();document.getElementById("channelSearch").addEventListener("input",e=>renderChannels(e.target.value));
+const labels={overview:"Tổng quan hệ thống",channels:"Danh mục 12 kênh học",learners:"Quản lý người học",analytics:"Learning analytics",security:"Backend & bảo mật",deploy:"GitHub & deployment",audit:"Audit log"};
+document.querySelectorAll("[data-section]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-section]").forEach(b=>b.classList.toggle("active",b===btn));document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===btn.dataset.section));document.getElementById("pageTitle").textContent=labels[btn.dataset.section];}));
+document.getElementById("clearFilters").addEventListener("click",()=>{document.getElementById("auditFilter").value="all";document.getElementById("channelSearch").value="";renderChannels()});
+</script>
+</body>
+</html>
