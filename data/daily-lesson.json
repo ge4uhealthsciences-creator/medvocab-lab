@@ -1,40 +1,41 @@
 {
-  "topic": "Respiratory system",
-  "title": "Gas exchange and oxygenation",
-  "objective": "Distinguish common terms used to describe breathing and gas exchange.",
+  "title": "Oral Health Essentials",
+  "topic": "Dental English — oral tissues and tooth protection",
+  "discipline": "Dentistry",
+  "objective": "Identify three common terms used to describe the teeth and oral tissues.",
+  "date": "2026-10-27",
+  "source_mode": "curated",
   "vocabulary": [
     {
-      "term": "dyspnea",
-      "ipa": "/dɪspˈniːə/",
-      "meaning": "khó thở",
-      "definition": "Subjective difficulty or discomfort in breathing.",
-      "example": "The patient reported dyspnea on exertion."
+      "term": "gingiva",
+      "ipa": "/dʒɪnˈdʒaɪvə/",
+      "meaning": "nướu",
+      "definition": "The soft tissue surrounding the teeth.",
+      "example": "Healthy gingiva should not bleed easily."
     },
     {
-      "term": "hypoxemia",
-      "ipa": "/ˌhaɪpɒkˈsiːmiə/",
-      "meaning": "giảm oxy máu",
-      "definition": "An abnormally low level of oxygen in arterial blood.",
-      "example": "The team monitored the patient for hypoxemia."
+      "term": "enamel",
+      "ipa": "/ɪˈnæməl/",
+      "meaning": "men răng",
+      "definition": "The hard outer covering of a tooth.",
+      "example": "Enamel protects the tooth from wear."
     },
     {
-      "term": "respiratory rate",
-      "ipa": "/rɪˈspɪrətri reɪt/",
-      "meaning": "tần số thở",
-      "definition": "The number of breaths taken per minute.",
-      "example": "The nurse recorded the respiratory rate."
+      "term": "plaque",
+      "ipa": "/plæk/",
+      "meaning": "mảng bám",
+      "definition": "A soft film of bacteria that forms on teeth.",
+      "example": "Daily brushing helps remove plaque."
     }
   ],
   "quiz": {
-    "question": "Which term means an abnormally low level of oxygen in arterial blood?",
+    "question": "Which term means the hard outer covering of a tooth?",
     "options": [
-      "Dyspnea",
-      "Hypoxemia",
-      "Respiratory rate"
+      "Gingiva",
+      "Enamel",
+      "Plaque"
     ],
-    "answer": "Hypoxemia",
-    "explanation": "Hypoxemia refers to low oxygen in arterial blood."
-  },
-  "date": "2026-10-25",
-  "source_mode": "curated-fallback"
+    "answer": "Enamel",
+    "explanation": "Enamel is the hard outer covering of a tooth; gingiva means gums, and plaque is a bacterial film."
+  }
 }
