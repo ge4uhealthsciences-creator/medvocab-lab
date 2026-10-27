@@ -179,3 +179,40 @@ if not dental_endpoint or not products_endpoint or dental_endpoint.group(1) != p
 if '.join("\\\\n")' in apps_script:
     raise SystemExit("FAIL: order email body still contains literal backslash-n separators")
 print("PASS: order contact validation, notification recipient documentation and matching public form endpoints")
+
+# Extended integration checks: product routes, endpoint configuration and consent controls.
+readme_path = ROOT / "README.md"
+readme = readme_path.read_text(encoding="utf-8")
+setup_doc = (ROOT / "ORDER_NOTIFICATION_SETUP.md").read_text(encoding="utf-8")
+catalog_price = catalog.get("pilot_price")
+price_match = re.search(r"const PRODUCT_PRICE_VND\\s*=\\s*(\\d+)", apps_script)
+if not price_match or int(price_match.group(1)) != catalog_price:
+    raise SystemExit("FAIL: Apps Script order price and catalogue pilot_price differ")
+recipient_match = re.search(r'const NOTIFICATION_EMAIL\\s*=\\s*"([^"]+)"', apps_script)
+if not recipient_match:
+    raise SystemExit("FAIL: order notification recipient is not configured in source")
+recipient = recipient_match.group(1)
+if recipient not in readme or recipient not in setup_doc:
+    raise SystemExit("FAIL: README/setup guide and Apps Script notification recipient differ")
+if dental_endpoint.group(1) not in readme:
+    raise SystemExit("FAIL: README endpoint reference differs from the public order forms")
+
+for page_name, page in (("dental", dental_page), ("catalogue", products_page)):
+    if 'method="POST"' not in page or 'target="_blank"' not in page:
+        raise SystemExit(f"FAIL: {page_name} order form must POST to a separate response tab")
+    if 'name="consent"' not in page or 'name="website"' not in page:
+        raise SystemExit(f"FAIL: {page_name} order form missing consent or honeypot control")
+
+for product in products:
+    for route_key in ("sample_url", "practice_url"):
+        route = product.get(route_key, "").split("?", 1)[0].split("#", 1)[0]
+        if not route or not (ROOT / route).is_file():
+            raise SystemExit(f"FAIL: product {product.get('id')} has broken {route_key}: {route}")
+
+if "GE4U_ORDERS_SHEET_ID" not in apps_script or "ORDER_SAVE_FAILED" not in apps_script:
+    raise SystemExit("FAIL: order endpoint must explicitly check sheet configuration and log save failures")
+if "This is not a payment confirmation" not in apps_script and "KHÔNG phải xác nhận thanh toán" not in apps_script:
+    raise SystemExit("FAIL: order notification must state that a request is not proof of payment")
+
+print("PASS: catalogue routes, price parity, notification recipient, endpoint references and consent controls")
+
