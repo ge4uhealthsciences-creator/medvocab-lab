@@ -171,7 +171,7 @@ if "const looksLikeEmail" not in apps_script or "const looksLikePhone" not in ap
     raise SystemExit("FAIL: order endpoint must validate email or phone formats")
 if "trungminhle.lmt@gmail.com" in (ROOT / "ORDER_NOTIFICATION_SETUP.md").read_text(encoding="utf-8"):
     raise SystemExit("FAIL: stale order-notification recipient remains in setup guide")
-endpoint_pattern = r'action="(https://script\\.google\\.com/macros/s/[^"]+/exec)"'
+endpoint_pattern = r'action="(https://script\.google\.com/macros/s/[^"]+/exec)"'
 dental_endpoint = re.search(endpoint_pattern, dental_page)
 products_endpoint = re.search(endpoint_pattern, products_page)
 if not dental_endpoint or not products_endpoint or dental_endpoint.group(1) != products_endpoint.group(1):
