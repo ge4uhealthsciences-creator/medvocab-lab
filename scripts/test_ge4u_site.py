@@ -162,3 +162,20 @@ if "data/ge4u-pharmacy-clinical-pharmacokinetics-01.json" not in module_page:
 if "ge4u-pharmacy-clinical-pharmacokinetics.html" not in (ROOT / "ge4u-channel.html").read_text(encoding="utf-8"):
     raise SystemExit("FAIL: channel page does not link to pharmacy module")
 print("PASS: pharmacy deep module schema, 11 terms, 4 quizzes, clinical review flag and UI links")
+
+# Order-flow regression checks: validate contact input and keep the public forms aligned.
+apps_script = (ROOT / "google-apps-script/Code.gs").read_text(encoding="utf-8")
+dental_page = (ROOT / "ge4u-dental-english.html").read_text(encoding="utf-8")
+products_page = (ROOT / "ge4u-products.html").read_text(encoding="utf-8")
+if "const looksLikeEmail" not in apps_script or "const looksLikePhone" not in apps_script:
+    raise SystemExit("FAIL: order endpoint must validate email or phone formats")
+if "trungminhle.lmt@gmail.com" in (ROOT / "ORDER_NOTIFICATION_SETUP.md").read_text(encoding="utf-8"):
+    raise SystemExit("FAIL: stale order-notification recipient remains in setup guide")
+endpoint_pattern = r'action="(https://script\\.google\\.com/macros/s/[^"]+/exec)"'
+dental_endpoint = re.search(endpoint_pattern, dental_page)
+products_endpoint = re.search(endpoint_pattern, products_page)
+if not dental_endpoint or not products_endpoint or dental_endpoint.group(1) != products_endpoint.group(1):
+    raise SystemExit("FAIL: dental and catalogue order forms must use the same deployed endpoint")
+if '.join("\\\\n")' in apps_script:
+    raise SystemExit("FAIL: order email body still contains literal backslash-n separators")
+print("PASS: order contact validation, notification recipient documentation and matching public form endpoints")
