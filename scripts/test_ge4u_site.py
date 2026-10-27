@@ -185,10 +185,10 @@ readme_path = ROOT / "README.md"
 readme = readme_path.read_text(encoding="utf-8")
 setup_doc = (ROOT / "ORDER_NOTIFICATION_SETUP.md").read_text(encoding="utf-8")
 catalog_price = catalog.get("pilot_price")
-price_match = re.search(r"const PRODUCT_PRICE_VND\\s*=\\s*(\\d+)", apps_script)
+price_match = re.search(r"const PRODUCT_PRICE_VND\s*=\s*(\d+)", apps_script)
 if not price_match or int(price_match.group(1)) != catalog_price:
     raise SystemExit("FAIL: Apps Script order price and catalogue pilot_price differ")
-recipient_match = re.search(r'const NOTIFICATION_EMAIL\\s*=\\s*"([^"]+)"', apps_script)
+recipient_match = re.search(r'const NOTIFICATION_EMAIL\s*=\s*"([^"]+)"', apps_script)
 if not recipient_match:
     raise SystemExit("FAIL: order notification recipient is not configured in source")
 recipient = recipient_match.group(1)
