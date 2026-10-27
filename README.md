@@ -58,3 +58,20 @@ The live GE4u website submits order requests to the Order Intake Apps Script web
 6. Submit one test request and verify all three outcomes separately: (a) confirmation page/order ID, (b) a new row in the private `Orders` tab, and (c) notification email at `ge4u.health.sciences@gmail.com`. A confirmation page alone does not prove that the Sheet write or email succeeded.
 
 The order endpoint records a purchase request only. It does not verify bank transfers or mean the customer has paid. Verify payment manually before delivering paid material. Do not store credentials, OTPs, or banking login details in order records.
+
+
+## GE4u 31-day course: student accounts and saved progress
+
+The page `ge4u-31-day-plan.html` is designed to use Firebase Authentication (email/password) and Cloud Firestore to store each learner's study reflections, self-assessment, quiz results and completion status. Records belong to `users/{Firebase UID}/lessons/{discipline-day}`; Firestore Security Rules restrict each account to its own records. Browser localStorage is not the source of truth.
+
+**Setup is required before student login works:**
+
+1. Create/select a Firebase project in the Firebase Console.
+2. In **Authentication → Sign-in method**, enable **Email/Password**.
+3. In **Firestore Database**, create the database.
+4. Publish the rules from `firebase/firestore.rules` in Firestore → Rules.
+5. Register a Web App in Firebase project settings and copy its `apiKey`, `authDomain`, `projectId`, and `appId` into the `firebaseConfig` object in `ge4u-31-day-plan.html`, replacing all `ADD_FIREBASE_...` placeholders.
+6. Add the deployed website's domain under Firebase Authentication → Settings → Authorized domains.
+7. Test account creation, sign-in, reflection save, progress save, sign-out and sign-in again. Confirm data persists in Firestore and one user cannot read another user's records.
+
+Until steps 1–6 are completed, the page intentionally disables account creation/sign-in and does not claim that student data is being saved. Do not put service-account private keys in the website or GitHub. Firebase web-app configuration is client-side; access control must be enforced by Firestore Security Rules.
