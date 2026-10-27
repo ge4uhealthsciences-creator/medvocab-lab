@@ -216,3 +216,17 @@ if "This is not a payment confirmation" not in apps_script and "KHÔNG phải x�
 
 print("PASS: catalogue routes, price parity, notification recipient, endpoint references and consent controls")
 
+
+# Purchase UX regression checks: every discipline must have a purchase CTA and share
+# the same validated order form; the UI must label the pilot price as unconfirmed.
+products_ui = (ROOT / "ge4u-products.html").read_text(encoding="utf-8")
+for marker in ("Chọn mua bộ này", "Gửi yêu cầu mua", "name=\"product\"", "name=\"consent\"", "name=\"website\""):
+    if marker not in products_ui:
+        raise SystemExit(f"FAIL: catalogue purchase flow missing {marker}")
+if "data.pilot_price" not in products_ui or "Giá thử nghiệm, chưa phải giá bán được xác nhận" not in products_ui:
+    raise SystemExit("FAIL: catalogue purchase cards must show the configured pilot price with a clear disclaimer")
+if "function chooseProduct" not in products_ui or "select.value=id" not in products_ui:
+    raise SystemExit("FAIL: selecting a product card must preselect that product in the order form")
+if products_ui.count("p.products") > 0:
+    raise SystemExit("FAIL: purchase UI contains an unexpected products variable")
+print("PASS: all-discipline purchase CTA, product preselection, consent/honeypot and pilot-price disclaimer")
