@@ -81,7 +81,7 @@ function doPost(e) {
     "Thời điểm: " + Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
     "", "Đây chỉ là yêu cầu đặt mua, KHÔNG phải xác nhận thanh toán.",
     "Hãy kiểm tra tài khoản ngân hàng trực tiếp trước khi giao tài liệu."
-  ].join("\\n");
+  ].join("\n");
 
   try {
     MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, name: "GE4u Order Notice"});
@@ -103,8 +103,8 @@ function doPost(e) {
 function doGet() {
   const sheetConfigured = Boolean(PropertiesService.getScriptProperties().getProperty("GE4U_ORDERS_SHEET_ID"));
   return ContentService.createTextOutput(
-    "GE4u Order Intake diagnostic\\n" +
-    "Notification recipient configured in this deployed code: " + NOTIFICATION_EMAIL + "\\n" +
+    "GE4u Order Intake diagnostic\n" +
+    "Notification recipient configured in this deployed code: " + NOTIFICATION_EMAIL + "\n" +
     "GE4U_ORDERS_SHEET_ID configured: " + (sheetConfigured ? "YES" : "NO") + "\\n" +
     "This diagnostic does not create an order. Submit the website form to test POST."
   ).setMimeType(ContentService.MimeType.TEXT);
