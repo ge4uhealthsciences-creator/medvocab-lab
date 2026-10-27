@@ -1,31 +1,34 @@
-# GE4u — bật thông báo đơn hàng qua email
+# GE4u — thiết lập và kiểm thử thông báo đơn hàng
 
-Thông báo sẽ được gửi đến **ge4u.health.sciences@gmail.com** khi khách gửi biểu mẫu đặt mua.
-Đây là thông báo về ý định mua, không phải bằng chứng khách đã chuyển khoản.
+Thông báo yêu cầu mua được gửi đến **ge4u.health.sciences@gmail.com**. Đây là thông báo về ý định mua, không phải bằng chứng khách đã chuyển khoản. Không thu tiền và không giao tài liệu tự động trước khi kiểm thử đầu-cuối.
 
-## Thiết lập miễn phí (cần chủ tài khoản thực hiện một lần)
+## 1. Triển khai Google Apps Script Web App
 
-1. Đăng nhập tài khoản Google của bạn và mở https://script.google.com/
-2. Chọn **New project**.
-3. Xoá mã mẫu, sau đó sao chép toàn bộ nội dung tệp `google-apps-script/Code.gs` trong repository này vào trình soạn thảo.
-4. Bấm **Save**.
-5. Chọn **Deploy → New deployment**.
-6. Nhấn biểu tượng bánh răng và chọn **Web app**.
-7. **Execute as:** Me.
-8. **Who has access:** Anyone. Điều này cho phép khách gửi biểu mẫu công khai; không đưa thông tin nhạy cảm vào mã.
-9. Bấm **Deploy**, chấp thuận quyền gửi email khi Google yêu cầu, rồi sao chép URL kết thúc bằng `/exec`.
-10. Mở tệp `ge4u-dental-english.html` trong repository. Tìm `const ORDER_ENDPOINT = "";` và dán URL /exec vào giữa dấu ngoặc kép.
-11. Lưu và triển khai phiên bản Web App mới sau khi sửa Apps Script; sau đó gửi yêu cầu thử bằng thông tin của chính bạn.\n12. Kiểm tra email thông báo, tab `Orders`, tab `AutomationLog`, và xác nhận thông báo ghi rõ yêu cầu chưa phải xác nhận thanh toán.\n13. Kiểm tra riêng trang danh mục: biểu mẫu phải dùng cùng endpoint và trả trạng thái rõ ràng trong tab mới.
+1. Đăng nhập tài khoản Google quản lý GE4u và mở https://script.google.com/.
+2. Mở dự án Apps Script đang được dùng bởi website. Nếu chưa có dự án, tạo dự án mới.
+3. Sao chép nội dung hiện tại của `google-apps-script/Code.gs` trong repository vào dự án.
+4. Lưu mã nguồn.
+5. Mở **Project Settings → Script Properties**. Thiết lập `GE4U_ORDERS_SHEET_ID` bằng ID của Google Spreadsheet riêng tư dành cho đơn hàng.
+6. Xác nhận spreadsheet có tab `Orders` với các cột bắt buộc được liệt kê trong `appendOrderToPrivateSheet_()`. Xác nhận tab `AutomationLog` có thể được tạo/ghi.
+7. Chọn **Deploy → Manage deployments**. Chỉnh sửa deployment Web App đang dùng hoặc tạo deployment mới; chọn **Execute as: Me** và mức truy cập phù hợp để khách có thể gửi form công khai.
+8. Cấp quyền Google yêu cầu và triển khai. Sao chép URL `/exec` đã triển khai.
+9. Kiểm tra hai biểu mẫu trong `ge4u-dental-english.html` và `ge4u-products.html` dùng cùng URL `/exec`. Không thêm API key, mật khẩu, mã OTP hoặc thông tin thanh toán vào repository.
 
-## Kiểm thử
+## 2. Kiểm thử bắt buộc trước khi mở bán
 
-- Gửi một yêu cầu thử bằng thông tin liên hệ của chính bạn.
-- Xác nhận email đến `ge4u.health.sciences@gmail.com`, kiểm tra cả Spam.
-- Sau kiểm thử, không công khai thông tin cá nhân của người mua trong các log hoặc repository.
+1. Mở URL `/exec` để kiểm tra chẩn đoán: người nhận email phải là `ge4u.health.sciences@gmail.com` và `GE4U_ORDERS_SHEET_ID configured` phải là `YES`.
+2. Gửi một đơn thử bằng thông tin liên hệ do chủ tài khoản kiểm soát. Dùng email hợp lệ hoặc số điện thoại hợp lệ.
+3. Xác nhận trang phản hồi có mã yêu cầu; kiểm tra hàng tương ứng trong tab `Orders`.
+4. Kiểm tra email thông báo trong hộp thư đến và Spam.
+5. Kiểm tra tab `AutomationLog` có các sự kiện lưu đơn và gửi email.
+6. Thử dữ liệu không hợp lệ và xác nhận yêu cầu bị từ chối.
+7. Lặp lại một lần từ biểu mẫu trang danh mục `ge4u-products.html`.
+8. Ghi nhận kết quả thử. Chỉ coi bước thông báo là đạt khi các kiểm tra trên thành công.
 
-## Giới hạn
+## 3. Giới hạn hiện tại
 
-- Apps Script gửi email thông báo khi có biểu mẫu mới; cần chủ tài khoản cấp quyền và triển khai web app.
-- QR ngân hàng không tự gửi tín hiệu khi người mua quét mã. Chưa thu tiền hoặc hứa giao tự động cho đến khi đã kiểm thử đầu-cuối thành công.
-- Không tự xác minh giao dịch ngân hàng, không xác nhận tiền đã về và không giao file tự động.
-- Trước khi bật form công khai, kiểm tra quy trình xử lý thông tin khách và thêm chính sách riêng tư/điều khoản bán hàng phù hợp.
+- Apps Script không tự xác minh tiền chuyển khoản. Người bán phải kiểm tra giao dịch trong tài khoản ngân hàng trực tiếp.
+- QR ngân hàng không tự gửi tín hiệu khi người mua quét mã.
+- Chưa có bằng chứng giao tài liệu số tự động đã được tích hợp và kiểm thử. Không hứa giao tự động nếu chưa có luồng xác nhận thanh toán → cấp quyền tải tài liệu → xác nhận giao thành công.
+- Trước khi mở bán, cần có chính sách quyền riêng tư và điều khoản xử lý thông tin khách hàng phù hợp.
+- Việc cập nhật mã nguồn GitHub **không tự cập nhật bản Apps Script đã triển khai**. Chủ tài khoản cần triển khai phiên bản Web App mới, sau đó kiểm thử lại.
