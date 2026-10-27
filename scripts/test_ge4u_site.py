@@ -16,6 +16,8 @@ required = [
     "ge4u-products.html",
     "data/ge4u-product-catalog.json",
     "data/ge4u-channel-samples.json",
+    "ge4u-pharmacy-clinical-pharmacokinetics.html",
+    "data/ge4u-pharmacy-clinical-pharmacokinetics-01.json",
 ]
 missing = [p for p in required if not (ROOT / p).is_file()]
 if missing:
@@ -133,3 +135,30 @@ if 'p.product' not in apps_script or 'PRODUCTS[productId]' not in apps_script:
 
 print("PASS: daily lesson is generated from one of all 12 disciplines")
 print("PASS: 12-product catalogue and order endpoint product mapping")
+
+module_path = ROOT / "data/ge4u-pharmacy-clinical-pharmacokinetics-01.json"
+with module_path.open(encoding="utf-8") as f:
+    module = json.load(f)
+terms = module.get("terms", [])
+quiz = module.get("quiz", [])
+if module.get("discipline") != "pharmacy" or len(terms) != 11:
+    raise SystemExit(f"FAIL: pharmacy module should contain 11 terms; found {len(terms)}")
+if module.get("qa_status", {}).get("specialist_terms") != len(terms):
+    raise SystemExit("FAIL: module QA term count does not match terms list")
+if len(quiz) != 4:
+    raise SystemExit(f"FAIL: pharmacy module should contain 4 quiz items; found {len(quiz)}")
+for term in terms:
+    for key in ("term", "ipa", "vi", "definition", "example", "confusion"):
+        if not term.get(key):
+            raise SystemExit(f"FAIL: module term {term.get('term')} missing {key}")
+for item in quiz:
+    if len(item.get("options", [])) != 3 or item.get("answer") not in item.get("options", []) or not item.get("explanation"):
+        raise SystemExit("FAIL: invalid pharmacokinetics quiz item")
+if not module.get("case", {}).get("clinical_review_required"):
+    raise SystemExit("FAIL: clinical case must retain clinical_review_required=true")
+module_page = (ROOT / "ge4u-pharmacy-clinical-pharmacokinetics.html").read_text(encoding="utf-8")
+if "data/ge4u-pharmacy-clinical-pharmacokinetics-01.json" not in module_page:
+    raise SystemExit("FAIL: pharmacy module page does not load module JSON")
+if "ge4u-pharmacy-clinical-pharmacokinetics.html" not in (ROOT / "ge4u-channel.html").read_text(encoding="utf-8"):
+    raise SystemExit("FAIL: channel page does not link to pharmacy module")
+print("PASS: pharmacy deep module schema, 11 terms, 4 quizzes, clinical review flag and UI links")
