@@ -47,6 +47,6 @@ fetch(catalogueUrl).then(r=>{if(!r.ok)throw Error('catalogue');return r.json()})
    const option=document.createElement('option');option.value=p.id;option.textContent=p.vi+' — '+p.name;select.append(option);
  });
 }).catch(()=>{cards.textContent='Danh mục hiện không tải được. Vui lòng tải lại trang.'});
-document.getElementById('orderForm').addEventListener('submit',()=>{document.getElementById('orderStatus').textContent='Đang gửi yêu cầu trong tab mới. Chờ thông báo xác nhận từ hệ thống trước khi đóng tab.'});
+document.getElementById('orderForm').addEventListener('submit',()=>{document.getElementById('orderStatus').textContent='Đang mở trang xử lý yêu cầu trong tab mới. Chỉ coi là đã gửi khi trang đó hiển thị mã yêu cầu; nếu có lỗi, vui lòng chưa thanh toán.'});
 </script>
 </body></html>
