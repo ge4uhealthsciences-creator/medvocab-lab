@@ -43,7 +43,9 @@ function doPost(e) {
     auditOrderEvent_("ORDER_REJECTED", "", "Missing name/contact/consent or invalid product. productId=" + productId);
     return output_("Chưa gửi được yêu cầu. Vui lòng kiểm tra tên, thông tin liên hệ, sản phẩm và ô đồng ý xử lý thông tin.");
   }
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact) && contact.length < 8) {
+  const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+  const looksLikePhone = /^\+?[\d\s().-]{8,20}$/.test(contact);
+  if (!looksLikeEmail && !looksLikePhone) {
     auditOrderEvent_("ORDER_REJECTED", "", "Invalid contact format.");
     return output_("Vui lòng kiểm tra thông tin liên hệ.");
   }
