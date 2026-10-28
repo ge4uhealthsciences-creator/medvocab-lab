@@ -28,7 +28,8 @@ Deno.serve(async (req) => {
   try { body = await req.json(); } catch { return json({ error: "invalid_json" }, 400, origin); }
   const { visitor_id, session_id, path, referrer_host } = body;
   if (!isUuid(visitor_id) || !isUuid(session_id)) return json({ error: "invalid_visitor_or_session_id" }, 400, origin);
-  if (typeof path !== "string" || !path.startsWith("/") || path.length > 300 || path.startsWith("//") || path.includes("\\\\") || /[\\r\\n]/.test(path)) {
+  if (typeof path !== "string" || !path.startsWith("/") || path.length > 300 || path.startsWith("//") ||
+      path.includes(String.fromCharCode(92)) || path.includes(String.fromCharCode(13)) || path.includes(String.fromCharCode(10))) {
     return json({ error: "invalid_path" }, 400, origin);
   }
   if (referrer_host !== undefined && referrer_host !== null &&
