@@ -1,26 +1,36 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const headers = {
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
-  "Content-Type": "application/json",
-};
-function json(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers });
+function allowedOrigins(): string[] {
+  return (Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((v) => v.trim()).filter(Boolean);
+}
+function headers(origin: string | null) {
+  const h: Record<string, string> = {
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Vary": "Origin",
+    "Content-Type": "application/json",
+  };
+  if (origin && allowedOrigins().includes(origin)) h["Access-Control-Allow-Origin"] = origin;
+  return h;
+}
+function json(body: unknown, status = 200, origin: string | null = null) {
+  return new Response(JSON.stringify(body), { status, headers: headers(origin) });
 }
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers });
-  if (req.method !== "GET") return json({ error: "method_not_allowed" }, 405);
+  const origin = req.headers.get("Origin");
+  if (origin && !allowedOrigins().includes(origin)) return json({ error: "origin_not_allowed" }, 403, null);
+  if (req.method === "OPTIONS") return new Response("ok", { headers: headers(origin) });
+  if (req.method !== "GET") return json({ error: "method_not_allowed" }, 405, origin);
   const url = Deno.env.get("SUPABASE_URL");
   const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
   const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-  if (!url || !anonKey || !serviceRoleKey) return json({ error: "service_not_configured", status: "unavailable" }, 503);
+  if (!url || !anonKey || !serviceRoleKey) return json({ error: "service_not_configured", status: "unavailable" }, 503, origin);
   const authHeader = req.headers.get("Authorization");
-  if (!authHeader?.startsWith("Bearer ")) return json({ error: "unauthorized" }, 401);
+  if (!authHeader?.startsWith("Bearer ")) return json({ error: "unauthorized" }, 401, origin);
   const authClient = createClient(url, anonKey, { auth: { persistSession: false, autoRefreshToken: false } });
   const { data: userData, error: userError } = await authClient.auth.getUser(authHeader.slice(7));
-  if (userError || !userData.user) return json({ error: "unauthorized" }, 401);
-  if (userData.user.app_metadata?.role !== "admin") return json({ error: "forbidden" }, 403);
+  if (userError || !userData.user) return json({ error: "unauthorized" }, 401, origin);
+  if (userData.user.app_metadata?.role !== "admin") return json({ error: "forbidden" }, 403, origin);
   const adminClient = createClient(url, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } });
   const now = new Date();
   const start = new Date(now); start.setUTCHours(0, 0, 0, 0);
@@ -30,7 +40,7 @@ Deno.serve(async (req) => {
   });
   if (error) {
     console.error("admin_overview_query_failed", { code: error.code });
-    return json({ error: "analytics_unavailable", status: "unavailable" }, 503);
+    return json({ error: "analytics_unavailable", status: "unavailable" }, 503, origin);
   }
   const { error: auditError } = await adminClient.from("audit_events").insert({
     actor_id: userData.user.id, action: "admin.overview.read", target_type: "analytics",
@@ -38,5 +48,5 @@ Deno.serve(async (req) => {
     metadata: { range_start: start.toISOString(), range_end: end.toISOString() },
   });
   if (auditError) console.error("audit_write_failed", { code: auditError.code });
-  return json({ data, status: "ok" });
+  return json({ data, status: "ok" }, 200, origin);
 });
