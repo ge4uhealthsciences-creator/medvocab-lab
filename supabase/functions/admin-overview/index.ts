@@ -32,9 +32,12 @@ Deno.serve(async (req) => {
   if (userError || !userData.user) return json({ error: "unauthorized" }, 401, origin);
   if (userData.user.app_metadata?.role !== "admin") return json({ error: "forbidden" }, 403, origin);
   const adminClient = createClient(url, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } });
-  const now = new Date();
-  const start = new Date(now); start.setUTCHours(0, 0, 0, 0);
-  const end = new Date(start); end.setUTCDate(end.getUTCDate() + 1);
+  // Daily reports use the Vietnam calendar day, independent of the Edge Function runtime timezone.
+  const localDate = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh", year: "numeric", month: "2-digit", day: "2-digit",
+  }).format(new Date());
+  const start = new Date(`${localDate}T00:00:00+07:00`);
+  const end = new Date(new Date(start).getTime() + 24 * 60 * 60 * 1000);
   const { data, error } = await adminClient.rpc("ge4u_admin_overview", {
     p_start: start.toISOString(), p_end: end.toISOString(),
   });
