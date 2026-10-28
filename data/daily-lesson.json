@@ -1,41 +1,41 @@
 {
-  "title": "Oral Health Essentials",
-  "topic": "Dental English — oral tissues and tooth protection",
-  "discipline": "Dentistry",
-  "objective": "Identify three common terms used to describe the teeth and oral tissues.",
-  "date": "2026-10-27",
+  "title": "Respiratory Assessment: Symptoms and Measurements",
+  "topic": "Medical English — respiratory assessment",
+  "discipline": "Medicine",
+  "objective": "Distinguish a subjective breathing symptom from an abnormal breathing rate and a routine measurement.",
+  "date": "2026-10-28",
   "source_mode": "curated",
   "vocabulary": [
     {
-      "term": "gingiva",
-      "ipa": "/dʒɪnˈdʒaɪvə/",
-      "meaning": "nướu",
-      "definition": "The soft tissue surrounding the teeth.",
-      "example": "Healthy gingiva should not bleed easily."
+      "term": "dyspnea",
+      "ipa": "/dɪspˈniːə/",
+      "meaning": "khó thở",
+      "definition": "A person's subjective feeling of difficult or uncomfortable breathing.",
+      "example": "The patient reports dyspnea when walking upstairs."
     },
     {
-      "term": "enamel",
-      "ipa": "/ɪˈnæməl/",
-      "meaning": "men răng",
-      "definition": "The hard outer covering of a tooth.",
-      "example": "Enamel protects the tooth from wear."
+      "term": "tachypnea",
+      "ipa": "/ˌtækɪpˈniːə/",
+      "meaning": "thở nhanh",
+      "definition": "An abnormally rapid respiratory rate.",
+      "example": "The nurse notes tachypnea during the assessment."
     },
     {
-      "term": "plaque",
-      "ipa": "/plæk/",
-      "meaning": "mảng bám",
-      "definition": "A soft film of bacteria that forms on teeth.",
-      "example": "Daily brushing helps remove plaque."
+      "term": "respiratory rate",
+      "ipa": "/ˈrespərətɔːri reɪt/",
+      "meaning": "nhịp thở",
+      "definition": "The number of breaths a person takes per minute.",
+      "example": "Record the respiratory rate as part of the vital signs."
     }
   ],
   "quiz": {
-    "question": "Which term means the hard outer covering of a tooth?",
+    "question": "Which term means an abnormally rapid breathing rate?",
     "options": [
-      "Gingiva",
-      "Enamel",
-      "Plaque"
+      "Dyspnea",
+      "Tachypnea",
+      "Respiratory rate"
     ],
-    "answer": "Enamel",
-    "explanation": "Enamel is the hard outer covering of a tooth; gingiva means gums, and plaque is a bacterial film."
+    "answer": "Tachypnea",
+    "explanation": "Tachypnea means an abnormally rapid respiratory rate. Dyspnea is the subjective feeling of breathing difficulty; respiratory rate is the breaths-per-minute measurement."
   }
 }
