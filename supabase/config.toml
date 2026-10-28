@@ -1,0 +1,7 @@
+project_id = "ge4u-health-sciences"
+
+[functions.admin-overview]
+verify_jwt = false
+
+[functions.track-pageview]
+verify_jwt = false
