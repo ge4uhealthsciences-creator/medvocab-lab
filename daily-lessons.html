@@ -10,12 +10,16 @@
 </head>
 <body>
 <p><a href="./">← MedVocab Lab</a></p><span class="tag">GE4u · 12 disciplines</span>
-<h1 id="title">GE4u Daily Practice</h1><p class="muted" id="meta"></p>
-<section class="card"><h2>Learning objective</h2><p id="objective"></p></section>
-<section class="card"><h2>Key vocabulary</h2><div id="vocab"></div></section>
-<section class="card"><h2>Quick check</h2><p id="question"></p><div id="options"></div><p id="feedback" aria-live="polite"></p></section>
+<h1 id="title">GE4u Daily Practice: Dentistry</h1><p class="muted" id="meta">Built-in fallback · Dentistry · Oral health essentials</p>
+<section class="card"><h2>Learning objective</h2><p id="objective">Recognize common terms used to describe the teeth and oral tissues.</p></section>
+<section class="card"><h2>Key vocabulary</h2><div id="vocab">
+<div><h3>gingiva · /dʒɪnˈdʒaɪvə/</h3><p>Meaning: nướu</p><p>Definition: The soft tissue surrounding the teeth.</p><p>Example: Healthy gingiva should not bleed easily.</p></div>
+<div><h3>enamel · /ɪˈnæməl/</h3><p>Meaning: men răng</p><p>Definition: The hard outer covering of a tooth.</p><p>Example: Enamel protects the tooth from wear.</p></div>
+<div><h3>plaque · /plæk/</h3><p>Meaning: mảng bám</p><p>Definition: A soft film of bacteria that forms on teeth.</p><p>Example: Daily brushing helps remove plaque.</p></div>
+</div></section>
+<section class="card"><h2>Quick check</h2><p id="question">Which term means “men răng”?</p><div id="options"><button type="button">Gingiva</button><button type="button">Enamel</button><button type="button">Plaque</button></div><p id="feedback" aria-live="polite"></p></section>
 <p class="muted">A short daily practice session from GE4u's 12 health-sciences disciplines. For language learning; follow course materials for professional decisions.</p>
-<p class="muted status" id="sourceStatus">Loading lesson…</p>
+<p class="muted status" id="sourceStatus">Daily lesson ready · built-in fallback</p>
 <script>
 (function(){
 const lessons=[
@@ -42,12 +46,14 @@ document.getElementById('question').textContent=d.quiz?.question||'Review the vo
 (d.quiz?.options||[]).forEach(o=>{const b=document.createElement('button');b.textContent=o;b.onclick=()=>{document.getElementById('feedback').textContent=o===d.quiz.answer?'Correct! '+(d.quiz.explanation||''):'Not quite. Review the vocabulary and try again.'};opts.append(b)});
 document.getElementById('sourceStatus').textContent=source;
 }
-const dateKey=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const dateParts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).filter(p=>['year','month','day'].includes(p.type)).map(p=>[p.type,p.value]));
+const dateKey=`${dateParts.year}-${dateParts.month}-${dateParts.day}`;
 const [year,month,dayOfMonth]=dateKey.split('-').map(Number);
 const day=Math.floor(Date.UTC(year,month-1,dayOfMonth)/86400000);
 const fallback=lessons[((day%lessons.length)+lessons.length)%lessons.length];
 render({...fallback,date:dateKey},'Daily lesson ready · built-in fallback');
-fetch('./data/daily-lesson.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(d=>{if(d&&Array.isArray(d.vocabulary)&&d.vocabulary.length&&d.quiz&&Array.isArray(d.quiz.options)){render(d,'Daily lesson ready · repository data');}}).catch(()=>{});
+const isValidLesson=d=>Boolean(d&&d.date===dateKey&&typeof d.title==='string'&&d.title.trim()&&typeof d.topic==='string'&&d.topic.trim()&&typeof d.discipline==='string'&&d.discipline.trim()&&typeof d.objective==='string'&&d.objective.trim()&&typeof d.source_mode==='string'&&d.source_mode.trim()&&typeof d.channel_id==='string'&&d.channel_id.trim()&&Array.isArray(d.vocabulary)&&d.vocabulary.length===3&&d.vocabulary.every(x=>x&&['term','ipa','meaning','definition','example'].every(k=>typeof x[k]==='string'&&x[k].trim()))&&d.quiz&&typeof d.quiz.question==='string'&&d.quiz.question.trim()&&Array.isArray(d.quiz.options)&&d.quiz.options.length===3&&d.quiz.options.every(x=>typeof x==='string'&&x.trim())&&d.quiz.options.includes(d.quiz.answer)&&typeof d.quiz.explanation==='string'&&d.quiz.explanation.trim());
+fetch('./data/daily-lesson.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(d=>{if(isValidLesson(d)){render(d,'Daily lesson ready · repository data');}else{document.getElementById('sourceStatus').textContent='Daily lesson ready · built-in fallback (repository data stale or invalid)';}}).catch(()=>{document.getElementById('sourceStatus').textContent='Daily lesson ready · built-in fallback (repository data unavailable or invalid)';});
 })();
 </script>
 </body></html>
