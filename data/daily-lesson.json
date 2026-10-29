@@ -1,41 +1,42 @@
 {
-  "title": "Respiratory Assessment: Symptoms and Measurements",
-  "topic": "Medical English — respiratory assessment",
-  "discipline": "Medicine",
-  "objective": "Distinguish a subjective breathing symptom from an abnormal breathing rate and a routine measurement.",
-  "date": "2026-10-28",
-  "source_mode": "curated",
+  "title": "GE4u Daily Practice: Public Health English",
+  "topic": "Y tế công cộng · Public Health English",
+  "discipline": "Public Health English",
+  "channel_id": "public-health",
+  "objective": "Review three core terms and practise one knowledge check in Public Health English.",
+  "date": "2026-10-29",
+  "source_mode": "curated-channel-data",
   "vocabulary": [
     {
-      "term": "dyspnea",
-      "ipa": "/dɪspˈniːə/",
-      "meaning": "khó thở",
-      "definition": "A person's subjective feeling of difficult or uncomfortable breathing.",
-      "example": "The patient reports dyspnea when walking upstairs."
+      "term": "surveillance",
+      "ipa": "/sɜːˈveɪləns/",
+      "meaning": "giám sát dịch tễ",
+      "definition": "Ongoing collection and interpretation of health data.",
+      "example": "Surveillance can identify trends."
     },
     {
-      "term": "tachypnea",
-      "ipa": "/ˌtækɪpˈniːə/",
-      "meaning": "thở nhanh",
-      "definition": "An abnormally rapid respiratory rate.",
-      "example": "The nurse notes tachypnea during the assessment."
+      "term": "incidence",
+      "ipa": "/ˈɪnsɪdəns/",
+      "meaning": "tỷ lệ mới mắc",
+      "definition": "Occurrence of new cases in a population over time.",
+      "example": "The study measured incidence."
     },
     {
-      "term": "respiratory rate",
-      "ipa": "/ˈrespərətɔːri reɪt/",
-      "meaning": "nhịp thở",
-      "definition": "The number of breaths a person takes per minute.",
-      "example": "Record the respiratory rate as part of the vital signs."
+      "term": "prevalence",
+      "ipa": "/ˈprevələns/",
+      "meaning": "tỷ lệ hiện mắc",
+      "definition": "Proportion of a population with a condition at a given time.",
+      "example": "Prevalence was estimated from survey data."
     }
   ],
   "quiz": {
-    "question": "Which term means an abnormally rapid breathing rate?",
+    "question": "Which term is defined as: Ongoing collection and interpretation of health data.",
     "options": [
-      "Dyspnea",
-      "Tachypnea",
-      "Respiratory rate"
+      "incidence",
+      "prevalence",
+      "surveillance"
     ],
-    "answer": "Tachypnea",
-    "explanation": "Tachypnea means an abnormally rapid respiratory rate. Dyspnea is the subjective feeling of breathing difficulty; respiratory rate is the breaths-per-minute measurement."
+    "answer": "surveillance",
+    "explanation": "surveillance means Ongoing collection and interpretation of health data."
   }
 }
