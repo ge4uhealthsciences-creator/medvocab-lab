@@ -60,6 +60,7 @@ def build():
     return {
         "date": TODAY.isoformat(),
         "channel_id": channel_id,
+        "discipline": channel["name"],
         "topic": f"{channel['vi']} · {channel['name']}",
         "title": f"GE4u Daily Practice: {channel['name']}",
         "objective": f"Review three core terms and practise one knowledge check in {channel['name']}.",
