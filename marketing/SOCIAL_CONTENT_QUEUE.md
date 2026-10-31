@@ -1,57 +1,97 @@
-# GE4u Social Content Queue
+# GE4u Organic Reach Queue — 31 October–6 November 2026
 
-> Internal operating file. No passwords, OTPs, API tokens, customer data, or private analytics belong here.
-> Status: DRAFTS ONLY — no social accounts are connected and no posts are being published automatically.
+**Current phase: views and reach only.** This file contains draft ideas, not scheduled or published posts.
 
-## Brand and safety rules
-- Publish only as GE4u / MedVocab Lab brand accounts, never as the owner's personal profile.
-- Organic posting only until the owner explicitly approves an ad budget.
-- Do not fabricate testimonials, student outcomes, medical claims, scarcity, or revenue claims.
-- Do not send unsolicited bulk DMs, scrape personal data, or generate fake engagement.
-- Keep educational content accurate; this is language-learning content, not patient-specific medical advice.
-- Before any live scheduling, confirm account ownership, platform permissions, and the exact destination profile.
+## Operating rules
 
-## 14-day starter queue
+- Optimize for views, reach, non-follower reach, watch time, average view duration, completion rate, replays, shares and organic follower growth.
+- Keep content educational, concise, entertaining and useful. Use curiosity hooks, quick demonstrations, relatable learner problems and answer-reveal quizzes.
+- Do not add sales, product, course, material, price, purchase, registration, inbox or checkout language or links.
+- Do not use paid promotion. Do not fabricate outcomes, testimonials or medical claims.
+- Rotate across the full 12-discipline catalogue. Avoid consecutive Dentistry-heavy content.
+- Facebook is excluded until the owner re-enables it.
+- Do not schedule Instagram, Pinterest, TikTok or YouTube content until a real, usable, platform-compliant image/video asset exists.
+- Do not publish or schedule a draft without checking recent published and scheduled posts for duplication.
 
-| Day | Pillar | Draft concept | Format | CTA | Status |
-|---|---|---|---|---|---|
-| 1 | Dental vocabulary | Five dental English terms learners often confuse | Carousel | Try the GE4u sample lesson | DRAFT |
-| 2 | Quick quiz | Choose the best follow-up question for tooth sensitivity | Threads text poll | Reply A/B/C | DRAFT |
-| 3 | Study tip | Learn terminology in phrases, not isolated words | Short post | Open a sample lesson | DRAFT |
-| 4 | Clinical communication | Ask when pain started and how long it lasts | 20–30 sec video | Practise a case | DRAFT |
-| 5 | Language distinction | Sign vs symptom vs diagnosis | Threads text post | Share an example | DRAFT |
-| 6 | Product walkthrough | What is inside Dental English Starter Pack? | Carousel/screen recording | View the product page | DRAFT |
-| 7 | Audience research | Which is hardest: vocabulary, listening, or speaking? | Question post | Comment voluntarily | DRAFT |
-| 8 | Dental vocabulary | Five terms used during a dental examination | Carousel | Take a quiz | DRAFT |
-| 9 | Quick quiz | Complete a patient-history question | Threads post | Reply with your answer | DRAFT |
-| 10 | Teaching tip | A five-minute ESP warm-up for dentistry students | Short post | Save for class | DRAFT |
-| 11 | Clinical communication | Explain a dental examination in clear English | Short video | Try case practice | DRAFT |
-| 12 | Product education | Use vocabulary + quiz in a 10-minute study session | Short video | Open GE4u | DRAFT |
-| 13 | Feedback | Share genuine user feedback only with permission | Text/visual | Send voluntary feedback | HOLD — requires real feedback |
-| 14 | Recap | Five useful phrases from the two-week series | Carousel | Try the sample lesson | DRAFT |
+## Observed baseline — 24–31 October 2026
 
-## First ready-to-review post
+Metricool reports six published Threads posts with **194 total post views** and **four recorded likes**. Threads gained one follower in the period. No replies, reposts or shares were recorded in the retrieved post metrics.
 
-**Question for dental English learners:** A patient says, “My tooth hurts when I drink cold water.” What would be the best follow-up question?
+- Highest raw views: 56 on a Dentistry post that used promotional framing; do not reproduce that framing.
+- Strongest education-only examples: a Dentistry vocabulary quiz (40 views) and a Pharmacy pharmacokinetics quiz (36 views).
+- Lowest observed post: a Medical English dyspnea/tachypnea distinction (6 views). Test a sharper opening and a more concrete question; the small sample does not establish causation.
 
-A. “When did it start, and how long does the pain last?”  
-B. “You definitely need a root canal.”  
-C. “It is nothing. Ignore it.”
+Recent published topic mix: Dentistry (3), Pharmacy (1), Medicine (1), Nursing (1).
 
-**Best answer: A.** Ask about the symptom before drawing conclusions. Practise more health-sciences English with GE4u's sample learning materials.
+## Existing Threads queue — do not duplicate
 
-CTA: Visit https://leminhtrung-lmt.github.io/medvocab-lab/ge4u-health-sciences.html
+- 31 October, 09:00: Nutrition English — insufficient intake vs nutrient deficiency — PENDING.
+- 1 November, 09:00: Public Health English — incidence vs prevalence — PENDING.
+- 2 November, 09:00: Traditional Medicine English — herb vs herbal medicine — PENDING.
 
-## Automation activation checklist
-- [ ] Create a dedicated brand identity on each platform.
-- [ ] Do not use or connect the owner's personal Facebook or Threads profile as the publishing identity.
-- [ ] If a platform requires an administrator identity, stop and confirm an acceptable compliant setup before proceeding.
-- [ ] Connect a scheduler or official API using minimum permissions.
-- [ ] Store tokens only in the scheduler's secure authorization flow or GitHub Actions secrets; never in this repository.
-- [ ] Test one post privately/draft-first on each platform.
-- [ ] Confirm destination profile, text, media, link, and schedule before enabling unattended publishing.
-- [ ] Keep paid ads disabled unless the owner separately approves a budget.
-- [ ] Review clicks, sample lesson visits, order requests, verified purchases, refunds, and revenue weekly.
+These are pending, not published. No new post is scheduled by this plan.
 
-## Current state
-Content drafts can be prepared here. This file does not connect accounts, publish posts, accept payments, or guarantee sales.
+## Next draft ideas
+
+### 1. Threads — Midwifery English
+
+- **Target audience:** Midwifery students and health-sciences English learners.
+- **First 1–3 second hook:** “Antenatal, intrapartum, postnatal — can you put these three stages in order?”
+- **Format:** Text-only three-option quiz; reveal the answer after the audience has had time to respond.
+- **Discipline:** Midwifery.
+- **Primary metric:** Post views; secondary: replies and reposts.
+- **Engagement prompt:** Ask readers to reply with the correct sequence.
+- **Timing note:** Metricool does not provide a Threads best-time recommendation. The existing 09:00 queue is a historical slot, not a proven optimum.
+
+### 2. Instagram Reels — Psychology English
+
+- **Target audience:** Psychology and other health-sciences students.
+- **First 1–3 second hook:** “Stress and anxiety are not interchangeable — can you spot the difference?”
+- **Format:** 15–20 second vertical Reel; two clear definitions, large on-screen labels, burned-in subtitles and a one-question answer reveal.
+- **Discipline:** Psychology.
+- **Primary metric:** Non-follower reach; secondary: average watch time and completion rate.
+- **Timing experiment:** Wednesday 4 November at 10:00 or Friday 6 November at 10:00 (Asia/Ho_Chi_Minh), based on Metricool's current recommendation ranking.
+
+### 3. Pinterest — Social Work English
+
+- **Target audience:** Social-work students and learners of client-centred healthcare communication.
+- **First 1–3 second hook:** “A referral is one step — not the whole support process.”
+- **Format:** 2:3 vertical infographic showing assessment → referral → follow-up, with one concise example at each stage.
+- **Discipline:** Social Work.
+- **Primary metric:** Impressions; secondary: saves.
+- **Asset requirement:** A finished vertical image and a confirmed Pinterest board are required before scheduling.
+
+### 4. TikTok — Pharmaceutical Chemistry English
+
+- **Target audience:** Pharmaceutical chemistry and pharmacy students.
+- **First 1–3 second hook:** “Solubility and dissolution sound similar — but they answer different questions.”
+- **Format:** 18–22 second vertical micro-demonstration with a simple dissolving example, fast cuts and readable subtitles.
+- **Discipline:** Pharmaceutical Chemistry.
+- **Primary metric:** Average watch time and full-video-watched rate; secondary: views, replays and shares.
+- **Timing experiment:** Thursday 5 November at 10:00 (Asia/Ho_Chi_Minh), based on Metricool's current recommendation ranking.
+
+### 5. YouTube Shorts — Pharmaceutical Technology English
+
+- **Target audience:** Pharmaceutical technology and pharmacy students.
+- **First 1–3 second hook:** “Which dosage form contains particles dispersed in a liquid?”
+- **Format:** 25–30 second Short with three labelled dosage-form examples and a quick answer reveal.
+- **Discipline:** Pharmaceutical Technology.
+- **Primary metric:** Views and average view duration; secondary: percentage viewed and shares.
+- **Timing experiment:** Wednesday 4 November at 16:00 (Asia/Ho_Chi_Minh), based on Metricool's current recommendation ranking.
+
+## Timing and measurement notes
+
+Metricool's current best-time recommendations cover 31 October–6 November 2026. The highest-ranked windows retrieved were:
+
+- Instagram: Friday 10:00; Wednesday 10:00; Thursday 10:00.
+- YouTube: Wednesday 16:00; Thursday 16:00; Wednesday 15:00.
+- TikTok: Thursday 10:00; Wednesday 10:00; Wednesday 18:00.
+- Threads and Pinterest: no best-time recommendation is available from the connected Metricool endpoint.
+
+These are recommendation scores, not predicted views. Compare each new post with the same platform and format after publication. Track views/reach first, then average watch time, completion, replays, shares and follower change where the platform exposes them.
+
+## Media and publishing status
+
+No usable image or video files were found in the repository tree during this review. The five draft ideas above are not scheduled. Threads can be text-only; the four visual-platform ideas remain blocked until their required media exists.
+
+Metricool brand timezone: Asia/Ho_Chi_Minh. Connected reporting platforms: Threads, Instagram, Pinterest, TikTok and YouTube. Facebook remains excluded.
