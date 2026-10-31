@@ -11,7 +11,7 @@
 const NOTIFICATION_EMAIL = "ge4u.health.sciences@gmail.com";
 const PRODUCT_PRICE_VND = 99000;
 const PRODUCTS = {
-  dentistry: {name: "Dental English Learning Pack", vi: "Răng Hàm Mặt"},
+  dentistry: {name: "GE4u Dental English Starter Pack", vi: "Răng Hàm Mặt"},
   medical: {name: "Medical English Learning Pack", vi: "Y khoa"},
   pharmacy: {name: "Pharmacy English Learning Pack", vi: "Dược học"},
   nursing: {name: "Nursing English Learning Pack", vi: "Điều dưỡng"},
@@ -69,22 +69,55 @@ function doPost(e) {
     return output_("Chưa ghi nhận được đơn hàng do lỗi kết nối Google Sheet. Vui lòng chưa thanh toán. Mã tham chiếu: " + orderId + ". Người quản trị cần kiểm tra Script Properties và tab Orders.");
   }
 
-  const subject = "[GE4u] Yêu cầu mua mới " + orderId;
+  const timeText = Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss");
+  const priceText = PRODUCT_PRICE_VND.toLocaleString("vi-VN") + " VND";
+  const subject = "[GE4u] Yêu cầu đặt mua mới · " + orderId;
+
+  // Plain-text fallback for email clients that do not render HTML.
   const body = [
-    "Có khách hàng vừa gửi yêu cầu mua sản phẩm GE4u.", "",
+    "GE4u — YÊU CẦU ĐẶT MUA MỚI", "",
     "Mã yêu cầu: " + orderId,
-    "Ngành: " + product.vi,
     "Sản phẩm: " + product.name,
-    "Giá tham khảo: " + PRODUCT_PRICE_VND.toLocaleString("vi-VN") + " VND",
+    "Ngành: " + product.vi,
+    "Giá tham khảo: " + priceText,
     "Tên khách: " + name,
-    "Thông tin liên hệ khách cung cấp: " + contact,
-    "Thời điểm: " + Utilities.formatDate(now, "Asia/Ho_Chi_Minh", "dd/MM/yyyy HH:mm:ss"),
-    "", "Đây chỉ là yêu cầu đặt mua, KHÔNG phải xác nhận thanh toán.",
-    "Hãy kiểm tra tài khoản ngân hàng trực tiếp trước khi giao tài liệu."
+    "Thông tin liên hệ: " + contact,
+    "Thời điểm: " + timeText,
+    "",
+    "TRẠNG THÁI: CHƯA XÁC NHẬN THANH TOÁN.",
+    "Đây chỉ là yêu cầu đặt mua. Vui lòng tự đối chiếu giao dịch ngân hàng trước khi giao tài liệu."
   ].join("\n");
 
+  // Compact HTML email with a clear status banner and readable order summary.
+  const htmlBody = [
+    '<!doctype html><html lang="vi"><head><meta charset="utf-8"></head>',
+    '<body style="margin:0;padding:24px;background:#f4f6f8;font-family:Arial,Helvetica,sans-serif;color:#17212b;">',
+    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;margin:0 auto;background:#ffffff;border:1px solid #e5e9ef;border-radius:12px;overflow:hidden;">',
+    '<tr><td style="padding:22px 26px;background:#123b5d;color:#ffffff;">',
+    '<div style="font-size:12px;letter-spacing:1.5px;font-weight:700;opacity:.85;">GE4u · ORDER NOTIFICATION</div>',
+    '<div style="font-size:22px;font-weight:700;margin-top:8px;">Yêu cầu đặt mua mới</div>',
+    '<div style="font-size:13px;margin-top:6px;color:#dce8f1;">Mã yêu cầu: ' + escapeHtml_(orderId) + '</div>',
+    '</td></tr>',
+    '<tr><td style="padding:22px 26px 8px;">',
+    '<div style="display:inline-block;padding:7px 11px;border-radius:6px;background:#fff4df;color:#8a5700;font-size:12px;font-weight:700;">CHƯA XÁC NHẬN THANH TOÁN</div>',
+    '<p style="font-size:14px;line-height:1.6;color:#526170;margin:14px 0 18px;">Có khách hàng vừa gửi yêu cầu mua sản phẩm GE4u. Thông tin tiếp nhận như sau:</p>',
+    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.5;">',
+    '<tr><td style="padding:10px 0;color:#718096;width:38%;border-bottom:1px solid #edf0f3;">Sản phẩm</td><td style="padding:10px 0;font-weight:700;border-bottom:1px solid #edf0f3;">' + escapeHtml_(product.name) + '</td></tr>',
+    '<tr><td style="padding:10px 0;color:#718096;border-bottom:1px solid #edf0f3;">Ngành</td><td style="padding:10px 0;border-bottom:1px solid #edf0f3;">' + escapeHtml_(product.vi) + '</td></tr>',
+    '<tr><td style="padding:10px 0;color:#718096;border-bottom:1px solid #edf0f3;">Giá tham khảo</td><td style="padding:10px 0;font-size:17px;font-weight:700;color:#123b5d;border-bottom:1px solid #edf0f3;">' + escapeHtml_(priceText) + '</td></tr>',
+    '<tr><td style="padding:10px 0;color:#718096;border-bottom:1px solid #edf0f3;">Tên khách</td><td style="padding:10px 0;border-bottom:1px solid #edf0f3;">' + escapeHtml_(name) + '</td></tr>',
+    '<tr><td style="padding:10px 0;color:#718096;border-bottom:1px solid #edf0f3;">Thông tin liên hệ</td><td style="padding:10px 0;border-bottom:1px solid #edf0f3;"><a href="mailto:' + escapeHtml_(contact) + '" style="color:#1769aa;text-decoration:none;">' + escapeHtml_(contact) + '</a></td></tr>',
+    '<tr><td style="padding:10px 0;color:#718096;">Thời điểm</td><td style="padding:10px 0;">' + escapeHtml_(timeText) + ' (GMT+7)</td></tr>',
+    '</table>',
+    '<div style="margin-top:20px;padding:14px 16px;background:#fff8ec;border-left:4px solid #e3a12f;border-radius:4px;font-size:13px;line-height:1.6;color:#694b18;">',
+    '<strong>Lưu ý:</strong> Đây chỉ là yêu cầu đặt mua, KHÔNG phải xác nhận thanh toán. Hãy kiểm tra tài khoản ngân hàng trực tiếp và đối chiếu đúng số tiền/nội dung giao dịch trước khi giao tài liệu.',
+    '</div>',
+    '<p style="font-size:12px;color:#98a2ad;margin:22px 0 0;">Thông báo tự động từ hệ thống GE4u. Vui lòng chỉ phản hồi khách qua thông tin liên hệ khách đã cung cấp.</p>',
+    '</td></tr></table></body></html>'
+  ].join("");
+
   try {
-    MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, name: "GE4u Order Notice"});
+    MailApp.sendEmail({to: NOTIFICATION_EMAIL, subject: subject, body: body, htmlBody: htmlBody, name: "GE4u Order Notice"});
     auditOrderEvent_("ORDER_EMAIL_SENT", orderId, "MailApp accepted notification for " + NOTIFICATION_EMAIL);
   } catch (err) {
     auditOrderEvent_("ORDER_EMAIL_FAILED", orderId, String(err.message || err));
