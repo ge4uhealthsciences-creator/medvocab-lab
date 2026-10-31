@@ -1,42 +1,42 @@
 {
-  "title": "GE4u Daily Practice: Psychology English",
-  "topic": "Tâm lý học · Psychology English",
-  "discipline": "Psychology English",
-  "channel_id": "psychology",
-  "objective": "Review three core terms and practise one knowledge check in Psychology English.",
-  "date": "2026-10-30",
+  "title": "GE4u Daily Practice: Nutrition English",
+  "topic": "Dinh dưỡng · Nutrition English",
+  "discipline": "Nutrition English",
+  "channel_id": "nutrition",
+  "objective": "Review three core terms and practise one knowledge check in Nutrition English.",
+  "date": "2026-10-31",
   "source_mode": "curated-channel-data",
   "vocabulary": [
     {
-      "term": "well-being",
-      "ipa": "/ˌwel ˈbiːɪŋ/",
-      "meaning": "sức khỏe và trạng thái an lạc",
-      "definition": "A state involving health and positive functioning.",
-      "example": "Social connection can support well-being."
+      "term": "diet therapy",
+      "ipa": "/ˈdaɪət ˌθerəpi/",
+      "meaning": "liệu pháp dinh dưỡng",
+      "definition": "Dietary changes used to help manage a condition.",
+      "example": "Diet therapy was tailored to the patient."
     },
     {
-      "term": "cognition",
-      "ipa": "/kɒɡˈnɪʃən/",
-      "meaning": "nhận thức",
-      "definition": "Mental processes involved in acquiring and using knowledge.",
-      "example": "Attention and memory are aspects of cognition."
+      "term": "macronutrient",
+      "ipa": "/ˌmækrəʊˈnjuːtriənt/",
+      "meaning": "chất dinh dưỡng đa lượng",
+      "definition": "A nutrient needed in relatively large amounts.",
+      "example": "Protein is a macronutrient."
     },
     {
-      "term": "behaviour",
-      "ipa": "/bɪˈheɪvjə/",
-      "meaning": "hành vi",
-      "definition": "Observable actions or responses of a person.",
-      "example": "The study examined health-related behaviour."
+      "term": "micronutrient",
+      "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
+      "meaning": "vi chất dinh dưỡng",
+      "definition": "A nutrient needed in small amounts.",
+      "example": "Iron is an essential micronutrient."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A state involving health and positive functioning.",
+    "question": "Which term is defined as: Dietary changes used to help manage a condition.",
     "options": [
-      "cognition",
-      "behaviour",
-      "well-being"
+      "macronutrient",
+      "micronutrient",
+      "diet therapy"
     ],
-    "answer": "well-being",
-    "explanation": "well-being means A state involving health and positive functioning."
+    "answer": "diet therapy",
+    "explanation": "diet therapy means Dietary changes used to help manage a condition."
   }
 }
