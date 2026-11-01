@@ -1,4 +1,4 @@
-# GE4u Organic Reach Queue — 31 October–6 November 2026
+# GE4u Organic Reach Queue — 1–8 November 2026
 
 **Current phase: views and reach only.** This file contains draft ideas, not scheduled or published posts.
 
@@ -23,13 +23,18 @@ Metricool reports six published Threads posts with **194 total post views** and 
 
 Recent published topic mix: Dentistry (3), Pharmacy (1), Medicine (1), Nursing (1).
 
-## Existing Threads queue — do not duplicate
+## Threads publishing status — checked 1 November
 
-- 31 October, 09:00: Nutrition English — insufficient intake vs nutrient deficiency — PENDING.
-- 1 November, 09:00: Public Health English — incidence vs prevalence — PENDING.
-- 2 November, 09:00: Traditional Medicine English — herb vs herbal medicine — PENDING.
+- 27 October: Dentistry — two educational posts — PUBLISHED.
+- 28 October: Pharmacy and Dentistry — PUBLISHED.
+- 29 October: Medical English — PUBLISHED.
+- 30 October: Nursing English — PUBLISHED.
+- 31 October, 09:00: Nutrition English — insufficient intake vs nutrient deficiency — PUBLISHED.
+- 1 November, 09:00: Public Health English — incidence vs prevalence — PENDING; not counted as published.
+- 2 November, 09:00: Traditional Medicine English — herb vs herbal medicine — PENDING; not counted as published.
+- 3 November, 09:00: Psychology English — stress, coping strategy and resilience — PENDING; scheduled by Daily Operations; not counted as published.
 
-These are pending, not published. No new post is scheduled by this plan.
+The 3 November Psychology text quiz is distinct from the draft Instagram Reel. Do not copy it verbatim to another platform.
 
 ## Next draft ideas
 
@@ -81,17 +86,19 @@ These are pending, not published. No new post is scheduled by this plan.
 
 ## Timing and measurement notes
 
-Metricool's current best-time recommendations cover 31 October–6 November 2026. The highest-ranked windows retrieved were:
+Metricool's current best-time recommendations cover 1–8 November 2026. The highest-ranked windows retrieved were:
 
-- Instagram: Friday 10:00; Wednesday 10:00; Thursday 10:00.
-- YouTube: Wednesday 16:00; Thursday 16:00; Wednesday 15:00.
-- TikTok: Thursday 10:00; Wednesday 10:00; Wednesday 18:00.
+- Instagram: Friday 6 November 10:00; Wednesday 4 November 10:00; Thursday 5 November 10:00.
+- YouTube: Wednesday 4 November 16:00; Thursday 5 November 16:00; Friday 6 November 16:00.
+- TikTok: Thursday 5 November 10:00; Wednesday 4 November 10:00; Friday 6 November 10:00.
 - Threads and Pinterest: no best-time recommendation is available from the connected Metricool endpoint.
 
 These are recommendation scores, not predicted views. Compare each new post with the same platform and format after publication. Track views/reach first, then average watch time, completion, replays, shares and follower change where the platform exposes them.
 
 ## Media and publishing status
 
-No usable image or video files were found in the repository tree during this review. The five draft ideas above are not scheduled. Threads can be text-only; the four visual-platform ideas remain blocked until their required media exists.
+No usable image or video files were found in the repository tree during this review. Instagram, Pinterest, TikTok and YouTube have no scheduled posts in the checked 25 October–8 November window, and no usable recent post-level performance rows were returned for them. Threads can be text-only; visual-platform drafts remain blocked until their required media exists.
+
+Metricool status in the checked window: Threads — 7 PUBLISHED, 3 PENDING; Facebook — 5 ERROR, 2 PENDING (excluded until the owner re-enables it). PENDING is not counted as published. No Instagram, Pinterest, TikTok or YouTube schedule records were returned.
 
 Metricool brand timezone: Asia/Ho_Chi_Minh. Connected reporting platforms: Threads, Instagram, Pinterest, TikTok and YouTube. Facebook remains excluded.
