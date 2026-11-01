@@ -33,13 +33,15 @@ Recent published topic mix: Dentistry (3), Pharmacy (1), Medicine (1), Nursing (
 - 1 November, 09:00: Public Health English — incidence vs prevalence — PENDING; not counted as published.
 - 2 November, 09:00: Traditional Medicine English — herb vs herbal medicine — PENDING; not counted as published.
 - 3 November, 09:00: Psychology English — stress, coping strategy and resilience — PENDING; scheduled by Daily Operations; not counted as published.
+- 4 November, 09:00: Midwifery English — antenatal → intrapartum → postnatal sequence quiz — PENDING; scheduled by Daily Operations; not counted as published.
 
-The 3 November Psychology text quiz is distinct from the draft Instagram Reel. Do not copy it verbatim to another platform.
+The 3 November Psychology text quiz is distinct from the draft Instagram Reel. The 4 November Midwifery quiz is text-only for Threads. Do not copy either post verbatim to another platform.
 
 ## Next draft ideas
 
-### 1. Threads — Midwifery English
+### 1. Threads — Midwifery English (scheduled for 4 November; do not duplicate)
 
+- **Status:** PENDING in Metricool; scheduled for 4 November at 09:00 (Asia/Ho_Chi_Minh).
 - **Target audience:** Midwifery students and health-sciences English learners.
 - **First 1–3 second hook:** “Antenatal, intrapartum, postnatal — can you put these three stages in order?”
 - **Format:** Text-only three-option quiz; reveal the answer after the audience has had time to respond.
