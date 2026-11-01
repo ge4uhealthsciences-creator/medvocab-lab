@@ -1,42 +1,42 @@
 {
-  "title": "GE4u Daily Practice: Nutrition English",
-  "topic": "Dinh dưỡng · Nutrition English",
-  "discipline": "Nutrition English",
-  "channel_id": "nutrition",
-  "objective": "Review three core terms and practise one knowledge check in Nutrition English.",
-  "date": "2026-10-31",
+  "title": "GE4u Daily Practice: Dental English",
+  "topic": "Răng Hàm Mặt · Dental English",
+  "discipline": "Dental English",
+  "channel_id": "dentistry",
+  "objective": "Recognize common terms for oral conditions and describe them accurately in basic dental English.",
+  "date": "2026-11-01",
   "source_mode": "curated-channel-data",
   "vocabulary": [
     {
-      "term": "diet therapy",
-      "ipa": "/ˈdaɪət ˌθerəpi/",
-      "meaning": "liệu pháp dinh dưỡng",
-      "definition": "Dietary changes used to help manage a condition.",
-      "example": "Diet therapy was tailored to the patient."
+      "term": "halitosis",
+      "ipa": "/ˌhælɪˈtəʊsɪs/",
+      "meaning": "hôi miệng",
+      "definition": "An unpleasant odour of the breath.",
+      "example": "The patient asked about persistent halitosis."
     },
     {
-      "term": "macronutrient",
-      "ipa": "/ˌmækrəʊˈnjuːtriənt/",
-      "meaning": "chất dinh dưỡng đa lượng",
-      "definition": "A nutrient needed in relatively large amounts.",
-      "example": "Protein is a macronutrient."
+      "term": "toothache",
+      "ipa": "/ˈtuːθeɪk/",
+      "meaning": "đau răng",
+      "definition": "Pain in or around a tooth.",
+      "example": "The patient reported a severe toothache at night."
     },
     {
-      "term": "micronutrient",
-      "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
-      "meaning": "vi chất dinh dưỡng",
-      "definition": "A nutrient needed in small amounts.",
-      "example": "Iron is an essential micronutrient."
+      "term": "oral examination",
+      "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
+      "meaning": "khám miệng",
+      "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
+      "example": "An oral examination is part of the initial dental assessment."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Dietary changes used to help manage a condition.",
+    "question": "Which structure is the hard outer covering of the crown of a tooth?",
     "options": [
-      "macronutrient",
-      "micronutrient",
-      "diet therapy"
+      "Enamel",
+      "Pulp",
+      "Gingiva"
     ],
-    "answer": "diet therapy",
-    "explanation": "diet therapy means Dietary changes used to help manage a condition."
+    "answer": "Enamel",
+    "explanation": "Enamel covers the crown and protects the underlying tooth tissues."
   }
 }
