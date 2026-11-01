@@ -25,7 +25,7 @@ Recent published topic mix: Dentistry (3), Pharmacy (1), Medicine (1), Nursing (
 
 ## Threads publishing status — checked 1 November
 
-- 27 October: Dentistry — two educational posts — PUBLISHED.
+- 27 October: Dentistry — two posts (one used promotional framing; do not repeat) — PUBLISHED.
 - 28 October: Pharmacy and Dentistry — PUBLISHED.
 - 29 October: Medical English — PUBLISHED.
 - 30 October: Nursing English — PUBLISHED.
@@ -101,6 +101,6 @@ These are recommendation scores, not predicted views. Compare each new post with
 
 No usable image or video files were found in the repository tree during this review. Instagram, Pinterest, TikTok and YouTube have no scheduled posts in the checked 25 October–8 November window, and no usable recent post-level performance rows were returned for them. Threads can be text-only; visual-platform drafts remain blocked until their required media exists.
 
-Metricool status in the checked window: Threads — 7 PUBLISHED, 3 PENDING; Facebook — 5 ERROR, 2 PENDING (excluded until the owner re-enables it). PENDING is not counted as published. No Instagram, Pinterest, TikTok or YouTube schedule records were returned.
+Metricool status in the checked window: Threads — 7 PUBLISHED, 4 PENDING; Facebook — 5 ERROR, 2 PENDING (excluded until the owner re-enables it). PENDING is not counted as published. No Instagram, Pinterest, TikTok or YouTube schedule records were returned.
 
 Metricool brand timezone: Asia/Ho_Chi_Minh. Connected reporting platforms: Threads, Instagram, Pinterest, TikTok and YouTube. Facebook remains excluded.
