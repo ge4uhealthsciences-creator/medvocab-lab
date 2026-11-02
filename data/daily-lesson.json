@@ -1,42 +1,42 @@
 {
-  "title": "GE4u Daily Practice: Dental English",
-  "topic": "Răng Hàm Mặt · Dental English",
-  "discipline": "Dental English",
-  "channel_id": "dentistry",
-  "objective": "Recognize common terms for oral conditions and describe them accurately in basic dental English.",
-  "date": "2026-11-01",
+  "title": "GE4u Daily Practice: Medical English",
+  "topic": "Y khoa · Medical English",
+  "discipline": "Medical English",
+  "channel_id": "medical",
+  "objective": "Review three core terms and practise one knowledge check in Medical English.",
+  "date": "2026-11-02",
   "source_mode": "curated-channel-data",
   "vocabulary": [
     {
-      "term": "halitosis",
-      "ipa": "/ˌhælɪˈtəʊsɪs/",
-      "meaning": "hôi miệng",
-      "definition": "An unpleasant odour of the breath.",
-      "example": "The patient asked about persistent halitosis."
+      "term": "symptom",
+      "ipa": "/ˈsɪmptəm/",
+      "meaning": "triệu chứng",
+      "definition": "A change in health noticed by a patient.",
+      "example": "The patient described each symptom."
     },
     {
-      "term": "toothache",
-      "ipa": "/ˈtuːθeɪk/",
-      "meaning": "đau răng",
-      "definition": "Pain in or around a tooth.",
-      "example": "The patient reported a severe toothache at night."
+      "term": "diagnosis",
+      "ipa": "/ˌdaɪəɡˈnəʊsɪs/",
+      "meaning": "chẩn đoán",
+      "definition": "Identification of a disease or condition.",
+      "example": "The diagnosis followed the examination."
     },
     {
-      "term": "oral examination",
-      "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
-      "meaning": "khám miệng",
-      "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
-      "example": "An oral examination is part of the initial dental assessment."
+      "term": "medical history",
+      "ipa": "/ˈmedɪkəl ˈhɪstəri/",
+      "meaning": "tiền sử bệnh",
+      "definition": "Information about past and current health.",
+      "example": "The clinician reviewed the medical history."
     }
   ],
   "quiz": {
-    "question": "Which structure is the hard outer covering of the crown of a tooth?",
+    "question": "Which term is defined as: A change in health noticed by a patient.",
     "options": [
-      "Enamel",
-      "Pulp",
-      "Gingiva"
+      "symptom",
+      "diagnosis",
+      "medical history"
     ],
-    "answer": "Enamel",
-    "explanation": "Enamel covers the crown and protects the underlying tooth tissues."
+    "answer": "symptom",
+    "explanation": "symptom means A change in health noticed by a patient."
   }
 }
