@@ -244,6 +244,25 @@ def main():
     th = env("THREADS_TOKEN", "THREADS_USER_ID")
     yt = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
     print("Enabled:", ", ".join(k for k, v in [("instagram", ig), ("facebook", fb), ("threads", th), ("youtube", yt)] if v) or "none (no secrets set)")
+    # connection check: read-only calls that prove each token works, without posting anything
+    if th:
+        try:
+            me = http("GET", f"{THREADS}/{th[1]}?fields=id,username&access_token={urllib.parse.quote(th[0])}")
+            print("Threads connected as @" + me.get("username", "?"))
+        except Exception as e:
+            print("Threads token check FAILED:", str(e)[:300])
+    if fb:
+        try:
+            pg = http("GET", f"{GRAPH}/{fb[1]}?fields=name&access_token={urllib.parse.quote(fb[0])}")
+            print("Facebook Page connected:", pg.get("name"))
+        except Exception as e:
+            print("Facebook token check FAILED:", str(e)[:300])
+    if ig:
+        try:
+            u = http("GET", f"{GRAPH}/{ig[1]}?fields=username&access_token={urllib.parse.quote(ig[0])}")
+            print("Instagram connected as @" + u.get("username", "?"))
+        except Exception as e:
+            print("Instagram token check FAILED:", str(e)[:300])
 
     workdir = pathlib.Path(tempfile.mkdtemp())
     plan = load_plan(date.isoformat(), workdir)
