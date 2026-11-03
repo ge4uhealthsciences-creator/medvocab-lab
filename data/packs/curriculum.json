@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "note": "GE4u learning-pack roadmap, ordered from basic sciences to clinical practice. Each pack targets ~100 terms plus the shared word-parts section (data/word-parts.json). status: ready | planned.",
+  "disciplines": [
+    {"id": "medical", "vi": "Y khoa", "en": "Medical English", "levels": [
+      {"level": 1, "vi": "Y cơ sở", "packs": [
+        {"id": "medical-anatomy", "vi": "Giải phẫu", "en": "Anatomy", "status": "ready"},
+        {"id": "medical-physiology", "vi": "Sinh lý", "en": "Physiology", "status": "planned"},
+        {"id": "medical-biochemistry", "vi": "Hóa sinh", "en": "Biochemistry", "status": "planned"},
+        {"id": "medical-microbiology", "vi": "Vi sinh – Ký sinh trùng", "en": "Microbiology and Parasitology", "status": "planned"}
+      ]},
+      {"level": 2, "vi": "Tiền lâm sàng", "packs": [
+        {"id": "medical-pathophysiology", "vi": "Sinh lý bệnh – Miễn dịch", "en": "Pathophysiology and Immunology", "status": "planned"},
+        {"id": "medical-pharmacology", "vi": "Dược lý", "en": "Pharmacology", "status": "planned"},
+        {"id": "medical-clinical-skills", "vi": "Triệu chứng học – Khám lâm sàng", "en": "Clinical Skills and Examination", "status": "planned"}
+      ]},
+      {"level": 3, "vi": "Lâm sàng", "packs": [
+        {"id": "medical-internal-medicine", "vi": "Nội khoa", "en": "Internal Medicine", "status": "ready"},
+        {"id": "medical-surgery", "vi": "Ngoại khoa", "en": "Surgery", "status": "planned"},
+        {"id": "medical-obstetrics-gynaecology", "vi": "Sản phụ khoa", "en": "Obstetrics and Gynaecology", "status": "planned"},
+        {"id": "medical-paediatrics", "vi": "Nhi khoa", "en": "Paediatrics", "status": "planned"}
+      ]}
+    ]}
+  ]
+}

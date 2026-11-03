@@ -84,9 +84,11 @@ footer{max-width:880px;margin:auto;padding:0 16px 30px;color:var(--muted);font-s
   <button role="tab" data-tab="match">Kéo-thả nối nghĩa</button>
   <button role="tab" data-tab="quiz">Trắc nghiệm</button>
   <button role="tab" data-tab="gaps">Điền từ</button>
+  <button role="tab" data-tab="parts">Từ nguyên</button>
   <button role="tab" data-tab="list">Bảng từ</button>
 </div></nav>
 <main>
+<div class="row" id="topicRow" style="margin-bottom:12px"><label class="muted" for="topic">Chủ đề:</label><select id="topic" class="btn" style="flex:1;min-width:0"></select></div>
 <section id="home">
   <div class="card">
     <h2 style="margin:0 0 6px">Tiến độ của bạn</h2>
@@ -146,6 +148,16 @@ footer{max-width:880px;margin:auto;padding:0 16px 30px;color:var(--muted);font-s
   </div>
 </section>
 
+<section id="parts" hidden>
+  <div class="card">
+    <h2 style="margin:0 0 4px">Từ nguyên y khoa</h2>
+    <p class="muted" style="margin:0 0 10px">Nắm tiền tố, gốc từ và hậu tố để tự đoán nghĩa hàng trăm thuật ngữ mới. Ví dụ: <b>hepat/o</b> (gan) + <b>-itis</b> (viêm) = <b>hepatitis</b> (viêm gan).</p>
+    <div class="row"><button class="btn pri" id="pQuizBtn">Luyện tập từ nguyên (10 câu)</button></div>
+    <div id="pQuiz" hidden style="margin-top:12px"><div class="row" style="justify-content:space-between"><b id="pPos"></b><span class="muted" id="pScore"></span></div><div class="q" id="pText"></div><div class="opts" id="pOpts"></div><div class="fb" id="pFb"></div><div class="row"><button class="btn pri" id="pNext" disabled>Câu tiếp →</button></div></div>
+  </div>
+  <div id="pList"></div>
+</section>
+
 <section id="list" hidden>
   <input class="search" id="lSearch" placeholder="Tìm thuật ngữ hoặc nghĩa…" aria-label="Tìm">
   <div class="list" id="lItems"></div>
@@ -157,14 +169,15 @@ footer{max-width:880px;margin:auto;padding:0 16px 30px;color:var(--muted);font-s
 <script>
 (() => {
 const D = JSON.parse(document.getElementById('data').textContent);
-const T = D.terms, KEY = 'ge4u-pack-' + D.id;
+const ALL = D.terms, KEY = 'ge4u-pack-' + D.id, P = D.parts || [], GROUPS = D.groups || [];
+let T = ALL;
 const $ = (s) => document.querySelector(s);
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
 const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 let S = {known: [], best: {}};
 try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} renderHome(); };
-$('#count').textContent = T.length;
+$('#count').textContent = ALL.length;
 
 // speech
 let voice = null;
@@ -178,8 +191,8 @@ document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click',
 document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(b.dataset.go)));
 
 function renderHome() {
-  $('#sKnown').textContent = S.known.length + '/' + T.length;
-  $('#pbar').style.width = (100 * S.known.length / T.length) + '%';
+  $('#sKnown').textContent = S.known.length + '/' + ALL.length;
+  $('#pbar').style.width = (100 * S.known.length / ALL.length) + '%';
   const pct = (k) => S.best[k] == null ? '–' : S.best[k] + '%';
   $('#sMatch').textContent = pct('match'); $('#sQuiz').textContent = pct('quiz'); $('#sGap').textContent = pct('gap');
 }
@@ -205,8 +218,9 @@ $('#onlyNew').addEventListener('change', () => { ci = 0; deckBuild(); });
 $('#cKnow').addEventListener('click', () => { const t = deck[ci].term; S.known = S.known.includes(t) ? S.known.filter(x => x !== t) : S.known.concat(t); save(); ci = (ci + 1) % deck.length; card(); });
 
 // matching (pointer drag + tap)
-const rounds = []; { const order = shuffle(T); for (let i = 0; i < order.length; i += 5) rounds.push(order.slice(i, i + 5)); if (rounds.length > 1 && rounds[rounds.length - 1].length < 3) { const last = rounds.pop(); rounds[rounds.length - 1].push(...last); } }
-let ri = 0, mRight = 0, mTried = 0, selChip = null, totalOk = 0, totalTried = 0;
+let rounds = [];
+function buildRounds() { rounds = []; const order = shuffle(T); for (let i = 0; i < order.length; i += 5) rounds.push(order.slice(i, i + 5)); if (rounds.length > 1 && rounds[rounds.length - 1].length < 3) { const last = rounds.pop(); rounds[rounds.length - 1].push(...last); } ri = 0; totalOk = 0; totalTried = 0; }
+var ri = 0, mRight = 0, mTried = 0, selChip = null, totalOk = 0, totalTried = 0;
 function matchRound() {
   const set = rounds[ri]; mRight = 0; mTried = 0; selChip = null;
   $('#mRound').textContent = 'Vòng ' + (ri + 1) + '/' + rounds.length; $('#mScore').textContent = '';
@@ -258,7 +272,7 @@ $('#mNext').addEventListener('click', () => {
 // quiz
 let Q = [], qi = 0, qOk = 0;
 function quizBuild() {
-  Q = shuffle(T).map(t => { const others = shuffle(T.filter(x => x.term !== t.term)).slice(0, 3); return {t, opts: shuffle([t, ...others])}; });
+  Q = shuffle(T).slice(0, 20).map(t => { const others = shuffle((T.length >= 4 ? T : ALL).filter(x => x.term !== t.term)).slice(0, 3); return {t, opts: shuffle([t, ...others])}; });
   qi = 0; qOk = 0; quizShow();
 }
 function quizShow() {
@@ -292,9 +306,10 @@ $('#qNext').addEventListener('click', () => {
 $('#qRestart').addEventListener('click', quizBuild);
 
 // gap fill
-const GAP = T.filter(t => t.example.toLowerCase().includes(t.term.toLowerCase()));
+let GAP = [];
 let G = [], gShown = false;
 function gapBuild() {
+  GAP = T.filter(t => t.example.toLowerCase().includes(t.term.toLowerCase()));
   G = shuffle(GAP).slice(0, 8); gShown = false;
   $('#gBank').replaceChildren(...shuffle(G).map(g => el('span', null, g.term)));
   const list = $('#gList'); list.replaceChildren(); $('#gFb').textContent = '';
@@ -316,7 +331,6 @@ $('#gCheck').addEventListener('click', () => {
 });
 $('#gShow').addEventListener('click', () => { gShown = true; } ); $('#gShow').addEventListener('click', () => document.querySelectorAll('#gList .gap').forEach(i => { if (!i.classList.contains('ok')) { i.value = i.dataset.ans; i.classList.remove('no'); } }));
 $('#gNew').addEventListener('click', gapBuild);
-if (!GAP.length) document.querySelector('[data-tab=gaps]').hidden = true;
 
 // word list
 function listRender() {
@@ -332,7 +346,38 @@ function listRender() {
 $('#lSearch').addEventListener('input', listRender);
 document.querySelector('[data-tab=list]').addEventListener('click', listRender);
 
-renderHome(); deckBuild(); matchRound(); quizBuild(); gapBuild(); listRender();
+// topics
+const sel = $('#topic');
+sel.append(new Option('Tất cả (' + ALL.length + ' từ)', ''));
+GROUPS.forEach((g, i) => sel.append(new Option((i + 1) + '. ' + g.vi + ' (' + ALL.filter(t => t.g === i).length + ')', String(i))));
+if (!GROUPS.length) $('#topicRow').hidden = true;
+sel.addEventListener('change', () => { T = sel.value === '' ? ALL : ALL.filter(t => t.g === Number(sel.value)); ci = 0; deckBuild(); buildRounds(); matchRound(); quizBuild(); gapBuild(); listRender(); });
+
+// word parts
+const TYPES = [['prefix', 'Tiền tố'], ['root', 'Gốc từ'], ['suffix', 'Hậu tố']];
+TYPES.forEach(([k, label]) => {
+  const items = P.filter(p => p.type === k); if (!items.length) return;
+  const wrap = el('div'); wrap.append(el('h3', null, label + ' (' + items.length + ')'));
+  const box = el('div', 'list');
+  items.forEach(p => { const r = el('div', 'li'); r.append(el('span', 't', p.part), el('span', 'i', p.vi + ' · ' + p.en), el('span', 'd', 'Ví dụ: ' + p.example + ' = ' + p.example_vi)); const b = el('button', 'say', '🔊'); b.setAttribute('aria-label', 'Nghe ' + p.example); b.addEventListener('click', () => speak(p.example)); r.append(b); box.append(r); });
+  wrap.append(box); $('#pList').append(wrap);
+});
+if (!P.length) document.querySelector('[data-tab=parts]').hidden = true;
+let PQ = [], pi = 0, pOk = 0;
+const pShow = () => {
+  const q = PQ[pi]; $('#pPos').textContent = 'Câu ' + (pi + 1) + '/' + PQ.length; $('#pScore').textContent = pOk + ' đúng';
+  $('#pText').textContent = '“' + q.p.part + '” có nghĩa là gì?'; $('#pFb').textContent = ''; $('#pNext').disabled = true;
+  const box = $('#pOpts'); box.replaceChildren();
+  q.opts.forEach(o => { const b = el('button', 'opt', o.vi + ' (' + o.en + ')'); b.type = 'button'; b.addEventListener('click', () => {
+    if (!$('#pNext').disabled) return; const good = o.part === q.p.part; if (good) pOk++;
+    box.querySelectorAll('.opt').forEach((x, k) => { x.disabled = true; if (q.opts[k].part === q.p.part) x.classList.add('ok'); }); if (!good) b.classList.add('no');
+    $('#pFb').textContent = (good ? '✓ ' : '✗ ') + q.p.part + ' = ' + q.p.vi + '. Ví dụ: ' + q.p.example + ' (' + q.p.example_vi + ')'; $('#pNext').disabled = false; $('#pScore').textContent = pOk + ' đúng';
+  }); box.append(b); });
+};
+$('#pQuizBtn').addEventListener('click', () => { PQ = shuffle(P).slice(0, 10).map(p => ({p, opts: shuffle([p, ...shuffle(P.filter(x => x.part !== p.part && x.type === p.type)).slice(0, 3)])})); pi = 0; pOk = 0; $('#pQuiz').hidden = false; pShow(); });
+$('#pNext').addEventListener('click', () => { if (pi < PQ.length - 1) { pi++; pShow(); } else { $('#pText').textContent = 'Hoàn thành: ' + pOk + '/' + PQ.length; $('#pOpts').replaceChildren(); $('#pNext').disabled = true; best('parts', Math.round(100 * pOk / PQ.length)); } });
+
+renderHome(); deckBuild(); buildRounds(); matchRound(); quizBuild(); gapBuild(); listRender();
 })();
 </script>
 </body>
