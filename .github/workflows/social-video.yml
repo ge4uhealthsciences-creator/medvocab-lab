@@ -2,12 +2,12 @@ name: Social video render
 # Separate from the daily-lesson/Pages workflow: a failure here never blocks lessons or the website.
 on:
   schedule:
-    # 21:30 UTC = 04:30 Asia/Ho_Chi_Minh; renders the coming day's 12 videos
-    - cron: '30 21 * * *'
+    # 14:30 UTC = 21:30 Asia/Ho_Chi_Minh: renders TOMORROW's 36 videos the evening before
+    - cron: '30 14 * * *'
   workflow_dispatch:
     inputs:
       date:
-        description: 'Date to render (YYYY-MM-DD, Asia/Ho_Chi_Minh). Empty = today.'
+        description: 'Date to render (YYYY-MM-DD, Asia/Ho_Chi_Minh). Empty = tomorrow.'
         required: false
 permissions:
   contents: write
@@ -39,7 +39,7 @@ jobs:
         id: plan
         run: |
           D="${{ github.event.inputs.date }}"
-          if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date +%F); fi
+          if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date -d tomorrow +%F); fi
           echo "date=$D" >> "$GITHUB_OUTPUT"
           python social-video/ge4u_video.py plan --date "$D" --out "out/$D"
       - name: Render 36 videos
