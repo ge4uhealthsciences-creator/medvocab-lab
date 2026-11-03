@@ -1582,7 +1582,7 @@ let mode=null,busy=true,keys={},joy={x:0,z:0},P=null,near=null,curF=1,score=0,do
 // ===================== 3D: VẬT LIỆU & HÌNH KHỐI =====================
 const scene=new THREE.Scene();scene.background=new THREE.Color(0xbfe0f0);
 const cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,300);
-const ren=new THREE.WebGLRenderer({antialias:true});ren.setPixelRatio(Math.min(devicePixelRatio,2));ren.setSize(innerWidth,innerHeight);document.body.prepend(ren.domElement);
+const LOWP=matchMedia('(pointer:coarse)').matches||(navigator.hardwareConcurrency||8)<=4;const ren=new THREE.WebGLRenderer({antialias:!LOWP,powerPreference:'high-performance'});ren.setPixelRatio(Math.min(devicePixelRatio,LOWP?1.5:2));ren.setSize(innerWidth,innerHeight);document.body.prepend(ren.domElement);
 scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,.95));const dl=new THREE.DirectionalLight(0xffffff,.55);dl.position.set(8,20,10);scene.add(dl);
 const MC={},mat=(c,o)=>{const k=c+'_'+(o||1);return MC[k]||(MC[k]=new THREE.MeshLambertMaterial(o?{color:c,transparent:true,opacity:o}:{color:c}))};
 let GRP=null;const add=m=>{(GRP||scene).add(m);return m};
@@ -1746,7 +1746,7 @@ const inFrame=(()=>{try{return window.self!==window.top}catch(e){return true}})(
 const micErr=c=>c=='not-allowed'||c=='service-not-allowed'?(inFrame?'The microphone is blocked because the game is embedded. Open the game in its own Chrome tab.':'Microphone permission is off. Tap the 🔒 icon in the address bar → Allow microphone.'):c=='network'?'Chrome speech recognition needs an Internet connection.':c=='no-speech'?'I heard nothing. Speak louder and closer to the microphone.':c=='audio-capture'?'No microphone found on this device.':'Not clear, please try again ('+c+').';
 function scoreVoice(m,a){VS.n++;VS.s+=m.r;const d=document.createElement('div');d.className='note find';d.innerHTML='🎤 You said: "'+esc(a)+'"<br>Match '+Math.round(m.r*100)+'% '+(m.r>=.9?'🌟 Excellent!':m.r>=.7?'👍 Good':'— practise the underlined words')+'<br><span style="font-size:13px">'+m.html+'</span>';$('chat').appendChild(d);scrollDlg();hud()}
 // Nhại giọng: bấm 🎤 dưới câu của nhân vật để nói lại theo
-function shadow(t,btn){btn.textContent='🔴 nghe…';listen(alts=>{const best=alts.map(a=>({a,m:match(t,a)})).sort((x,y)=>y.m.r-x.m.r)[0];btn.textContent='🎤 Repeat after me';scoreVoice(best.m,best.a)},()=>btn.textContent='🎤 Repeat after me')}
+function shadow(t,btn){btn.textContent='🔴 listening…';listen(alts=>{const best=alts.map(a=>({a,m:match(t,a)})).sort((x,y)=>y.m.r-x.m.r)[0];btn.textContent='🎤 Repeat after me';scoreVoice(best.m,best.a)},()=>btn.textContent='🎤 Repeat after me')}
 function bub(ic,t,me){const d=document.createElement('div');d.className='b'+(me?' me':'');d.innerHTML='<span>'+ic+'</span><div class="tx">'+t+'</div>';$('chat').appendChild(d);
   if(isEn(t)){const sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.onclick=()=>say(clean(t));d.querySelector('.tx').appendChild(sp);
     if(voiceOn&&SR){const sb=document.createElement('button');sb.className='sh';sb.textContent='🎤 Repeat after me';sb.onclick=()=>shadow(clean(t),sb);d.querySelector('.tx').appendChild(sb)}
@@ -2012,7 +2012,8 @@ if(location.protocol!='https:')connectLive();
 
 // ===================== VÒNG LẶP =====================
 let last=0,tt=0;
-function loop(ms){requestAnimationFrame(loop);const dt=Math.min((ms-last)/1000,.05);last=ms;tt+=dt;
+let paused=false;document.addEventListener('visibilitychange',()=>{paused=document.hidden;if(!paused){last=performance.now();requestAnimationFrame(loop)}});
+function loop(ms){if(paused)return;requestAnimationFrame(loop);const dt=Math.min((ms-last)/1000,.05);last=ms;tt+=dt;
   const px=P?P.position.x:99,pz=P?P.position.z:99;
   NPCF[curF].concat(pat&&mode=='D'?[pat]:[]).forEach(g=>{if(!g.visible)return;const dx=px-g.position.x,dz=pz-g.position.z,d=Math.hypot(dx,dz);let a=0;
     if(d<7){a=Math.atan2(dx,dz)-g.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));a=Math.max(-.9,Math.min(.9,a))}
