@@ -80,6 +80,7 @@ html,body{font-family:"Plus Jakarta Sans","Trebuchet MS","Segoe UI",sans-serif;c
   <button class="big" id="mV" style="text-align:center"></button>
   <button class="big" id="mRep" style="text-align:center"></button>
   <button class="big" id="mEasy" style="text-align:center"></button>
+  <button class="big" id="mSex" style="text-align:center"></button>
   <button class="big" id="mK" style="text-align:center">🔧 Test speaker & microphone</button>
   <div id="diag" style="display:none;background:#fff;color:#10283a;border-radius:12px;padding:10px 12px;width:min(380px,92vw);text-align:left;font-size:14px"></div>
   <button class="big" id="mT">🚶 Explore the hospital<small>Walk freely around all 3 floors</small></button>
@@ -1565,18 +1566,32 @@ window.onerror=(m,u,l)=>{const p=document.createElement('p');p.style.cssText='co
 if(typeof THREE==='undefined'){window.onerror('Could not load three.js (check your connection)',0,0)}
 // ---- Đọc to tiếng Anh: chọn giọng en-US, tránh lỗi cancel+speak của Chrome, mở khóa âm thanh trên iPhone ----
 let VOICE=null,soundOn=true;
-let VOICE2=null;
-function pickVoice(){try{const vs=speechSynthesis.getVoices(),en=vs.filter(v=>/^en/i.test(v.lang)),us=en.filter(v=>/en[-_]US/i.test(v.lang));
-  VOICE=us[0]||en[0]||null;
-  // the player's own lines use a second, different English voice when the device has one
-  VOICE2=en.find(v=>v!==VOICE&&/en[-_](GB|AU|IE|IN)/i.test(v.lang))||en.find(v=>v!==VOICE)||VOICE}catch(e){}}
+let VOICE2=null,VF=[],VM=[],VX=[];
+// Voices are sorted into female / male by their names so every character speaks with a voice that matches who they are.
+const FEMV=/female|woman|zira|aria|jenny|samantha|victoria|karen|moira|tessa|fiona|serena|susan|hazel|libby|sonia|emma|ava\b|allison|michelle|natasha|clara|joanna|salli|kendra|kimberly|ivy|amy|nicky|catherine|veena|heera|neerja|ana\b|jane|sara|google us english/i,
+  MALV=/\bmale\b|\bman\b|david|mark|guy|daniel|alex\b|fred|\btom\b|aaron|arthur|oliver|ryan|christopher|eric|george|james|rishi|matthew|justin|joey|brian|gordon|ravi|prabhat|william|thomas|liam|andrew|steffan|roger/i;
+function pickVoice(){try{const vs=speechSynthesis.getVoices(),en=vs.filter(v=>/^en/i.test(v.lang)).sort((a,b)=>(/en[-_]US/i.test(b.lang)-/en[-_]US/i.test(a.lang))||(/natural|online|google/i.test(b.name)-/natural|online|google/i.test(a.name)));
+  VM=en.filter(v=>MALV.test(v.name)&&!/female/i.test(v.name));VF=en.filter(v=>!VM.includes(v)&&FEMV.test(v.name));VX=en.filter(v=>!VM.includes(v)&&!VF.includes(v));
+  VOICE=VF[0]||VM[0]||en[0]||null;VOICE2=VM[0]||VF[1]||VOICE}catch(e){}}
+// sex: 'f' | 'm'; alt picks a second voice of the same sex (so the player never sounds like the person they talk to)
+function voiceFor(sex,alt){const L=sex=='m'?VM:VF,O=sex=='m'?VF:VM;if(L.length)return{v:L[alt&&L.length>1?1:0],p:alt&&L.length<2?(sex=='m'?.9:1.12):1};
+  const v=VX[alt?1:0]||VX[0]||O[0]||VOICE;return{v,p:sex=='m'?.72:1.3}}
 try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(e){}
 // say(text, {me: player's voice, slow: 0.65 rate, q: queue after what is playing instead of interrupting})
-const say=window.say=(t,o)=>{o=o||{};if(!soundOn||!window.speechSynthesis)return;try{const go=()=>{const u=new SpeechSynthesisUtterance(t);const v=o.me?VOICE2:VOICE;u.lang=(v&&v.lang)||'en-US';if(v)u.voice=v;u.rate=o.slow?.65:.9;u.pitch=o.me&&v===VOICE?1.15:1;speechSynthesis.speak(u);speechSynthesis.resume()};
+const say=window.say=(t,o)=>{o=o||{};if(!soundOn||!window.speechSynthesis)return;try{const go=()=>{const u=new SpeechSynthesisUtterance(t);
+    const me=o.me?(typeof meSex=='function'?meSex():'f'):null,sx=me||o.sex||(typeof TALK_SEX!='undefined'&&TALK_SEX)||'f';
+    const npc=typeof TALK_SEX!='undefined'&&TALK_SEX?TALK_SEX:null,vp=voiceFor(sx,!!me&&npc==sx),v=vp.v;
+    u.lang=(v&&v.lang)||'en-US';if(v)u.voice=v;u.rate=(o.slow?.65:.9)*(o.old?.92:1);u.pitch=vp.p*(o.old?.92:1);speechSynthesis.speak(u);speechSynthesis.resume()};
   if(!o.q&&(speechSynthesis.speaking||speechSynthesis.pending)){speechSynthesis.cancel();setTimeout(go,80)}else go()}catch(e){}};
 addEventListener('pointerdown',function un(){try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}},{once:true});
 const shuffle=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const F_IC=/👩|👵|🤰|🤱|👧|🧕|💁‍♀️|🙋‍♀️|♀/u,M_IC=/👨|👴|🧔|👦|👮|💁‍♂️|🙋‍♂️|♂/u;
+const sexIc=ic=>!ic?null:F_IC.test(ic)?'f':M_IC.test(ic)?'m':null;
+const sexWho=w=>{w=String(w||'').trim();const m=w.match(/\((M[rs]s?\.?|Miss)[ )]/);if(m)w=m[1];return/^(Mrs|Ms|Miss|Mẹ|Bà|Chị|Cô)\b/i.test(w)?'f':/^(Mr|Ông|Anh|Bố|Chú)\b/i.test(w)?'m':null};
+const sexOf=cs=>cs?(sexIc(cs.pic)||sexWho(cs.who)):null;
+const oldOf=cs=>!!cs&&(/👵|👴/u.test(cs.pic||'')||+(String(cs.who||'').match(/,\s*(\d+)/)||[])[1]>=60);
+let TALK_SEX=null,TALK_OLD=false,ME_SEX='f';
 let PACE=380;const later=(f,ms)=>setTimeout(f,ms==null?PACE:ms);
 try{window.CASES=CASES;window.RCASES=RCASES}catch(e){}
 const save=(k,v)=>{try{localStorage.setItem('ge4u-h3d-'+k,JSON.stringify(v))}catch(e){};try{window.GE4U_SAVE&&window.GE4U_SAVE(k,v)}catch(e){}};
@@ -1595,37 +1610,53 @@ scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,.85));const dl=new THREE.D
 scene.fog=new THREE.Fog(0xbfe0f0,45,140);
 if(!LOWP){ren.shadowMap.enabled=true;ren.shadowMap.type=THREE.PCFSoftShadowMap;dl.castShadow=true;dl.shadow.mapSize.set(2048,2048);Object.assign(dl.shadow.camera,{left:-18,right:18,top:18,bottom:-18,near:1,far:60});dl.shadow.bias=-.0008}
 const SHADOW_GEO=new THREE.CircleGeometry(.42,20),SHADOW_MAT=new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:.22,depthWrite:false});
+// realistic touch: ACES tone mapping + a tiled floor texture
+ren.toneMapping=THREE.ACESFilmicToneMapping;ren.toneMappingExposure=1.05;
+const TILE=(()=>{const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,128,128);
+  for(let i=0;i<40;i++){x.fillStyle='rgba(120,130,140,'+(Math.random()*.05)+')';x.fillRect(Math.random()*128,Math.random()*128,2+Math.random()*10,2+Math.random()*10)}
+  x.strokeStyle='rgba(90,105,120,.35)';x.lineWidth=2;x.strokeRect(1,1,126,126);const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4;return t})();
+const floorMat=(c,w,d)=>{const t=TILE.clone();t.needsUpdate=true;t.repeat.set(w/1.2,d/1.2);return new THREE.MeshLambertMaterial({color:c,map:t})};
+const tiled=(w,h,d,c,x,y,z)=>{const m=new THREE.Mesh(BX(w,h,d),floorMat(c,w,d));m.position.set(x,y,z);m.receiveShadow=true;return add(m)};
 const MC={},mat=(c,o)=>{const k=c+'_'+(o||1);return MC[k]||(MC[k]=new THREE.MeshLambertMaterial(o?{color:c,transparent:true,opacity:o}:{color:c}))};
 let GRP=null;const add=m=>{(GRP||scene).add(m);return m};
 const BX=(w,h,d)=>new THREE.BoxGeometry(w,h,d),SPH=r=>new THREE.SphereGeometry(r,LOWP?14:20,LOWP?10:14);
 const box=(w,h,d,c,x,y,z,o)=>{const m=new THREE.Mesh(BX(w,h,d),mat(c,o));m.position.set(x,y,z);return add(m)};
 const cyl=(rt,rb,h,c,x,y,z)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,12),mat(c));m.position.set(x,y,z);return add(m)};
 function put(p,geo,c,x,y,z){const m=new THREE.Mesh(geo,mat(c));m.position.set(x,y,z);p.add(m);return m}
-function canvasSprite(w,h,draw,sx,sy){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'));const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c)}));s.scale.set(sx,sy,1);return s}
+function canvasSprite(w,h,draw,sx,sy){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'));const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),toneMapped:false}));s.scale.set(sx,sy,1);return s}
 function label(t1,t2,bg,sc){return canvasSprite(512,160,x=>{x.fillStyle=bg;x.fillRect(0,0,512,160);x.fillStyle='#fff';x.textAlign='center';x.font='bold 50px sans-serif';x.fillText(t1,256,70);x.font='32px sans-serif';x.fillText(t2,256,124)},4.4*(sc||1),1.4*(sc||1))}
 function bang(){return canvasSprite(64,64,x=>{x.fillStyle='#f5a30a';x.beginPath();x.arc(32,32,30,0,7);x.fill();x.fillStyle='#10283a';x.font='bold 44px sans-serif';x.textAlign='center';x.fillText('!',32,46)},.8,.8)}
 const SK=[0xf1c9a5,0xe0ac82,0xb97c53,0x8d5a3a],HR=[0x2b1d16,0x1c1c1c,0x5a3a22,0xb0b0b0,0xc58b3c];
-function limb(len,w,c,x,y,eg,ec,ez){const p=new THREE.Group();put(p,BX(w,len,w),c,0,-len/2,0);put(p,eg,ec,0,-len,ez);p.position.set(x,y,0);return p}
+function limb(len,w,c,x,y,eg,ec,ez){const p=new THREE.Group();put(p,new THREE.CylinderGeometry(w*.55,w*.45,len,10),c,0,-len/2,0);put(p,eg,ec,0,-len,ez);p.position.set(x,y,0);return p}
 const PRE={doc:[0xffffff,0x2b4a63],nurse:[0xf48fb1,0xf48fb1],pat:[0x7fb8e6,0x6b8fb0],ph:[0xa8e6bf,0x2b4a63],rec:[0x1d3557,0x1d3557],vis:[0x888888,0x3a3a4a],tech:[0xd6eaf8,0x2b4a63],cash:[0xf7dc6f,0x3a3a4a],park:[0xf39c12,0x2c3e50],surg:[0x5dade2,0x5dade2]};
 // Nhân vật: mặt, tóc, tai, tay, giày; đồ nghề theo nghề nghiệp
-function person(role,shirt){const [sh,pa]=PRE[role]||PRE.vis,skin=rnd(SK),hair=rnd(HR),g=new THREE.Group();shirt=shirt||sh;
-  put(g,BX(.72,.95,.4),shirt,0,1.35,0);
-  if(role=='doc'||role=='ph'||role=='tech')put(g,BX(.78,.55,.45),shirt,0,.95,0);
+const TORSO=new THREE.CylinderGeometry(.36,.3,.95,18),TORSO_F=new THREE.CylinderGeometry(.31,.3,.95,18),COAT=new THREE.CylinderGeometry(.33,.4,.6,18),SKIRT=new THREE.CylinderGeometry(.3,.44,.62,18);
+function person(role,shirt,sex,old){const [sh,pa]=PRE[role]||PRE.vis,skin=rnd(SK),g=new THREE.Group();shirt=shirt||sh;
+  sex=sex||(role=='nurse'||role=='rec'?(Math.random()<.8?'f':'m'):rnd(['f','m']));g.sex=sex;g.old=!!old;const F=sex=='f';
+  const hair=old?rnd([0xc9c9c9,0xa8a8a8,0xe0e0e0]):rnd(HR.slice(0,3).concat(F?[0x7a4a2a]:[]));
+  const tor=put(g,F?TORSO_F:TORSO,shirt,0,1.35,0);tor.scale.z=.6;
+  if(role=='doc'||role=='ph'||role=='tech'){const c=put(g,COAT,shirt,0,.95,0);c.scale.z=.62}
+  else if(F&&(role=='vis'||role=='pat'||role=='cash')&&Math.random()<.6){const k=put(g,SKIRT,pa,0,.82,0);k.scale.z=.65}
   put(g,new THREE.CylinderGeometry(.09,.09,.14,8),skin,0,1.87,0);
   const hd=new THREE.Group();hd.position.y=2.08;g.add(hd);g.head=hd;
   put(hd,SPH(.27),skin,0,0,0).scale.y=1.05;
-  [-1,1].forEach(k=>{put(hd,SPH(.055),0xffffff,k*.1,.03,.225);put(hd,SPH(.03),0x1b1b1b,k*.1,.03,.27);put(hd,BX(.11,.02,.02),hair,k*.1,.12,.25);put(hd,SPH(.05),skin,k*.27,0,0);
-    if(role=='ph'||role=='tech')put(hd,new THREE.TorusGeometry(.06,.008,6,12),0x222222,k*.1,.03,.285)});
-  put(hd,SPH(.04),skin,0,-.03,.27);put(hd,BX(.1,.025,.02),0xb5534f,0,-.11,.255);
+  [-1,1].forEach(k=>{put(hd,SPH(.055),0xffffff,k*.1,.03,.225);put(hd,SPH(.03),0x1b1b1b,k*.1,.03,.27);put(hd,BX(F?.1:.12,F?.015:.025,.02),F?0x3a2a22:hair,k*.1,.12,.25);put(hd,SPH(.05),skin,k*.27,0,0);
+    if(F)put(hd,BX(.07,.012,.01),0x111111,k*.1,.075,.27);
+    if(F)put(hd,SPH(.035),0xf0a0a0,k*.15,-.06,.22).scale.z=.3;
+    if(role=='ph'||role=='tech'||(old&&Math.random()<.6))put(hd,new THREE.TorusGeometry(.06,.008,6,12),0x222222,k*.1,.03,.285)});
+  put(hd,SPH(.04),skin,0,-.03,.27);put(hd,BX(F?.09:.1,F?.03:.025,.02),F?0xc2445a:0xa0524d,0,-.11,.255);
+  if(old)[-.06,.06].forEach(y=>put(hd,BX(.16,.008,.01),0x9a7a66,0,.17+y*.3,.262));
   put(hd,new THREE.SphereGeometry(.29,14,10,0,6.3,0,1.35),hair,0,.03,-.01);
-  const sty=Math.floor(Math.random()*3);if(sty==1)put(hd,BX(.52,.55,.14),hair,0,-.12,-.2);if(sty==2)put(hd,SPH(.11),hair,0,.3,-.12);
+  if(F){if(role=='nurse'||role=='surg'||old||Math.random()<.45)put(hd,SPH(.13),hair,0,.12,-.27);else{put(hd,SPH(.3),hair,0,-.13,-.1).scale.set(1.02,1.3,.85)}}
+  else if(!old&&Math.random()<.25)put(hd,new THREE.SphereGeometry(.25,14,8,0,6.3,1.75,1.4),hair,0,-.02,.03);
   if(role=='nurse')put(hd,BX(.38,.09,.3),0xffffff,0,.28,.02);
   if(role=='surg'){put(hd,new THREE.SphereGeometry(.3,12,8,0,6.3,0,1.4),0x5dade2,0,.04,0);put(hd,BX(.36,.16,.05),0xaed6f1,0,-.08,.27)}
   if(role=='park'){put(hd,BX(.6,.08,.6),0x2c3e50,0,.26,.04);put(g,BX(.74,.12,.42),0xf1f1f1,0,1.5,0)}
   if(role=='rec'||role=='cash')put(hd,BX(.04,.04,.2),0x111111,.3,-.05,.1);
   if(role=='doc'){const st=put(g,new THREE.TorusGeometry(.2,.018,6,16),0x333333,0,1.72,.05);st.rotation.x=1.3;put(g,SPH(.05),0xb0b0b0,0,1.3,.22);put(g,BX(.16,.1,.02),0xffffff,-.2,1.55,.21);put(g,BX(.12,.03,.02),0x1d70b8,-.2,1.55,.225)}
-  g.legs=[limb(.9,.28,pa,-.18,.9,BX(.3,.1,.42),0x222222,.06),limb(.9,.28,pa,.18,.9,BX(.3,.1,.42),0x222222,.06)];
-  g.arms=[limb(.8,.2,shirt,-.46,1.75,SPH(.09),skin,0),limb(.8,.2,shirt,.46,1.75,SPH(.09),skin,0)];
+  const sw=F?.4:.46;g.legs=[limb(.9,F?.24:.28,pa,-.17,.9,BX(.28,.1,.42),F?0x5a2a2a:0x222222,.06),limb(.9,F?.24:.28,pa,.17,.9,BX(.28,.1,.42),F?0x5a2a2a:0x222222,.06)];
+  g.arms=[limb(.8,F?.17:.2,shirt,-sw,1.75,SPH(.09),skin,0),limb(.8,F?.17:.2,shirt,sw,1.75,SPH(.09),skin,0)];
+  if(old)g.scale.setScalar(.95);
   g.add(...g.legs,...g.arms);const blob=new THREE.Mesh(SHADOW_GEO,SHADOW_MAT);blob.rotation.x=-Math.PI/2;blob.position.y=.02;g.add(blob);
   if(!LOWP)g.traverse(o=>{if(o.isMesh&&o!==blob)o.castShadow=true});add(g);return g}
 const face=s=>s<0?0:Math.PI;
@@ -1645,7 +1676,7 @@ const WALL=0xf6f8fa;
 function staff(key,role,f,x,z,ry,shirt){const g=person(role,shirt);g.position.set(x,0,z);g.rotation.y=ry;NPCF[f].push(g);if(key)NP[key]={g,f};return g}
 function buildFloor(f){GRP=FL[f]=new THREE.Group();scene.add(GRP);
   WK[f]=[[-25,26.6,-3,3],[26.6,29.2,-1.5,1.5]];
-  box(54,.2,26.4,f==1?0xe3e9ec:f==2?0xe6ecef:0xe9edf0,.8,-.12,0);
+  tiled(54,.2,26.4,f==1?0xe3e9ec:f==2?0xe6ecef:0xe9edf0,.8,-.12,0);
   box(50,.02,.22,0x0f8b8d,0,-.01,-1.2);box(50,.02,.22,0xd7263d,0,-.01,1.2);
   [-1,1].forEach(s=>{box(50.4,2.4,.3,WALL,0,1.2,s*12.9);for(let x=-15;x<=25;x+=10)box(.3,2.4,9.8,WALL,x,1.2,s*8);
     box(1.6,2.4,.3,WALL,25.8,1.2,s*3.1);box(.3,2.4,1.6,WALL,26.6,1.2,s*2.3)});
@@ -1669,7 +1700,7 @@ function buildFloor(f){GRP=FL[f]=new THREE.Group();scene.add(GRP);
   if(f==1)outdoor();
   GRP=null}
 function room(r){const cx=r.cx,s=r.s,c=r.c;
-  box(9.7,.02,9.6,new THREE.Color(c).lerp(new THREE.Color(0xffffff),.82).getHex(),cx,0,s*8);
+  tiled(9.7,.02,9.6,new THREE.Color(c).lerp(new THREE.Color(0xffffff),.82).getHex(),cx,0,s*8);
   box(3.7,2.4,.3,WALL,cx-3.15,1.2,s*3.1);box(3.7,2.4,.3,WALL,cx+3.15,1.2,s*3.1);box(2.6,.5,.32,c,cx,2.15,s*3.1);box(9.7,.5,.32,c,cx,2.1,s*12.9);
   WK[r.f].push([cx-4.6,cx+4.6,s<0?-12.6:3.3,s<0?-3.3:12.6],[cx-1.2,cx+1.2,s<0?-3.5:2.9,s<0?-2.9:3.5]);
   const lb=label(r.e+' '+r.n+(r.d?' · '+r.no:''),(r.no?'Room '+r.no:'Floor '+r.f),'#'+c.toString(16).padStart(6,'0'));lb.position.set(cx,3.45,s*3.2);add(lb);
@@ -1771,10 +1802,10 @@ function practiceThen(t,go){const box=$('opts');box.innerHTML='';const c=clean(t
   const cont=mk(SR?'Skip ➜':'I said it ➜','',next);
   say(c,{me:1});scrollDlg()}
 function bub(ic,t,me){const d=document.createElement('div');d.className='b'+(me?' me':'');d.innerHTML='<span>'+ic+'</span><div class="tx">'+t+'</div>';$('chat').appendChild(d);
-  if(isEn(t)){const tx=d.querySelector('.tx'),o={me:!!me};const sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.title='Listen';sp.onclick=()=>say(clean(t),o);tx.appendChild(sp);
-    const sl=document.createElement('button');sl.className='sh';sl.textContent='🐢';sl.title='Listen slowly';sl.onclick=()=>say(clean(t),{me:!!me,slow:1});tx.appendChild(sl);
+  if(isEn(t)){const tx=d.querySelector('.tx'),o=me?{me:1}:{sex:sexIc(ic)||TALK_SEX,old:/👵|👴/u.test(ic)||TALK_OLD};const sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.title='Listen';sp.onclick=()=>say(clean(t),o);tx.appendChild(sp);
+    const sl=document.createElement('button');sl.className='sh';sl.textContent='🐢';sl.title='Listen slowly';sl.onclick=()=>say(clean(t),Object.assign({},o,{slow:1}));tx.appendChild(sl);
     if(SR){const sb=document.createElement('button');sb.className='sh';sb.textContent='🎤 Repeat';sb.onclick=()=>shadow(clean(t),sb);tx.appendChild(sb)}
-    if(me){if(!bub.skip)say(clean(t),{me:1})}else say(clean(t),{q:1})}
+    if(me){if(!bub.skip)say(clean(t),{me:1})}else say(clean(t),Object.assign({q:1},o))}
   bub.skip=false;
   scrollDlg()}
 function note(t,c){const x=document.createElement('div');x.className='note'+(c?' '+c:'');x.textContent=t;
@@ -1791,7 +1822,7 @@ function ask(items,cb){$('opts').innerHTML='';clearTimeout(voteTimer);votes={};
   const sc=items.map(i=>i.s).filter(s=>s!=null),best=sc.length?Math.max(...sc):-1,useH=hints>0&&best>0,bs=[];
   items.forEach((it,j)=>{const b=document.createElement('button');b.className='opt'+(it.cls?' '+it.cls:'');b.dataset.l=(j+1)+'. '+(useH&&it.s===best?'✅ ':'')+it.t;
     b.innerHTML='<span class="lb"></span>';b.firstChild.textContent=b.dataset.l;
-    if(isEn(it.t)){const sp=document.createElement('span');sp.className='spk';sp.textContent='🔊';sp.onclick=e=>{e.stopPropagation();say(clean(it.t))};b.appendChild(sp)}
+    if(isEn(it.t)){const sp=document.createElement('span');sp.className='spk';sp.textContent='🔊';sp.onclick=e=>{e.stopPropagation();say(clean(it.t),{me:1})};b.appendChild(sp)}
     b.onclick=()=>{clearTimeout(voteTimer);vote=null;$('opts').innerHTML='';cb(it,j)};$('opts').appendChild(b);bs.push(b)});
   // Nói để chọn: nhận giọng → chọn câu khớp nhất + chấm phát âm
   if(voiceOn&&SR&&items.filter(i=>isEn(i.t)).length>1){const mb=document.createElement('button');mb.className='opt mic';const L='🎤 Say your chosen sentence in English';mb.textContent=L;
@@ -1943,6 +1974,7 @@ const WARD={ic:'👩‍⚕️',who:'Inpatient Ward A',v:[['ward','khoa nội tr�
 
 // ===================== HÀNH TRÌNH BỆNH NHÂN =====================
 let PC=null,J=[],ji=0,jsc=0,jn=0;
+const meSex=()=>mode=='P'&&PC?(sexOf(PC)||ME_SEX):ME_SEX;
 function buildJourney(cs){const r=R[cs.dept],aw=awayTests(cs),Jn=[];const fin=d=>x=>{jsc+=x;jn++;d()};
   if(!cs.er){Jn.push({to:'park',h:'🅿️ Park at the car park guard post (the ! mark)',go:d=>dialog(PARK_IN,'P',fin(d))});
     Jn.push({to:'rec',h:'🗂️ Enter the lobby through the glass doors and register at <b>Reception</b>',go:d=>dialog(recFor(cs),'P',fin(d))})}
@@ -1955,7 +1987,9 @@ function buildJourney(cs){const r=R[cs.dept],aw=awayTests(cs),Jn=[];const fin=d=
   if(!cs.er&&!cs.adm)Jn.push({to:'park',h:'🛵 Collect your motorbike from the car park and go home',go:d=>dialog(PARK_OUT,'P',fin(d))});
   return Jn}
 function startPatient(er){mode='P';score=0;newJourney(er)}
-function newJourney(er){PC=rnd(CASES.filter(c=>!!c.er==!!er));J=buildJourney(PC);ji=0;jsc=0;jn=0;setFloor(1);
+function newJourney(er){PC=rnd(CASES.filter(c=>!!c.er==!!er));J=buildJourney(PC);ji=0;jsc=0;jn=0;
+  const ps=sexOf(PC)||ME_SEX;if(P&&(P.sex!=ps||P.old!=oldOf(PC))){scene.remove(P);GRP=null;P=person('pat',0x5aa9e6,ps,oldOf(PC))}
+  setFloor(1);
   if(PC.er)P.position.set(-28.2,0,-5.6);else P.position.set(-45,0,0);P.rotation.y=Math.PI/2;busy=false;hud();
   toast(PC.er?'🚑 The ambulance has just brought you in — go to the Emergency entrance!':'🛵 You have arrived at the hospital. Park your motorbike first!')}
 function stepDone(){ji++;hud();if(ji>=J.length)journeyEnd()}
@@ -1969,8 +2003,9 @@ const casesFor=d=>(DEEP[d]||[]).map(c=>({k:'g',c})).concat(CASES.filter(c=>c.dep
 function startDoctor(id){mode='D';spD=R[id];score=0;done=0;DQ=casesFor(id);setFloor(spD.f);
   Object.values(NP).forEach(n=>{if(n.g.visible!==undefined&&n.g.isObject3D)n.g.visible=true});const me=NP['doc_'+id].g;me.visible=false;
   P.position.set(spD.cx,0,spD.s*8.6);P.rotation.y=face(spD.s);busy=false;newPatient()}
-function newPatient(){const q=DQ[done%DQ.length];cur=Object.assign({who:q.c.who||rnd(['Mr. Lee, 58','Ms. Hoa, 34','Mr. Nam, 45','Ms. Linh, 27','Mr. Tuan, 63','Ms. Mai, 41'])},q.c);cur._k=q.k;
-  if(pat&&pat.parent)pat.parent.remove(pat);GRP=FL[spD.f];pat=person('pat',rnd([0x7fb8e6,0xe8b4c8,0x9ccc65,0xffcc80]));GRP=null;pat.position.set(spD.cx-1.2,0,spD.s*6.6);pat.rotation.y=face(-spD.s);hud()}
+function newPatient(){const q=DQ[done%DQ.length],qs=sexIc(q.c.pic),NM=['Mr. Lee, 58','Ms. Hoa, 34','Mr. Nam, 45','Ms. Linh, 27','Mr. Tuan, 63','Ms. Mai, 41'];
+  cur=Object.assign({who:q.c.who||rnd(NM.filter(n=>!qs||sexWho(n)==qs))},q.c);cur._k=q.k;
+  if(pat&&pat.parent)pat.parent.remove(pat);GRP=FL[spD.f];pat=person('pat',rnd([0x7fb8e6,0xe8b4c8,0x9ccc65,0xffcc80]),sexOf(cur),oldOf(cur));GRP=null;pat.position.set(spD.cx-1.2,0,spD.s*6.6);pat.rotation.y=face(-spD.s);hud()}
 function runDoctorCase(){const fin=r=>{score+=Math.round(r*100);done++;save('3d:D:'+spD.id,Math.round(r*3));later(newPatient,200)};
   if(cur._k=='c')clinicDoc(cur,fin);else if(cur._k=='r')roleplay(cur,fin);else dialog(cur,'D',fin)}
 
@@ -1999,7 +2034,7 @@ function openLift(){busy=true;$('lift').style.display='flex';$('liftBtns').inner
 $('liftBtns').onclick=e=>{const b=e.target.closest('button');if(!b)return;const f=+b.dataset.f;$('lift').style.display='none';if(f==curF){busy=false;return}
   fadeTo('🛗 Floor '+f,()=>{setFloor(f);P.position.set(26.2,0,0);P.rotation.y=-Math.PI/2;busy=false;hud()})};
 $('liftX').onclick=()=>{$('lift').style.display='none';busy=false};
-function begin(role){$('menu').style.display='none';if(P)scene.remove(P);GRP=null;P=person(role||(mode=='D'?'doc':'pat'),role?0:mode=='D'?0xffffff:0x5aa9e6);Object.values(NP).forEach(n=>{if(n.g.isObject3D)n.g.visible=true})}
+function begin(role){$('menu').style.display='none';if(P)scene.remove(P);GRP=null;P=person(role||(mode=='D'?'doc':'pat'),role?0:mode=='D'?0xffffff:0x5aa9e6,ME_SEX);Object.values(NP).forEach(n=>{if(n.g.isObject3D)n.g.visible=true})}
 $('mP').onclick=()=>{mode='P';begin();startPatient(0)};
 $('mE').onclick=()=>{mode='P';begin();startPatient(1)};
 $('mK').onclick=async()=>{const d=$('diag');d.style.display='block';const L=[];const put=()=>d.innerHTML=L.join('<br>');
@@ -2015,7 +2050,10 @@ $('mT').onclick=()=>{mode='T';begin();setFloor(1);P.position.set(-23,0,0);busy=f
 $('mR').onclick=()=>{$('spGrid').style.display='grid';$('spGrid').scrollIntoView({behavior:'smooth'})};
 const rlab=()=>{$('mRep').textContent='🗣️ Repeat my lines aloud: '+(repeatOn?'ON':'OFF');$('mEasy').textContent=easyOn?'🙂 Level: Easy (2 choices)':'🧠 Level: Normal (all choices)'};
 try{const st=JSON.parse(localStorage.getItem('ge4u-h3d-prefs')||'{}');if(st.rep!=null)repeatOn=st.rep;if(st.easy!=null)easyOn=st.easy}catch(e){}
-const prefs=()=>{try{localStorage.setItem('ge4u-h3d-prefs',JSON.stringify({rep:repeatOn,easy:easyOn}))}catch(e){}rlab()};rlab();
+try{const st=JSON.parse(localStorage.getItem('ge4u-h3d-prefs')||'{}');if(st.sex)ME_SEX=st.sex}catch(e){}
+const slab=()=>$('mSex').textContent=(ME_SEX=='f'?'👩 My character: Female voice':'👨 My character: Male voice')+' (patients use their own)';
+const prefs=()=>{try{localStorage.setItem('ge4u-h3d-prefs',JSON.stringify({rep:repeatOn,easy:easyOn,sex:ME_SEX}))}catch(e){}rlab();slab()};rlab();slab();
+$('mSex').onclick=()=>{ME_SEX=ME_SEX=='f'?'m':'f';prefs();say(ME_SEX=='f'?"Hello, I'm Lan.":"Hello, I'm Minh.",{sex:ME_SEX})};
 $('mRep').onclick=()=>{repeatOn=!repeatOn;prefs()};$('mEasy').onclick=()=>{easyOn=!easyOn;prefs()};
 const vlab=()=>$('mV').textContent=SR?'🎤 Speaking practice: '+(voiceOn?'ON':'OFF'):'🎤 Speaking practice needs Chrome (not supported here)';vlab();$('mV').onclick=()=>{voiceOn=SR?!voiceOn:false;vlab()};
 $('spGrid').innerHTML='<div style="grid-column:1/-1;color:#a9c4d2">👩‍⚕️ Other health professions</div>'+PROF.map(p=>'<button data-r="'+p.id+'">'+p.e+' '+p.n+'<br><small>'+R[p.room].n+'</small></button>').join('')+'<div style="grid-column:1/-1;color:#a9c4d2">🩺 Specialist doctors</div>'+ROOMS.filter(r=>r.d).map(r=>{const n=casesFor(r.id),c=n.filter(x=>x.k=='c').length,g=n.filter(x=>x.k=='g').length;return'<button data-i="'+r.id+'">'+r.e+' '+r.n+'<br><small>Floor '+r.f+' · '+n.length+' cases'+(c?' · '+c+' full':'')+(g?' · '+g+' ⚡':'')+'</small></button>'}).join('');
@@ -2024,6 +2062,7 @@ $('menuBtn').onclick=()=>{busy=true;clearTimeout(voteTimer);$('dlg').style.displ
 
 function talk(){if(!near||busy)return;
   if(near.lift)return openLift();
+  TALK_SEX=near.g&&near.g.sex||null;TALK_OLD=!!(near.g&&near.g.old);if(mode!='P'&&near.g===pat&&cur){TALK_SEX=sexOf(cur)||TALK_SEX;TALK_OLD=oldOf(cur)}
   if(mode=='P'){const s=J[ji];if(!s||NP[s.to]!==near)return;busy=true;s.go(stepDone)}
   else if((mode=='D'||mode=='R')&&near.g===pat){busy=true;runDoctorCase()}}
 $('talk').onclick=talk;
@@ -2053,16 +2092,36 @@ if(location.protocol!='https:')connectLive();
 // ===================== VÒNG LẶP =====================
 let last=0,tt=0;
 let paused=false;document.addEventListener('visibilitychange',()=>{paused=document.hidden;if(!paused){last=performance.now();requestAnimationFrame(loop)}});
+// People block the way. Walking into someone gets a reaction (and an English line to copy);
+// walking into the person you are looking for starts the conversation.
+const BUBC={};function bubble(t){return BUBC[t]||(BUBC[t]=canvasSprite(384,120,x=>{x.fillStyle='#fff';x.strokeStyle='#10283a';x.lineWidth=5;x.beginPath();x.moveTo(30,6);x.lineTo(354,6);x.quadraticCurveTo(378,6,378,30);x.lineTo(378,72);x.quadraticCurveTo(378,96,354,96);x.lineTo(210,96);x.lineTo(192,116);x.lineTo(174,96);x.lineTo(30,96);x.quadraticCurveTo(6,96,6,72);x.lineTo(6,30);x.quadraticCurveTo(6,6,30,6);x.fill();x.stroke();
+  x.fillStyle='#10283a';x.font='bold 40px sans-serif';x.textAlign='center';x.fillText(t,192,66)},1.9,.6))}
+const people=()=>NPCF[curF].concat(WALK[curF].map(w=>w.g),pat&&pat.parent===FL[curF]?[pat]:[]).filter(g=>g.visible!==false&&g.parent&&g.parent.visible!==false);
+function hitPerson(ox,oz,nx,nz){for(const g of people()){const d1=Math.hypot(g.position.x-nx,g.position.z-nz);if(d1<.8&&d1<Math.hypot(g.position.x-ox,g.position.z-oz))return g}return null}
+const OOPS=[['😮 Oops!','Oh! Excuse me.'],['🙂 Careful!','Careful, please!'],['😅 Sorry!','Oh, sorry! After you.'],['🙏 Excuse me','Excuse me, could I get past?']];
+function bump(g){const now=performance.now();if(busy||(g._bt&&now-g._bt<2600))return;g._bt=now;
+  const t=tgt();if(t&&t.g===g){near=t;return talk()}
+  const w=WALK[curF].find(x=>x.g===g);if(w)w.p=1.6;
+  const ry=g.rotation.y;g.rotation.y=Math.atan2(P.position.x-g.position.x,P.position.z-g.position.z);if(!w)setTimeout(()=>{g.rotation.y=ry},1700);
+  const [face,line]=rnd(OOPS),b=bubble(face);b.position.set(0,2.95,0);if(b.parent)b.parent.remove(b);g.add(b);setTimeout(()=>{if(b.parent===g)g.remove(b)},1700);
+  const prevS=TALK_SEX,prevO=TALK_OLD;TALK_SEX=g.sex;TALK_OLD=!!g.old;say(line,{sex:g.sex,old:g.old});TALK_SEX=prevS;TALK_OLD=prevO;setTimeout(()=>say('Sorry, excuse me!',{me:1,q:1}),250);
+  toast('💥 You bumped into someone — say: "Sorry, excuse me!"')}
 function loop(ms){if(paused)return;requestAnimationFrame(loop);const dt=Math.min((ms-last)/1000,.05);last=ms;tt+=dt;
   const px=P?P.position.x:99,pz=P?P.position.z:99;
   if(!LOWP&&P){dl.position.set(px+8,20,pz+10);dl.target.position.set(px,0,pz)}
   NPCF[curF].concat(pat&&mode=='D'?[pat]:[]).forEach(g=>{if(!g.visible)return;const dx=px-g.position.x,dz=pz-g.position.z,d=Math.hypot(dx,dz);let a=0;
     if(d<7){a=Math.atan2(dx,dz)-g.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));a=Math.max(-.9,Math.min(.9,a))}
     g.head.rotation.y+=(a-g.head.rotation.y)*.1;g.arms[0].rotation.x=Math.sin(tt*1.5+g.position.x)*.05;g.arms[1].rotation.z=d<3?2.4+Math.sin(tt*8)*.25:.05});
-  WALK[curF].forEach((w,i)=>{const g=w.g;g.position.x+=w.d*w.sp*dt;if(g.position.x>22||g.position.x<-22)w.d*=-1;g.rotation.y=w.d>0?Math.PI/2:-Math.PI/2;
+  WALK[curF].forEach((w,i)=>{const g=w.g;
+    if(P&&!w.p&&Math.abs(px-g.position.x)<1.1&&Math.abs(pz-g.position.z)<.8&&Math.sign(px-g.position.x)===w.d)w.p=.5;
+    if(w.p>0){w.p=Math.max(0,w.p-dt);g.legs[0].rotation.x=g.legs[1].rotation.x=g.arms[0].rotation.x=g.arms[1].rotation.x=0;return}
+    g.position.x+=w.d*w.sp*dt;if(g.position.x>22||g.position.x<-22)w.d*=-1;g.rotation.y=w.d>0?Math.PI/2:-Math.PI/2;
     const sw=Math.sin(tt*6+i)*.6;g.legs[0].rotation.x=sw;g.legs[1].rotation.x=-sw;g.arms[0].rotation.x=-sw;g.arms[1].rotation.x=sw});
   if(P){let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0)+joy.x,dz=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0)+joy.z;const l=Math.hypot(dx,dz);let mv=!busy&&l>.12;
-    if(mv){if(l>1){dx/=l;dz/=l}const nx=P.position.x+dx*6.5*dt,nz=P.position.z+dz*6.5*dt;if(allowed(nx,P.position.z))P.position.x=nx;if(allowed(P.position.x,nz))P.position.z=nz;P.rotation.y=Math.atan2(dx,dz)}
+    if(mv){if(l>1){dx/=l;dz/=l}const ox=P.position.x,oz=P.position.z,nx=ox+dx*6.5*dt,nz=oz+dz*6.5*dt;let hit=null;
+      if(allowed(nx,oz)){const h=hitPerson(ox,oz,nx,oz);if(h)hit=h;else P.position.x=nx}
+      if(allowed(P.position.x,nz)){const h=hitPerson(P.position.x,oz,P.position.x,nz);if(h)hit=hit||h;else P.position.z=nz}
+      P.rotation.y=Math.atan2(dx,dz);if(hit)bump(hit)}
     const sw=mv?Math.sin(tt*11)*.7:0;P.legs[0].rotation.x=sw;P.legs[1].rotation.x=-sw;P.arms[0].rotation.x=-sw;P.arms[1].rotation.x=sw;
     cam.position.lerp(new THREE.Vector3(P.position.x,10.5,P.position.z+7.5),.1);cam.lookAt(P.position.x,.8,P.position.z-1);
     // ai đang ở gần: mục tiêu hiện tại + thang máy
