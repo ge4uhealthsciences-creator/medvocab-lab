@@ -9,7 +9,8 @@ service cloud.firestore {
 
     // 31-day plan lesson progress (unchanged behaviour)
     match /users/{userId}/lessons/{lessonId} {
-      allow read, create, update, delete: if signedIn()
+      allow read, delete: if signedIn() && request.auth.uid == userId;
+      allow create, update: if signedIn()
         && request.auth.uid == userId
         && request.resource.data.userId == request.auth.uid;
     }
