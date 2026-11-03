@@ -352,6 +352,7 @@ def tts(text, sid, out):
 
 
 def render_item(item, outdir, work):
+    outdir, work = Path(outdir).resolve(), Path(work).resolve()
     work.mkdir(parents=True, exist_ok=True)
     scenes = scenes_for(item)
     parts, audio_parts, total = [], [], 0.0
