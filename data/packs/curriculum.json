@@ -22,7 +22,8 @@
               "id": "medical-physiology",
               "vi": "Sinh lý",
               "en": "Physiology",
-              "status": "planned"
+              "status": "ready",
+              "review": "public-source check 2026-11-03; expert review pending"
             },
             {
               "id": "medical-biochemistry",
