@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GE4u · __TITLE__</title>
+<style>
+:root{--bg:#f4f7f9;--panel:#fff;--ink:#15334b;--muted:#5b6b78;--line:#d6e0e6;--acc:#087e83;--acc2:#e6f4f4;--ok:#1d8a4a;--okbg:#e5f5ec;--bad:#c0392b;--badbg:#fbe9e7;--shadow:0 1px 2px rgba(0,0,0,.06),0 4px 14px rgba(21,51,75,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1820;--panel:#17232d;--ink:#e6eef3;--muted:#9fb0bc;--line:#2a3a46;--acc:#3cc4c9;--acc2:#163238;--ok:#4cc382;--okbg:#173225;--bad:#ff7b6b;--badbg:#3a1d1a;--shadow:none}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;-webkit-tap-highlight-color:transparent}
+header{padding:18px 16px 10px;max-width:880px;margin:auto}
+.brand{display:inline-block;background:var(--acc);color:#fff;font-weight:800;border-radius:8px;padding:2px 9px;font-size:14px}
+h1{font-size:clamp(22px,5vw,30px);margin:8px 0 2px;line-height:1.2}
+.sub{color:var(--muted);margin:0;font-size:14px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .in{max-width:880px;margin:auto;display:flex;gap:6px;overflow-x:auto;padding:8px 16px;scrollbar-width:none}
+nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+nav button[aria-selected=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+main{max-width:880px;margin:auto;padding:16px 16px 60px}
+section[hidden]{display:none}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:10px 14px;font:inherit;font-size:15px;cursor:pointer;min-height:44px}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+.btn:disabled{opacity:.45;cursor:default}
+.muted{color:var(--muted);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.stat b{display:block;font-size:24px}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+/* flashcards */
+.flip{perspective:1200px;margin:12px 0}
+.fc{position:relative;height:300px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.on{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+.back{transform:rotateY(180deg)}
+.term{font-size:clamp(26px,7vw,40px);font-weight:800;line-height:1.15}
+.ipa{color:var(--acc);font-size:20px;margin-top:6px;font-family:"Noto Sans","DejaVu Sans",system-ui,sans-serif}
+.mean{font-size:24px;font-weight:700;color:var(--acc)}
+.def{margin-top:10px}.ex{margin-top:10px;color:var(--muted);font-style:italic}
+.say{margin-top:14px;border:0;background:var(--acc2);color:var(--acc);border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer}
+.hint{position:absolute;bottom:10px;font-size:12px;color:var(--muted)}
+/* matching */
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+@media (max-width:520px){.mgrid{grid-template-columns:1fr}}
+.chips{display:flex;flex-direction:column;gap:8px}
+.chip{touch-action:none;user-select:none;background:var(--acc2);border:2px solid transparent;color:var(--ink);border-radius:12px;padding:12px;font-weight:700;cursor:grab;text-align:left;font:inherit;font-weight:700}
+.chip.sel{border-color:var(--acc)}
+.chip.used{opacity:.35;pointer-events:none}
+.zone{min-height:56px;border:2px dashed var(--line);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;background:var(--panel)}
+.zone .m{font-size:15px}.zone .got{font-weight:700;font-size:14px}
+.zone.hover{border-color:var(--acc);background:var(--acc2)}
+.zone.ok{border-style:solid;border-color:var(--ok);background:var(--okbg)}
+.zone.no{border-style:solid;border-color:var(--bad);background:var(--badbg)}
+.ghost{position:fixed;pointer-events:none;z-index:50;transform:translate(-50%,-50%);opacity:.9;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+/* quiz */
+.q{font-size:18px;font-weight:600;margin:6px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:12px;padding:12px 14px;font:inherit;cursor:pointer;min-height:48px}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}.opt.no{background:var(--badbg);border-color:var(--bad)}
+.fb{min-height:24px;margin-top:10px;font-size:15px}
+.gap{border:0;border-bottom:2px solid var(--acc);background:transparent;color:var(--ink);font:inherit;font-weight:700;width:min(220px,60vw);padding:2px 4px;text-align:center}
+.gap.ok{border-color:var(--ok);color:var(--ok)}.gap.no{border-color:var(--bad);color:var(--bad)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.bank span{background:var(--acc2);border-radius:999px;padding:4px 10px;font-size:14px;font-weight:600}
+.list{display:grid;gap:8px;margin-top:12px}
+.li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:4px 10px}
+.li .t{font-weight:800}.li .i{color:var(--acc);font-size:14px}.li .d{grid-column:1/-1;font-size:14px;color:var(--muted)}
+.li button{grid-row:1/3;grid-column:2;align-self:center}
+input.search{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit}
+footer{max-width:880px;margin:auto;padding:0 16px 30px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">GE4u</span>
+  <h1>__TITLE__</h1>
+  <p class="sub">__SUB__ · <span id="count"></span> thuật ngữ · Học được cả khi không có mạng</p>
+</header>
+<nav><div class="in" role="tablist">
+  <button role="tab" data-tab="home" aria-selected="true">Tổng quan</button>
+  <button role="tab" data-tab="cards">Flashcard</button>
+  <button role="tab" data-tab="match">Kéo-thả nối nghĩa</button>
+  <button role="tab" data-tab="quiz">Trắc nghiệm</button>
+  <button role="tab" data-tab="gaps">Điền từ</button>
+  <button role="tab" data-tab="list">Bảng từ</button>
+</div></nav>
+<main>
+<section id="home">
+  <div class="card">
+    <h2 style="margin:0 0 6px">Tiến độ của bạn</h2>
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="stats">
+      <div class="stat"><span class="muted">Đã thuộc</span><b id="sKnown">0</b></div>
+      <div class="stat"><span class="muted">Nối nghĩa tốt nhất</span><b id="sMatch">–</b></div>
+      <div class="stat"><span class="muted">Trắc nghiệm tốt nhất</span><b id="sQuiz">–</b></div>
+      <div class="stat"><span class="muted">Điền từ tốt nhất</span><b id="sGap">–</b></div>
+    </div>
+    <p class="muted">Gợi ý 15 phút/ngày: 1) Flashcard — bấm 🔊 nghe và đọc theo, đánh dấu “Đã thuộc”. 2) Kéo-thả nối nghĩa. 3) Trắc nghiệm. 4) Điền từ. Mục tiêu: đúng ≥ 90% cả 3 bài trong 7 ngày. Tiến độ được lưu trên trình duyệt của thiết bị này.</p>
+    <div class="row"><button class="btn pri" data-go="cards">Bắt đầu với Flashcard</button><button class="btn" id="reset">Xóa tiến độ</button></div>
+  </div>
+</section>
+
+<section id="cards" hidden>
+  <div class="row" style="justify-content:space-between"><span class="muted" id="cPos"></span><label class="muted"><input type="checkbox" id="onlyNew"> Chỉ từ chưa thuộc</label></div>
+  <div class="flip"><div class="fc" id="fc">
+    <div class="face"><div class="term" id="fTerm"></div><div class="ipa" id="fIpa"></div><button class="say" id="fSay">🔊 Nghe phát âm</button><span class="hint">Chạm thẻ để lật</span></div>
+    <div class="face back"><div class="mean" id="bMean"></div><div class="def" id="bDef"></div><div class="ex" id="bEx"></div><span class="hint">Chạm thẻ để lật lại</span></div>
+  </div></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="cPrev">← Trước</button>
+    <button class="btn" id="cShuffle">Xáo thẻ</button>
+    <button class="btn pri" id="cKnow">✓ Đã thuộc</button>
+    <button class="btn" id="cNext">Sau →</button>
+  </div>
+</section>
+
+<section id="match" hidden>
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><b id="mRound"></b><span class="muted" id="mScore"></span></div>
+    <p class="muted" style="margin:6px 0 0">Kéo thuật ngữ thả vào nghĩa đúng (hoặc chạm thuật ngữ rồi chạm nghĩa).</p>
+    <div class="mgrid"><div class="chips" id="mChips"></div><div class="chips" id="mZones"></div></div>
+    <div class="row" style="margin-top:12px"><button class="btn" id="mRetry">Làm lại vòng này</button><button class="btn pri" id="mNext" disabled>Vòng tiếp →</button></div>
+  </div>
+</section>
+
+<section id="quiz" hidden>
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><b id="qPos"></b><span class="muted" id="qScore"></span></div>
+    <div class="bar" style="margin-top:8px"><i id="qbar"></i></div>
+    <div class="q" id="qText"></div>
+    <div class="opts" id="qOpts"></div>
+    <div class="fb" id="qFb"></div>
+    <div class="row" style="margin-top:8px"><button class="btn pri" id="qNext" disabled>Câu tiếp →</button><button class="btn" id="qRestart">Làm lại từ đầu</button></div>
+  </div>
+</section>
+
+<section id="gaps" hidden>
+  <div class="card">
+    <p class="muted" style="margin-top:0">Gõ thuật ngữ còn thiếu rồi bấm “Kiểm tra”.</p>
+    <div class="bank" id="gBank"></div>
+    <div id="gList" class="list"></div>
+    <div class="row" style="margin-top:12px"><button class="btn pri" id="gCheck">Kiểm tra</button><button class="btn" id="gShow">Xem đáp án</button><button class="btn" id="gNew">Bộ câu khác</button></div>
+    <div class="fb" id="gFb"></div>
+  </div>
+</section>
+
+<section id="list" hidden>
+  <input class="search" id="lSearch" placeholder="Tìm thuật ngữ hoặc nghĩa…" aria-label="Tìm">
+  <div class="list" id="lItems"></div>
+</section>
+</main>
+<footer>GE4u Health Sciences · __TITLE__ · Tài liệu dành cho người học đã đăng ký, vui lòng không chia sẻ lại. Nội dung phục vụ học tiếng Anh chuyên ngành, không thay thế hướng dẫn chuyên môn.</footer>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(() => {
+const D = JSON.parse(document.getElementById('data').textContent);
+const T = D.terms, KEY = 'ge4u-pack-' + D.id;
+const $ = (s) => document.querySelector(s);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+let S = {known: [], best: {}};
+try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} renderHome(); };
+$('#count').textContent = T.length;
+
+// speech
+let voice = null;
+const pickVoice = () => { try { const vs = speechSynthesis.getVoices(); voice = vs.find(v => /en-GB/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || null; } catch (e) {} };
+try { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; } catch (e) {}
+const speak = (t) => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = voice ? voice.lang : 'en-GB'; if (voice) u.voice = voice; u.rate = 0.85; speechSynthesis.speak(u); } catch (e) { alert('Thiết bị này chưa hỗ trợ đọc phát âm.'); } };
+
+// tabs
+const show = (id) => { document.querySelectorAll('main > section').forEach(s => s.hidden = s.id !== id); document.querySelectorAll('nav [data-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === id)); window.scrollTo(0, 0); };
+document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => show(b.dataset.go)));
+
+function renderHome() {
+  $('#sKnown').textContent = S.known.length + '/' + T.length;
+  $('#pbar').style.width = (100 * S.known.length / T.length) + '%';
+  const pct = (k) => S.best[k] == null ? '–' : S.best[k] + '%';
+  $('#sMatch').textContent = pct('match'); $('#sQuiz').textContent = pct('quiz'); $('#sGap').textContent = pct('gap');
+}
+$('#reset').addEventListener('click', () => { if (confirm('Xóa toàn bộ tiến độ trên thiết bị này?')) { S = {known: [], best: {}}; save(); deckBuild(); } });
+const best = (k, v) => { if (S.best[k] == null || v > S.best[k]) { S.best[k] = v; save(); } };
+
+// flashcards
+let deck = [], ci = 0;
+function deckBuild() { deck = $('#onlyNew').checked ? T.filter(t => !S.known.includes(t.term)) : T.slice(); if (!deck.length) deck = T.slice(); ci = Math.min(ci, deck.length - 1); card(); }
+function card() {
+  const t = deck[ci]; $('#fc').classList.remove('on');
+  $('#fTerm').textContent = t.term; $('#fIpa').textContent = t.ipa;
+  $('#bMean').textContent = t.meaning; $('#bDef').textContent = t.definition; $('#bEx').textContent = '“' + t.example + '”';
+  $('#cPos').textContent = 'Thẻ ' + (ci + 1) + '/' + deck.length;
+  const k = S.known.includes(t.term); $('#cKnow').textContent = k ? '✓ Đã thuộc (bỏ đánh dấu)' : '✓ Đã thuộc';
+}
+$('#fc').addEventListener('click', (e) => { if (e.target.closest('.say')) return; $('#fc').classList.toggle('on'); });
+$('#fSay').addEventListener('click', () => speak(deck[ci].term));
+$('#cPrev').addEventListener('click', () => { ci = (ci - 1 + deck.length) % deck.length; card(); });
+$('#cNext').addEventListener('click', () => { ci = (ci + 1) % deck.length; card(); });
+$('#cShuffle').addEventListener('click', () => { deck = shuffle(deck); ci = 0; card(); });
+$('#onlyNew').addEventListener('change', () => { ci = 0; deckBuild(); });
+$('#cKnow').addEventListener('click', () => { const t = deck[ci].term; S.known = S.known.includes(t) ? S.known.filter(x => x !== t) : S.known.concat(t); save(); ci = (ci + 1) % deck.length; card(); });
+
+// matching (pointer drag + tap)
+const rounds = []; { const order = shuffle(T); for (let i = 0; i < order.length; i += 5) rounds.push(order.slice(i, i + 5)); if (rounds.length > 1 && rounds[rounds.length - 1].length < 3) { const last = rounds.pop(); rounds[rounds.length - 1].push(...last); } }
+let ri = 0, mRight = 0, mTried = 0, selChip = null, totalOk = 0, totalTried = 0;
+function matchRound() {
+  const set = rounds[ri]; mRight = 0; mTried = 0; selChip = null;
+  $('#mRound').textContent = 'Vòng ' + (ri + 1) + '/' + rounds.length; $('#mScore').textContent = '';
+  $('#mNext').disabled = true; $('#mNext').textContent = ri === rounds.length - 1 ? 'Xem kết quả' : 'Vòng tiếp →';
+  const chips = $('#mChips'), zones = $('#mZones'); chips.replaceChildren(); zones.replaceChildren();
+  shuffle(set).forEach(t => { const c = el('button', 'chip', t.term); c.type = 'button'; c.dataset.term = t.term; chips.append(c); bindDrag(c); });
+  shuffle(set).forEach(t => { const z = el('div', 'zone'); z.dataset.term = t.term; z.append(el('span', 'm', t.meaning)); z.addEventListener('click', () => { if (selChip) drop(selChip, z); }); zones.append(z); });
+}
+function drop(chip, zone) {
+  if (zone.classList.contains('ok')) return;
+  mTried++; totalTried++;
+  const good = chip.dataset.term === zone.dataset.term;
+  zone.classList.remove('no');
+  if (good) { mRight++; totalOk++; zone.classList.add('ok'); zone.append(el('span', 'got', '✓ ' + chip.dataset.term)); chip.classList.add('used'); speak(chip.dataset.term); }
+  else { zone.classList.add('no'); setTimeout(() => zone.classList.remove('no'), 700); }
+  chip.classList.remove('sel'); selChip = null;
+  const n = rounds[ri].length; $('#mScore').textContent = mRight + '/' + n + ' đúng';
+  if (mRight === n) $('#mNext').disabled = false;
+}
+function bindDrag(chip) {
+  let ghost = null, sx = 0, sy = 0, moved = false, over = null;
+  chip.addEventListener('pointerdown', (e) => { sx = e.clientX; sy = e.clientY; moved = false; chip.setPointerCapture(e.pointerId); });
+  chip.addEventListener('pointermove', (e) => {
+    if (!chip.hasPointerCapture(e.pointerId)) return;
+    if (!moved && Math.hypot(e.clientX - sx, e.clientY - sy) < 8) return;
+    if (!moved) { moved = true; ghost = chip.cloneNode(true); ghost.classList.add('ghost'); ghost.style.width = chip.offsetWidth + 'px'; document.body.append(ghost); }
+    ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px';
+    const z = document.elementFromPoint(e.clientX, e.clientY)?.closest('.zone');
+    if (over && over !== z) over.classList.remove('hover'); over = z; if (z) z.classList.add('hover');
+  });
+  const end = (e) => {
+    if (ghost) { ghost.remove(); ghost = null; }
+    if (over) over.classList.remove('hover');
+    if (moved) { if (over) drop(chip, over); over = null; return; }
+    document.querySelectorAll('.chip.sel').forEach(c => c.classList.remove('sel'));
+    if (selChip === chip) { selChip = null; } else { selChip = chip; chip.classList.add('sel'); }
+  };
+  chip.addEventListener('pointerup', end);
+  chip.addEventListener('pointercancel', () => { if (ghost) ghost.remove(); ghost = null; if (over) over.classList.remove('hover'); });
+}
+$('#mRetry').addEventListener('click', matchRound);
+$('#mNext').addEventListener('click', () => {
+  if (ri < rounds.length - 1) { ri++; matchRound(); return; }
+  const pct = Math.round(100 * totalOk / Math.max(1, totalTried)); best('match', pct);
+  $('#mScore').textContent = 'Hoàn thành! Độ chính xác ' + pct + '%'; ri = 0; totalOk = 0; totalTried = 0;
+  $('#mNext').textContent = 'Chơi lại'; $('#mNext').onclick = () => { $('#mNext').onclick = null; matchRound(); };
+});
+
+// quiz
+let Q = [], qi = 0, qOk = 0;
+function quizBuild() {
+  Q = shuffle(T).map(t => { const others = shuffle(T.filter(x => x.term !== t.term)).slice(0, 3); return {t, opts: shuffle([t, ...others])}; });
+  qi = 0; qOk = 0; quizShow();
+}
+function quizShow() {
+  const q = Q[qi];
+  $('#qPos').textContent = 'Câu ' + (qi + 1) + '/' + Q.length; $('#qScore').textContent = qOk + ' đúng';
+  $('#qbar').style.width = (100 * qi / Q.length) + '%';
+  $('#qText').textContent = q.t.definition; $('#qFb').textContent = ''; $('#qNext').disabled = true;
+  const box = $('#qOpts'); box.replaceChildren();
+  q.opts.forEach((o, i) => {
+    const b = el('button', 'opt', 'ABCD'[i] + '.  ' + o.term); b.type = 'button';
+    b.addEventListener('click', () => {
+      if (!$('#qNext').disabled) return;
+      const good = o.term === q.t.term; if (good) qOk++;
+      box.querySelectorAll('.opt').forEach((x, k) => { x.disabled = true; if (q.opts[k].term === q.t.term) x.classList.add('ok'); });
+      if (!good) b.classList.add('no');
+      $('#qFb').textContent = (good ? '✓ Chính xác! ' : '✗ Đáp án: ' + q.t.term + '. ') + q.t.term + ' = ' + q.t.meaning;
+      $('#qScore').textContent = qOk + ' đúng'; $('#qNext').disabled = false;
+      $('#qNext').textContent = qi === Q.length - 1 ? 'Xem kết quả' : 'Câu tiếp →';
+      speak(q.t.term);
+    });
+    box.append(b);
+  });
+}
+$('#qNext').addEventListener('click', () => {
+  if (qi < Q.length - 1) { qi++; quizShow(); return; }
+  const pct = Math.round(100 * qOk / Q.length); best('quiz', pct);
+  $('#qbar').style.width = '100%'; $('#qText').textContent = 'Hoàn thành: ' + qOk + '/' + Q.length + ' (' + pct + '%)';
+  $('#qOpts').replaceChildren(); $('#qFb').textContent = pct >= 90 ? 'Tuyệt vời! Bạn đã nắm vững bộ từ này.' : 'Ôn lại các từ sai bằng Flashcard rồi làm lại nhé.';
+  $('#qNext').disabled = true;
+});
+$('#qRestart').addEventListener('click', quizBuild);
+
+// gap fill
+const GAP = T.filter(t => t.example.toLowerCase().includes(t.term.toLowerCase()));
+let G = [], gShown = false;
+function gapBuild() {
+  G = shuffle(GAP).slice(0, 8); gShown = false;
+  $('#gBank').replaceChildren(...shuffle(G).map(g => el('span', null, g.term)));
+  const list = $('#gList'); list.replaceChildren(); $('#gFb').textContent = '';
+  G.forEach((g, i) => {
+    const idx = g.example.toLowerCase().indexOf(g.term.toLowerCase());
+    const p = el('div', 'li'); p.style.display = 'block';
+    p.append(document.createTextNode((i + 1) + '. ' + g.example.slice(0, idx)));
+    const inp = el('input', 'gap'); inp.setAttribute('aria-label', 'Câu ' + (i + 1)); inp.autocapitalize = 'off'; inp.spellcheck = false; inp.dataset.ans = g.term;
+    p.append(inp, document.createTextNode(g.example.slice(idx + g.term.length)));
+    list.append(p);
+  });
+}
+const norm = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+$('#gCheck').addEventListener('click', () => {
+  let ok = 0; const ins = document.querySelectorAll('#gList .gap');
+  ins.forEach(i => { const good = norm(i.value) === norm(i.dataset.ans); i.classList.toggle('ok', good); i.classList.toggle('no', !good); if (good) ok++; });
+  const pct = Math.round(100 * ok / Math.max(1, ins.length)); if (!gShown) best('gap', pct);
+  $('#gFb').textContent = ok + '/' + ins.length + ' câu đúng (' + pct + '%)';
+});
+$('#gShow').addEventListener('click', () => { gShown = true; } ); $('#gShow').addEventListener('click', () => document.querySelectorAll('#gList .gap').forEach(i => { if (!i.classList.contains('ok')) { i.value = i.dataset.ans; i.classList.remove('no'); } }));
+$('#gNew').addEventListener('click', gapBuild);
+if (!GAP.length) document.querySelector('[data-tab=gaps]').hidden = true;
+
+// word list
+function listRender() {
+  const q = norm($('#lSearch').value);
+  const box = $('#lItems'); box.replaceChildren();
+  T.filter(t => !q || norm(t.term + ' ' + t.meaning).includes(q)).forEach(t => {
+    const r = el('div', 'li');
+    r.append(el('span', 't', t.term + (S.known.includes(t.term) ? '  ✓' : '')), el('span', 'i', t.ipa + ' · ' + t.meaning), el('span', 'd', t.definition + ' — “' + t.example + '”'));
+    const b = el('button', 'say', '🔊'); b.setAttribute('aria-label', 'Nghe ' + t.term); b.addEventListener('click', () => speak(t.term)); r.append(b);
+    box.append(r);
+  });
+}
+$('#lSearch').addEventListener('input', listRender);
+document.querySelector('[data-tab=list]').addEventListener('click', listRender);
+
+renderHome(); deckBuild(); matchRound(); quizBuild(); gapBuild(); listRender();
+})();
+</script>
+</body>
+</html>
