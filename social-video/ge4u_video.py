@@ -139,7 +139,8 @@ def build_item(day, cid, platform, slot, bank):
     else:
         trio = pick(terms, 3, (day * 3 + salt) % n)
         item["terms"] = trio
-        item["title"] = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)} #Shorts"[:100]
+        full = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)} #Shorts"
+        item["title"] = full if len(full) <= 100 else f"3 {en} words in 30 seconds #Shorts"
         item["caption"] = ("\n".join(f"• {x['term']} {x['ipa']} = {x['meaning']}" for x in trio) +
                            f"\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học {en} miễn phí mỗi ngày.\n\n"
                            f"#GE4u #{tag} #MedicalEnglish #Shorts")

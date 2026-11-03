@@ -81,10 +81,18 @@ jobs:
       - name: Record plan in repo
         run: |
           D="${{ steps.plan.outputs.date }}"
-          mkdir -p marketing/video-plans
-          cp "out/$D/plan.json" "marketing/video-plans/$D.json"
+          cp "out/$D/plan.json" /tmp/plan.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add marketing/video-plans/$D.json
-          git commit -m "chore: record social video plan $D [skip ci]" || exit 0
-          git pull --rebase origin main && git push origin HEAD:main
+          for attempt in 1 2 3; do
+            git fetch -q origin main
+            git checkout -q -B record origin/main
+            mkdir -p marketing/video-plans
+            cp /tmp/plan.json "marketing/video-plans/$D.json"
+            git add "marketing/video-plans/$D.json"
+            git diff --cached --quiet && { echo "Plan already recorded"; exit 0; }
+            git commit -q -m "chore: record social video plan $D [skip ci]"
+            git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "Could not record plan (release is already published)"; exit 1
