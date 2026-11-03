@@ -214,15 +214,31 @@ def make_plan(date):
             "rotation_day": day, "items": items, "threads": make_threads(items, day)}
 
 
-def make_threads(items, day):
-    """Two native Threads text posts a day (a quiz and a 3-word list) from today's videos, one topic tag each."""
-    out, used = [], set()
-    for want, time, topic in (("quiz", THREADS_TIMES[0], None), ("three_terms", THREADS_TIMES[1], "discipline")):
+def _day_items(day, bank):
+    return [dict(build_item(day, ORDER[(day + slot + 4 * pi) % 12], platform, slot, bank), cta=slot in CTA_SLOTS)
+            for pi, platform in enumerate(PLATFORMS) for slot in range(12)]
+
+
+def _threads_pick(items, day, avoid=frozenset()):
+    picks, used = [], set()
+    for want in ("quiz", "three_terms"):
         cands = [i for i in items if i["format"] == want and not i.get("cta") and i["discipline"] not in used]
         if not cands:
             continue
-        it = cands[day % len(cands)]
+        order = cands[day % len(cands):] + cands[:day % len(cands)]
+        it = next((c for c in order if tuple(t["term"] for t in c["terms"]) not in avoid), order[0])
         used.add(it["discipline"])
+        picks.append(it)
+    return picks
+
+
+def make_threads(items, day):
+    """Two native Threads text posts a day (a quiz and a 3-word list) from today's videos, one topic tag each.
+    Terms used on Threads in the previous 30 days are skipped so Threads never repeats within a month."""
+    bank = load_bank()
+    avoid = {tuple(t["term"] for t in it["terms"]) for d in range(day - 30, day) for it in _threads_pick(_day_items(d, bank), d)}
+    out = []
+    for it, time, topic in zip(_threads_pick(items, day, avoid), THREADS_TIMES, (None, "discipline")):
         body = it["caption"].rpartition("\n\n")[0]  # drop the hashtag line
         body = body.replace("Subscribe GE4u", "Follow GE4u").replace(" Gửi cho bạn học cùng ngành để thử thách!", "")
         tag = "tienganh" if topic is None else THREADS_TOPIC[it["discipline"]]
@@ -230,7 +246,7 @@ def make_threads(items, day):
         if len(text) > THREADS_LIMIT:
             raise ValueError(f"threads post too long ({len(text)}): {it['id']}")
         out.append({"id": it["id"].replace(it["platform"], "threads", 1), "time": time, "discipline": it["discipline"],
-                    "format": want, "topic": tag, "text": text})
+                    "format": it["format"], "topic": tag, "text": text})
     return out
 
 
