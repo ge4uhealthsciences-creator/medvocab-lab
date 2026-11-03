@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "GE4u learning-pack roadmap, ordered from basic sciences to clinical practice. Each pack targets ~100 terms plus the shared word-parts section (data/word-parts.json). status: ready | planned.",
+  "note": "GE4u learning-pack roadmap, ordered from basic sciences to clinical practice. Each pack targets ~100 terms plus the shared word-parts section (data/word-parts.json). status: ready | planned. Build order: Medical, then Dentistry, Pharmacy, Nursing; within a discipline from level 1 upward. Remaining disciplines get roadmaps after these four.",
   "disciplines": [
     {
       "id": "medical",
@@ -15,7 +15,8 @@
               "id": "medical-anatomy",
               "vi": "Giải phẫu",
               "en": "Anatomy",
-              "status": "ready"
+              "status": "ready",
+              "review": "public-source check 2026-11-03; expert review pending"
             },
             {
               "id": "medical-physiology",
@@ -69,7 +70,8 @@
               "id": "medical-internal-medicine",
               "vi": "Nội khoa",
               "en": "Internal Medicine",
-              "status": "ready"
+              "status": "ready",
+              "review": "public-source check 2026-11-03; expert review pending"
             },
             {
               "id": "medical-surgery",
@@ -87,6 +89,231 @@
               "id": "medical-paediatrics",
               "vi": "Nhi khoa",
               "en": "Paediatrics",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dentistry",
+      "vi": "Răng Hàm Mặt",
+      "en": "Dental English",
+      "levels": [
+        {
+          "level": 1,
+          "vi": "Y cơ sở",
+          "packs": [
+            {
+              "id": "dentistry-oral-anatomy",
+              "vi": "Giải phẫu răng – miệng",
+              "en": "Oral and Dental Anatomy",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-oral-histology-physiology",
+              "vi": "Mô phôi – Sinh lý răng miệng",
+              "en": "Oral Histology and Physiology",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "vi": "Tiền lâm sàng",
+          "packs": [
+            {
+              "id": "dentistry-materials-instruments",
+              "vi": "Vật liệu – Dụng cụ nha khoa",
+              "en": "Dental Materials and Instruments",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-examination-radiology",
+              "vi": "Khám – X-quang răng miệng",
+              "en": "Dental Examination and Radiology",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "vi": "Lâm sàng",
+          "packs": [
+            {
+              "id": "dentistry-operative-endodontics",
+              "vi": "Chữa răng – Nội nha",
+              "en": "Operative Dentistry and Endodontics",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-periodontics",
+              "vi": "Nha chu",
+              "en": "Periodontics",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-prosthodontics",
+              "vi": "Phục hình",
+              "en": "Prosthodontics",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-orthodontics",
+              "vi": "Chỉnh nha",
+              "en": "Orthodontics",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-oral-surgery",
+              "vi": "Phẫu thuật miệng",
+              "en": "Oral Surgery",
+              "status": "planned"
+            },
+            {
+              "id": "dentistry-paediatric",
+              "vi": "Răng trẻ em",
+              "en": "Paediatric Dentistry",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "vi": "Dược học",
+      "en": "Pharmacy English",
+      "levels": [
+        {
+          "level": 1,
+          "vi": "Cơ sở",
+          "packs": [
+            {
+              "id": "pharmacy-pharmaceutical-chemistry",
+              "vi": "Hóa dược",
+              "en": "Pharmaceutical Chemistry",
+              "status": "planned"
+            },
+            {
+              "id": "pharmacy-pharmacognosy",
+              "vi": "Dược liệu",
+              "en": "Pharmacognosy",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "vi": "Cơ sở ngành",
+          "packs": [
+            {
+              "id": "pharmacy-pharmaceutics",
+              "vi": "Bào chế",
+              "en": "Pharmaceutics",
+              "status": "planned"
+            },
+            {
+              "id": "pharmacy-pharmacokinetics",
+              "vi": "Dược động học",
+              "en": "Pharmacokinetics",
+              "status": "planned"
+            },
+            {
+              "id": "pharmacy-pharmacology",
+              "vi": "Dược lý",
+              "en": "Pharmacology",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "vi": "Chuyên ngành",
+          "packs": [
+            {
+              "id": "pharmacy-clinical-pharmacy",
+              "vi": "Dược lâm sàng",
+              "en": "Clinical Pharmacy",
+              "status": "planned"
+            },
+            {
+              "id": "pharmacy-patient-counselling",
+              "vi": "Tư vấn sử dụng thuốc",
+              "en": "Patient Counselling",
+              "status": "planned"
+            },
+            {
+              "id": "pharmacy-supply-management",
+              "vi": "Quản lý – Cung ứng thuốc",
+              "en": "Pharmaceutical Supply and Management",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nursing",
+      "vi": "Điều dưỡng",
+      "en": "Nursing English",
+      "levels": [
+        {
+          "level": 1,
+          "vi": "Cơ sở",
+          "packs": [
+            {
+              "id": "nursing-anatomy-physiology",
+              "vi": "Giải phẫu – Sinh lý cho điều dưỡng",
+              "en": "Anatomy and Physiology for Nurses",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "vi": "Cơ sở ngành",
+          "packs": [
+            {
+              "id": "nursing-fundamentals",
+              "vi": "Kỹ thuật điều dưỡng cơ bản",
+              "en": "Fundamentals of Nursing",
+              "status": "planned"
+            },
+            {
+              "id": "nursing-communication",
+              "vi": "Giao tiếp – Giáo dục sức khỏe",
+              "en": "Communication and Health Education",
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "vi": "Lâm sàng",
+          "packs": [
+            {
+              "id": "nursing-medical",
+              "vi": "Điều dưỡng nội khoa",
+              "en": "Medical Nursing",
+              "status": "planned"
+            },
+            {
+              "id": "nursing-surgical",
+              "vi": "Điều dưỡng ngoại khoa",
+              "en": "Surgical Nursing",
+              "status": "planned"
+            },
+            {
+              "id": "nursing-maternal-child",
+              "vi": "Điều dưỡng sản – nhi",
+              "en": "Maternal and Child Nursing",
+              "status": "planned"
+            },
+            {
+              "id": "nursing-critical-care",
+              "vi": "Hồi sức – Cấp cứu",
+              "en": "Critical and Emergency Care",
               "status": "planned"
             }
           ]
