@@ -1,0 +1,436 @@
+{
+  "date": "2026-11-03",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "views-and-reach-only",
+  "rotation_day": 0,
+  "items": [
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 0,
+      "time": "07:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "dentin",
+          "ipa": "/ˈdentɪn/",
+          "meaning": "ngà răng",
+          "definition": "The hard tissue beneath enamel and cementum.",
+          "example": "Dentin may become sensitive when it is exposed."
+        }
+      ],
+      "caption": "🦷 dentin /ˈdentɪn/\n= ngà răng\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Dental English mỗi ngày.\n\n#GE4u #DentalEnglish #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok",
+      "title": "dentin — Dental English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-03-tiktok-0-dentistry",
+      "date": "2026-11-03",
+      "file": "2026-11-03-tiktok-0-dentistry.mp4",
+      "duration_s": 15.53
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "07:40",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "physical examination",
+          "ipa": "/ˈfɪzɪkəl ɪɡˌzæmɪˈneɪʃən/",
+          "meaning": "khám thực thể",
+          "definition": "Assessment of the body for clinical signs.",
+          "example": "A physical examination was performed."
+        }
+      ],
+      "quiz": {
+        "question": "Assessment of the body for clinical signs.",
+        "options": [
+          "physical examination",
+          "prognosis",
+          "chronic"
+        ],
+        "answer": "A"
+      },
+      "caption": "🩺 Medical English quiz: \"Assessment of the body for clinical signs.\"\nA) physical examination  B) prognosis  C) chronic\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#GE4u #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh",
+      "title": "Medical English quiz",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-03-instagram-0-medical",
+      "date": "2026-11-03",
+      "file": "2026-11-03-instagram-0-medical.mp4",
+      "duration_s": 13.63
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Pharmacy English trong 30 giây",
+      "slot": 0,
+      "time": "09:10",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "formulary",
+          "ipa": "/ˈfɔːmjələri/",
+          "meaning": "danh mục thuốc",
+          "definition": "An approved list of medicines for use.",
+          "example": "The drug is on the hospital formulary."
+        },
+        {
+          "term": "compliance",
+          "ipa": "/kəmˈplaɪəns/",
+          "meaning": "tuân thủ",
+          "definition": "Following instructions or regulations.",
+          "example": "The pharmacy passed the compliance check."
+        },
+        {
+          "term": "allergy",
+          "ipa": "/ˈælədʒi/",
+          "meaning": "dị ứng",
+          "definition": "An abnormal immune reaction to a substance.",
+          "example": "Ask about drug allergies before dispensing."
+        }
+      ],
+      "title": "3 Pharmacy English words in 30 seconds: formulary, compliance, allergy #Shorts",
+      "caption": "• formulary /ˈfɔːmjələri/ = danh mục thuốc\n• compliance /kəmˈplaɪəns/ = tuân thủ\n• allergy /ˈælədʒi/ = dị ứng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học Pharmacy English miễn phí mỗi ngày.\n\n#GE4u #PharmacyEnglish #MedicalEnglish #Shorts",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-03-youtube-0-pharmacy",
+      "date": "2026-11-03",
+      "file": "2026-11-03-youtube-0-pharmacy.mp4",
+      "duration_s": 19.77
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 1,
+      "time": "11:40",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "observation chart",
+          "ipa": "/ˌɒbzəˈveɪʃən tʃɑːt/",
+          "meaning": "phiếu theo dõi",
+          "definition": "A record of regular vital sign measurements.",
+          "example": "Document the readings on the observation chart."
+        }
+      ],
+      "caption": "🩹 observation chart /ˌɒbzəˈveɪʃən tʃɑːt/\n= phiếu theo dõi\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Nursing English mỗi ngày.\n\n#GE4u #NursingEnglish #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok",
+      "title": "observation chart — Nursing English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-03-tiktok-1-nursing",
+      "date": "2026-11-03",
+      "file": "2026-11-03-tiktok-1-nursing.mp4",
+      "duration_s": 16.43
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 1,
+      "time": "12:10",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "placenta",
+          "ipa": "/pləˈsentə/",
+          "meaning": "nhau thai",
+          "definition": "The organ that supplies the fetus with oxygen and nutrients.",
+          "example": "The placenta was delivered complete."
+        }
+      ],
+      "quiz": {
+        "question": "The organ that supplies the fetus with oxygen and nutrients.",
+        "options": [
+          "umbilical cord",
+          "fetal heart rate",
+          "placenta"
+        ],
+        "answer": "C"
+      },
+      "caption": "🤰 Midwifery English quiz: \"The organ that supplies the fetus with oxygen and nutrients.\"\nA) umbilical cord  B) fetal heart rate  C) placenta\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#GE4u #MidwiferyEnglish #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh",
+      "title": "Midwifery English quiz",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-03-instagram-1-midwifery",
+      "date": "2026-11-03",
+      "file": "2026-11-03-instagram-1-midwifery.mp4",
+      "duration_s": 14.17
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Công tác xã hội",
+      "slot": 1,
+      "time": "13:10",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "risk assessment",
+          "ipa": "/ˈrɪsk əˌsesmənt/",
+          "meaning": "đánh giá nguy cơ",
+          "definition": "A structured review of possible harm.",
+          "example": "Complete a risk assessment before the visit."
+        },
+        {
+          "term": "community resources",
+          "ipa": "/kəˈmjuːnəti rɪˈzɔːsɪz/",
+          "meaning": "nguồn lực cộng đồng",
+          "definition": "Local services that can help people.",
+          "example": "We linked the family to community resources."
+        },
+        {
+          "term": "active listening",
+          "ipa": "/ˌæktɪv ˈlɪsənɪŋ/",
+          "meaning": "lắng nghe tích cực",
+          "definition": "Listening carefully and showing understanding.",
+          "example": "Active listening builds trust."
+        }
+      ],
+      "title": "3 Social Work English words in 30 seconds: risk assessment, community resources, active listening #S",
+      "caption": "• risk assessment /ˈrɪsk əˌsesmənt/ = đánh giá nguy cơ\n• community resources /kəˈmjuːnəti rɪˈzɔːsɪz/ = nguồn lực cộng đồng\n• active listening /ˌæktɪv ˈlɪsənɪŋ/ = lắng nghe tích cực\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học Social Work English miễn phí mỗi ngày.\n\n#GE4u #SocialWorkEnglish #MedicalEnglish #Shorts",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-03-youtube-1-social-work",
+      "date": "2026-11-03",
+      "file": "2026-11-03-youtube-1-social-work.mp4",
+      "duration_s": 21.57
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 2,
+      "time": "16:10",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "qi",
+          "ipa": "/tʃiː/",
+          "meaning": "khí",
+          "definition": "Vital energy in traditional Chinese medicine.",
+          "example": "Deficiency of qi may cause fatigue."
+        },
+        {
+          "term": "herbal formula",
+          "ipa": "/ˌhɜːbəl ˈfɔːmjələ/",
+          "meaning": "bài thuốc",
+          "definition": "A combination of herbs used together.",
+          "example": "The herbal formula has six herbs."
+        },
+        {
+          "term": "contraindication",
+          "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+          "meaning": "chống chỉ định",
+          "definition": "A reason not to use a treatment.",
+          "example": "Pregnancy is a contraindication for some herbs."
+        }
+      ],
+      "title": "3 Traditional Medicine English words in 30 seconds: qi, herbal formula, contraindication #Shorts",
+      "caption": "• qi /tʃiː/ = khí\n• herbal formula /ˌhɜːbəl ˈfɔːmjələ/ = bài thuốc\n• contraindication /ˌkɒntrəˌɪndɪˈkeɪʃən/ = chống chỉ định\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học Traditional Medicine English miễn phí mỗi ngày.\n\n#GE4u #TraditionalMedicine #MedicalEnglish #Shorts",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-03-youtube-2-traditional-medicine",
+      "date": "2026-11-03",
+      "file": "2026-11-03-youtube-2-traditional-medicine.mp4",
+      "duration_s": 20.93
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Bào chế có trả lời được không?",
+      "slot": 2,
+      "time": "17:40",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "viscosity",
+          "ipa": "/vɪˈskɒsəti/",
+          "meaning": "độ nhớt",
+          "definition": "A liquid's resistance to flow.",
+          "example": "Increase viscosity with a thickener."
+        }
+      ],
+      "quiz": {
+        "question": "A liquid's resistance to flow.",
+        "options": [
+          "capsule filling",
+          "viscosity",
+          "particle size"
+        ],
+        "answer": "B"
+      },
+      "caption": "🏭 Pharma Technology English quiz: \"A liquid's resistance to flow.\"\nA) capsule filling  B) viscosity  C) particle size\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#GE4u #PharmaTech #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh",
+      "title": "Pharma Technology English quiz",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-03-instagram-2-pharmaceutical-technology",
+      "date": "2026-11-03",
+      "file": "2026-11-03-instagram-2-pharmaceutical-technology.mp4",
+      "duration_s": 12.6
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Hóa dược nghĩa là gì?",
+      "slot": 2,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "pH",
+          "ipa": "/ˌpiː ˈeɪtʃ/",
+          "meaning": "độ pH",
+          "definition": "A measure of how acidic or basic a solution is.",
+          "example": "Adjust the pH to seven."
+        }
+      ],
+      "caption": "⚗️ pH /ˌpiː ˈeɪtʃ/\n= độ pH\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Pharma Chemistry English mỗi ngày.\n\n#GE4u #PharmaChemistry #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok",
+      "title": "pH — Pharma Chemistry English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-03-tiktok-2-pharmaceutical-chemistry",
+      "date": "2026-11-03",
+      "file": "2026-11-03-tiktok-2-pharmaceutical-chemistry.mp4",
+      "duration_s": 14.6
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Nutrition English trong 30 giây",
+      "slot": 3,
+      "time": "20:10",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "balanced diet",
+          "ipa": "/ˌbælənst ˈdaɪət/",
+          "meaning": "chế độ ăn cân bằng",
+          "definition": "A diet with the right mix of nutrients.",
+          "example": "A balanced diet includes vegetables."
+        },
+        {
+          "term": "macronutrient",
+          "ipa": "/ˌmækrəʊˈnjuːtriənt/",
+          "meaning": "chất dinh dưỡng đa lượng",
+          "definition": "A nutrient needed in relatively large amounts.",
+          "example": "Protein is a macronutrient."
+        },
+        {
+          "term": "micronutrient",
+          "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
+          "meaning": "vi chất dinh dưỡng",
+          "definition": "A nutrient needed in small amounts.",
+          "example": "Iron is an essential micronutrient."
+        }
+      ],
+      "title": "3 Nutrition English words in 30 seconds: balanced diet, macronutrient, micronutrient #Shorts",
+      "caption": "• balanced diet /ˌbælənst ˈdaɪət/ = chế độ ăn cân bằng\n• macronutrient /ˌmækrəʊˈnjuːtriənt/ = chất dinh dưỡng đa lượng\n• micronutrient /ˌmaɪkrəʊˈnjuːtriənt/ = vi chất dinh dưỡng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học Nutrition English miễn phí mỗi ngày.\n\n#GE4u #NutritionEnglish #MedicalEnglish #Shorts",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-03-youtube-3-nutrition",
+      "date": "2026-11-03",
+      "file": "2026-11-03-youtube-3-nutrition.mp4",
+      "duration_s": 21.87
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 3,
+      "time": "20:40",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "perception",
+          "ipa": "/pəˈsepʃən/",
+          "meaning": "tri giác",
+          "definition": "How the brain interprets sensory information.",
+          "example": "Perception can be influenced by expectation."
+        }
+      ],
+      "quiz": {
+        "question": "How the brain interprets sensory information.",
+        "options": [
+          "perception",
+          "memory",
+          "attention"
+        ],
+        "answer": "A"
+      },
+      "caption": "🧠 Psychology English quiz: \"How the brain interprets sensory information.\"\nA) perception  B) memory  C) attention\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#GE4u #PsychologyEnglish #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh",
+      "title": "Psychology English quiz",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-03-instagram-3-psychology",
+      "date": "2026-11-03",
+      "file": "2026-11-03-instagram-3-psychology.mp4",
+      "duration_s": 13.6
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 3,
+      "time": "21:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "cohort study",
+          "ipa": "/ˈkəʊhɔːt ˌstʌdi/",
+          "meaning": "nghiên cứu thuần tập",
+          "definition": "A study following a group over time.",
+          "example": "The cohort study ran for ten years."
+        }
+      ],
+      "caption": "🌍 cohort study /ˈkəʊhɔːt ˌstʌdi/\n= nghiên cứu thuần tập\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Public Health English mỗi ngày.\n\n#GE4u #PublicHealthEnglish #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok",
+      "title": "cohort study — Public Health English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-03-tiktok-3-public-health",
+      "date": "2026-11-03",
+      "file": "2026-11-03-tiktok-3-public-health.mp4",
+      "duration_s": 15.07
+    }
+  ]
+}
