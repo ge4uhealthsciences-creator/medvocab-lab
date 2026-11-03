@@ -1,0 +1,23 @@
+{
+  "note": "Daily sales post rotation for Facebook + Threads at 19:40 Asia/Ho_Chi_Minh, starting 2026-11-10. Index = (date - start_date).days % len(posts). Keep claims accurate to what buyers receive.",
+  "start_date": "2026-11-10",
+  "time": "19:40",
+  "networks": ["facebook", "threads"],
+  "link": "https://ge4uhealthsciences-creator.github.io/medvocab-lab/ge4u-products.html",
+  "posts": [
+    "📚 Học tiếng Anh chuyên ngành Y – Dược mà không phải đọc file PDF khô khan?\n\nGE4u Learning Pack là file học tương tác mở ngay trên điện thoại:\n✅ Flashcard có nút nghe phát âm\n✅ Kéo-thả nối thuật ngữ với nghĩa tiếng Việt\n✅ Trắc nghiệm + điền từ có chấm điểm\n✅ Học offline, lưu tiến độ\n\n💰 99.000đ/bộ · Đặt mua: {link}\n\n#GE4u #TiengAnhYKhoa",
+    "🩺 Sinh viên Y năm 1–2: Giải phẫu bằng tiếng Anh có làm bạn \"đứng hình\"?\n\nBộ GE4u · Giải phẫu: 97 thuật ngữ, 6 chủ đề (định hướng – xương khớp – tim mạch – tiêu hóa – thần kinh – vùng cơ thể). Mỗi từ có IPA, nghĩa tiếng Việt, ví dụ.\n\nThử: \"distal\" là gì? Comment 👇\n\n💰 99.000đ · {link}\n\n#GE4u #GiaiPhau",
+    "🧠 1 mẹo nhớ 100 thuật ngữ: học TỪ NGUYÊN.\n\n-ectomy = cắt bỏ → appendectomy (cắt ruột thừa)\n-scopy = soi → endoscopy (nội soi)\n-megaly = to → hepatomegaly (gan to)\n\nMọi bộ GE4u đều có 60 tiền tố – gốc từ – hậu tố kèm bài luyện.\n\n💰 99.000đ/bộ · {link}\n\n#GE4u #MedicalTerminology",
+    "❤️ Cardiac output = ? A. thể tích nhát bóp  B. cung lượng tim  C. tần số tim\n\nComment đáp án 👇\n\nBộ GE4u · Sinh lý có 103 thuật ngữ: tế bào, tuần hoàn, hô hấp, thận, thần kinh – cơ, nội tiết. Học bằng flashcard có phát âm và trắc nghiệm.\n\n💰 99.000đ · {link}\n\n#GE4u #SinhLy",
+    "🏥 Đi lâm sàng gặp bệnh án tiếng Anh: orthopnoea, melaena, crackles, ward round…\n\nBộ GE4u · Nội khoa: 110 thuật ngữ về triệu chứng, bệnh thường gặp, thăm khám – cận lâm sàng, điều trị và giao tiếp lâm sàng.\n\n💰 99.000đ · {link}\n\n#GE4u #NoiKhoa",
+    "💊 Dân Dược: indication, contraindication, half-life, bioavailability… bạn đọc đúng hết chưa?\n\nGE4u Pharmacy English: thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, ví dụ, flashcard có phát âm. Bộ chuyên đề ~100 từ đang được bổ sung — người mua bộ khởi động nhận miễn phí khi ra mắt.\n\n💰 99.000đ · {link}\n\n#GE4u #DuocHoc",
+    "🩹 Điều dưỡng giao ca bằng tiếng Anh: handover, vital signs, fluid balance, fall risk…\n\nGE4u Nursing English: flashcard có phát âm, kéo-thả, trắc nghiệm, học offline trên điện thoại.\n\n💰 99.000đ · {link}\n\n#GE4u #DieuDuong",
+    "🦷 Răng Hàm Mặt: enamel, dentin, caries, occlusion, gingiva…\n\nGE4u Dental English có 29 thuật ngữ cốt lõi + bài luyện kéo-thả, trắc nghiệm, điền từ. In được bản PDF để ôn.\n\n💰 99.000đ · {link}\n\n#GE4u #RangHamMat",
+    "❓ Mua GE4u Learning Pack nhận được gì?\n\n1️⃣ File học tương tác (mở bằng trình duyệt, học offline)\n2️⃣ Bản PDF in được + đáp án\n3️⃣ Lộ trình ôn 7 ngày\n\nCách mua: đặt trên trang sản phẩm → GE4u liên hệ xác nhận → chuyển khoản → nhận file.\n\n💰 99.000đ/bộ · {link}\n\n#GE4u",
+    "🧪 15 phút/ngày × 7 ngày = 100 thuật ngữ chuyên ngành.\n\nLộ trình trong mỗi bộ GE4u:\nNgày 1–3: flashcard + nghe phát âm\nNgày 4: trắc nghiệm\nNgày 5: điền từ\nNgày 6–7: ôn từ sai, mục tiêu ≥ 90%\n\n💰 99.000đ/bộ · {link}\n\n#GE4u #HocTiengAnh",
+    "🌿 Y học cổ truyền bằng tiếng Anh: acupuncture, meridian, decoction, cupping, qi…\n\nGE4u Traditional Medicine English: thuật ngữ cốt lõi có IPA, nghĩa Việt, ví dụ + bài luyện tương tác.\n\n💰 99.000đ · {link}\n\n#GE4u #YHocCoTruyen",
+    "🌍 Y tế công cộng: incidence vs prevalence, cohort study, herd immunity, surveillance…\n\nGE4u Public Health English: học bằng flashcard có phát âm và trắc nghiệm, ngay trên điện thoại.\n\n💰 99.000đ · {link}\n\n#GE4u #YTeCongCong",
+    "🎮 Học xong từ vựng thì luyện ở đâu?\n\nGE4u đang làm game Bệnh viện 3D English Ward: bạn đóng vai bác sĩ, điều dưỡng, dược sĩ… và dùng đúng các thuật ngữ đã học để khám, giải thích, tư vấn bằng tiếng Anh.\n\nBắt đầu với bộ học liệu: 99.000đ · {link}\n\n#GE4u",
+    "📣 Bạn học ngành nào? Comment để GE4u ưu tiên làm bộ chuyên đề ~100 từ cho ngành đó trước:\nY khoa · Răng Hàm Mặt · Dược · Điều dưỡng · Hộ sinh · YHCT · YTCC · Dinh dưỡng · Tâm lý · CTXH · Hóa dược · Bào chế\n\nĐặt mua bộ hiện có: {link}\n\n#GE4u"
+  ]
+}

@@ -71,13 +71,13 @@ VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, 
 # ---------------------------------------------------------------- content
 def load_bank():
     bank = {k: [] for k in ORDER}
-    seen = {k: set() for k in ORDER}
+    seen = set()  # global: a term belongs to one discipline only, so no two disciplines make the same video
 
     def add(cid, row):
         term = row[0].strip()
-        if term.lower() in seen[cid] or not all(str(x).strip() for x in row[:5]):
+        if term.lower() in seen or not all(str(x).strip() for x in row[:5]):
             return
-        seen[cid].add(term.lower())
+        seen.add(term.lower())
         bank[cid].append({"term": term, "ipa": row[1], "meaning": row[2], "definition": row[3], "example": row[4]})
 
     for ch in json.loads((DATA / "ge4u-channel-samples.json").read_text(encoding="utf-8"))["channels"]:
@@ -102,11 +102,20 @@ def pick(seq, n, start):
     return [seq[(start + i) % len(seq)] for i in range(n)]
 
 
+FMTS = ["pronounce", "quiz", "three_terms"]
+FOLLOW = {"tiktok": "Follow", "instagram": "Follow", "youtube": "Subscribe"}
+PLATFORM_TAGS = {"tiktok": "#LearnOnTikTok", "instagram": "#Reels", "youtube": "#Shorts"}
+
+
 def build_item(day, cid, platform, slot, bank):
     vi, en, emoji, tag = LABEL[cid]
-    fmt = FORMAT[platform]
     terms = bank[cid]
     n = len(terms)
+    # After each full pass through a discipline's terms, every platform moves to the next format,
+    # so the same (platform, format, term) video does not come back for about 3 x n days.
+    cycle = day // n if day >= 0 else 0
+    fmt = FMTS[(FMTS.index(FORMAT[platform]) + cycle) % 3]
+    follow, ptag = FOLLOW[platform], PLATFORM_TAGS[platform]
     salt = int(hashlib.sha1(f"{cid}{platform}".encode()).hexdigest(), 16) % n
     # Each discipline uses 5 consecutive terms per day: TikTok 1, Instagram 1, YouTube 3 — no overlap across platforms.
     step = next(k for k in range(5, 5 + n) if math.gcd(k, n) == 1)  # coprime step: full cycle before any repeat
@@ -121,9 +130,9 @@ def build_item(day, cid, platform, slot, bank):
         item["terms"] = [t]
         item["caption"] = (f"{emoji} {t['term']} {t['ipa']}\n= {t['meaning']}\n\n"
                            f"Nghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\n"
-                           f"Follow GE4u để học 1 từ {en} mỗi ngày.\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok")
-        item["title"] = f"{t['term']} — {en}"
+                           f"{follow} GE4u để học 1 từ {en} mỗi ngày.\n\n"
+                           f"#GE4u #{tag} #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh {ptag}")
+        item["title"] = f"{t['term']} — {en}" + (" #Shorts" if platform == "youtube" else "")
         item["primary_metric"] = "average watch time, full-video-watched rate"
     elif fmt == "quiz":
         start = (base + 1) % n
@@ -140,17 +149,18 @@ def build_item(day, cid, platform, slot, bank):
         item["caption"] = (f"{emoji} {en} quiz: \"{t['definition']}\"\n"
                            f"A) {opts[0]['term']}  B) {opts[1]['term']}  C) {opts[2]['term']}\n\n"
                            f"Comment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh")
-        item["title"] = f"{en} quiz"
+                           f"#GE4u #{tag} #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh {ptag}")
+        item["title"] = f"{en} quiz: {t['term'][0].upper()}…?" + (" #Shorts" if platform == "youtube" else "")
         item["primary_metric"] = "non-follower reach, shares"
     else:
         trio = pick(terms, 3, (base + 2) % n)
         item["terms"] = trio
-        full = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)} #Shorts"
-        item["title"] = full if len(full) <= 100 else f"3 {en} words in 30 seconds #Shorts"
+        sfx = " #Shorts" if platform == "youtube" else ""
+        full = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)}{sfx}"
+        item["title"] = full if len(full) <= 100 else f"3 {en} words in 30 seconds{sfx}"
         item["caption"] = ("\n".join(f"• {x['term']} {x['ipa']} = {x['meaning']}" for x in trio) +
-                           f"\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học {en} miễn phí mỗi ngày.\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish #Shorts")
+                           f"\n\nBạn đã biết mấy từ? Comment số 0–3 👇 {follow} GE4u để học {en} miễn phí mỗi ngày.\n\n"
+                           f"#GE4u #{tag} #MedicalEnglish {ptag}")
         item["primary_metric"] = "views, average view duration"
     return item
 
@@ -464,7 +474,15 @@ def main():
         for it in plan["items"]:
             if a.only and a.only not in it["id"]:
                 continue
-            f = render_item(it, outdir, outdir / ".work" / it["id"])
+            for attempt in (1, 2):
+                try:
+                    f = render_item(it, outdir, outdir / ".work" / it["id"])
+                    break
+                except Exception as e:  # one retry per video; a second failure stops the run
+                    print(f"render failed ({attempt}/2) for {it['id']}: {e}", file=sys.stderr)
+                    shutil.rmtree(outdir / ".work" / it["id"], ignore_errors=True)
+                    if attempt == 2:
+                        raise
             print(f"rendered {f.name} {it['duration_s']}s")
         planp.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
 

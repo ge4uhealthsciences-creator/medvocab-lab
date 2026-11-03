@@ -8,12 +8,12 @@
       "id": "dentistry",
       "vi": "Răng Hàm Mặt",
       "name": "Dental English Learning Pack",
-      "subtitle": "Core dental terminology, clinical communication and interactive practice.",
+      "subtitle": "Bộ khởi động 29 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Vocabulary with IPA and Vietnamese meaning",
-        "Interactive quizzes with explanations",
-        "Case-based communication practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/dental-english-pack.json",
       "sample_url": "ge4u-dental-english.html",
@@ -23,12 +23,12 @@
       "id": "medical",
       "vi": "Y khoa",
       "name": "Medical English Learning Pack",
-      "subtitle": "Symptoms, anatomy, clinical history and patient communication.",
+      "subtitle": "Chọn 1 chuyên đề ~100 thuật ngữ: Giải phẫu (97 từ) · Sinh lý (103 từ) · Nội khoa (110 từ). Ghi chuyên đề bạn chọn khi đặt mua.",
       "formats": [
-        "Core medical vocabulary",
-        "Interactive knowledge checks",
-        "Case-based communication practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=medical",
@@ -38,12 +38,12 @@
       "id": "pharmacy",
       "vi": "Dược học",
       "name": "Pharmacy English Learning Pack",
-      "subtitle": "Pharmacology, indications, adverse effects and medication counselling.",
+      "subtitle": "Bộ khởi động 23 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Pharmacy terminology with IPA",
-        "Interactive quizzes with explanations",
-        "Medication-counselling language practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=pharmacy",
@@ -53,12 +53,12 @@
       "id": "nursing",
       "vi": "Điều dưỡng",
       "name": "Nursing English Learning Pack",
-      "subtitle": "Vital signs, nursing assessment, handover and patient safety.",
+      "subtitle": "Bộ khởi động 24 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Nursing terminology with IPA",
-        "Interactive quizzes with explanations",
-        "Handover and patient communication practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=nursing",
@@ -68,12 +68,12 @@
       "id": "midwifery",
       "vi": "Hộ sinh",
       "name": "Midwifery English Learning Pack",
-      "subtitle": "Antenatal care, labour, postpartum care and newborn assessment.",
+      "subtitle": "Bộ khởi động 24 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Midwifery terminology with IPA",
-        "Interactive quizzes with explanations",
-        "Maternal-care communication practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=midwifery",
@@ -83,12 +83,12 @@
       "id": "social-work",
       "vi": "Công tác xã hội",
       "name": "Healthcare Social Work English Learning Pack",
-      "subtitle": "Client-centred communication, needs assessment and service coordination.",
+      "subtitle": "Bộ khởi động 23 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Social-work terminology with IPA",
-        "Interactive quizzes with explanations",
-        "Client-centred communication practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=social-work",
@@ -98,12 +98,12 @@
       "id": "pharmaceutical-chemistry",
       "vi": "Hóa dược",
       "name": "Pharmaceutical Chemistry English Learning Pack",
-      "subtitle": "Chemical structure, synthesis, analysis and structure–activity relationships.",
+      "subtitle": "Bộ khởi động 22 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Pharmaceutical chemistry terminology",
-        "Interactive quizzes with explanations",
-        "Scientific description and reading practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=pharmaceutical-chemistry",
@@ -113,12 +113,12 @@
       "id": "pharmaceutical-technology",
       "vi": "Công nghệ dược phẩm",
       "name": "Pharmaceutical Technology English Learning Pack",
-      "subtitle": "Dosage forms, excipients, manufacturing and quality control.",
+      "subtitle": "Bộ khởi động 21 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Pharmaceutical technology terminology",
-        "Interactive quizzes with explanations",
-        "Manufacturing and quality-control language practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=pharmaceutical-technology",
@@ -128,12 +128,12 @@
       "id": "traditional-medicine",
       "vi": "Y học cổ truyền",
       "name": "Traditional Medicine English Learning Pack",
-      "subtitle": "Traditional medicine terminology, medicinal materials and academic description.",
+      "subtitle": "Bộ khởi động 23 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Traditional medicine terminology",
-        "Interactive quizzes with explanations",
-        "Academic description and comparison practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=traditional-medicine",
@@ -143,12 +143,12 @@
       "id": "public-health",
       "vi": "Y tế công cộng",
       "name": "Public Health English Learning Pack",
-      "subtitle": "Epidemiology, prevention, health promotion and population-level data.",
+      "subtitle": "Bộ khởi động 23 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Public health terminology",
-        "Interactive quizzes with explanations",
-        "Epidemiology and health-promotion language practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=public-health",
@@ -158,12 +158,12 @@
       "id": "psychology",
       "vi": "Tâm lý học",
       "name": "Psychology English Learning Pack",
-      "subtitle": "Cognition, behaviour, emotion, assessment and mental well-being.",
+      "subtitle": "Bộ khởi động 25 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Psychology terminology",
-        "Interactive quizzes with explanations",
-        "Interview and communication language practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=psychology",
@@ -173,12 +173,12 @@
       "id": "nutrition",
       "vi": "Dinh dưỡng",
       "name": "Nutrition English Learning Pack",
-      "subtitle": "Nutritional assessment, deficiencies, clinical nutrition and diet therapy.",
+      "subtitle": "Bộ khởi động 23 thuật ngữ cốt lõi có IPA, nghĩa tiếng Việt, định nghĩa và ví dụ. Người mua được nhận miễn phí bản chuyên đề ~100 từ khi ra mắt.",
       "formats": [
-        "Nutrition terminology",
-        "Interactive quizzes with explanations",
-        "Nutrition-assessment language practice",
-        "Printable review sheets"
+        "File học tương tác mở trên điện thoại, học offline",
+        "Flashcard có nút nghe phát âm, kéo-thả nối nghĩa, trắc nghiệm, điền từ",
+        "Phần từ nguyên: 60 tiền tố – gốc từ – hậu tố",
+        "Bản PDF in được kèm đáp án và lộ trình ôn 7 ngày"
       ],
       "source": "data/ge4u-channel-samples.json",
       "sample_url": "ge4u-channel.html?channel=nutrition",
