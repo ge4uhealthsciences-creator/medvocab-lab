@@ -3,8 +3,8 @@
 // Fill in from Firebase console → Project settings → Your apps → Web app.
 export const firebaseConfig = {
   apiKey: "ADD_FIREBASE_API_KEY",
-  authDomain: "ADD_FIREBASE_PROJECT.firebaseapp.com",
-  projectId: "ADD_FIREBASE_PROJECT_ID",
+  authDomain: "medical-english-b8ff5.firebaseapp.com",
+  projectId: "medical-english-b8ff5",
   appId: "ADD_FIREBASE_APP_ID",
 };
 export const firebaseReady = !Object.values(firebaseConfig).some((v) => String(v).startsWith("ADD_"));
