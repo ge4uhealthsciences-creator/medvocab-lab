@@ -147,6 +147,17 @@ def build_item(day, cid, platform, slot, bank):
     return item
 
 
+def dedupe_tags(text):
+    head, sep, tags = text.rpartition("\n\n")
+    if not sep or not tags.startswith("#"):
+        return text
+    seen, keep = set(), []
+    for t in tags.split():
+        if t.lower() not in seen:
+            seen.add(t.lower()); keep.append(t)
+    return head + sep + " ".join(keep)
+
+
 def make_plan(date):
     bank = load_bank()
     day = (date - EPOCH).days
@@ -157,6 +168,7 @@ def make_plan(date):
         platform = PLATFORMS[i % 3]
         slot = i // 3
         it = build_item(day, cid, platform, slot, bank)
+        it["caption"] = dedupe_tags(it["caption"])
         it["id"] = f"{date.isoformat()}-{platform}-{slot}-{cid}"
         it["date"] = date.isoformat()
         items.append(it)
