@@ -2027,7 +2027,10 @@ function talk(){if(!near||busy)return;
   if(mode=='P'){const s=J[ji];if(!s||NP[s.to]!==near)return;busy=true;s.go(stepDone)}
   else if((mode=='D'||mode=='R')&&near.g===pat){busy=true;runDoctorCase()}}
 $('talk').onclick=talk;
-addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=1;if(k=='e'||k=='enter')talk()});addEventListener('keyup',e=>keys[e.key.toLowerCase()]=0);
+// e.key can be missing (password managers / autofill send synthetic key events); typing in a form field must not move or talk
+const typing=e=>{const t=e.target;return t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName||''))};
+addEventListener('keydown',e=>{if(typeof e.key!='string'||typing(e))return;const k=e.key.toLowerCase();keys[k]=1;if(k=='e'||k=='enter')talk()});
+addEventListener('keyup',e=>{if(typeof e.key!='string')return;keys[e.key.toLowerCase()]=0});
 
 // cần điều khiển
 const jy=$('joy'),kn=$('knob');let jid=null;
