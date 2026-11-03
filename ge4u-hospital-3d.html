@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>GE4u · Bệnh viện English Ward 3D</title>
+<title>GE4u English Ward</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -72,8 +72,8 @@ html,body{font-family:"Plus Jakarta Sans","Trebuchet MS","Segoe UI",sans-serif;c
 <div id="dlg"><div id="st"></div><div id="voc"></div><div id="chat"></div><div id="opts"></div></div>
 <div class="ov" id="lift" style="display:none"><h1>🛗 Elevator</h1><p>Which floor would you like to go to?</p><div id="liftBtns" style="display:flex;flex-direction:column;gap:8px;align-items:center"></div><button class="big" id="liftX" style="text-align:center">✖ Stay on this floor</button></div>
 <div class="ov" id="menu">
-  <h1>🏥 General Hospital 3D<br>English Ward</h1>
-  <p>3 floors · car park · emergency · 15 departments · lab · X-ray · ultrasound · CT/MRI. Move: WASD / arrow keys or the joystick. Talk: E or the orange button.</p>
+  <h1>🏥 GE4u English Ward</h1>
+  <p>Practise real hospital conversations in English. Move with WASD / arrow keys or the joystick, talk with E or the orange button.</p>
   <button class="big" id="mP">🛵 Visit as a patient<small>Park → reception → consultation → tests and scans → cashier → pharmacy or admission</small></button>
   <button class="big" id="mE">🚑 Emergency patient<small>Arrive by ambulance and go straight to the Emergency Department</small></button>
     <button class="big" id="mR">🎭 Play a health professional<small>Doctor in 15 specialties · Nurse · Midwife · Pharmacist · Dietitian · Epidemiologist · Social worker</small></button>
@@ -1652,7 +1652,7 @@ function buildFloor(f){GRP=FL[f]=new THREE.Group();scene.add(GRP);
   // tường tây (tầng 1 có cửa chính + cửa cấp cứu)
   if(f==1){[[-12.9,-9],[-7,-1.6],[1.6,12.9]].forEach(z=>box(.3,2.4,z[1]-z[0],WALL,-25.2,1.2,(z[0]+z[1])/2));
     box(.08,2.2,1.5,0x9ec9e2,-25.2,1.1,-.8,.45);box(.08,2.2,1.5,0x9ec9e2,-25.2,1.1,.8,.45);
-    const s1=label('🏥 GENERAL HOSPITAL','English Ward General Hospital','#0f8b8d',1.2);s1.position.set(-25.6,3.4,0);add(s1);
+    const s1=label('🏥 ENGLISH WARD','by GE4u','#0f8b8d',1.2);s1.position.set(-25.6,3.4,0);add(s1);
     const s2=label('🚑 EMERGENCY','Emergency entrance','#d7263d');s2.position.set(-25.6,3.2,-8);add(s2)}
   else box(.3,2.4,25.8,WALL,-25.2,1.2,0);
   // thang máy
@@ -1661,7 +1661,7 @@ function buildFloor(f){GRP=FL[f]=new THREE.Group();scene.add(GRP);
   const el=label('🛗 Elevator · Floor '+f,FLOORS[f].split(' · ').slice(0,3).join(' · ')+'…','#455a64');el.position.set(27.5,3.4,0);add(el);
   NP['lift'+f]={g:{position:new THREE.Vector3(28,0,0),visible:true},f,lift:1};
   for(let x=-15;x<=25;x+=10)[-1,1].forEach(s=>plant(x,s*2.5));
-  const fl=label('TẦNG '+f+' · FLOOR '+f,FLOORS[f].slice(0,38)+'…','#10283a',.9);fl.position.set(0,3.6,0);add(fl);
+  const fl=label('FLOOR '+f,FLOORS[f].slice(0,38)+'…','#10283a',.9);fl.position.set(0,3.6,0);add(fl);
   // người đi lại
   const roles=f==1?['vis','nurse','pat','vis','pat']:f==2?['nurse','pat','vis','pat']:['nurse','vis','nurse','pat'];
   roles.forEach((r,i)=>{const g=person(r,r=='vis'?rnd([0xf2c94c,0x6fcf97,0xbb6bd9,0x56ccf2]):0);g.position.set(-18+i*8,0,-1.9+(i%3)*1.7);WALK[f].push({g,d:i%2?1:-1,sp:1+Math.random()*.6})});

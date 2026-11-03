@@ -1,4 +1,4 @@
-// GE4u Hospital 3D — account gate, free-play limit, Premium unlock and GE4u vocabulary.
+// GE4u English Ward — account gate, free-play limit, Premium unlock and GE4u vocabulary.
 // Loaded as a module after the game script. Accounts use Firebase Authentication;
 // entitlements and premium vocabulary live in Firestore (see firebase/firestore.rules).
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -43,7 +43,7 @@ document.head.append(css);
 const gate = document.createElement("div");
 gate.id = "g4gate";
 gate.innerHTML = `<div class="card">
-  <h2>🏥 English Ward 3D</h2>
+  <h2>🏥 GE4u English Ward</h2>
   <p>Create a free account to play. Free: ${FREE_CASES_PER_DAY} games a day and unlimited hospital tours. Premium: unlimited games plus the GE4u learning-pack vocabulary.</p><p style="font-size:12.5px">Tạo tài khoản miễn phí để chơi.</p>
   <button class="pri" id="g4google">Continue with Google</button>
   <p style="text-align:center">or use email</p>
