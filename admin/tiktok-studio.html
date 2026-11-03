@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>GE4u · TikTok hằng ngày</title>
+<style>
+:root{--ink:#0e2433;--muted:#5b7384;--line:#d5e4ea;--teal:#0b8f8f;--bg:#f4f8fa;--ok:#1d8a4a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:900px;margin:auto;padding:18px 14px 60px;display:flex;flex-direction:column;gap:12px}
+h1{margin:0;font-size:22px}p{margin:0;color:var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,button,a.btn{font:inherit;border-radius:10px;padding:8px 12px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer}
+button.pri,a.pri{background:var(--teal);color:#fff;border-color:var(--teal)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.card.done{opacity:.55}
+.time{font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.disc{font-weight:700}.cta{display:inline-block;margin-left:6px;font-size:12px;background:#fff4dc;color:#8a5a00;border-radius:999px;padding:1px 8px}
+pre{grid-column:1/-1;white-space:pre-wrap;margin:0;background:#f7fafb;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:13.5px/1.45 system-ui,sans-serif}
+.acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.msg{min-height:20px;color:var(--muted)}
+ol{margin:0;padding-left:20px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎵 TikTok hằng ngày</h1>
+  <p>12 video TikTok của mỗi ngày, kèm caption và giờ đăng gợi ý. Lên lịch trên <a href="https://www.tiktok.com/tiktokstudio/upload" target="_blank" rel="noopener">TikTok Studio</a> (máy tính) — lên lịch trước được tối đa 10 ngày.</p>
+  <ol>
+    <li>Bấm <b>⬇ Tải video</b> → lưu file.</li>
+    <li>TikTok Studio → <b>Tải lên</b> → chọn file → bấm <b>📋 Chép caption</b> rồi dán vào ô mô tả.</li>
+    <li>Bật <b>Lên lịch</b>, chọn đúng ngày giờ ở cột trái → <b>Lên lịch</b>. Với video có nhãn <i>CTA</i>, bật "Nội dung thương hiệu của bạn".</li>
+    <li>Bấm <b>✓ Đã lên lịch</b> để đánh dấu (chỉ lưu trên máy này).</li>
+  </ol>
+  <div class="bar"><label for="day">Ngày:</label><select id="day"></select><span class="msg" id="msg">Đang tải…</span></div>
+  <div id="list"></div>
+</div>
+<script>
+const REPO = "ge4uhealthsciences-creator/medvocab-lab";
+const $ = (id) => document.getElementById(id);
+const key = (d) => "ge4u-tiktok-done-" + d;
+let rels = [];
+async function init() {
+  try {
+    const r = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=20`);
+    rels = (await r.json()).filter((x) => /^media-\d{4}-\d{2}-\d{2}$/.test(x.tag_name)).sort((a, b) => a.tag_name.localeCompare(b.tag_name));
+  } catch (e) { $("msg").textContent = "Không tải được danh sách video. Thử tải lại trang."; return; }
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
+  $("day").replaceChildren(...rels.map((r) => { const d = r.tag_name.slice(6); const o = new Option(d.split("-").reverse().join("/") + (d === today ? " (hôm nay)" : ""), d); return o; }));
+  const pick = rels.find((r) => r.tag_name.slice(6) >= today) || rels[rels.length - 1];
+  if (pick) $("day").value = pick.tag_name.slice(6);
+  $("day").onchange = () => show($("day").value);
+  if (pick) show(pick.tag_name.slice(6)); else $("msg").textContent = "Chưa có video nào.";
+}
+async function show(d) {
+  $("msg").textContent = "Đang tải…"; $("list").replaceChildren();
+  const rel = rels.find((r) => r.tag_name === "media-" + d);
+  const asset = rel && rel.assets.find((a) => a.name === "plan.json");
+  if (!asset) { $("msg").textContent = "Ngày này chưa có kế hoạch."; return; }
+  let plan;
+  try { plan = await (await fetch(`https://raw.githubusercontent.com/${REPO}/main/marketing/video-plans/${d}.json`)).json(); }
+  catch (e) { $("msg").textContent = "Không đọc được kế hoạch ngày " + d + "."; return; }
+  let done = {}; try { done = JSON.parse(localStorage.getItem(key(d)) || "{}"); } catch (e) {}
+  const items = plan.items.filter((i) => i.platform === "tiktok").sort((a, b) => a.time.localeCompare(b.time));
+  $("msg").textContent = items.length + " video · đã lên lịch " + items.filter((i) => done[i.id]).length;
+  for (const it of items) {
+    const c = document.createElement("div"); c.className = "card" + (done[it.id] ? " done" : "");
+    const t = document.createElement("div"); t.className = "time"; t.textContent = it.time;
+    const h = document.createElement("div"); const b = document.createElement("span"); b.className = "disc"; b.textContent = it.discipline_vi + " · " + it.format; h.append(b);
+    if (it.cta) { const x = document.createElement("span"); x.className = "cta"; x.textContent = "CTA"; h.append(x); }
+    const pre = document.createElement("pre"); pre.textContent = it.caption;
+    const acts = document.createElement("div"); acts.className = "acts";
+    const dl = document.createElement("a"); dl.className = "btn pri"; dl.textContent = "⬇ Tải video"; dl.href = `https://github.com/${REPO}/releases/download/media-${d}/${it.file}`; dl.download = it.file;
+    const cp = document.createElement("button"); cp.textContent = "📋 Chép caption";
+    cp.onclick = async () => { try { await navigator.clipboard.writeText(it.caption); cp.textContent = "✔ Đã chép"; } catch (e) { cp.textContent = "Bôi đen caption để chép"; } setTimeout(() => cp.textContent = "📋 Chép caption", 2000); };
+    const ok = document.createElement("button"); ok.textContent = done[it.id] ? "↺ Bỏ đánh dấu" : "✓ Đã lên lịch";
+    ok.onclick = () => { done[it.id] = !done[it.id]; try { localStorage.setItem(key(d), JSON.stringify(done)); } catch (e) {} show(d); };
+    acts.append(dl, cp, ok);
+    c.append(t, h, pre, acts); $("list").append(c);
+  }
+}
+init();
+</script>
+</body>
+</html>
