@@ -257,6 +257,12 @@ def main():
             print("Facebook Page connected:", pg.get("name"))
         except Exception as e:
             print("Facebook token check FAILED:", str(e)[:300])
+    if yt:
+        try:
+            info = http("GET", "https://oauth2.googleapis.com/tokeninfo?access_token=" + yt_access_token(*yt))
+            print("YouTube connected, scope:", info.get("scope", "?"))
+        except Exception as e:
+            print("YouTube token check FAILED:", str(e)[:300])
     if ig:
         try:
             u = http("GET", f"{GRAPH}/{ig[1]}?fields=username&access_token={urllib.parse.quote(ig[0])}")
