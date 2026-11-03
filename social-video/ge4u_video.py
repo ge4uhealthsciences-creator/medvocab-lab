@@ -1,0 +1,442 @@
+#!/usr/bin/env python3
+"""GE4u daily short-video pipeline (views & reach phase).
+
+Builds 12 vertical videos per day - one per discipline - split across
+Instagram Reels, TikTok and YouTube Shorts (4 each), with platform-specific
+format, hook, caption and timing. No sales language, prices or purchase CTAs.
+
+  python3 social-video/ge4u_video.py plan   --date 2026-11-04 --out out/
+  python3 social-video/ge4u_video.py render --plan out/plan.json
+
+Rendering needs ffmpeg, Pillow and the sherpa-onnx Kokoro TTS (see setup_tts.sh).
+"""
+import argparse, datetime as dt, hashlib, json, os, shutil, subprocess, sys, wave
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+VN = dt.timezone(dt.timedelta(hours=7))
+EPOCH = dt.date(2026, 11, 3)  # day 0 of the video rotation
+W, H, FPS = 1080, 1920, 30
+
+ORDER = ["dentistry", "medical", "pharmacy", "nursing", "midwifery", "social-work",
+         "pharmaceutical-chemistry", "pharmaceutical-technology", "traditional-medicine",
+         "public-health", "psychology", "nutrition"]
+LABEL = {
+    "dentistry": ("Răng Hàm Mặt", "Dental English", "🦷", "DentalEnglish"),
+    "medical": ("Y khoa", "Medical English", "🩺", "MedicalEnglish"),
+    "pharmacy": ("Dược học", "Pharmacy English", "💊", "PharmacyEnglish"),
+    "nursing": ("Điều dưỡng", "Nursing English", "🩹", "NursingEnglish"),
+    "midwifery": ("Hộ sinh", "Midwifery English", "🤰", "MidwiferyEnglish"),
+    "social-work": ("Công tác xã hội", "Social Work English", "🤝", "SocialWorkEnglish"),
+    "pharmaceutical-chemistry": ("Hóa dược", "Pharma Chemistry English", "⚗️", "PharmaChemistry"),
+    "pharmaceutical-technology": ("Bào chế", "Pharma Technology English", "🏭", "PharmaTech"),
+    "traditional-medicine": ("Y học cổ truyền", "Traditional Medicine English", "🌿", "TraditionalMedicine"),
+    "public-health": ("Y tế công cộng", "Public Health English", "🌍", "PublicHealthEnglish"),
+    "psychology": ("Tâm lý học", "Psychology English", "🧠", "PsychologyEnglish"),
+    "nutrition": ("Dinh dưỡng", "Nutrition English", "🥗", "NutritionEnglish"),
+}
+COLOR = {  # background top, background bottom, accent
+    "dentistry": ("#0b3a5b", "#06182a", "#5ee0ff"), "medical": ("#5b0b1e", "#22060c", "#ff7a8a"),
+    "pharmacy": ("#2b0b5b", "#10062a", "#b98cff"), "nursing": ("#0b5b48", "#062a21", "#5effc5"),
+    "midwifery": ("#5b0b4a", "#2a0622", "#ff8ae0"), "social-work": ("#5b3a0b", "#2a1a06", "#ffc35e"),
+    "pharmaceutical-chemistry": ("#0b4a5b", "#06222a", "#5effff"), "pharmaceutical-technology": ("#3a3f4a", "#15181e", "#9ecbff"),
+    "traditional-medicine": ("#2f5b0b", "#152a06", "#c5ff5e"), "public-health": ("#0b225b", "#060f2a", "#7aa8ff"),
+    "psychology": ("#4a0b5b", "#20062a", "#e08aff"), "nutrition": ("#5b4a0b", "#2a2206", "#ffe35e"),
+}
+PLATFORMS = ["tiktok", "instagram", "youtube"]
+FORMAT = {"tiktok": "pronounce", "instagram": "quiz", "youtube": "three_terms"}
+# Four slots per platform per day, staggered so platforms never publish at the same minute.
+TIMES = {"tiktok": ["07:10", "11:40", "18:10", "21:10"],
+         "instagram": ["07:40", "12:10", "17:40", "20:40"],
+         "youtube": ["09:10", "13:10", "16:10", "20:10"]}
+HOOKS = {  # rotated daily; variant id is logged for hook experiments
+    "pronounce": [("challenge", "Bạn đọc đúng từ này trong 3 giây không?"),
+                  ("mistake", "Nhiều người đọc sai từ này 👀"),
+                  ("curiosity", "Từ này trong {vi} nghĩa là gì?")],
+    "quiz": [("question", "Chỉ 1 đáp án đúng. Bạn chọn gì?"),
+             ("timer", "3 giây. Chọn nhanh!"),
+             ("dare", "Sinh viên {vi} có trả lời được không?")],
+    "three_terms": [("speed", "3 từ {en} trong 30 giây"),
+                    ("list", "3 từ bạn sẽ gặp khi học {vi}"),
+                    ("test", "Bạn biết mấy từ trong 3 từ này?")],
+}
+VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, af_sarah, am_michael
+
+
+# ---------------------------------------------------------------- content
+def load_bank():
+    bank = {k: [] for k in ORDER}
+    seen = {k: set() for k in ORDER}
+
+    def add(cid, row):
+        term = row[0].strip()
+        if term.lower() in seen[cid] or not all(str(x).strip() for x in row[:5]):
+            return
+        seen[cid].add(term.lower())
+        bank[cid].append({"term": term, "ipa": row[1], "meaning": row[2], "definition": row[3], "example": row[4]})
+
+    for ch in json.loads((DATA / "ge4u-channel-samples.json").read_text(encoding="utf-8"))["channels"]:
+        if ch["id"] in bank:
+            for t in ch.get("terms", []):
+                add(ch["id"], t)
+    dental = json.loads((DATA / "dental-english-pack.json").read_text(encoding="utf-8"))
+    for topic in dental.get("topics", []):
+        for w in topic.get("words", []):
+            add("dentistry", [w["term"], w.get("ipa", ""), w["meaning"], w["definition"], w["example"]])
+    extra = json.loads((DATA / "social-video-bank.json").read_text(encoding="utf-8"))["channels"]
+    for cid, rows in extra.items():
+        for r in rows:
+            add(cid, r)
+    for cid, items in bank.items():
+        if len(items) < 6:
+            raise ValueError(f"{cid}: need at least 6 terms, have {len(items)}")
+    return bank
+
+
+def pick(seq, n, start):
+    return [seq[(start + i) % len(seq)] for i in range(n)]
+
+
+def build_item(day, cid, platform, slot, bank):
+    vi, en, emoji, tag = LABEL[cid]
+    fmt = FORMAT[platform]
+    terms = bank[cid]
+    n = len(terms)
+    salt = int(hashlib.sha1(f"{cid}{platform}".encode()).hexdigest(), 16) % n
+    hook_id, hook = HOOKS[fmt][(day + slot) % len(HOOKS[fmt])]
+    hook = hook.format(vi=vi, en=en)
+    item = {"discipline": cid, "discipline_vi": vi, "discipline_en": en, "platform": platform,
+            "format": fmt, "hook_variant": hook_id, "hook": hook, "slot": slot,
+            "time": TIMES[platform][slot], "voice": VOICES[platform]}
+    if fmt == "pronounce":
+        t = terms[(day + salt) % n]
+        item["terms"] = [t]
+        item["caption"] = (f"{emoji} {t['term']} {t['ipa']}\n= {t['meaning']}\n\n"
+                           f"Nghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\n"
+                           f"Follow GE4u để học 1 từ {en} mỗi ngày.\n\n"
+                           f"#GE4u #{tag} #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh #LearnOnTikTok")
+        item["title"] = f"{t['term']} — {en}"
+        item["primary_metric"] = "average watch time, full-video-watched rate"
+    elif fmt == "quiz":
+        start = (day * 7 + salt) % n
+        t = terms[start]
+        pool = [x for x in terms if x["term"] != t["term"]]
+        distractors = pick(pool, 2, (day * 3 + salt) % len(pool))
+        opts = [t] + distractors
+        rot = (day + slot) % 3
+        opts = opts[rot:] + opts[:rot]
+        letters = "ABC"
+        answer = letters[[o["term"] for o in opts].index(t["term"])]
+        item["terms"] = [t]
+        item["quiz"] = {"question": t["definition"], "options": [o["term"] for o in opts], "answer": answer}
+        item["caption"] = (f"{emoji} {en} quiz: \"{t['definition']}\"\n"
+                           f"A) {opts[0]['term']}  B) {opts[1]['term']}  C) {opts[2]['term']}\n\n"
+                           f"Comment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n"
+                           f"#GE4u #{tag} #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh")
+        item["title"] = f"{en} quiz"
+        item["primary_metric"] = "non-follower reach, shares"
+    else:
+        trio = pick(terms, 3, (day * 3 + salt) % n)
+        item["terms"] = trio
+        item["title"] = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)} #Shorts"[:100]
+        item["caption"] = ("\n".join(f"• {x['term']} {x['ipa']} = {x['meaning']}" for x in trio) +
+                           f"\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe để học {en} miễn phí mỗi ngày.\n\n"
+                           f"#GE4u #{tag} #MedicalEnglish #Shorts")
+        item["primary_metric"] = "views, average view duration"
+    return item
+
+
+def make_plan(date):
+    bank = load_bank()
+    day = (date - EPOCH).days
+    rot = day % 12
+    order = ORDER[rot:] + ORDER[:rot]  # shifts every day so each discipline cycles through platforms
+    items = []
+    for i, cid in enumerate(order):
+        platform = PLATFORMS[i % 3]
+        slot = i // 3
+        it = build_item(day, cid, platform, slot, bank)
+        it["id"] = f"{date.isoformat()}-{platform}-{slot}-{cid}"
+        it["date"] = date.isoformat()
+        items.append(it)
+    items.sort(key=lambda x: x["time"])
+    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "views-and-reach-only",
+            "rotation_day": day, "items": items}
+
+
+# ---------------------------------------------------------------- rendering
+FONT_DIRS = ["/usr/share/fonts/opentype/inter", "/usr/share/fonts/truetype/inter", str(ROOT / "social-video" / "fonts")]
+
+
+def font(weight, size):
+    from PIL import ImageFont
+    names = {"black": ["Inter-Black.otf", "Inter-ExtraBold.otf"], "bold": ["Inter-Bold.otf"],
+             "semi": ["Inter-SemiBold.otf", "Inter-Medium.otf"], "reg": ["Inter-Regular.otf"],
+             "ipa": []}
+    for d in FONT_DIRS:
+        for nme in names.get(weight, []):
+            p = Path(d) / nme
+            if p.exists():
+                return ImageFont.truetype(str(p), size)
+    dj = "DejaVuSans-Bold.ttf" if weight in ("black", "bold", "semi") else "DejaVuSans.ttf"
+    for d in ["/usr/share/fonts/truetype/dejavu"]:
+        if (Path(d) / dj).exists():
+            return ImageFont.truetype(str(Path(d) / dj), size)
+    raise FileNotFoundError("No usable font found")
+
+
+def hexrgb(h):
+    h = h.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def clean(text):
+    return "".join(ch for ch in text if ord(ch) < 0x2600 and ch != "\ufe0f").strip()
+
+
+def wrap(draw, text, fnt, maxw):
+    text = clean(text)
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        t = (cur + " " + w).strip()
+        if draw.textlength(t, font=fnt) <= maxw:
+            cur = t
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+class Canvas:
+    def __init__(self, cid):
+        from PIL import Image, ImageDraw
+        top, bot, acc = COLOR[cid]
+        a, b = hexrgb(top), hexrgb(bot)
+        self.img = Image.new("RGB", (W, H))
+        px = self.img.load()
+        for y in range(H):
+            f = y / (H - 1)
+            c = tuple(int(a[i] * (1 - f) + b[i] * f) for i in range(3))
+            for x in range(W):
+                px[x, y] = c
+        self.d = ImageDraw.Draw(self.img)
+        self.acc = hexrgb(acc)
+        self.cid = cid
+
+    def header(self):
+        vi, en, _, _ = LABEL[self.cid]
+        f = font("black", 52)
+        gw = self.d.textlength("GE4u", font=f)
+        self.d.rounded_rectangle((70, 150, 70 + gw + 52, 234), 20, fill=self.acc)
+        self.d.text((96, 160), "GE4u", font=f, fill=(10, 10, 20))
+        sub = font("semi", 42)
+        self.d.text((70 + gw + 84, 168), clean(f"{vi} · {en}"), font=sub, fill=(235, 235, 245))
+
+    def block(self, text, y, size, weight="black", color=(255, 255, 255), maxw=920, spacing=1.18, center=True):
+        f = font(weight, size)
+        for line in wrap(self.d, text, f, maxw):
+            w = self.d.textlength(line, font=f)
+            x = (W - w) / 2 if center else 80
+            self.d.text((x, y), line, font=f, fill=color)
+            y += int(size * spacing)
+        return y
+
+    def pill(self, text, y, size=60, fill=None, fg=(10, 10, 20)):
+        f = font("bold", size)
+        text = clean(text)
+        while self.d.textlength(text, font=f) > W - 200 and size > 40:
+            size -= 6; f = font("bold", size)
+        w = self.d.textlength(text, font=f)
+        x = (W - w) / 2
+        self.d.rounded_rectangle((x - 40, y - 18, x + w + 40, y + size + 26), 30, fill=fill or self.acc)
+        self.d.text((x, y), text, font=f, fill=fg)
+        return y + size + 60
+
+    def save(self, path):
+        self.img.save(path)
+
+
+def scenes_for(item):
+    """Return scenes: dict(draw=callable(canvas), say=str|None, min=seconds, beep=bool).
+    Text stays inside y 300-1450 (clear of platform UI at top and bottom)."""
+    sc = []
+    t = item["terms"]
+    fmt = item["format"]
+    if fmt == "pronounce":
+        x = t[0]
+        sc.append(dict(min=2.2, say=None, draw=lambda c: (c.header(), c.block(item["hook"], 520, 116),
+                                                          c.pill(x["term"], 1060, 120))))
+        for n in ["3", "2", "1"]:
+            sc.append(dict(min=0.8, say=None, beep=True, draw=lambda c, n=n: (
+                c.header(), c.block("Thử đọc trước...", 440, 64, "semi"), c.pill(x["term"], 600, 120),
+                c.block(n, 880, 380, color=c.acc))))
+        sc.append(dict(min=2.0, say=f"{x['term']}. ... {x['term']}.", draw=lambda c: (
+            c.header(), c.block("Nghe và đọc theo", 480, 64, "semi"), c.pill(x["term"], 640, 120),
+            c.block(x["ipa"], 900, 84, "ipa", color=c.acc))))
+        sc.append(dict(min=2.5, say=x["definition"], draw=lambda c: (
+            c.header(), c.block(x["term"], 420, 96), c.block(x["ipa"], 560, 64, "ipa", color=c.acc),
+            c.block("= " + x["meaning"], 740, 96, "bold", color=c.acc), c.block(x["definition"], 1000, 66, "semi"))))
+        sc.append(dict(min=2.5, say=x["example"], draw=lambda c: (
+            c.header(), c.block("Ví dụ · Example", 560, 60, "semi", color=c.acc),
+            c.block(f"“{x['example']}”", 700, 84, "bold"))))
+        sc.append(dict(min=2.0, say=x["term"], draw=lambda c: (
+            c.header(), c.block("Đến lượt bạn đọc!", 560, 80, "bold"), c.pill(x["term"], 780, 120),
+            c.block("Follow GE4u", 1130, 64, "bold", color=c.acc), c.block("1 từ chuyên ngành mỗi ngày", 1220, 52, "semi"))))
+    elif fmt == "quiz":
+        q = item["quiz"]
+        def opts(c, reveal=False, y=820):
+            for i, o in enumerate(q["options"]):
+                L = "ABC"[i]
+                good = reveal and L == q["answer"]
+                fill = c.acc if good else ((70, 70, 85) if reveal else (255, 255, 255))
+                fg = (10, 10, 20) if not reveal or good else (190, 190, 200)
+                c.d.rounded_rectangle((90, y, W - 90, y + 170), 36, fill=fill)
+                size = 70
+                f = font("bold", size)
+                txt = f"{L}   {o}"
+                while c.d.textlength(txt, font=f) > W - 280 and size > 40:
+                    size -= 4; f = font("bold", size)
+                c.d.text((150, y + (170 - size) / 2 - 6), txt, font=f, fill=fg)
+                y += 205
+        sc.append(dict(min=2.0, say=None, draw=lambda c: (c.header(), c.block(item["hook"], 640, 120))))
+        sc.append(dict(min=3.0, say=q["question"], draw=lambda c: (
+            c.header(), c.block("Thuật ngữ nào có nghĩa là:", 330, 54, "semi", color=c.acc),
+            c.block(q["question"], 420, 70, "bold"), opts(c))))
+        for n in ["3", "2", "1"]:
+            sc.append(dict(min=0.8, say=None, beep=True, draw=lambda c, n=n: (
+                c.header(), c.block(n, 300, 200, color=c.acc), c.block(q["question"], 540, 56, "bold"), opts(c))))
+        x = item["terms"][0]
+        sc.append(dict(min=2.5, say=f"The answer is {q['answer']}. {x['term']}.", draw=lambda c: (
+            c.header(), c.block(f"Đáp án: {q['answer']}", 360, 110, color=c.acc), c.block(q["question"], 530, 56, "semi"),
+            opts(c, True))))
+        sc.append(dict(min=2.5, say=x["example"], draw=lambda c: (
+            c.header(), c.pill(x["term"], 420, 110), c.block(x["ipa"], 620, 70, "ipa", color=c.acc),
+            c.block("= " + x["meaning"], 760, 90, "bold"), c.block(f"“{x['example']}”", 1000, 64, "semi"),
+            c.block("Bạn chọn đúng không? Comment A/B/C", 1330, 50, "semi", color=c.acc))))
+    else:
+        sc.append(dict(min=2.0, say=None, draw=lambda c: (c.header(), c.block(item["hook"], 560, 120),
+                                                          c.block("1 · 2 · 3", 1100, 110, color=c.acc))))
+        for i, x in enumerate(t):
+            sc.append(dict(min=2.0, say=f"{x['term']}. {x['term']}.", draw=lambda c, i=i, x=x: (
+                c.header(), c.block(f"{i + 1}/3", 420, 80, "bold", color=c.acc), c.pill(x["term"], 600, 116),
+                c.block(x["ipa"], 860, 80, "ipa", color=c.acc), c.block("= " + x["meaning"], 1020, 92, "bold"))))
+            sc.append(dict(min=2.0, say=x["definition"], draw=lambda c, i=i, x=x: (
+                c.header(), c.block(f"{i + 1}/3 · {x['term']}", 440, 72, "bold", color=c.acc),
+                c.block("= " + x["meaning"], 580, 84, "bold"), c.block(x["definition"], 820, 72, "semi"))))
+        sc.append(dict(min=2.0, say=None, draw=lambda c: (
+            c.header(), c.block("Bạn biết mấy từ?", 600, 116), c.block("Comment 0 – 3", 900, 90, "bold", color=c.acc),
+            c.block("Subscribe để học miễn phí mỗi ngày", 1120, 56, "semi"))))
+    return sc
+
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"{cmd[0]} failed: {r.stderr[-800:]}")
+    return r
+
+
+def tts(text, sid, out):
+    tdir = Path(os.environ.get("GE4U_TTS_DIR") or os.path.expanduser("~/ge4u-tts"))
+    binp = next(tdir.glob("sherpa-onnx-*/bin/sherpa-onnx-offline-tts"))
+    m = tdir / "kokoro-en-v0_19"
+    run([str(binp), f"--kokoro-model={m}/model.onnx", f"--kokoro-voices={m}/voices.bin",
+         f"--kokoro-tokens={m}/tokens.txt", f"--kokoro-data-dir={m}/espeak-ng-data", "--num-threads=4",
+         f"--sid={sid}", "--kokoro-length-scale=1.08", f"--output-filename={out}", text])
+    with wave.open(str(out)) as w:
+        return w.getnframes() / w.getframerate()
+
+
+def render_item(item, outdir, work):
+    work.mkdir(parents=True, exist_ok=True)
+    scenes = scenes_for(item)
+    parts, audio_parts, total = [], [], 0.0
+    for i, s in enumerate(scenes):
+        c = Canvas(item["discipline"])
+        s["draw"](c)
+        png = work / f"s{i}.png"
+        c.save(png)
+        dur = s["min"]
+        wav = None
+        if s.get("say"):
+            wav = work / f"s{i}.wav"
+            dur = max(dur, tts(s["say"], item["voice"], wav) + 0.45)
+        dur = round(dur * FPS) / FPS
+        seg = work / f"s{i}.mp4"
+        tmp = work / f"s{i}.tmp.mp4"
+        run(["ffmpeg", "-y", "-v", "error", "-framerate", str(FPS), "-i", str(png), "-vf",
+             f"format=yuv420p,loop=-1:1,trim=duration={dur:.3f}", "-c:v", "libx264", "-preset", "veryfast",
+             "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS), str(tmp)])
+        tmp.rename(seg)
+        parts.append(seg)
+        # audio for this scene: speech (if any) padded with silence, or a tick for countdown
+        aseg = work / f"a{i}.wav"
+        if wav:
+            run(["ffmpeg", "-y", "-v", "error", "-i", str(wav), "-af", f"adelay=150|150,apad=whole_dur={dur:.3f}",
+                 "-ar", "24000", "-ac", "1", str(aseg)])
+        elif s.get("beep"):
+            run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "sine=frequency=880:duration=0.12",
+                 "-af", f"volume=0.25,apad=whole_dur={dur:.3f}", "-ar", "24000", "-ac", "1", str(aseg)])
+        else:
+            run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", f"anullsrc=r=24000:cl=mono",
+                 "-t", f"{dur:.3f}", str(aseg)])
+        audio_parts.append(aseg)
+        total += dur
+    lst = work / "v.txt"
+    lst.write_text("".join(f"file '{p}'\n" for p in parts))
+    alst = work / "a.txt"
+    alst.write_text("".join(f"file '{p}'\n" for p in audio_parts))
+    silent = work / "video.mp4"
+    run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(silent)])
+    voice = work / "voice.wav"
+    run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(alst), "-c", "copy", str(voice)])
+    final = outdir / f"{item['id']}.mp4"
+    tmp = outdir / f"{item['id']}.tmp.mp4"
+    # progress bar across the bottom keeps motion on screen; placed above platform UI safe zone
+    acc = COLOR[item["discipline"]][2].lstrip("#")
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(silent), "-i", str(voice), "-f", "lavfi", "-i",
+         f"color=c=0x{acc}:s={W}x12:r={FPS}",
+         "-filter_complex", f"[0:v][2:v]overlay=x='-W+W*t/{total:.3f}':y=262:shortest=1[v]",
+         "-map", "[v]", "-map", "1:a", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+         "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart",
+         "-t", f"{total:.3f}", str(tmp)])
+    tmp.rename(final)
+    item["file"] = final.name
+    item["duration_s"] = round(total, 2)
+    shutil.rmtree(work, ignore_errors=True)
+    return final
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    p = sub.add_parser("plan"); p.add_argument("--date"); p.add_argument("--out", default="out")
+    r = sub.add_parser("render"); r.add_argument("--plan", required=True); r.add_argument("--only", default="")
+    a = ap.parse_args()
+    if a.cmd == "plan":
+        date = dt.date.fromisoformat(a.date) if a.date else dt.datetime.now(VN).date()
+        plan = make_plan(date)
+        out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+        (out / "plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
+        mix = {}
+        for it in plan["items"]:
+            mix.setdefault(it["platform"], []).append(it["discipline"])
+        print(json.dumps(mix, ensure_ascii=False))
+    else:
+        planp = Path(a.plan)
+        plan = json.loads(planp.read_text(encoding="utf-8"))
+        outdir = planp.parent
+        for it in plan["items"]:
+            if a.only and a.only not in it["id"]:
+                continue
+            f = render_item(it, outdir, outdir / ".work" / it["id"])
+            print(f"rendered {f.name} {it['duration_s']}s")
+        planp.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()

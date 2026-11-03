@@ -1,0 +1,90 @@
+name: Social video render
+# Separate from the daily-lesson/Pages workflow: a failure here never blocks lessons or the website.
+on:
+  schedule:
+    # 21:30 UTC = 04:30 Asia/Ho_Chi_Minh; renders the coming day's 12 videos
+    - cron: '30 21 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date to render (YYYY-MM-DD, Asia/Ho_Chi_Minh). Empty = today.'
+        required: false
+permissions:
+  contents: write
+concurrency:
+  group: social-video
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fonts and Python deps
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q ffmpeg fonts-inter fonts-dejavu-core
+          pip install pillow
+      - name: Cache TTS
+        uses: actions/cache@v4
+        with:
+          path: ~/ge4u-tts
+          key: ge4u-tts-v1.13.8-kokoro-v0_19
+      - name: Set up TTS
+        run: bash social-video/setup_tts.sh
+      - name: Build plan
+        id: plan
+        run: |
+          D="${{ github.event.inputs.date }}"
+          if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date +%F); fi
+          echo "date=$D" >> "$GITHUB_OUTPUT"
+          python social-video/ge4u_video.py plan --date "$D" --out "out/$D"
+      - name: Render 12 videos
+        run: |
+          export GE4U_TTS_DIR="$HOME/ge4u-tts"
+          python social-video/ge4u_video.py render --plan "out/${{ steps.plan.outputs.date }}/plan.json"
+          ls -la "out/${{ steps.plan.outputs.date }}"
+      - name: Validate output
+        run: |
+          D="${{ steps.plan.outputs.date }}"
+          python - "$D" <<'PY'
+          import json, sys, pathlib, subprocess
+          d = sys.argv[1]; base = pathlib.Path("out") / d
+          plan = json.loads((base / "plan.json").read_text())
+          assert len(plan["items"]) == 12, "expected 12 items"
+          assert len({i["discipline"] for i in plan["items"]}) == 12, "expected 12 disciplines"
+          for it in plan["items"]:
+              f = base / it["file"]
+              assert f.exists() and f.stat().st_size > 50_000, f"missing/small {f}"
+              dur = float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",str(f)]))
+              assert 8 <= dur <= 59, f"{f} duration {dur}"
+              text = (it["caption"] + it.get("title","")).lower()
+              for banned in ["giá:", "giá chỉ", "mua ngay", "đặt mua", "đăng ký khóa", "inbox", "vnd", "₫", "price", "buy now", "checkout"]:
+                  assert banned not in text, f"sales wording '{banned}' in {it['id']}"
+          print("OK", d)
+          PY
+      - name: Publish media release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D="${{ steps.plan.outputs.date }}"
+          TAG="media-$D"
+          gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" out/$D/*.mp4 out/$D/plan.json \
+            --title "GE4u social videos $D" --notes "Auto-rendered short videos for $D (views & reach phase)." --latest=false
+          # keep the 7 most recent media releases only
+          gh release list --limit 100 --json tagName --jq '.[].tagName' | grep '^media-' | sort -r | tail -n +8 | \
+            while read t; do gh release delete "$t" --yes --cleanup-tag; done
+      - name: Record plan in repo
+        run: |
+          D="${{ steps.plan.outputs.date }}"
+          mkdir -p marketing/video-plans
+          cp "out/$D/plan.json" "marketing/video-plans/$D.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add marketing/video-plans/$D.json
+          git commit -m "chore: record social video plan $D [skip ci]" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main
