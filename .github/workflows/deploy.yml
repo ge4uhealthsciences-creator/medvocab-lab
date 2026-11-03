@@ -40,8 +40,9 @@ jobs:
           fi
       - name: Prepare site artifact
         run: |
-          mkdir -p _site/data
-          cp *.html _site/
+          mkdir -p _site/data _site/admin
+          cp *.html *.js _site/
+          cp admin/*.html _site/admin/
           cp data/*.json _site/data/
       - name: Configure Pages
         uses: actions/configure-pages@v5
