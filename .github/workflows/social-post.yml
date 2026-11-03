@@ -5,6 +5,8 @@ on:
   schedule:
     # every 20 minutes, 08:00–21:59 Asia/Ho_Chi_Minh (01:00–14:59 UTC)
     - cron: '5,25,45 1-14 * * *'
+    # 06:05 and 07:05 VN: no posts due yet, but the Hub's "today" table is filled before the morning report
+    - cron: '5 23,0 * * *'
   workflow_dispatch:
     inputs:
       date:

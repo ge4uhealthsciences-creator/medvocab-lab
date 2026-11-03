@@ -335,6 +335,92 @@ def main():
     print(f"Posted {posted}, errors {errors}, total ok today: {sum(1 for v in done.values() if v.get('ok'))}")
     if not a.dry_run:
         save_log(date.isoformat(), log, workdir)
+        try:
+            write_status(date, now, plan, jobs, done, pr)
+        except Exception as e:  # the status table is a convenience; never fail the run for it
+            print("status table not written:", str(e)[:300])
+
+
+# ---------------------------------------------------------------- live status for the Hub
+STATUS_BRANCH = "status"
+NET_VI = {"instagram": "Instagram", "facebook": "Facebook", "facebook-promo": "Facebook", "threads": "Threads",
+          "youtube": "YouTube", "tiktok": "TikTok"}
+
+
+def _title(it):
+    t = (it.get("terms") or [{}])[0]
+    return f"{t.get('term', '')} — {it.get('discipline_en', '')}".strip(" —") or it.get("title", "")
+
+
+def status_rows(date, now, plan, jobs, done, pr):
+    """One row per post planned today on every platform: posted / pending / error / skipped."""
+    titles = {it["id"]: _title(it) for it in plan["items"]}
+    for t in plan.get("threads", []):
+        titles[t["id"]] = (t["text"].split("\n")[0])[:90]
+    rows = []
+    for key, tm, net, _fn in jobs:
+        kind, _, ident = key.partition(":")
+        rec = done.get(key) or {}
+        if rec.get("ok"):
+            st, detail = "posted", rec.get("at", "")[11:16]
+        elif rec.get("skipped"):
+            st, detail = "skipped", rec["skipped"]
+        elif rec.get("error"):
+            st, detail = ("error" if rec.get("tries", 0) >= 2 else "retry"), rec["error"][:140]
+        else:
+            st, detail = "pending", ""
+        title = titles.get(ident) or ("Bài quảng bá có ảnh" if kind == "facebook-promo" else "Bài quảng bá" if kind == "threads-promo" else ident)
+        kind_vi = {"facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
+                   "youtube": "Short", "threads": "Bài viết"}.get(kind, kind)
+        rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", "")])
+    # TikTok is scheduled in TikTok Studio; it publishes itself at the scheduled time.
+    try:
+        studio = set(json.loads((ROOT / "marketing" / "tiktok-studio-scheduled.json").read_text())["ids"])
+    except Exception:
+        studio = set()
+    for it in plan["items"]:
+        if it["platform"] != "tiktok":
+            continue
+        t = dt.datetime.combine(date, dt.time.fromisoformat(it["time"]), VN)
+        if it["id"] in studio:
+            st, detail = ("posted", "TikTok Studio") if now >= t else ("pending", "đã hẹn giờ trên TikTok Studio")
+        else:
+            st, detail = ("error", "chưa hẹn giờ trên TikTok Studio") if now >= t else ("pending", "chưa hẹn giờ")
+        rows.append([date.isoformat(), it["time"], "TikTok", "Video", _title(it), st, detail, ""])
+    rows.sort(key=lambda r: (r[1], r[2]))
+    return rows
+
+
+def _csv(rows):
+    import csv, io
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["date", "time", "platform", "kind", "title", "status", "detail", "post_id"])
+    w.writerows(rows)
+    w.writerow(["_updated", dt.datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "", "", "", "", "", ""])
+    return buf.getvalue()
+
+
+def _put_file(path, text, message):
+    import base64
+    r = gh("api", f"repos/{REPO}/contents/{path}?ref={STATUS_BRANCH}", check=False)
+    sha = json.loads(r.stdout).get("sha") if r.returncode == 0 else None
+    body = {"message": message, "branch": STATUS_BRANCH, "content": base64.b64encode(text.encode()).decode()}
+    if sha:
+        body["sha"] = sha
+    tmp = pathlib.Path(tempfile.mkstemp(suffix=".json")[1])
+    tmp.write_text(json.dumps(body))
+    gh("api", "-X", "PUT", f"repos/{REPO}/contents/{path}", "--input", str(tmp))
+
+
+def write_status(date, now, plan, jobs, done, pr):
+    r = gh("api", f"repos/{REPO}/git/ref/heads/{STATUS_BRANCH}", check=False)
+    if r.returncode != 0:  # first run: create the branch from main
+        main_sha = json.loads(gh("api", f"repos/{REPO}/git/ref/heads/main").stdout)["object"]["sha"]
+        gh("api", "-X", "POST", f"repos/{REPO}/git/refs", "-f", f"ref=refs/heads/{STATUS_BRANCH}", "-f", f"sha={main_sha}")
+    text = _csv(status_rows(date, now, plan, jobs, done, pr))
+    _put_file("status/today.csv", text, f"status {date} {now:%H:%M}")
+    print("Hub status table updated:", text.count("\n") - 2, "posts")
 
 
 if __name__ == "__main__":
