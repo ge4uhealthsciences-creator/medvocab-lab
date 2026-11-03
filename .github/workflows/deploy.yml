@@ -42,6 +42,7 @@ jobs:
         run: |
           mkdir -p _site/data _site/admin
           cp *.html *.js _site/
+          cp tiktok*.txt _site/ 2>/dev/null || true
           cp admin/*.html _site/admin/
           cp data/*.json _site/data/
       - name: Configure Pages
