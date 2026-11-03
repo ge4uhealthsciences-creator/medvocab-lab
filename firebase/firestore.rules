@@ -1,10 +1,48 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    function isPremium() {
+      return signedIn() && get(/databases/$(database)/documents/entitlements/$(request.auth.uid)).data.premium == true;
+    }
+
+    // 31-day plan lesson progress (unchanged behaviour)
     match /users/{userId}/lessons/{lessonId} {
-      allow read, create, update, delete: if request.auth != null
+      allow read, delete: if signedIn() && request.auth.uid == userId;
+      allow create, update: if signedIn()
         && request.auth.uid == userId
         && request.resource.data.userId == request.auth.uid;
+    }
+
+    // Player profile (email, last seen, daily usage). Players cannot grant themselves Premium here.
+    match /users/{userId} {
+      allow read: if (signedIn() && request.auth.uid == userId) || isAdmin();
+      allow create, update: if signedIn() && request.auth.uid == userId
+        && !request.resource.data.keys().hasAny(['premium', 'role']);
+    }
+
+    // Game progress
+    match /users/{userId}/game/{docId} {
+      allow read, write: if signedIn() && request.auth.uid == userId;
+    }
+
+    // Premium flags: set only by GE4u admins after payment is confirmed.
+    match /entitlements/{userId} {
+      allow read: if (signedIn() && request.auth.uid == userId) || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Paid learning-pack vocabulary: readable by Premium players only.
+    match /packs/{packId} {
+      allow read: if isPremium() || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Admin list: managed only in the Firebase console.
+    match /admins/{userId} {
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow write: if false;
     }
   }
 }

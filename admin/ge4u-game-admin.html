@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>GE4u Game Admin</title>
+<style>
+:root{--ink:#0e2433;--muted:#5b7384;--line:#d5e4ea;--teal:#0b8f8f;--bg:#f4f8fa;--ok:#1d8a4a;--bad:#c0392b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:860px;margin:auto;padding:20px 16px;display:flex;flex-direction:column;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+h1{margin:0;font-size:24px}h2{margin:0 0 8px;font-size:17px}p{margin:0;color:var(--muted)}
+button{border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;background:var(--teal);color:#fff}
+button.sec{background:#e6eef2;color:var(--ink)}
+input{padding:9px;border:1px solid var(--line);border-radius:10px;font:inherit;width:100%}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
+.ok{color:var(--ok);font-weight:700}.msg{min-height:20px;font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>GE4u Game Admin</h1>
+  <p>Bật Premium cho người đã chuyển khoản và tải các bộ học liệu trả phí lên máy chủ. Chỉ tài khoản có trong danh sách admins (Firebase console) mới dùng được trang này.</p>
+  <div class="card row"><button id="in">Đăng nhập bằng Google</button><button class="sec" id="out">Đăng xuất</button><span id="who"></span></div>
+  <div class="msg" id="msg"></div>
+  <div class="card" id="users" hidden>
+    <h2>Người chơi</h2>
+    <div class="row" style="margin-bottom:8px"><input id="q" placeholder="Lọc theo email"></div>
+    <table><thead><tr><th>Email</th><th>Hôm nay</th><th>Premium</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+  </div>
+  <div class="card" id="packs" hidden>
+    <h2>Bộ học liệu Premium</h2>
+    <p>Chọn file JSON của bộ học liệu (lấy từ GE4u Content Vault). Mỗi file thành một bộ trong game cho người chơi Premium.</p>
+    <div class="row" style="margin-top:8px"><input type="file" id="files" accept="application/json" multiple><button id="up">Tải lên</button></div>
+    <ul id="packList"></ul>
+  </div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, getDocs, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { firebaseConfig, firebaseReady } from "../ge4u-firebase-config.js";
+const $ = (id) => document.getElementById(id);
+const say = (t) => { $("msg").textContent = t; };
+if (!firebaseReady) { say("Chưa cấu hình Firebase. Điền ge4u-firebase-config.js trước."); $("in").disabled = true; }
+const app = firebaseReady ? initializeApp(firebaseConfig) : null;
+const auth = app ? getAuth(app) : null, db = app ? getFirestore(app) : null;
+let users = [], ents = {};
+$("in").onclick = () => signInWithPopup(auth, new GoogleAuthProvider()).catch((e) => say("Không đăng nhập được: " + e.code));
+$("out").onclick = () => auth && signOut(auth);
+if (auth) onAuthStateChanged(auth, async (u) => {
+  $("who").textContent = u ? u.email : "";
+  $("users").hidden = $("packs").hidden = true;
+  if (!u) return;
+  const a = await getDoc(doc(db, "admins", u.uid)).catch(() => null);
+  if (!a || !a.exists()) { say("Tài khoản này chưa là admin. UID: " + u.uid + " — thêm document admins/" + u.uid + " trong Firebase console."); return; }
+  say(""); $("users").hidden = $("packs").hidden = false; await loadUsers(); await loadPacks();
+});
+async function loadUsers() {
+  users = []; ents = {};
+  (await getDocs(collection(db, "users"))).forEach((d) => users.push({ id: d.id, ...d.data() }));
+  (await getDocs(collection(db, "entitlements"))).forEach((d) => { ents[d.id] = d.data(); });
+  render();
+}
+function render() {
+  const q = $("q").value.trim().toLowerCase(); const tb = $("rows"); tb.replaceChildren();
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
+  users.filter((u) => !q || (u.email || "").toLowerCase().includes(q)).forEach((u) => {
+    const tr = document.createElement("tr"); const prem = ents[u.id] && ents[u.id].premium === true;
+    const used = u.usage && u.usage.date === today ? u.usage.n : 0;
+    [u.email || u.id, String(used)].forEach((t) => { const td = document.createElement("td"); td.textContent = t; tr.append(td); });
+    const st = document.createElement("td"); st.textContent = prem ? "Premium" : "Miễn phí"; if (prem) st.className = "ok"; tr.append(st);
+    const act = document.createElement("td"); const b = document.createElement("button"); b.className = prem ? "sec" : "";
+    b.textContent = prem ? "Tắt Premium" : "Bật Premium";
+    b.onclick = async () => { await setDoc(doc(db, "entitlements", u.id), { premium: !prem, email: u.email || "", updatedAt: serverTimestamp(), by: auth.currentUser.email }, { merge: true }); ents[u.id] = { premium: !prem }; render(); say((prem ? "Đã tắt" : "Đã bật") + " Premium cho " + (u.email || u.id)); };
+    act.append(b); tr.append(act); tb.append(tr);
+  });
+}
+$("q").oninput = render;
+async function loadPacks() {
+  const ul = $("packList"); ul.replaceChildren();
+  (await getDocs(collection(db, "packs"))).forEach((d) => { const li = document.createElement("li"); const p = d.data(); li.textContent = (p.vi || d.id) + " — " + (p.groups || []).reduce((n, g) => n + (g.terms || []).length, 0) + " từ"; ul.append(li); });
+}
+$("up").onclick = async () => {
+  const fs = [...$("files").files]; if (!fs.length) { say("Chọn ít nhất một file JSON."); return; }
+  for (const f of fs) {
+    try {
+      const p = JSON.parse(await f.text());
+      if (!p.id || !Array.isArray(p.groups)) throw new Error("thiếu id hoặc groups");
+      const groups = p.groups.map((g) => ({ vi: g.vi, en: g.en, terms: g.terms.map((t) => Array.isArray(t) ? { term: t[0], ipa: t[1], meaning: t[2], definition: t[3], example: t[4] } : t) }));
+      await setDoc(doc(db, "packs", p.id), { id: p.id, vi: p.vi || p.id, en: p.en || "", groups, uploadedAt: serverTimestamp() });
+      say("Đã tải lên " + p.id);
+    } catch (e) { say("Lỗi với " + f.name + ": " + e.message); }
+  }
+  await loadPacks();
+};
+</script>
+</body>
+</html>
