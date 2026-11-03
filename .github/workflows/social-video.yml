@@ -58,6 +58,9 @@ jobs:
           for pf in ("tiktok", "instagram", "youtube"):
               assert len({i["discipline"] for i in plan["items"] if i["platform"] == pf}) == 12, f"{pf}: expected 12 disciplines"
           assert len({i["id"] for i in plan["items"]}) == 36, "duplicate item ids"
+          for t in plan.get("threads", []):
+              assert len(t["text"]) <= 480, f"threads post too long: {t['id']}"
+              assert t["text"].count("#") == 1, f"threads post must carry exactly one topic tag: {t['id']}"
           for it in plan["items"]:
               f = base / it["file"]
               assert f.exists() and f.stat().st_size > 50_000, f"missing/small {f}"

@@ -48,9 +48,21 @@ PLATFORMS = ["tiktok", "instagram", "youtube"]
 FORMAT = {"tiktok": "pronounce", "instagram": "quiz", "youtube": "three_terms"}
 # Four slots per platform per day, staggered so platforms never publish at the same minute.
 # 12 slots per platform per day (all 12 disciplines on every platform), staggered by platform.
-HOURS = [6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 21]
+# Hours follow Metricool's best-time-to-post data for Asia/Ho_Chi_Minh (checked 3 Nov 2026):
+# TikTok peaks 10h/12h/18h, Instagram 9–12h and 17–18h, YouTube 14–17h. Weak hours (before 8h, after 20h) dropped.
+HOURS = {"tiktok": [8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20],
+         "instagram": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+         "youtube": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}
 MINUTE = {"tiktok": 10, "instagram": 30, "youtube": 50}
-TIMES = {p: [f"{h:02d}:{MINUTE[p]:02d}" for h in HOURS] for p in MINUTE}
+TIMES = {p: [f"{h:02d}:{MINUTE[p]:02d}" for h in HOURS[p]] for p in MINUTE}
+# Native Threads posts: Threads uses only the FIRST hashtag as the post's topic tag, so each post ends with one
+# searched topic. Noon post uses the broad Vietnamese learner topic, evening post the discipline topic.
+THREADS_TIMES = ["11:45", "20:15"]
+THREADS_TOPIC = {"medical": "medstudent", "dentistry": "dentalstudent", "pharmacy": "pharmacy", "nursing": "nursing",
+                 "midwifery": "midwifery", "public-health": "publichealth", "psychology": "psychology",
+                 "nutrition": "nutrition", "social-work": "socialwork", "traditional-medicine": "traditionalmedicine",
+                 "pharmaceutical-chemistry": "chemistry", "pharmaceutical-technology": "pharmacy"}
+THREADS_LIMIT = 480
 HOOKS = {  # rotated daily; variant id is logged for hook experiments
     "pronounce": [("challenge", "Bạn đọc đúng từ này trong 3 giây không?"),
                   ("mistake", "Nhiều người đọc sai từ này 👀"),
@@ -104,7 +116,10 @@ def pick(seq, n, start):
 
 FMTS = ["pronounce", "quiz", "three_terms"]
 FOLLOW = {"tiktok": "Follow", "instagram": "Follow", "youtube": "Subscribe"}
-PLATFORM_TAGS = {"tiktok": "#LearnOnTikTok", "instagram": "#Reels", "youtube": "#Shorts"}
+# Discovery tags per platform (3–6 is the useful range; the brand tag stays last).
+PLATFORM_TAGS = {"tiktok": "#hoctienganh #sinhvien #LearnOnTikTok #xuhuong",
+                 "instagram": "#hoctienganh #sinhvien #Reels",
+                 "youtube": "#hoctienganh #Shorts"}
 
 
 def build_item(day, cid, platform, slot, bank):
@@ -131,7 +146,7 @@ def build_item(day, cid, platform, slot, bank):
         item["caption"] = (f"{emoji} {t['term']} {t['ipa']}\n= {t['meaning']}\n\n"
                            f"Nghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\n"
                            f"{follow} GE4u để học 1 từ {en} mỗi ngày.\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish #HocTiengAnh #TiengAnhChuyenNganh {ptag}")
+                           f"#{tag} {ptag} #GE4u")
         item["title"] = f"{t['term']} — {en}" + (" #Shorts" if platform == "youtube" else "")
         item["primary_metric"] = "average watch time, full-video-watched rate"
     elif fmt == "quiz":
@@ -149,7 +164,7 @@ def build_item(day, cid, platform, slot, bank):
         item["caption"] = (f"{emoji} {en} quiz: \"{t['definition']}\"\n"
                            f"A) {opts[0]['term']}  B) {opts[1]['term']}  C) {opts[2]['term']}\n\n"
                            f"Comment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish #HealthSciences #TiengAnhChuyenNganh {ptag}")
+                           f"#{tag} {ptag} #GE4u")
         item["title"] = f"{en} quiz: {t['term'][0].upper()}…?" + (" #Shorts" if platform == "youtube" else "")
         item["primary_metric"] = "non-follower reach, shares"
     else:
@@ -160,7 +175,7 @@ def build_item(day, cid, platform, slot, bank):
         item["title"] = full if len(full) <= 100 else f"3 {en} words in 30 seconds{sfx}"
         item["caption"] = ("\n".join(f"• {x['term']} {x['ipa']} = {x['meaning']}" for x in trio) +
                            f"\n\nBạn đã biết mấy từ? Comment số 0–3 👇 {follow} GE4u để học {en} miễn phí mỗi ngày.\n\n"
-                           f"#GE4u #{tag} #MedicalEnglish {ptag}")
+                           f"#{tag} {ptag} #GE4u")
         item["primary_metric"] = "views, average view duration"
     return item
 
@@ -196,7 +211,27 @@ def make_plan(date):
             items.append(it)
     items.sort(key=lambda x: (x["time"], x["platform"]))
     return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "combined: reach + soft CTA",
-            "rotation_day": day, "items": items}
+            "rotation_day": day, "items": items, "threads": make_threads(items, day)}
+
+
+def make_threads(items, day):
+    """Two native Threads text posts a day (a quiz and a 3-word list) from today's videos, one topic tag each."""
+    out, used = [], set()
+    for want, time, topic in (("quiz", THREADS_TIMES[0], None), ("three_terms", THREADS_TIMES[1], "discipline")):
+        cands = [i for i in items if i["format"] == want and not i.get("cta") and i["discipline"] not in used]
+        if not cands:
+            continue
+        it = cands[day % len(cands)]
+        used.add(it["discipline"])
+        body = it["caption"].rpartition("\n\n")[0]  # drop the hashtag line
+        body = body.replace("Subscribe GE4u", "Follow GE4u").replace(" Gửi cho bạn học cùng ngành để thử thách!", "")
+        tag = "tienganh" if topic is None else THREADS_TOPIC[it["discipline"]]
+        text = body.strip() + "\n\n#" + tag
+        if len(text) > THREADS_LIMIT:
+            raise ValueError(f"threads post too long ({len(text)}): {it['id']}")
+        out.append({"id": it["id"].replace(it["platform"], "threads", 1), "time": time, "discipline": it["discipline"],
+                    "format": want, "topic": tag, "text": text})
+    return out
 
 
 # ---------------------------------------------------------------- rendering
