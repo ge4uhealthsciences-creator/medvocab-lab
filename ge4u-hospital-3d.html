@@ -33,6 +33,7 @@ canvas{display:block}
 .opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #cfdce3;border-radius:12px;padding:9px 11px;margin-top:6px;font:inherit;color:#10283a;cursor:pointer}
 .opt.act{background:#fff7e6;border-color:#f5a30a}.opt.go{background:#e8f8ef;border-color:#2a9d4a;font-weight:700}
 .res{text-align:center;padding:8px}.res>b{font-size:30px;display:block}
+.rep{background:#eef7f6;border:1px solid #bfe3df;border-radius:14px;padding:10px 12px;margin:6px 0}.rep .rl{font-size:12.5px;color:#0b6b6f;font-weight:700}.rep .rt{font-size:18px;font-weight:700;margin:6px 0 8px;line-height:1.35}.rep .rb{display:grid;grid-template-columns:1fr 1fr;gap:6px}.rep .rb .opt{margin:0;text-align:center}.rep .rb .go{grid-column:1/-1}
 .spk{float:right;opacity:.75;padding-left:10px}.opt.mic{background:#eaf2ff;border-color:#2e86c1;font-weight:700;text-align:center}.sh{border:0;background:#fff;border-radius:10px;margin-left:6px;padding:2px 6px;cursor:pointer;font-size:12px}
 .deb{text-align:left;font-size:13px;background:#f4f7f9;border-radius:10px;padding:8px 10px;margin-top:8px}.deb div{margin:3px 0}
 
@@ -77,6 +78,8 @@ html,body{font-family:"Plus Jakarta Sans","Trebuchet MS","Segoe UI",sans-serif;c
   <button class="big" id="mE">🚑 Emergency patient<small>Arrive by ambulance and go straight to the Emergency Department</small></button>
     <button class="big" id="mR">🎭 Play a health professional<small>Doctor in 15 specialties · Nurse · Midwife · Pharmacist · Dietitian · Epidemiologist · Social worker</small></button>
   <button class="big" id="mV" style="text-align:center"></button>
+  <button class="big" id="mRep" style="text-align:center"></button>
+  <button class="big" id="mEasy" style="text-align:center"></button>
   <button class="big" id="mK" style="text-align:center">🔧 Test speaker & microphone</button>
   <div id="diag" style="display:none;background:#fff;color:#10283a;border-radius:12px;padding:10px 12px;width:min(380px,92vw);text-align:left;font-size:14px"></div>
   <button class="big" id="mT">🚶 Explore the hospital<small>Walk freely around all 3 floors</small></button>
@@ -1562,10 +1565,15 @@ window.onerror=(m,u,l)=>{const p=document.createElement('p');p.style.cssText='co
 if(typeof THREE==='undefined'){window.onerror('Could not load three.js (check your connection)',0,0)}
 // ---- Đọc to tiếng Anh: chọn giọng en-US, tránh lỗi cancel+speak của Chrome, mở khóa âm thanh trên iPhone ----
 let VOICE=null,soundOn=true;
-function pickVoice(){try{const vs=speechSynthesis.getVoices();VOICE=vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}catch(e){}}
+let VOICE2=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices(),en=vs.filter(v=>/^en/i.test(v.lang)),us=en.filter(v=>/en[-_]US/i.test(v.lang));
+  VOICE=us[0]||en[0]||null;
+  // the player's own lines use a second, different English voice when the device has one
+  VOICE2=en.find(v=>v!==VOICE&&/en[-_](GB|AU|IE|IN)/i.test(v.lang))||en.find(v=>v!==VOICE)||VOICE}catch(e){}}
 try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(e){}
-const say=window.say=t=>{if(!soundOn||!window.speechSynthesis)return;try{const go=()=>{const u=new SpeechSynthesisUtterance(t);u.lang='en-US';if(VOICE)u.voice=VOICE;u.rate=.9;speechSynthesis.speak(u);speechSynthesis.resume()};
-  if(speechSynthesis.speaking||speechSynthesis.pending){speechSynthesis.cancel();setTimeout(go,80)}else go()}catch(e){}};
+// say(text, {me: player's voice, slow: 0.65 rate, q: queue after what is playing instead of interrupting})
+const say=window.say=(t,o)=>{o=o||{};if(!soundOn||!window.speechSynthesis)return;try{const go=()=>{const u=new SpeechSynthesisUtterance(t);const v=o.me?VOICE2:VOICE;u.lang=(v&&v.lang)||'en-US';if(v)u.voice=v;u.rate=o.slow?.65:.9;u.pitch=o.me&&v===VOICE?1.15:1;speechSynthesis.speak(u);speechSynthesis.resume()};
+  if(!o.q&&(speechSynthesis.speaking||speechSynthesis.pending)){speechSynthesis.cancel();setTimeout(go,80)}else go()}catch(e){}};
 addEventListener('pointerdown',function un(){try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}},{once:true});
 const shuffle=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
@@ -1583,10 +1591,13 @@ let mode=null,busy=true,keys={},joy={x:0,z:0},P=null,near=null,curF=1,score=0,do
 const scene=new THREE.Scene();scene.background=new THREE.Color(0xbfe0f0);
 const cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,300);
 const LOWP=matchMedia('(pointer:coarse)').matches||(navigator.hardwareConcurrency||8)<=4;const ren=new THREE.WebGLRenderer({antialias:!LOWP,powerPreference:'high-performance'});ren.setPixelRatio(Math.min(devicePixelRatio,LOWP?1.5:2));ren.setSize(innerWidth,innerHeight);document.body.prepend(ren.domElement);
-scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,.95));const dl=new THREE.DirectionalLight(0xffffff,.55);dl.position.set(8,20,10);scene.add(dl);
+scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,.85));const dl=new THREE.DirectionalLight(0xfff4e0,.7);dl.position.set(8,20,10);scene.add(dl);scene.add(dl.target);
+scene.fog=new THREE.Fog(0xbfe0f0,45,140);
+if(!LOWP){ren.shadowMap.enabled=true;ren.shadowMap.type=THREE.PCFSoftShadowMap;dl.castShadow=true;dl.shadow.mapSize.set(2048,2048);Object.assign(dl.shadow.camera,{left:-18,right:18,top:18,bottom:-18,near:1,far:60});dl.shadow.bias=-.0008}
+const SHADOW_GEO=new THREE.CircleGeometry(.42,20),SHADOW_MAT=new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:.22,depthWrite:false});
 const MC={},mat=(c,o)=>{const k=c+'_'+(o||1);return MC[k]||(MC[k]=new THREE.MeshLambertMaterial(o?{color:c,transparent:true,opacity:o}:{color:c}))};
 let GRP=null;const add=m=>{(GRP||scene).add(m);return m};
-const BX=(w,h,d)=>new THREE.BoxGeometry(w,h,d),SPH=r=>new THREE.SphereGeometry(r,14,10);
+const BX=(w,h,d)=>new THREE.BoxGeometry(w,h,d),SPH=r=>new THREE.SphereGeometry(r,LOWP?14:20,LOWP?10:14);
 const box=(w,h,d,c,x,y,z,o)=>{const m=new THREE.Mesh(BX(w,h,d),mat(c,o));m.position.set(x,y,z);return add(m)};
 const cyl=(rt,rb,h,c,x,y,z)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,12),mat(c));m.position.set(x,y,z);return add(m)};
 function put(p,geo,c,x,y,z){const m=new THREE.Mesh(geo,mat(c));m.position.set(x,y,z);p.add(m);return m}
@@ -1615,7 +1626,8 @@ function person(role,shirt){const [sh,pa]=PRE[role]||PRE.vis,skin=rnd(SK),hair=r
   if(role=='doc'){const st=put(g,new THREE.TorusGeometry(.2,.018,6,16),0x333333,0,1.72,.05);st.rotation.x=1.3;put(g,SPH(.05),0xb0b0b0,0,1.3,.22);put(g,BX(.16,.1,.02),0xffffff,-.2,1.55,.21);put(g,BX(.12,.03,.02),0x1d70b8,-.2,1.55,.225)}
   g.legs=[limb(.9,.28,pa,-.18,.9,BX(.3,.1,.42),0x222222,.06),limb(.9,.28,pa,.18,.9,BX(.3,.1,.42),0x222222,.06)];
   g.arms=[limb(.8,.2,shirt,-.46,1.75,SPH(.09),skin,0),limb(.8,.2,shirt,.46,1.75,SPH(.09),skin,0)];
-  g.add(...g.legs,...g.arms);add(g);return g}
+  g.add(...g.legs,...g.arms);const blob=new THREE.Mesh(SHADOW_GEO,SHADOW_MAT);blob.rotation.x=-Math.PI/2;blob.position.y=.02;g.add(blob);
+  if(!LOWP)g.traverse(o=>{if(o.isMesh&&o!==blob)o.castShadow=true});add(g);return g}
 const face=s=>s<0?0:Math.PI;
 // Đồ vật
 function bed(x,z,rot,c){const g=new THREE.Group();put(g,BX(1.1,.4,2.2),0x9fb6c3,0,.35,0);put(g,BX(1,.15,2),c||0xffffff,0,.62,0);put(g,BX(.7,.12,.4),0xe8f0f4,0,.74,.75);put(g,BX(1.1,.6,.08),0x7f8c8d,0,.7,1.1);g.position.set(x,0,z);g.rotation.y=rot||0;add(g);return g}
@@ -1724,7 +1736,8 @@ function outdoor(){box(70,.1,70,0x9ccc65,-55,-.25,0);box(19,.06,28,0x5d6d7e,-35.
 [1,2,3].forEach(buildFloor);
 const mark=bang();scene.add(mark);
 function allowed(x,z){return WK[curF].some(r=>x>=r[0]&&x<=r[1]&&z>=r[2]&&z<=r[3])}
-function setFloor(f){curF=f;[1,2,3].forEach(k=>FL[k].visible=k==f);scene.background.set(f==1?0xbfe0f0:0xd6e4ec)}
+function setFloor(f){curF=f;[1,2,3].forEach(k=>FL[k].visible=k==f);const bg=f==1?0xbfe0f0:0xd6e4ec;scene.background.set(bg);scene.fog.color.set(bg);
+  if(!LOWP&&FL[f]&&!FL[f]._sh){FL[f]._sh=1;FL[f].traverse(o=>{if(o.isMesh){o.receiveShadow=true;if(o.geometry&&o.geometry.parameters&&o.geometry.parameters.height>.3)o.castShadow=true}})}}
 
 // ===================== GIAO DIỆN HỘI THOẠI =====================
 function openDlg(cs){busy=true;$('talk').style.display='none';$('dlg').style.display='block';$('chat').innerHTML='';$('opts').innerHTML='';setStat('');
@@ -1746,15 +1759,35 @@ const inFrame=(()=>{try{return window.self!==window.top}catch(e){return true}})(
 const micErr=c=>c=='not-allowed'||c=='service-not-allowed'?(inFrame?'The microphone is blocked because the game is embedded. Open the game in its own Chrome tab.':'Microphone permission is off. Tap the 🔒 icon in the address bar → Allow microphone.'):c=='network'?'Chrome speech recognition needs an Internet connection.':c=='no-speech'?'I heard nothing. Speak louder and closer to the microphone.':c=='audio-capture'?'No microphone found on this device.':'Not clear, please try again ('+c+').';
 function scoreVoice(m,a){VS.n++;VS.s+=m.r;const d=document.createElement('div');d.className='note find';d.innerHTML='🎤 You said: "'+esc(a)+'"<br>Match '+Math.round(m.r*100)+'% '+(m.r>=.9?'🌟 Excellent!':m.r>=.7?'👍 Good':'— practise the underlined words')+'<br><span style="font-size:13px">'+m.html+'</span>';$('chat').appendChild(d);scrollDlg();hud()}
 // Nhại giọng: bấm 🎤 dưới câu của nhân vật để nói lại theo
-function shadow(t,btn){btn.textContent='🔴 listening…';listen(alts=>{const best=alts.map(a=>({a,m:match(t,a)})).sort((x,y)=>y.m.r-x.m.r)[0];btn.textContent='🎤 Repeat after me';scoreVoice(best.m,best.a)},()=>btn.textContent='🎤 Repeat after me')}
+function shadow(t,btn,done){const L=btn.textContent;btn.textContent='🔴 listening…';listen(alts=>{const best=alts.map(a=>({a,m:match(t,a)})).sort((x,y)=>y.m.r-x.m.r)[0];btn.textContent=L;scoreVoice(best.m,best.a);done&&done(best.m.r)},()=>{btn.textContent=L;done&&done(null)})}
+// Repeat mode: before a chosen English line is "said", the player hears it and repeats it aloud.
+let repeatOn=true,easyOn=true;
+function practiceThen(t,go){const box=$('opts');box.innerHTML='';const c=clean(t);
+  const w=document.createElement('div');w.className='rep';w.innerHTML='<div class="rl">🗣️ Your line — listen, then say it aloud</div><div class="rt"></div><div class="rb"></div>';w.querySelector('.rt').textContent=c;box.appendChild(w);
+  const rb=w.querySelector('.rb'),mk=(txt,cls,f)=>{const b=document.createElement('button');b.className='opt '+(cls||'');b.textContent=txt;b.onclick=f;rb.appendChild(b);return b};
+  mk('🔊 Listen','',()=>say(c,{me:1}));mk('🐢 Slow','',()=>say(c,{me:1,slow:1}));
+  let tries=0;const next=()=>{bub.skip=true;box.innerHTML='';go()};
+  if(SR){const mic=mk('🎤 Say it','mic',()=>shadow(c,mic,r=>{tries++;if(r!=null&&(r>=.7||tries>=2)){cont.textContent='Continue ➜';cont.classList.add('go')}}));}
+  const cont=mk(SR?'Skip ➜':'I said it ➜','',next);
+  say(c,{me:1});scrollDlg()}
 function bub(ic,t,me){const d=document.createElement('div');d.className='b'+(me?' me':'');d.innerHTML='<span>'+ic+'</span><div class="tx">'+t+'</div>';$('chat').appendChild(d);
-  if(isEn(t)){const sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.onclick=()=>say(clean(t));d.querySelector('.tx').appendChild(sp);
-    if(voiceOn&&SR){const sb=document.createElement('button');sb.className='sh';sb.textContent='🎤 Repeat after me';sb.onclick=()=>shadow(clean(t),sb);d.querySelector('.tx').appendChild(sb)}
-    if(!me)say(clean(t))}
+  if(isEn(t)){const tx=d.querySelector('.tx'),o={me:!!me};const sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.title='Listen';sp.onclick=()=>say(clean(t),o);tx.appendChild(sp);
+    const sl=document.createElement('button');sl.className='sh';sl.textContent='🐢';sl.title='Listen slowly';sl.onclick=()=>say(clean(t),{me:!!me,slow:1});tx.appendChild(sl);
+    if(SR){const sb=document.createElement('button');sb.className='sh';sb.textContent='🎤 Repeat';sb.onclick=()=>shadow(clean(t),sb);tx.appendChild(sb)}
+    if(me){if(!bub.skip)say(clean(t),{me:1})}else say(clean(t),{q:1})}
+  bub.skip=false;
   scrollDlg()}
-function note(t,c){const x=document.createElement('div');x.className='note'+(c?' '+c:'');x.textContent=t;$('chat').appendChild(x);scrollDlg()}
+function note(t,c){const x=document.createElement('div');x.className='note'+(c?' '+c:'');x.textContent=t;
+  // a suggested better sentence ("Better: \"…\"") gets listen + repeat buttons too
+  const m=String(t).match(/"([^"]{6,})"/);if(m&&isEn(m[1])){const q=clean(m[1]),sp=document.createElement('button');sp.className='sh';sp.textContent='🔊';sp.onclick=()=>say(q,{me:1});x.appendChild(sp);
+    const sl=document.createElement('button');sl.className='sh';sl.textContent='🐢';sl.onclick=()=>say(q,{me:1,slow:1});x.appendChild(sl);
+    if(SR){const sb=document.createElement('button');sb.className='sh';sb.textContent='🎤 Repeat';sb.onclick=()=>shadow(q,sb);x.appendChild(sb)}}
+  $('chat').appendChild(x);scrollDlg()}
 // Hiện các lựa chọn (đánh số để khán giả live bình chọn). s = điểm (2 tốt), dùng cho gợi ý 💡
 function ask(items,cb){$('opts').innerHTML='';clearTimeout(voteTimer);votes={};
+  if(easyOn&&!live){const sc0=items.filter(i=>i.s!=null);if(sc0.length>2&&sc0.length==items.length){const top=Math.max(...sc0.map(i=>i.s)),good=items.filter(i=>i.s===top),bad=items.filter(i=>i.s!==top);
+    if(good.length&&bad.length){const keep=new Set([good[0],bad[Math.floor(Math.random()*bad.length)]]);items=items.filter(i=>keep.has(i))}}}
+  const cb0=cb;cb=(it,j)=>{if(repeatOn&&!live&&isEn(it.t)&&it.s!==0)practiceThen(it.t,()=>cb0(it,j));else cb0(it,j)};
   const sc=items.map(i=>i.s).filter(s=>s!=null),best=sc.length?Math.max(...sc):-1,useH=hints>0&&best>0,bs=[];
   items.forEach((it,j)=>{const b=document.createElement('button');b.className='opt'+(it.cls?' '+it.cls:'');b.dataset.l=(j+1)+'. '+(useH&&it.s===best?'✅ ':'')+it.t;
     b.innerHTML='<span class="lb"></span>';b.firstChild.textContent=b.dataset.l;
@@ -1763,7 +1796,7 @@ function ask(items,cb){$('opts').innerHTML='';clearTimeout(voteTimer);votes={};
   // Nói để chọn: nhận giọng → chọn câu khớp nhất + chấm phát âm
   if(voiceOn&&SR&&items.filter(i=>isEn(i.t)).length>1){const mb=document.createElement('button');mb.className='opt mic';const L='🎤 Say your chosen sentence in English';mb.textContent=L;
     mb.onclick=()=>{mb.textContent='🔴 Listening… speak now';listen(alts=>{let bst=null;items.forEach((it,j)=>{if(!isEn(it.t))return;alts.forEach(a=>{const m=match(clean(it.t),a);if(!bst||m.r>bst.m.r)bst={j,m,a}})});
-      if(!bst||bst.m.r<.4){mb.textContent='🤔 No option matched ("'+alts[0]+'") — tap to try again';return}scoreVoice(bst.m,bst.a);bs[bst.j].click()},()=>{if(mb.isConnected&&mb.textContent[0]=='🔴')mb.textContent=L})};
+      if(!bst||bst.m.r<.4){mb.textContent='🤔 No option matched ("'+alts[0]+'") — tap to try again';return}scoreVoice(bst.m,bst.a);const r0=repeatOn;repeatOn=false;bs[bst.j].click();repeatOn=r0},()=>{if(mb.isConnected&&mb.textContent[0]=='🔴')mb.textContent=L})};
     $('opts').prepend(mb)}
   if(useH){hints--;hud()}
   vote=(u,k)=>{if(k<1||k>bs.length)return;votes[u]=k;const c=bs.map(()=>0);Object.values(votes).forEach(v=>c[v-1]++);bs.forEach((b,j)=>b.firstChild.textContent=b.dataset.l+(c[j]?'   🗳 '+c[j]:''))};
@@ -1980,6 +2013,10 @@ $('mK').onclick=async()=>{const d=$('diag');d.style.display='block';const L=[];c
   put()};
 $('mT').onclick=()=>{mode='T';begin();setFloor(1);P.position.set(-23,0,0);busy=false;hud()};
 $('mR').onclick=()=>{$('spGrid').style.display='grid';$('spGrid').scrollIntoView({behavior:'smooth'})};
+const rlab=()=>{$('mRep').textContent='🗣️ Repeat my lines aloud: '+(repeatOn?'ON':'OFF');$('mEasy').textContent=easyOn?'🙂 Level: Easy (2 choices)':'🧠 Level: Normal (all choices)'};
+try{const st=JSON.parse(localStorage.getItem('ge4u-h3d-prefs')||'{}');if(st.rep!=null)repeatOn=st.rep;if(st.easy!=null)easyOn=st.easy}catch(e){}
+const prefs=()=>{try{localStorage.setItem('ge4u-h3d-prefs',JSON.stringify({rep:repeatOn,easy:easyOn}))}catch(e){}rlab()};rlab();
+$('mRep').onclick=()=>{repeatOn=!repeatOn;prefs()};$('mEasy').onclick=()=>{easyOn=!easyOn;prefs()};
 const vlab=()=>$('mV').textContent=SR?'🎤 Speaking practice: '+(voiceOn?'ON':'OFF'):'🎤 Speaking practice needs Chrome (not supported here)';vlab();$('mV').onclick=()=>{voiceOn=SR?!voiceOn:false;vlab()};
 $('spGrid').innerHTML='<div style="grid-column:1/-1;color:#a9c4d2">👩‍⚕️ Other health professions</div>'+PROF.map(p=>'<button data-r="'+p.id+'">'+p.e+' '+p.n+'<br><small>'+R[p.room].n+'</small></button>').join('')+'<div style="grid-column:1/-1;color:#a9c4d2">🩺 Specialist doctors</div>'+ROOMS.filter(r=>r.d).map(r=>{const n=casesFor(r.id),c=n.filter(x=>x.k=='c').length,g=n.filter(x=>x.k=='g').length;return'<button data-i="'+r.id+'">'+r.e+' '+r.n+'<br><small>Floor '+r.f+' · '+n.length+' cases'+(c?' · '+c+' full':'')+(g?' · '+g+' ⚡':'')+'</small></button>'}).join('');
 $('spGrid').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.r){mode='R';begin(PROF.find(p=>p.id==b.dataset.r).role);startProf(b.dataset.r)}else{mode='D';begin();startDoctor(b.dataset.i)}};
@@ -2015,6 +2052,7 @@ let last=0,tt=0;
 let paused=false;document.addEventListener('visibilitychange',()=>{paused=document.hidden;if(!paused){last=performance.now();requestAnimationFrame(loop)}});
 function loop(ms){if(paused)return;requestAnimationFrame(loop);const dt=Math.min((ms-last)/1000,.05);last=ms;tt+=dt;
   const px=P?P.position.x:99,pz=P?P.position.z:99;
+  if(!LOWP&&P){dl.position.set(px+8,20,pz+10);dl.target.position.set(px,0,pz)}
   NPCF[curF].concat(pat&&mode=='D'?[pat]:[]).forEach(g=>{if(!g.visible)return;const dx=px-g.position.x,dz=pz-g.position.z,d=Math.hypot(dx,dz);let a=0;
     if(d<7){a=Math.atan2(dx,dz)-g.rotation.y;a=Math.atan2(Math.sin(a),Math.cos(a));a=Math.max(-.9,Math.min(.9,a))}
     g.head.rotation.y+=(a-g.head.rotation.y)*.1;g.arms[0].rotation.x=Math.sin(tt*1.5+g.position.x)*.05;g.arms[1].rotation.z=d<3?2.4+Math.sin(tt*8)*.25:.05});
