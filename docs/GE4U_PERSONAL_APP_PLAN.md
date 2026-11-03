@@ -1,10 +1,10 @@
-# GE4u Personal Learning App — plan (Bring Your Own Gemini key)
+# GE4u Personal Learning App — plan
 
 Status: design, not built. Date: 3 Nov 2026.
 
 ## Goal
 
-A web app (installable on phones as a PWA) where each learner studies the GE4u packs they bought, and an AI tutor personalises the practice using **the learner's own Google Gemini API key**. GE4u pays nothing for AI usage and never holds learners' keys on a server.
+A web app (installable on phones as a PWA) where each learner studies the GE4u packs they bought, and an AI tutor personalises the practice through a GE4u-hosted Gemini backend. Learners only tap **Đồng ý** once; they never handle API keys.
 
 ## What already exists and is reused
 
@@ -13,14 +13,19 @@ A web app (installable on phones as a PWA) where each learner studies the GE4u p
 - Learning UI: `scripts/pack_template.html` (flashcards with speech, drag-and-drop matching, quiz, gap fill, word parts, saved progress). The app grows out of this template.
 - Roadmap and order (basic sciences → clinical): `data/packs/curriculum.json`.
 
-## How the learner's Gemini key works
+## How AI is provided (revised: learners only tap "Đồng ý")
 
-1. The learner creates a free key in Google AI Studio and pastes it into the app's Settings.
-2. The key is stored only on that device (IndexedDB), never sent to GE4u. A "Remove key" button deletes it.
-3. The app calls the Gemini API directly from the browser with that key. Requests contain only the terms being studied and the learner's answers, never personal data.
-4. Without a key every non-AI feature still works offline.
+Learners are not technical, so they must not create or paste API keys. Default design:
 
-Risks to state plainly in the app: anyone with access to the unlocked device can use the key; the learner controls the key's quota and billing in their Google account; AI answers can be wrong and are marked "AI".
+1. **GE4u-hosted AI.** The app sends tutor requests to a small GE4u backend (Google Apps Script web app first; Firebase later if load grows). The backend holds GE4u's own Gemini key in Script Properties and calls the cheapest suitable model (Flash-Lite class).
+2. **One consent screen.** The first time a learner opens an AI feature they see a short Vietnamese notice (what is sent: only the terms being studied and their answers; no name, phone or email) and tap **Đồng ý**. No key, no code.
+3. **Paid Gemini tier, not the free tier.** Google's pricing page states free-tier content is used to improve Google's products and paid-tier content is not (https://ai.google.dev/gemini-api/docs/pricing). For learners' data, use the paid tier.
+4. **Limits per licence.** Each licence code gets a daily AI quota (for example a number of tutor turns per day) enforced by the backend, so one pack sale cannot create open-ended AI cost.
+5. **Optional for advanced users only:** an "Use my own Gemini key" switch in Settings, hidden by default.
+
+Cost note (check current prices before launch): Flash-Lite class pricing is listed per million tokens; a short tutor turn is roughly a thousand tokens, so per-learner daily cost is small but not zero. A one-time 99k pack cannot fund unlimited AI forever: either keep a daily cap, include AI for a fixed period (e.g. 3 months), or sell an AI add-on.
+
+Without network or consent, every non-AI feature still works offline.
 
 ## Personalisation features (in order of value)
 
@@ -41,12 +46,12 @@ All AI output is checked against the pack data before it is shown (the target te
 
 1. Turn the template into a PWA shell: pack library, offline cache, progress in IndexedDB.
 2. Add spaced repetition and the "Ôn hôm nay" queue.
-3. Add Settings → Gemini key, then features 2 and 3 above.
+3. Add the Apps Script AI backend (paid Gemini tier, quota per licence) and the consent screen, then features 2 and 3 above.
 4. Add licence codes for paid packs.
 5. Role-play and pronunciation.
 
 ## Open decisions for the owner
 
-- Which Gemini model and default limits per session (cost is on the learner's key).
-- Whether to also offer a GE4u-paid AI plan later (would need a server and a price).
+- Daily AI quota per licence and how long AI is included with a pack (cost is on GE4u).
+- Whether to sell an AI add-on after the included period.
 - Licence approach (Apps Script vs Firebase).
