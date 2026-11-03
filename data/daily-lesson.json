@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-03",
-  "channel_id": "pharmacy",
-  "discipline": "Pharmacy English",
-  "topic": "Dược học · Pharmacy English",
-  "title": "GE4u Daily Practice: Pharmacy English",
-  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
+  "date": "2026-11-04",
+  "channel_id": "nursing",
+  "discipline": "Nursing English",
+  "topic": "Điều dưỡng · Nursing English",
+  "title": "GE4u Daily Practice: Nursing English",
+  "objective": "Review three core terms and practise one knowledge check in Nursing English.",
   "vocabulary": [
     {
-      "term": "indication",
-      "ipa": "/ˌɪndɪˈkeɪʃən/",
-      "meaning": "chỉ định",
-      "definition": "A reason for using a medicine or treatment.",
-      "example": "The pharmacist checked the indication."
+      "term": "vital signs",
+      "ipa": "/ˈvaɪtəl saɪnz/",
+      "meaning": "dấu hiệu sinh tồn",
+      "definition": "Measurements including pulse, respiration and blood pressure.",
+      "example": "The nurse recorded vital signs."
     },
     {
-      "term": "contraindication",
-      "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
-      "meaning": "chống chỉ định",
-      "definition": "A factor that makes a treatment inadvisable.",
-      "example": "An allergy may be a contraindication."
+      "term": "wound dressing",
+      "ipa": "/wuːnd ˈdresɪŋ/",
+      "meaning": "băng vết thương",
+      "definition": "Material used to protect a wound.",
+      "example": "The nurse changed the wound dressing."
     },
     {
-      "term": "adverse drug reaction",
-      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
-      "meaning": "phản ứng có hại của thuốc",
-      "definition": "An unintended harmful response to a medicine.",
-      "example": "The patient reported an adverse drug reaction."
+      "term": "intake and output",
+      "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
+      "meaning": "lượng dịch vào và ra",
+      "definition": "A record of fluid intake and excretion.",
+      "example": "Intake and output were monitored."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A reason for using a medicine or treatment.",
+    "question": "Which term is defined as: Measurements including pulse, respiration and blood pressure.",
     "options": [
-      "indication",
-      "contraindication",
-      "adverse drug reaction"
+      "vital signs",
+      "wound dressing",
+      "intake and output"
     ],
-    "answer": "indication",
-    "explanation": "indication means A reason for using a medicine or treatment."
+    "answer": "vital signs",
+    "explanation": "vital signs means Measurements including pulse, respiration and blood pressure."
   },
   "source_mode": "curated-channel-data"
 }
