@@ -7,7 +7,7 @@ on:
     # 23:00 UTC = 06:00 Vietnam time (UTC+7)
     - cron: '0 23 * * *'
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -27,6 +27,17 @@ jobs:
         run: python scripts/generate_channel_daily.py
       - name: Test GE4u pages
         run: python scripts/test_ge4u_site.py
+      - name: Persist generated daily lesson to main
+        run: |
+          if git diff --quiet -- data/daily-lesson.json; then
+            echo "Daily lesson source is already current."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/daily-lesson.json
+            git commit -m "chore: refresh daily lesson for Asia/Ho_Chi_Minh"
+            git push origin HEAD:main
+          fi
       - name: Prepare site artifact
         run: |
           mkdir -p _site/data

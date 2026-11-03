@@ -1,42 +1,42 @@
 {
-  "title": "GE4u Daily Practice: Medical English",
-  "topic": "Y khoa · Medical English",
-  "discipline": "Medical English",
-  "channel_id": "medical",
-  "objective": "Review three core terms and practise one knowledge check in Medical English.",
-  "date": "2026-11-02",
+  "title": "GE4u Daily Practice: Pharmacy English",
+  "topic": "Dược học · Pharmacy English",
+  "discipline": "Pharmacy English",
+  "channel_id": "pharmacy",
+  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
+  "date": "2026-11-03",
   "source_mode": "curated-channel-data",
   "vocabulary": [
     {
-      "term": "symptom",
-      "ipa": "/ˈsɪmptəm/",
-      "meaning": "triệu chứng",
-      "definition": "A change in health noticed by a patient.",
-      "example": "The patient described each symptom."
+      "term": "indication",
+      "ipa": "/ˌɪndɪˈkeɪʃən/",
+      "meaning": "chỉ định",
+      "definition": "A reason for using a medicine or treatment.",
+      "example": "The pharmacist checked the indication."
     },
     {
-      "term": "diagnosis",
-      "ipa": "/ˌdaɪəɡˈnəʊsɪs/",
-      "meaning": "chẩn đoán",
-      "definition": "Identification of a disease or condition.",
-      "example": "The diagnosis followed the examination."
+      "term": "contraindication",
+      "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+      "meaning": "chống chỉ định",
+      "definition": "A factor that makes a treatment inadvisable.",
+      "example": "An allergy may be a contraindication."
     },
     {
-      "term": "medical history",
-      "ipa": "/ˈmedɪkəl ˈhɪstəri/",
-      "meaning": "tiền sử bệnh",
-      "definition": "Information about past and current health.",
-      "example": "The clinician reviewed the medical history."
+      "term": "adverse drug reaction",
+      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
+      "meaning": "phản ứng có hại của thuốc",
+      "definition": "An unintended harmful response to a medicine.",
+      "example": "The patient reported an adverse drug reaction."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A change in health noticed by a patient.",
+    "question": "Which term is defined as: A reason for using a medicine or treatment.",
     "options": [
-      "symptom",
-      "diagnosis",
-      "medical history"
+      "indication",
+      "contraindication",
+      "adverse drug reaction"
     ],
-    "answer": "symptom",
-    "explanation": "symptom means A change in health noticed by a patient."
+    "answer": "indication",
+    "explanation": "An indication is a reason for using a medicine or treatment."
   }
 }
