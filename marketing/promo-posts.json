@@ -1,8 +1,11 @@
 {
-  "note": "Daily sales post rotation for Facebook + Threads at 19:40 Asia/Ho_Chi_Minh, starting 2026-11-10. Index = (date - start_date).days % len(posts). Keep claims accurate to what buyers receive.",
+  "note": "Daily sales post rotation for Facebook + Threads at 19:40 Asia/Ho_Chi_Minh, starting 2026-11-10. Index = (date - start_date).days % len(posts). Keep claims accurate to what buyers receive. THREADS LIMIT: every Threads post must be at most 500 characters including the link (keep ≤480 for safety); longer posts fail with 'Media container not created'.",
   "start_date": "2026-11-10",
   "time": "19:40",
-  "networks": ["facebook", "threads"],
+  "networks": [
+    "facebook",
+    "threads"
+  ],
   "link": "https://ge4uhealthsciences-creator.github.io/medvocab-lab/ge4u-products.html",
   "posts": [
     "📚 Học tiếng Anh chuyên ngành Y – Dược mà không phải đọc file PDF khô khan?\n\nGE4u Learning Pack là file học tương tác mở ngay trên điện thoại:\n✅ Flashcard có nút nghe phát âm\n✅ Kéo-thả nối thuật ngữ với nghĩa tiếng Việt\n✅ Trắc nghiệm + điền từ có chấm điểm\n✅ Học offline, lưu tiến độ\n\n💰 99.000đ/bộ · Đặt mua: {link}\n\n#GE4u #TiengAnhYKhoa",
