@@ -10,7 +10,7 @@ format, hook, caption and timing. No sales language, prices or purchase CTAs.
 
 Rendering needs ffmpeg, Pillow and the sherpa-onnx Kokoro TTS (see setup_tts.sh).
 """
-import argparse, datetime as dt, hashlib, json, os, shutil, subprocess, sys, wave
+import argparse, datetime as dt, hashlib, json, math, os, shutil, subprocess, sys, wave
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,9 +47,10 @@ COLOR = {  # background top, background bottom, accent
 PLATFORMS = ["tiktok", "instagram", "youtube"]
 FORMAT = {"tiktok": "pronounce", "instagram": "quiz", "youtube": "three_terms"}
 # Four slots per platform per day, staggered so platforms never publish at the same minute.
-TIMES = {"tiktok": ["07:10", "11:40", "18:10", "21:10"],
-         "instagram": ["07:40", "12:10", "17:40", "20:40"],
-         "youtube": ["09:10", "13:10", "16:10", "20:10"]}
+# 12 slots per platform per day (all 12 disciplines on every platform), staggered by platform.
+HOURS = [6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 21]
+MINUTE = {"tiktok": 10, "instagram": 30, "youtube": 50}
+TIMES = {p: [f"{h:02d}:{MINUTE[p]:02d}" for h in HOURS] for p in MINUTE}
 HOOKS = {  # rotated daily; variant id is logged for hook experiments
     "pronounce": [("challenge", "Bạn đọc đúng từ này trong 3 giây không?"),
                   ("mistake", "Nhiều người đọc sai từ này 👀"),
@@ -62,7 +63,7 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
                     ("test", "Bạn biết mấy từ trong 3 từ này?")],
 }
 # Combined phase (owner decision, 3 Nov 2026): one video per platform per day carries a soft CTA.
-CTA_SLOT = 2
+CTA_SLOTS = {3, 7, 10}  # 3 of 12 videos per platform carry the soft CTA
 CTA_LINE = "📚 Bộ học liệu {en} đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u."
 VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, af_sarah, am_michael
 
@@ -107,13 +108,16 @@ def build_item(day, cid, platform, slot, bank):
     terms = bank[cid]
     n = len(terms)
     salt = int(hashlib.sha1(f"{cid}{platform}".encode()).hexdigest(), 16) % n
+    # Each discipline uses 5 consecutive terms per day: TikTok 1, Instagram 1, YouTube 3 — no overlap across platforms.
+    step = next(k for k in range(5, 5 + n) if math.gcd(k, n) == 1)  # coprime step: full cycle before any repeat
+    base = (day * step) % n
     hook_id, hook = HOOKS[fmt][(day + slot) % len(HOOKS[fmt])]
     hook = hook.format(vi=vi, en=en)
     item = {"discipline": cid, "discipline_vi": vi, "discipline_en": en, "platform": platform,
             "format": fmt, "hook_variant": hook_id, "hook": hook, "slot": slot,
             "time": TIMES[platform][slot], "voice": VOICES[platform]}
     if fmt == "pronounce":
-        t = terms[(day + salt) % n]
+        t = terms[base % n]
         item["terms"] = [t]
         item["caption"] = (f"{emoji} {t['term']} {t['ipa']}\n= {t['meaning']}\n\n"
                            f"Nghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\n"
@@ -122,7 +126,7 @@ def build_item(day, cid, platform, slot, bank):
         item["title"] = f"{t['term']} — {en}"
         item["primary_metric"] = "average watch time, full-video-watched rate"
     elif fmt == "quiz":
-        start = (day * 7 + salt) % n
+        start = (base + 1) % n
         t = terms[start]
         pool = [x for x in terms if x["term"] != t["term"]]
         distractors = pick(pool, 2, (day * 3 + salt) % len(pool))
@@ -140,7 +144,7 @@ def build_item(day, cid, platform, slot, bank):
         item["title"] = f"{en} quiz"
         item["primary_metric"] = "non-follower reach, shares"
     else:
-        trio = pick(terms, 3, (day * 3 + salt) % n)
+        trio = pick(terms, 3, (base + 2) % n)
         item["terms"] = trio
         full = f"3 {en} words in 30 seconds: {', '.join(x['term'] for x in trio)} #Shorts"
         item["title"] = full if len(full) <= 100 else f"3 {en} words in 30 seconds #Shorts"
@@ -163,26 +167,25 @@ def dedupe_tags(text):
 
 
 def make_plan(date):
+    """36 items: every platform gets all 12 disciplines, each platform in a different order."""
     bank = load_bank()
     day = (date - EPOCH).days
-    rot = day % 12
-    order = ORDER[rot:] + ORDER[:rot]  # shifts every day so each discipline cycles through platforms
     items = []
-    for i, cid in enumerate(order):
-        platform = PLATFORMS[i % 3]
-        slot = i // 3
-        it = build_item(day, cid, platform, slot, bank)
-        if slot == CTA_SLOT:
-            it["cta"] = True
-            head, sep, tags = it["caption"].rpartition("\n\n")
-            it["caption"] = head + "\n\n" + CTA_LINE.format(en=it["discipline_en"]) + sep + tags
-            it["primary_metric"] += "; profile visits, product page clicks"
-        it["caption"] = dedupe_tags(it["caption"])
-        it["id"] = f"{date.isoformat()}-{platform}-{slot}-{cid}"
-        it["date"] = date.isoformat()
-        items.append(it)
-    items.sort(key=lambda x: x["time"])
-    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "views-and-reach-only",
+    for pi, platform in enumerate(PLATFORMS):
+        for slot in range(12):
+            cid = ORDER[(day + slot + 4 * pi) % 12]
+            it = build_item(day, cid, platform, slot, bank)
+            if slot in CTA_SLOTS:
+                it["cta"] = True
+                head, sep, tags = it["caption"].rpartition("\n\n")
+                it["caption"] = head + "\n\n" + CTA_LINE.format(en=it["discipline_en"]) + sep + tags
+                it["primary_metric"] += "; profile visits, product page clicks"
+            it["caption"] = dedupe_tags(it["caption"])
+            it["id"] = f"{date.isoformat()}-{platform}-{slot:02d}-{cid}"
+            it["date"] = date.isoformat()
+            items.append(it)
+    items.sort(key=lambda x: (x["time"], x["platform"]))
+    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "combined: reach + soft CTA",
             "rotation_day": day, "items": items}
 
 

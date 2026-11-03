@@ -17,7 +17,7 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,7 +42,7 @@ jobs:
           if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date +%F); fi
           echo "date=$D" >> "$GITHUB_OUTPUT"
           python social-video/ge4u_video.py plan --date "$D" --out "out/$D"
-      - name: Render 12 videos
+      - name: Render 36 videos
         run: |
           export GE4U_TTS_DIR="$HOME/ge4u-tts"
           python social-video/ge4u_video.py render --plan "out/${{ steps.plan.outputs.date }}/plan.json"
@@ -54,8 +54,10 @@ jobs:
           import json, sys, pathlib, subprocess
           d = sys.argv[1]; base = pathlib.Path("out") / d
           plan = json.loads((base / "plan.json").read_text())
-          assert len(plan["items"]) == 12, "expected 12 items"
-          assert len({i["discipline"] for i in plan["items"]}) == 12, "expected 12 disciplines"
+          assert len(plan["items"]) == 36, "expected 36 items"
+          for pf in ("tiktok", "instagram", "youtube"):
+              assert len({i["discipline"] for i in plan["items"] if i["platform"] == pf}) == 12, f"{pf}: expected 12 disciplines"
+          assert len({i["id"] for i in plan["items"]}) == 36, "duplicate item ids"
           for it in plan["items"]:
               f = base / it["file"]
               assert f.exists() and f.stat().st_size > 50_000, f"missing/small {f}"
