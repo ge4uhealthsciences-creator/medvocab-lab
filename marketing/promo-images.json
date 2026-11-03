@@ -1,0 +1,339 @@
+{
+ "note": "Specs for scripts/make_promo_images.py. p00–p13 match marketing/promo-posts.json posts[] by index.",
+ "images": [
+  {
+   "id": "s1104-anatomy",
+   "theme": "medical",
+   "kicker": "Giải phẫu · Anatomy",
+   "headline": "Học Giải phẫu bằng tiếng Anh mà vẫn nhớ lâu?",
+   "card": {
+    "title": "proximal",
+    "lines": [
+     "/ˈprɒksɪməl/",
+     "!Nghĩa là gì? Comment đáp án"
+    ]
+   },
+   "bullets": [
+    "97 thuật ngữ · 6 chủ đề",
+    "IPA, nghĩa tiếng Việt, câu ví dụ",
+    "Flashcard · kéo-thả · trắc nghiệm"
+   ]
+  },
+  {
+   "id": "s1105-wordparts",
+   "theme": "brand",
+   "kicker": "Từ nguyên y khoa",
+   "headline": "Đoán nghĩa thuật ngữ y khoa trong 3 giây",
+   "card": {
+    "lines": [
+     "hepat/o + -itis = hepatitis",
+     "→ viêm gan",
+     "nephr/o + -pathy = nephropathy",
+     "→ bệnh thận",
+     "!gastr/o + -itis = ?"
+    ]
+   },
+   "bullets": [
+    "60 tiền tố – gốc từ – hậu tố hay gặp",
+    "Bài luyện có chấm điểm"
+   ]
+  },
+  {
+   "id": "s1106-physiology",
+   "theme": "public-health",
+   "kicker": "Sinh lý · Physiology",
+   "headline": "“Cardiac output” tiếng Việt là gì?",
+   "card": {
+    "lines": [
+     "A. thể tích nhát bóp",
+     "B. cung lượng tim",
+     "C. tần số tim",
+     "!Comment A / B / C"
+    ]
+   },
+   "bullets": [
+    "103 thuật ngữ · 6 chủ đề",
+    "Flashcard có phát âm, trắc nghiệm"
+   ]
+  },
+  {
+   "id": "s1107-internal",
+   "theme": "nursing",
+   "kicker": "Nội khoa · Internal Medicine",
+   "headline": "Gặp các từ này trong bệnh án tiếng Anh?",
+   "chips": [
+    "orthopnoea",
+    "melaena",
+    "crackles",
+    "ward round",
+    "handover"
+   ],
+   "bullets": [
+    "110 thuật ngữ Nội khoa",
+    "Triệu chứng · bệnh thường gặp · cận lâm sàng · điều trị",
+    "Bài luyện có chấm điểm"
+   ]
+  },
+  {
+   "id": "s1108-disciplines",
+   "theme": "psychology",
+   "kicker": "12 ngành khoa học sức khỏe",
+   "headline": "Không học Y khoa? GE4u có bộ cho 11 ngành khác",
+   "headline_size": 66,
+   "chips": [
+    "Răng Hàm Mặt",
+    "Dược",
+    "Điều dưỡng",
+    "Hộ sinh",
+    "CTXH",
+    "Hóa dược",
+    "Bào chế",
+    "YHCT",
+    "YTCC",
+    "Tâm lý",
+    "Dinh dưỡng"
+   ],
+   "bullets": [
+    "Bạn học ngành nào? Comment để GE4u làm trước"
+   ]
+  },
+  {
+   "id": "s1109-howto",
+   "theme": "dentistry",
+   "kicker": "GE4u Learning Pack",
+   "headline": "Nhận bộ học liệu thế nào?",
+   "steps": [
+    "Đặt trên trang sản phẩm",
+    "GE4u liên hệ xác nhận",
+    "Chuyển khoản",
+    "Nhận file học tương tác + PDF"
+   ],
+   "bullets": [
+    "Không cần cài app · học offline · có phát âm"
+   ]
+  },
+  {
+   "id": "p00-interactive",
+   "theme": "brand",
+   "kicker": "GE4u Learning Pack",
+   "headline": "Học tiếng Anh Y – Dược không cần PDF khô khan",
+   "card": {
+    "title": "Flashcard",
+    "lines": [
+     "Nghe phát âm từng thuật ngữ",
+     "Kéo-thả nối nghĩa tiếng Việt",
+     "Trắc nghiệm + điền từ có chấm điểm"
+    ]
+   },
+   "bullets": [
+    "Mở ngay trên điện thoại, học offline"
+   ]
+  },
+  {
+   "id": "p01-anatomy",
+   "theme": "medical",
+   "kicker": "Giải phẫu · Anatomy",
+   "headline": "Giải phẫu bằng tiếng Anh có làm bạn “đứng hình”?",
+   "card": {
+    "title": "distal",
+    "lines": [
+     "/ˈdɪstl/",
+     "!Nghĩa là gì? Comment đáp án"
+    ]
+   },
+   "bullets": [
+    "97 thuật ngữ · 6 chủ đề",
+    "IPA, nghĩa tiếng Việt, câu ví dụ"
+   ]
+  },
+  {
+   "id": "p02-wordparts",
+   "theme": "brand",
+   "kicker": "Từ nguyên y khoa",
+   "headline": "1 mẹo nhớ 100 thuật ngữ: học từ nguyên",
+   "card": {
+    "lines": [
+     "-ectomy = cắt bỏ → appendectomy",
+     "-scopy = soi → endoscopy",
+     "-megaly = to → hepatomegaly"
+    ]
+   },
+   "bullets": [
+    "60 tiền tố – gốc từ – hậu tố + bài luyện"
+   ]
+  },
+  {
+   "id": "p03-physiology",
+   "theme": "public-health",
+   "kicker": "Sinh lý · Physiology",
+   "headline": "Cardiac output = ?",
+   "card": {
+    "lines": [
+     "A. thể tích nhát bóp",
+     "B. cung lượng tim",
+     "C. tần số tim",
+     "!Comment đáp án"
+    ]
+   },
+   "bullets": [
+    "103 thuật ngữ · tế bào, tuần hoàn, hô hấp, thận, thần kinh – cơ, nội tiết"
+   ]
+  },
+  {
+   "id": "p04-internal",
+   "theme": "nursing",
+   "kicker": "Nội khoa · Internal Medicine",
+   "headline": "Đi lâm sàng gặp bệnh án tiếng Anh?",
+   "chips": [
+    "orthopnoea",
+    "melaena",
+    "crackles",
+    "ward round"
+   ],
+   "bullets": [
+    "110 thuật ngữ: triệu chứng, bệnh, thăm khám, điều trị, giao tiếp lâm sàng"
+   ]
+  },
+  {
+   "id": "p05-pharmacy",
+   "theme": "pharmacy",
+   "kicker": "Dược · Pharmacy English",
+   "headline": "Bạn đọc đúng hết các từ này chưa?",
+   "chips": [
+    "indication",
+    "contraindication",
+    "half-life",
+    "bioavailability"
+   ],
+   "bullets": [
+    "IPA, nghĩa tiếng Việt, ví dụ, flashcard có phát âm"
+   ]
+  },
+  {
+   "id": "p06-nursing",
+   "theme": "nursing",
+   "kicker": "Điều dưỡng · Nursing English",
+   "headline": "Giao ca bằng tiếng Anh tự tin hơn",
+   "chips": [
+    "handover",
+    "vital signs",
+    "fluid balance",
+    "fall risk"
+   ],
+   "bullets": [
+    "Flashcard có phát âm, kéo-thả, trắc nghiệm",
+    "Học offline trên điện thoại"
+   ]
+  },
+  {
+   "id": "p07-dental",
+   "theme": "dentistry",
+   "kicker": "Răng Hàm Mặt · Dental English",
+   "headline": "Thuật ngữ nha khoa cốt lõi",
+   "chips": [
+    "enamel",
+    "dentin",
+    "caries",
+    "occlusion",
+    "gingiva"
+   ],
+   "bullets": [
+    "29 thuật ngữ + kéo-thả, trắc nghiệm, điền từ",
+    "In được bản PDF để ôn"
+   ]
+  },
+  {
+   "id": "p08-whatyouget",
+   "theme": "brand",
+   "kicker": "GE4u Learning Pack",
+   "headline": "Mua bộ học liệu nhận được gì?",
+   "steps": [
+    "File học tương tác (học offline)",
+    "Bản PDF in được + đáp án",
+    "Lộ trình ôn 7 ngày"
+   ],
+   "bullets": [
+    "Đặt → GE4u xác nhận → chuyển khoản → nhận file"
+   ]
+  },
+  {
+   "id": "p09-7days",
+   "theme": "public-health",
+   "kicker": "Lộ trình 7 ngày",
+   "headline": "15 phút/ngày × 7 ngày = 100 thuật ngữ",
+   "steps": [
+    "Ngày 1–3: flashcard + phát âm",
+    "Ngày 4: trắc nghiệm",
+    "Ngày 5: điền từ",
+    "Ngày 6–7: ôn từ sai, mục tiêu ≥ 90%"
+   ]
+  },
+  {
+   "id": "p10-tcm",
+   "theme": "traditional-medicine",
+   "kicker": "Y học cổ truyền · TM English",
+   "headline": "Y học cổ truyền bằng tiếng Anh",
+   "chips": [
+    "acupuncture",
+    "meridian",
+    "decoction",
+    "cupping",
+    "qi"
+   ],
+   "bullets": [
+    "IPA, nghĩa Việt, ví dụ + bài luyện tương tác"
+   ]
+  },
+  {
+   "id": "p11-publichealth",
+   "theme": "public-health",
+   "kicker": "Y tế công cộng · Public Health",
+   "headline": "Incidence hay prevalence?",
+   "chips": [
+    "cohort study",
+    "herd immunity",
+    "surveillance"
+   ],
+   "bullets": [
+    "Flashcard có phát âm và trắc nghiệm trên điện thoại"
+   ]
+  },
+  {
+   "id": "p12-game",
+   "theme": "psychology",
+   "kicker": "Sắp ra mắt · English Ward",
+   "headline": "Học xong từ vựng thì luyện ở đâu?",
+   "card": {
+    "title": "Bệnh viện 3D",
+    "lines": [
+     "Đóng vai bác sĩ, điều dưỡng, dược sĩ…",
+     "Dùng đúng thuật ngữ để khám, tư vấn"
+    ]
+   },
+   "bullets": [
+    "Bắt đầu với bộ học liệu"
+   ]
+  },
+  {
+   "id": "p13-poll",
+   "theme": "social-work",
+   "kicker": "Bạn học ngành nào?",
+   "headline": "Comment để GE4u làm bộ ~100 từ cho ngành bạn trước",
+   "headline_size": 64,
+   "chips": [
+    "Y khoa",
+    "RHM",
+    "Dược",
+    "Điều dưỡng",
+    "Hộ sinh",
+    "YHCT",
+    "YTCC",
+    "Dinh dưỡng",
+    "Tâm lý",
+    "CTXH",
+    "Hóa dược",
+    "Bào chế"
+   ]
+  }
+ ]
+}

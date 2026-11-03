@@ -1,5 +1,5 @@
 {
-  "note": "Daily sales post rotation for Facebook + Threads at 19:40 Asia/Ho_Chi_Minh, starting 2026-11-10. Index = (date - start_date).days % len(posts). Keep claims accurate to what buyers receive. THREADS LIMIT: every Threads post must be at most 500 characters including the link (keep ≤480 for safety); longer posts fail with 'Media container not created'.",
+  "note": "Daily sales post rotation for Facebook + Threads at 19:40 Asia/Ho_Chi_Minh, starting 2026-11-10. Index = (date - start_date).days % len(posts). Keep claims accurate to what buyers receive. THREADS LIMIT: every Threads post must be at most 500 characters including the link (keep ≤480 for safety); longer posts fail with 'Media container not created'. images[i] is the 1080x1350 picture for posts[i] (attach to Facebook; built by scripts/make_promo_images.py).",
   "start_date": "2026-11-10",
   "time": "19:40",
   "networks": [
@@ -22,5 +22,21 @@
     "🌍 Y tế công cộng: incidence vs prevalence, cohort study, herd immunity, surveillance…\n\nGE4u Public Health English: học bằng flashcard có phát âm và trắc nghiệm, ngay trên điện thoại.\n\n💰 99.000đ · {link}\n\n#GE4u #YTeCongCong",
     "🎮 Học xong từ vựng thì luyện ở đâu?\n\nGE4u đang làm game Bệnh viện 3D English Ward: bạn đóng vai bác sĩ, điều dưỡng, dược sĩ… và dùng đúng các thuật ngữ đã học để khám, giải thích, tư vấn bằng tiếng Anh.\n\nBắt đầu với bộ học liệu: 99.000đ · {link}\n\n#GE4u",
     "📣 Bạn học ngành nào? Comment để GE4u ưu tiên làm bộ chuyên đề ~100 từ cho ngành đó trước:\nY khoa · Răng Hàm Mặt · Dược · Điều dưỡng · Hộ sinh · YHCT · YTCC · Dinh dưỡng · Tâm lý · CTXH · Hóa dược · Bào chế\n\nĐặt mua bộ hiện có: {link}\n\n#GE4u"
+  ],
+  "images": [
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p00-interactive.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p01-anatomy.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p02-wordparts.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p03-physiology.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p04-internal.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p05-pharmacy.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p06-nursing.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p07-dental.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p08-whatyouget.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p09-7days.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p10-tcm.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p11-publichealth.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p12-game.png",
+    "https://raw.githubusercontent.com/ge4uhealthsciences-creator/medvocab-lab/main/marketing/promo-images/p13-poll.png"
   ]
 }
