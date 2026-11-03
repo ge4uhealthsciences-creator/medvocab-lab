@@ -61,6 +61,9 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
                     ("list", "3 từ bạn sẽ gặp khi học {vi}"),
                     ("test", "Bạn biết mấy từ trong 3 từ này?")],
 }
+# Combined phase (owner decision, 3 Nov 2026): one video per platform per day carries a soft CTA.
+CTA_SLOT = 2
+CTA_LINE = "📚 Bộ học liệu {en} đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u."
 VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, af_sarah, am_michael
 
 
@@ -169,6 +172,11 @@ def make_plan(date):
         platform = PLATFORMS[i % 3]
         slot = i // 3
         it = build_item(day, cid, platform, slot, bank)
+        if slot == CTA_SLOT:
+            it["cta"] = True
+            head, sep, tags = it["caption"].rpartition("\n\n")
+            it["caption"] = head + "\n\n" + CTA_LINE.format(en=it["discipline_en"]) + sep + tags
+            it["primary_metric"] += "; profile visits, product page clicks"
         it["caption"] = dedupe_tags(it["caption"])
         it["id"] = f"{date.isoformat()}-{platform}-{slot}-{cid}"
         it["date"] = date.isoformat()
@@ -343,6 +351,12 @@ def scenes_for(item):
         sc.append(dict(min=2.0, say=None, draw=lambda c: (
             c.header(), c.block("Bạn biết mấy từ?", 600, 116), c.block("Comment 0 – 3", 900, 90, "bold", color=c.acc),
             c.block("Subscribe để học miễn phí mỗi ngày", 1120, 56, "semi"))))
+    if item.get("cta"):
+        sc[-1] = dict(min=2.6, say=None, draw=lambda c: (
+            c.header(), c.block("Muốn học trọn bộ?", 560, 96),
+            c.block(f"{item['discipline_en']} Learning Pack", 740, 70, "bold", color=c.acc),
+            c.block("PDF in được · bài tập · đáp án", 960, 56, "semi"),
+            c.pill("Link ở bio GE4u", 1140, 80)))
     return sc
 
 
