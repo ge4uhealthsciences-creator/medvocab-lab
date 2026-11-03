@@ -1,0 +1,58 @@
+name: Social auto-post
+# Free replacement for Metricool: posts the day's plan straight through the official APIs.
+# Each platform is enabled only when its secrets exist (Settings → Secrets and variables → Actions).
+on:
+  schedule:
+    # every 20 minutes, 08:00–21:59 Asia/Ho_Chi_Minh (01:00–14:59 UTC)
+    - cron: '5,25,45 1-14 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Plan date (YYYY-MM-DD). Empty = today in Vietnam.'
+        required: false
+      dry_run:
+        description: 'Only list what would be posted'
+        type: boolean
+        default: true
+      only:
+        description: 'Limit to platforms, e.g. threads or instagram,facebook,youtube,promo'
+        required: false
+permissions:
+  contents: write
+concurrency:
+  group: social-post
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post due items
+        env:
+          GH_TOKEN: ${{ github.token }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_DAILY_MAX: ${{ vars.YT_DAILY_MAX || '6' }}
+        run: |
+          ARGS=""
+          [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          [ -n "${{ github.event.inputs.only }}" ] && ARGS="$ARGS --only ${{ github.event.inputs.only }}"
+          python3 social-post/post.py $ARGS
+      - name: Keep the Threads token alive (Mondays)
+        if: github.event_name == 'schedule'
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+        run: |
+          [ -z "$THREADS_TOKEN" ] && exit 0
+          if [ "$(TZ=Asia/Ho_Chi_Minh date +%u%H)" = "108" ]; then
+            curl -s "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=$THREADS_TOKEN" \
+              | python3 -c "import json,sys; d=json.load(sys.stdin); print('Threads token refreshed, expires in', d.get('expires_in'), 's' if 'expires_in' in d else d)"
+          fi
