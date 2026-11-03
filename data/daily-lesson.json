@@ -1,11 +1,10 @@
 {
-  "title": "GE4u Daily Practice: Pharmacy English",
-  "topic": "Dược học · Pharmacy English",
-  "discipline": "Pharmacy English",
-  "channel_id": "pharmacy",
-  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
   "date": "2026-11-03",
-  "source_mode": "curated-channel-data",
+  "channel_id": "pharmacy",
+  "discipline": "Pharmacy English",
+  "topic": "Dược học · Pharmacy English",
+  "title": "GE4u Daily Practice: Pharmacy English",
+  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
   "vocabulary": [
     {
       "term": "indication",
@@ -37,6 +36,7 @@
       "adverse drug reaction"
     ],
     "answer": "indication",
-    "explanation": "An indication is a reason for using a medicine or treatment."
-  }
+    "explanation": "indication means A reason for using a medicine or treatment."
+  },
+  "source_mode": "curated-channel-data"
 }
