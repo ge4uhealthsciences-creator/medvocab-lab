@@ -25,6 +25,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 GRAPH = "https://graph.facebook.com/" + os.environ.get("META_GRAPH_VERSION", "v25.0")
 THREADS = "https://graph.threads.net/v1.0"
 YT_DAILY_MAX = int(os.environ.get("YT_DAILY_MAX", "6"))       # default API quota ≈ 6 uploads/day
+# While the quota allows only 6 uploads, use YouTube's best hours (Metricool best-time data: 14–17h, then 10h, 12h).
+YT_HOURS = {int(h) for h in os.environ.get("YT_HOURS", "10,12,14,15,16,17").split(",")}
 FB_DAILY_MAX = 30                                             # Meta: 30 API reels per Page per 24 h
 LATE_LIMIT_MIN = int(os.environ.get("LATE_LIMIT_MIN", "180"))  # skip items more than 3 h overdue
 THREADS_LIMIT = 500
@@ -283,7 +285,7 @@ def main():
                 jobs.append((f"instagram:{it['id']}", it["time"], "instagram", lambda it=it: post_instagram(it, date.isoformat(), *ig)))
             if fb and want("facebook"):
                 jobs.append((f"facebook:{it['id']}", it["time"], "facebook", lambda it=it: post_facebook_reel(it, date.isoformat(), *fb)))
-        elif it["platform"] == "youtube" and yt and want("youtube"):
+        elif it["platform"] == "youtube" and yt and want("youtube") and (YT_DAILY_MAX >= 12 or int(it["time"][:2]) in YT_HOURS):
             jobs.append((f"youtube:{it['id']}", it["time"], "youtube", lambda it=it: post_youtube(it, date.isoformat(), yt_tok(), workdir)))
     for t in plan.get("threads", []):
         if th and want("threads"):
