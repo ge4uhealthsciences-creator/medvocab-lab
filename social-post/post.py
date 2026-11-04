@@ -27,6 +27,8 @@ THREADS = "https://graph.threads.net/v1.0"
 YT_DAILY_MAX = int(os.environ.get("YT_DAILY_MAX", "6"))       # default API quota ≈ 6 uploads/day
 # While the quota allows only 6 uploads, use YouTube's best hours (Metricool best-time data: 14–17h, then 10h, 12h).
 YT_HOURS = {int(h) for h in os.environ.get("YT_HOURS", "10,12,14,15,16,17").split(",")}
+# Owner-approved plan (5 Nov 2026): 3 Reels a day on Instagram/Facebook. Older 12-Reel plans are thinned to these hours.
+META_HOURS = {int(h) for h in os.environ.get("META_HOURS", "11,17,19").split(",")}
 FB_DAILY_MAX = 30                                             # Meta: 30 API reels per Page per 24 h
 LATE_LIMIT_MIN = int(os.environ.get("LATE_LIMIT_MIN", "180"))  # skip items more than 3 h overdue
 THREADS_LIMIT = 500
@@ -315,7 +317,10 @@ def main():
     count = lambda net: sum(1 for k, v in done.items() if k.startswith(net + ":") and v.get("ok"))
 
     jobs = []  # (key, time, net, fn)
+    thin_meta = sum(1 for it in plan["items"] if it["platform"] == "instagram") > len(META_HOURS)
     for it in plan["items"]:
+        if it["platform"] == "instagram" and thin_meta and int(it["time"][:2]) not in META_HOURS:
+            continue
         if it["platform"] == "instagram":
             if ig and want("instagram"):
                 jobs.append((f"instagram:{it['id']}", it["time"], "instagram", lambda it=it: post_instagram(it, date.isoformat(), *ig)))
