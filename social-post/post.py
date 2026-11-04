@@ -5,16 +5,15 @@ Runs every 20 minutes from GitHub Actions. For today's date (Asia/Ho_Chi_Minh) i
 release media-D, posts every item whose time has come and that is not in the posted log yet, and writes
 the log back to the same release (posted.json) so nothing is ever posted twice.
 
-Platforms and the secrets each needs (a platform without its secrets is skipped, never an error):
+Platforms and required secrets:
   Instagram Reels   META_PAGE_TOKEN, IG_USER_ID
-  Facebook Reels    META_PAGE_TOKEN, FB_PAGE_ID         (Instagram items are cross-posted here)
-  Facebook promo    META_PAGE_TOKEN, FB_PAGE_ID         (marketing/promo-posts.json, with picture)
-  Threads           THREADS_TOKEN, THREADS_USER_ID      (plan "threads" + promo copy)
+  Threads           THREADS_TOKEN, THREADS_USER_ID
   YouTube Shorts    YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN
+Facebook and promotional publishing are disabled in the views-and-reach phase.
 TikTok is not posted here: TikTok only allows public API posts after an app audit. tiktok_pack.py prepares
 the day's TikTok videos for TikTok Studio scheduling instead.
 
-Usage: post.py [--date YYYY-MM-DD] [--dry-run] [--only instagram,facebook,threads,youtube,promo]
+Usage: post.py [--date YYYY-MM-DD] [--dry-run] [--only instagram,threads,youtube]
 """
 import argparse, datetime as dt, json, os, pathlib, re, subprocess, sys, tempfile, time, urllib.parse
 import urllib.request
@@ -28,6 +27,9 @@ YT_DAILY_MAX = int(os.environ.get("YT_DAILY_MAX", "6"))       # default API quot
 # While the quota allows only 6 uploads, use YouTube's best hours (Metricool best-time data: 14–17h, then 10h, 12h).
 YT_HOURS = {int(h) for h in os.environ.get("YT_HOURS", "10,12,14,15,16,17").split(",")}
 FB_DAILY_MAX = 30                                             # Meta: 30 API reels per Page per 24 h
+# Owner's current phase: views and reach only. Keep Facebook and sales promotions disabled.
+FACEBOOK_ENABLED = False
+PROMO_ENABLED = False
 LATE_LIMIT_MIN = int(os.environ.get("LATE_LIMIT_MIN", "180"))  # skip items more than 3 h overdue
 THREADS_LIMIT = 500
 
@@ -242,7 +244,7 @@ def main():
 
     meta = env("META_PAGE_TOKEN")
     ig = env("META_PAGE_TOKEN", "IG_USER_ID")
-    fb = env("META_PAGE_TOKEN", "FB_PAGE_ID")
+    fb = env("META_PAGE_TOKEN", "FB_PAGE_ID") if FACEBOOK_ENABLED else None
     th = env("THREADS_TOKEN", "THREADS_USER_ID")
     yt = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
     print("Enabled:", ", ".join(k for k, v in [("instagram", ig), ("facebook", fb), ("threads", th), ("youtube", yt)] if v) or "none (no secrets set)")
@@ -291,7 +293,7 @@ def main():
         if th and want("threads"):
             body = re.sub(r"\n*#\w+\s*$", "", t["text"]).rstrip()  # topic goes in topic_tag, keep text clean
             jobs.append((f"threads:{t['id']}", t["time"], "threads", lambda body=body, t=t: post_threads(body, t["topic"], *th)))
-    pr = promo_for(date)
+    pr = promo_for(date) if PROMO_ENABLED else None
     if pr and want("promo"):
         if fb:
             jobs.append(("facebook-promo:" + date.isoformat(), pr["time"], "facebook-promo", lambda: post_facebook_photo(pr["fb_text"], pr["image"], *fb)))

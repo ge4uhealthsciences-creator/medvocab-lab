@@ -54,6 +54,8 @@ jobs:
           import json, sys, pathlib, subprocess
           d = sys.argv[1]; base = pathlib.Path("out") / d
           plan = json.loads((base / "plan.json").read_text())
+          assert plan.get("phase") == "views & reach only", "wrong content phase"
+          assert not any(it.get("cta") for it in plan["items"]), "sales CTA flag found"
           assert len(plan["items"]) == 36, "expected 36 items"
           for pf in ("tiktok", "instagram", "youtube"):
               assert len({i["discipline"] for i in plan["items"] if i["platform"] == pf}) == 12, f"{pf}: expected 12 disciplines"
@@ -67,7 +69,7 @@ jobs:
               dur = float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",str(f)]))
               assert 8 <= dur <= 59, f"{f} duration {dur}"
               text = (it["caption"] + it.get("title","")).lower()
-              for banned in ["giá:", "giá chỉ", "mua ngay", "đặt mua", "đăng ký khóa", "inbox", "vnd", "₫", "price", "buy now", "checkout"]:
+              for banned in ["giá:", "giá chỉ", "mua ngay", "đặt mua", "đăng ký", "inbox", "vnd", "₫", "99.000", "price", "buy now", "checkout", "purchase", "bộ học liệu", "link ở bio", "link in bio"]:
                   assert banned not in text, f"sales wording '{banned}' in {it['id']}"
           print("OK", d)
           PY
