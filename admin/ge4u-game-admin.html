@@ -89,7 +89,19 @@ import { getFirestore, doc, getDoc, setDoc, getDocs, collection, serverTimestamp
 import { firebaseConfig, firebaseReady } from "../ge4u-firebase-config.js";
 import { BUNDLES, DEFAULT_PLANS, PLAN_TYPES, BANKS, describeEnt, fullAccess, vnd, newCode } from "../ge4u-plans.js";
 const $ = (id) => document.getElementById(id);
-const say = (t) => { $("msg").textContent = t; };
+// Messages show at the top AND as a toast at the bottom of the screen, so a save far down the page is visible.
+const say = (t, bad) => {
+  $("msg").textContent = t;
+  let b = document.getElementById("toast");
+  if (!b) { b = document.createElement("div"); b.id = "toast"; b.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99;padding:12px 18px;border-radius:12px;font:600 15px system-ui;box-shadow:0 6px 24px rgba(0,0,0,.25);max-width:92vw"; document.body.append(b); }
+  b.textContent = t; b.style.background = bad ? "#8f1d2c" : "#087e83"; b.style.color = "#fff"; b.style.display = "block";
+  clearTimeout(say.t); say.t = setTimeout(() => { b.style.display = "none"; }, 4000);
+};
+// Any failed save (no admin rights, offline, rules) is shown instead of failing silently.
+addEventListener("unhandledrejection", (e) => {
+  const c = (e.reason && (e.reason.code || e.reason.message)) || String(e.reason);
+  say(/permission/i.test(c) ? "❌ Không lưu được: tài khoản này chưa có quyền admin (kiểm tra collection admins / UID)." : "❌ Không lưu được: " + c, true);
+});
 const el = (tag, txt, cls) => { const e = document.createElement(tag); if (txt != null) e.textContent = txt; if (cls) e.className = cls; return e; };
 const ms = (t) => (t && t.toMillis ? t.toMillis() : 0);
 const fmt = (t) => (ms(t) ? new Date(ms(t)).toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }) : "");
