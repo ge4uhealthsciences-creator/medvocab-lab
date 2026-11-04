@@ -3,10 +3,11 @@ name: Social auto-post
 # Each platform is enabled only when its secrets exist (Settings → Secrets and variables → Actions).
 on:
   schedule:
-    # every 20 minutes, 08:00–21:59 Asia/Ho_Chi_Minh (01:00–14:59 UTC)
-    - cron: '5,25,45 1-14 * * *'
-    # 06:05 and 07:05 VN: no posts due yet, but the Hub's "today" table is filled before the morning report
-    - cron: '5 23,0 * * *'
+    # every 10 minutes, 07:00–22:59 Asia/Ho_Chi_Minh (00:00–15:59 UTC). GitHub often starts scheduled runs
+    # 10–60 min late and skips some at busy times, so frequent off-peak minutes keep posts close to their time.
+    - cron: '3,13,23,33,43,53 0-15 * * *'
+    # 06:07 VN: fill the Hub's "today" table before the morning report
+    - cron: '7 23 * * *'
   workflow_dispatch:
     inputs:
       date:
