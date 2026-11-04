@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /firebase/
+Disallow: /google-apps-script/
+Disallow: /google-apps-script-admin/
+Disallow: /social-post/
+Disallow: /social-video/
+Disallow: /scripts/
+Disallow: /docs/
+
+Sitemap: https://ge4u.trungminhle.com/sitemap.xml
