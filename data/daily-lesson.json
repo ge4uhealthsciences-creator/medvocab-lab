@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-04",
-  "channel_id": "nursing",
-  "discipline": "Nursing English",
-  "topic": "Điều dưỡng · Nursing English",
-  "title": "GE4u Daily Practice: Nursing English",
-  "objective": "Review three core terms and practise one knowledge check in Nursing English.",
+  "date": "2026-11-05",
+  "channel_id": "midwifery",
+  "discipline": "Midwifery English",
+  "topic": "Hộ sinh · Midwifery English",
+  "title": "GE4u Daily Practice: Midwifery English",
+  "objective": "Review three core terms and practise one knowledge check in Midwifery English.",
   "vocabulary": [
     {
-      "term": "vital signs",
-      "ipa": "/ˈvaɪtəl saɪnz/",
-      "meaning": "dấu hiệu sinh tồn",
-      "definition": "Measurements including pulse, respiration and blood pressure.",
-      "example": "The nurse recorded vital signs."
+      "term": "antenatal care",
+      "ipa": "/ˌæntiˈneɪtəl keə/",
+      "meaning": "chăm sóc trước sinh",
+      "definition": "Healthcare provided during pregnancy.",
+      "example": "Antenatal care supports maternal health."
     },
     {
-      "term": "wound dressing",
-      "ipa": "/wuːnd ˈdresɪŋ/",
-      "meaning": "băng vết thương",
-      "definition": "Material used to protect a wound.",
-      "example": "The nurse changed the wound dressing."
+      "term": "labour",
+      "ipa": "/ˈleɪbə/",
+      "meaning": "chuyển dạ",
+      "definition": "The process leading to childbirth.",
+      "example": "The midwife assessed labour."
     },
     {
-      "term": "intake and output",
-      "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
-      "meaning": "lượng dịch vào và ra",
-      "definition": "A record of fluid intake and excretion.",
-      "example": "Intake and output were monitored."
+      "term": "contraction",
+      "ipa": "/kənˈtrækʃən/",
+      "meaning": "cơn co tử cung",
+      "definition": "Tightening of uterine muscle, especially during labour.",
+      "example": "The patient described the contractions."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Measurements including pulse, respiration and blood pressure.",
+    "question": "Which term is defined as: Healthcare provided during pregnancy.",
     "options": [
-      "vital signs",
-      "wound dressing",
-      "intake and output"
+      "antenatal care",
+      "labour",
+      "contraction"
     ],
-    "answer": "vital signs",
-    "explanation": "vital signs means Measurements including pulse, respiration and blood pressure."
+    "answer": "antenatal care",
+    "explanation": "antenatal care means Healthcare provided during pregnancy."
   },
   "source_mode": "curated-channel-data"
 }
