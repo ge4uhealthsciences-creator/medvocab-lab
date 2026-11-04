@@ -433,9 +433,37 @@ def fetch_views(done):
                 for v in json.loads(r.read().decode()).get("items", []):
                     out[yt_ids[v["id"]]] = int(v["statistics"].get("viewCount", 0))
         except Exception as e:
-            print("views not readable for youtube:", str(e)[:200])
+            print("views not readable for youtube via API:", str(e)[:200])
+    # No read permission on the token: read the public view count from each Short's own page instead.
+    for pid, key in yt_ids.items():
+        if key in out:
+            continue
+        try:
+            req = urllib.request.Request(f"https://www.youtube.com/watch?v={pid}&hl=en",
+                                         headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "en"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                html = r.read().decode("utf-8", "replace")
+            m = re.search(r'"viewCount":"(\d+)"', html) or re.search(r'"viewCount":\{"simpleText":"([\d,.]+)', html)
+            if m:
+                out[key] = int(m.group(1).replace(",", "").replace(".", ""))
+        except Exception as e:
+            print("public YouTube views not read:", str(e)[:120]); break
     print("views read for", len(out), "posts")
     return out
+
+
+def tiktok_views():
+    """TikTok has no API for this account; the autopilot reads TikTok Studio and stores
+    {"updated": "...", "views": {"<term>": n}} in status/tiktok-views.json on the status branch."""
+    try:
+        import base64
+        r = gh("api", f"repos/{REPO}/contents/status/tiktok-views.json?ref={STATUS_BRANCH}", check=False)
+        if r.returncode != 0:
+            return {}
+        d = json.loads(base64.b64decode(json.loads(r.stdout)["content"]).decode())
+        return {str(k).strip().lower(): v for k, v in (d.get("views") or {}).items()}
+    except Exception as e:
+        print("TikTok views not read:", str(e)[:200]); return {}
 
 
 def status_rows(date, now, plan, jobs, done, pr):
@@ -473,6 +501,7 @@ def status_rows(date, now, plan, jobs, done, pr):
                          f"vượt hạn mức {YT_DAILY_MAX} Short/ngày (quota YouTube API)", ""])
     # TikTok is scheduled in TikTok Studio; it publishes itself at the scheduled time.
     studio = _studio_ids()
+    tk_views = tiktok_views()
     for it in plan["items"]:
         if it["platform"] != "tiktok":
             continue
@@ -481,7 +510,8 @@ def status_rows(date, now, plan, jobs, done, pr):
             st, detail = ("posted", "TikTok Studio") if now >= t else ("pending", "đã hẹn giờ trên TikTok Studio")
         else:
             st, detail = ("error", "chưa hẹn giờ trên TikTok Studio") if now >= t else ("pending", "chưa hẹn giờ")
-        rows.append([date.isoformat(), it["time"], "TikTok", "Video", _title(it), st, detail, ""])
+        term = ((it.get("terms") or [{}])[0].get("term") or "").strip().lower()
+        rows.append([date.isoformat(), it["time"], "TikTok", "Video", _title(it), st, detail, "", tk_views.get(term, "") if st == "posted" else ""])
     rows.sort(key=lambda r: (r[1], r[2]))
     return rows
 
