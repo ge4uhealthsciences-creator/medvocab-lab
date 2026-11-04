@@ -55,3 +55,19 @@ Avoid storing more personal data than the product needs. Do not store plaintext 
 - [ ] Add tests that ensure secrets and admin assets never enter public `_site/`.
 - [ ] Connect GitHub Actions status and show the last successful refresh time.
 - [ ] Run security review and regression tests before production release.
+
+## Bán gói Premium trong game (chuyển khoản VietQR, xác nhận tay)
+
+Cài một lần:
+1. Firebase console → Firestore → **Rules**: dán toàn bộ `firebase/firestore.rules` → **Publish**.
+2. Firestore → collection `admins` → tạo document có ID = UID tài khoản Google của bạn (trang admin hiện UID nếu chưa có).
+3. Mở `https://ge4u.trungminhle.com/admin/ge4u-game-admin.html` → đăng nhập Google:
+   - **Gói bán** → "Tạo bộ gói mặc định", rồi sửa giá/nhãn tuỳ ý.
+   - **Tài khoản nhận tiền** → chọn ngân hàng, nhập số tài khoản và tên chủ tài khoản (không dấu) → Lưu. (Nhập ở đây, không gửi qua chat.)
+
+Hằng ngày:
+- Người chơi chọn gói trong game → nhận mã VietQR có sẵn số tiền + nội dung `GE4Uxxxxxx` → bấm "Tôi đã chuyển khoản".
+- Mục **Đơn chờ xác nhận**: mở app ngân hàng, thấy đúng số tiền + đúng nội dung thì bấm **✅ Đã nhận tiền** → quyền được kích hoạt ngay.
+  - Gói thời gian/chuyên ngành: cộng dồn số ngày. Gói trọn đời: vĩnh viễn. Gói lớp học: tự tạo **mã lớp** (LOP…) — người mua thấy mã trong "Đơn của tôi", học viên nhập mã trong game để kích hoạt, mỗi tài khoản một lần, tối đa số chỗ.
+- **Người chơi** → "Tặng gói…" để tặng/bù quyền; "Thu hồi" để tắt quyền.
+- **Doanh thu**: tổng tiền đơn đã xác nhận hôm nay / 7 / 30 ngày / tất cả, theo từng gói.

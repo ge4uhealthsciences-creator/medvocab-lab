@@ -3,9 +3,18 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
-    function isPremium() {
-      return signedIn() && get(/databases/$(database)/documents/entitlements/$(request.auth.uid)).data.premium == true;
+    // Full access = lifetime, an unexpired `until`, or a legacy premium flag with no dates.
+    function fullAccess(d) {
+      return d.premium == true && (d.get('lifetime', false) == true
+        || (d.get('until', null) != null && d.until > request.time)
+        || (d.get('until', null) == null && d.get('spec', null) == null));
     }
+    function isPremium() {
+      return signedIn() && exists(/databases/$(database)/documents/entitlements/$(request.auth.uid))
+        && fullAccess(get(/databases/$(database)/documents/entitlements/$(request.auth.uid)).data);
+    }
+    function codePath(code) { return /databases/$(database)/documents/classCodes/$(code); }
+    function memberPath(code, uid) { return /databases/$(database)/documents/classCodes/$(code)/members/$(uid); }
 
     // 31-day plan lesson progress (unchanged behaviour)
     match /users/{userId}/lessons/{lessonId} {
@@ -27,13 +36,69 @@ service cloud.firestore {
       allow read, write: if signedIn() && request.auth.uid == userId;
     }
 
-    // Premium flags: set only by GE4u admins after payment is confirmed.
+    // Entitlements: written by admins after they see the money in the bank account,
+    // or by the player themself only when redeeming a valid class code in the same batch.
     match /entitlements/{userId} {
       allow read: if (signedIn() && request.auth.uid == userId) || isAdmin();
       allow write: if isAdmin();
+      allow create, update: if signedIn() && request.auth.uid == userId
+        && (resource == null || !fullAccess(resource.data))
+        && request.resource.data.keys().hasOnly(['premium', 'via', 'code', 'until', 'updatedAt'])
+        && request.resource.data.premium == true
+        && request.resource.data.via == 'code'
+        && !exists(memberPath(request.resource.data.code, userId))
+        && existsAfter(memberPath(request.resource.data.code, userId))
+        && request.resource.data.until == get(codePath(request.resource.data.code)).data.until;
     }
 
-    // Paid learning-pack vocabulary: readable by Premium players only.
+    // Plan catalogue and payee details: public to read, admin to edit.
+    match /plans/{planId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Orders: a player creates a pending order at the exact plan price and may mark it "claimed";
+    // only an admin can mark it paid (after checking the bank) or cancelled.
+    match /orders/{orderId} {
+      allow read: if (signedIn() && resource.data.uid == request.auth.uid) || isAdmin();
+      allow create: if isAdmin();   // gifts recorded by the admin page
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['code', 'uid', 'email', 'planId', 'planName', 'amount', 'status', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.code == orderId
+        && request.resource.data.status == 'pending'
+        && get(/databases/$(database)/documents/plans/$(request.resource.data.planId)).data.active == true
+        && request.resource.data.amount == get(/databases/$(database)/documents/plans/$(request.resource.data.planId)).data.priceVnd;
+      allow update: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid && resource.data.status == 'pending'
+            && request.resource.data.status == 'claimed'
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'claimedAt']));
+      allow delete: if isAdmin();
+    }
+
+    // Class codes (group plans): any signed-in player may look up a code they were given and take one seat.
+    match /classCodes/{code} {
+      allow get: if signedIn();
+      allow list, create, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (signedIn() && resource.data.active == true
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['used'])
+            && request.resource.data.used == resource.data.used + 1
+            && request.resource.data.used <= resource.data.seats
+            && !exists(memberPath(code, request.auth.uid))
+            && existsAfter(memberPath(code, request.auth.uid)));
+      match /members/{uid} {
+        allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+        allow create: if signedIn() && request.auth.uid == uid
+          && getAfter(codePath(code)).data.used == get(codePath(code)).data.used + 1;
+      }
+    }
+
+    // Paid learning-pack vocabulary: readable by full-access Premium players only.
     match /packs/{packId} {
       allow read: if isPremium() || isAdmin();
       allow write: if isAdmin();
