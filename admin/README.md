@@ -75,6 +75,6 @@ Hằng ngày:
 ## Chơi thử không cần tài khoản (3 phút mỗi chế độ)
 
 - Người chưa đăng nhập được chơi thử 3 phút ở mỗi chế độ: Bệnh nhân/Cấp cứu, Đóng vai nhân viên y tế, Ôn tập & quiz, Tham quan. Hết giờ thì phải tạo tài khoản.
-- Thời gian được ghi theo thiết bị (localStorage) và theo mạng: collection `trials`, id là mã băm SHA-256 của địa chỉ IP (không lưu IP gốc). Xoá dữ liệu trình duyệt không reset được.
+- Thời gian được ghi theo thiết bị (localStorage) và theo máy: collection `trials`, id là mã băm SHA-256 đặc điểm thiết bị (màn hình, hệ điều hành, chip đồ hoạ, cách vẽ chữ). Xoá dữ liệu trình duyệt hay đổi wifi/4G không reset được.
 - Sau khi dán `firebase/firestore.rules` mới: Firebase console → Firestore → TTL policies → thêm policy cho collection group `trials`, field `expireAt`, để bản ghi tự xoá sau 30 ngày.
 - Đổi thời lượng: `TRIAL_SECONDS` trong `ge4u-game-gate.js` (và số 180 trong rules).

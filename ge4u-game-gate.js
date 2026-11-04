@@ -11,8 +11,8 @@ import { BUNDLES, PLAN_TYPES, fullAccess, canPlay, describeEnt, vnd, perDay, vie
 const FREE_CASES_PER_DAY = 3;   // signed-in free players
 const GUEST_CASES_PER_DAY = 1;  // only while Firebase is not configured yet
 const PRODUCTS_URL = "ge4u-products.html";
-// No-account trial: TRIAL_SECONDS in each mode, counted per device AND per network (a hash of the IP address,
-// never the address itself), so clearing the browser does not reset it. After that an account is required.
+// No-account trial: TRIAL_SECONDS in each mode, counted per machine: in the browser and under a hash of the
+// device fingerprint, so clearing browser data or changing network does not reset it. After that an account is required.
 const TRIAL_SECONDS = 180;
 const TRIAL_DAYS = 30;  // the network record expires after this (Firestore TTL on expireAt)
 const TRIAL_MODES = { P: "Bệnh nhân / Cấp cứu", R: "Đóng vai nhân viên y tế", Q: "Ôn tập & quiz", T: "Tham quan bệnh viện" };
@@ -76,7 +76,7 @@ gate.innerHTML = `<div class="card">
   <button class="sec" id="g4up">Create account</button>
   <button class="sec" id="g4guest" hidden>Play as guest (${GUEST_CASES_PER_DAY} game a day)</button>
   <button class="sec" id="g4trial" style="background:#fff4dc">▶ Try without an account · 3 minutes in each mode<small style="display:block;font-weight:400;font-size:12px">Chơi thử không cần tài khoản: 3 phút mỗi chế độ</small></button>
-  <p id="g4trialNote" style="font-size:11.5px">Chơi thử được giới hạn theo thiết bị và theo mạng: GE4u lưu một mã băm (không lưu địa chỉ IP gốc) trong ${TRIAL_DAYS} ngày để chặn chơi thử lặp lại. Hết thời gian chơi thử cần tạo tài khoản miễn phí.</p>
+  <p id="g4trialNote" style="font-size:11.5px">Chơi thử được giới hạn theo máy: GE4u lưu một mã băm đặc điểm thiết bị (màn hình, hệ điều hành, chip đồ hoạ) trong ${TRIAL_DAYS} ngày để chặn chơi thử lặp lại. Hết thời gian chơi thử cần tạo tài khoản miễn phí.</p>
   <div class="msg" id="g4msg"></div>
 </div>`;
 document.body.append(gate);
@@ -171,17 +171,32 @@ function trialLabel() {
   return "Chơi thử · " + (tCur ? TRIAL_MODES[tCur] + " còn " + mmss(tLeft(tCur)) : Object.keys(TRIAL_MODES).filter((m) => tLeft(m) > 0).length + "/4 chế độ còn thời gian");
 }
 function tSaveLocal() { try { localStorage.setItem(TKEY, JSON.stringify(tUsed)); } catch (e) {} }
-async function tNetworkId() {
+// A device fingerprint: what this browser on this machine reports about itself (screen, system, graphics chip,
+// how it draws text). It stays the same after clearing browser data or switching Wi-Fi/4G. Only its hash is stored.
+async function tDeviceId() {
   try {
-    const r = await fetch("https://api.ipify.org?format=json", { cache: "no-store" });
-    const ip = (await r.json()).ip;
-    if (!ip) return null;
-    const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("ge4u-trial|" + ip));
+    const parts = [navigator.platform, navigator.hardwareConcurrency, navigator.deviceMemory, navigator.maxTouchPoints,
+      screen.width + "x" + screen.height + "x" + screen.colorDepth, devicePixelRatio,
+      Intl.DateTimeFormat().resolvedOptions().timeZone, (navigator.languages || []).join(",")];
+    try {
+      const gl = document.createElement("canvas").getContext("webgl");
+      const ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
+      if (ext) parts.push(gl.getParameter(ext.UNMASKED_VENDOR_WEBGL), gl.getParameter(ext.UNMASKED_RENDERER_WEBGL));
+    } catch (e) {}
+    try {
+      const c = document.createElement("canvas"); c.width = 240; c.height = 40;
+      const x = c.getContext("2d");
+      x.textBaseline = "top"; x.font = "16px Arial"; x.fillStyle = "#f60"; x.fillRect(80, 2, 90, 20);
+      x.fillStyle = "#069"; x.fillText("GE4u English Ward ✓ 3:00", 2, 6);
+      x.fillStyle = "rgba(102,204,0,.7)"; x.fillText("GE4u English Ward ✓ 3:00", 6, 10);
+      parts.push(c.toDataURL());
+    } catch (e) {}
+    const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("ge4u-trial|" + parts.join("|")));
     return [...new Uint8Array(h)].map((b) => b.toString(16).padStart(2, "0")).join("");
   } catch (e) { return null; }
 }
 async function tLoadNet() {
-  tNet = await tNetworkId();
+  tNet = await tDeviceId();
   if (!tNet || !db) return;
   try {
     const d = await getDoc(doc(db, "trials", tNet));
@@ -222,7 +237,7 @@ $("g4trial").onclick = async () => {
   await tLoadNet();
   $("g4trial").disabled = false;
   tRefreshGate();
-  if (!tAnyLeft()) { msg("Bạn đã dùng hết thời gian chơi thử trên thiết bị hoặc mạng này. Tạo tài khoản miễn phí để chơi tiếp."); return; }
+  if (!tAnyLeft()) { msg("Bạn đã dùng hết thời gian chơi thử trên máy này. Tạo tài khoản miễn phí để chơi tiếp."); return; }
   trial = true; msg(""); gate.style.display = "none"; showBar(); loadVocab();
   try { document.getElementById("menu").style.display = "flex"; } catch (e) {}
 };

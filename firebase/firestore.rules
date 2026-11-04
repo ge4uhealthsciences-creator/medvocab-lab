@@ -104,7 +104,7 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // No-account trial, one document per network: the id is a SHA-256 hash of the IP address (never the address).
+    // No-account trial, one document per machine: the id is a SHA-256 hash of the device fingerprint.
     // Anyone may read their own hash and record seconds played per mode; seconds can only go up, capped at 180.
     function trialSecs(d, m) { return d.get(m, 0) is int && d.get(m, 0) >= 0 && d.get(m, 0) <= 180; }
     function trialValid(d) {
