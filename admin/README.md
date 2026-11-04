@@ -71,3 +71,10 @@ Hằng ngày:
   - Gói thời gian/chuyên ngành: cộng dồn số ngày. Gói trọn đời: vĩnh viễn. Gói lớp học: tự tạo **mã lớp** (LOP…) — người mua thấy mã trong "Đơn của tôi", học viên nhập mã trong game để kích hoạt, mỗi tài khoản một lần, tối đa số chỗ.
 - **Người chơi** → "Tặng gói…" để tặng/bù quyền; "Thu hồi" để tắt quyền.
 - **Doanh thu**: tổng tiền đơn đã xác nhận hôm nay / 7 / 30 ngày / tất cả, theo từng gói.
+
+## Chơi thử không cần tài khoản (3 phút mỗi chế độ)
+
+- Người chưa đăng nhập được chơi thử 3 phút ở mỗi chế độ: Bệnh nhân/Cấp cứu, Đóng vai nhân viên y tế, Ôn tập & quiz, Tham quan. Hết giờ thì phải tạo tài khoản.
+- Thời gian được ghi theo thiết bị (localStorage) và theo mạng: collection `trials`, id là mã băm SHA-256 của địa chỉ IP (không lưu IP gốc). Xoá dữ liệu trình duyệt không reset được.
+- Sau khi dán `firebase/firestore.rules` mới: Firebase console → Firestore → TTL policies → thêm policy cho collection group `trials`, field `expireAt`, để bản ghi tự xoá sau 30 ngày.
+- Đổi thời lượng: `TRIAL_SECONDS` trong `ge4u-game-gate.js` (và số 180 trong rules).

@@ -104,6 +104,25 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // No-account trial, one document per network: the id is a SHA-256 hash of the IP address (never the address).
+    // Anyone may read their own hash and record seconds played per mode; seconds can only go up, capped at 180.
+    function trialSecs(d, m) { return d.get(m, 0) is int && d.get(m, 0) >= 0 && d.get(m, 0) <= 180; }
+    function trialValid(d) {
+      return d.keys().hasOnly(['P', 'R', 'Q', 'T', 'updatedAt', 'expireAt'])
+        && trialSecs(d, 'P') && trialSecs(d, 'R') && trialSecs(d, 'Q') && trialSecs(d, 'T')
+        && d.updatedAt == request.time && d.expireAt is timestamp;
+    }
+    match /trials/{id} {
+      allow get: if id.matches('^[0-9a-f]{64}$');
+      allow list, delete: if isAdmin();
+      allow create: if id.matches('^[0-9a-f]{64}$') && trialValid(request.resource.data);
+      allow update: if trialValid(request.resource.data)
+        && request.resource.data.get('P', 0) >= resource.data.get('P', 0)
+        && request.resource.data.get('R', 0) >= resource.data.get('R', 0)
+        && request.resource.data.get('Q', 0) >= resource.data.get('Q', 0)
+        && request.resource.data.get('T', 0) >= resource.data.get('T', 0);
+    }
+
     // Admin list: managed only in the Firebase console.
     match /admins/{userId} {
       allow read: if signedIn() && request.auth.uid == userId;

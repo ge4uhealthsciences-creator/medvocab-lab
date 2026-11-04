@@ -4,17 +4,22 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, getDocs, collection, serverTimestamp, query, where, writeBatch, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, getDocs, collection, serverTimestamp, query, where, writeBatch, increment, Timestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { firebaseConfig, firebaseReady } from "./ge4u-firebase-config.js";
 import { BUNDLES, PLAN_TYPES, fullAccess, canPlay, describeEnt, vnd, perDay, vietqrUrl, newCode } from "./ge4u-plans.js";
 
 const FREE_CASES_PER_DAY = 3;   // signed-in free players
 const GUEST_CASES_PER_DAY = 1;  // only while Firebase is not configured yet
 const PRODUCTS_URL = "ge4u-products.html";
+// No-account trial: TRIAL_SECONDS in each mode, counted per device AND per network (a hash of the IP address,
+// never the address itself), so clearing the browser does not reset it. After that an account is required.
+const TRIAL_SECONDS = 180;
+const TRIAL_DAYS = 30;  // the network record expires after this (Firestore TTL on expireAt)
+const TRIAL_MODES = { P: "Bệnh nhân / Cấp cứu", R: "Đóng vai nhân viên y tế", Q: "Ôn tập & quiz", T: "Tham quan bệnh viện" };
 const $ = (id) => document.getElementById(id);
 const today = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
 
-let auth = null, db = null, user = null, premium = false, guest = false, ent = null;
+let auth = null, db = null, user = null, premium = false, guest = false, ent = null, trial = false;
 if (firebaseReady) { const app = initializeApp(firebaseConfig); auth = getAuth(app); db = getFirestore(app); }
 
 // ---------- UI ----------
@@ -70,6 +75,8 @@ gate.innerHTML = `<div class="card">
   <button class="sec" id="g4in">Sign in</button>
   <button class="sec" id="g4up">Create account</button>
   <button class="sec" id="g4guest" hidden>Play as guest (${GUEST_CASES_PER_DAY} game a day)</button>
+  <button class="sec" id="g4trial" style="background:#fff4dc">▶ Try without an account · 3 minutes in each mode<small style="display:block;font-weight:400;font-size:12px">Chơi thử không cần tài khoản: 3 phút mỗi chế độ</small></button>
+  <p id="g4trialNote" style="font-size:11.5px">Chơi thử được giới hạn theo thiết bị và theo mạng: GE4u lưu một mã băm (không lưu địa chỉ IP gốc) trong ${TRIAL_DAYS} ngày để chặn chơi thử lặp lại. Hết thời gian chơi thử cần tạo tài khoản miễn phí.</p>
   <div class="msg" id="g4msg"></div>
 </div>`;
 document.body.append(gate);
@@ -126,7 +133,10 @@ $("g4guest").onclick = () => { guest = true; gate.style.display = "none"; showBa
 $("g4google").onclick = async () => { try { await signInWithPopup(auth, new GoogleAuthProvider()); } catch (e) { msg(vi(e)); } };
 $("g4in").onclick = async () => { try { await signInWithEmailAndPassword(auth, $("g4email").value.trim(), $("g4pass").value); } catch (e) { msg(vi(e)); } };
 $("g4up").onclick = async () => { try { await createUserWithEmailAndPassword(auth, $("g4email").value.trim(), $("g4pass").value); } catch (e) { msg(vi(e)); } };
-$("g4out").onclick = async () => { if (auth && user) await signOut(auth); location.reload(); };
+$("g4out").onclick = async () => {
+  if (trial && !user) { tSaveNet(); trial = false; tCur = null; msg(""); tRefreshGate(); gate.style.display = "flex"; bar.style.display = "none"; return; }
+  if (auth && user) await signOut(auth); location.reload();
+};
 $("g4wallClose").onclick = () => { wall.style.display = "none"; };
 $("g4wallShop").onclick = (e) => { e.preventDefault(); wall.style.display = "none"; openShop(); };
 $("g4shopBtn").onclick = () => openShop();
@@ -145,12 +155,103 @@ $("g4vocClose").onclick = () => { voc.style.display = "none"; };
 
 function showBar() {
   bar.style.display = "flex";
-  $("g4who").textContent = guest ? "Guest" : ((user.email || "Signed in") + " · " + describeEnt(ent));
+  $("g4who").textContent = trial ? trialLabel() : guest ? "Guest" : ((user.email || "Signed in") + " · " + describeEnt(ent));
+  $("g4out").textContent = trial ? "Create account" : "Sign out";
+  $("g4shopBtn").hidden = trial;
 }
+
+// ---------- no-account trial ----------
+const TKEY = "ge4u-trial-v1";
+let tUsed = { P: 0, R: 0, Q: 0, T: 0 }, tCur = null, tNet = null, tDirty = false;
+try { Object.assign(tUsed, JSON.parse(localStorage.getItem(TKEY) || "{}")); } catch (e) {}
+const tLeft = (m) => Math.max(0, TRIAL_SECONDS - (tUsed[m] || 0));
+const tAnyLeft = () => Object.keys(TRIAL_MODES).some((m) => tLeft(m) > 0);
+const mmss = (s) => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+function trialLabel() {
+  return "Chơi thử · " + (tCur ? TRIAL_MODES[tCur] + " còn " + mmss(tLeft(tCur)) : Object.keys(TRIAL_MODES).filter((m) => tLeft(m) > 0).length + "/4 chế độ còn thời gian");
+}
+function tSaveLocal() { try { localStorage.setItem(TKEY, JSON.stringify(tUsed)); } catch (e) {} }
+async function tNetworkId() {
+  try {
+    const r = await fetch("https://api.ipify.org?format=json", { cache: "no-store" });
+    const ip = (await r.json()).ip;
+    if (!ip) return null;
+    const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("ge4u-trial|" + ip));
+    return [...new Uint8Array(h)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  } catch (e) { return null; }
+}
+async function tLoadNet() {
+  tNet = await tNetworkId();
+  if (!tNet || !db) return;
+  try {
+    const d = await getDoc(doc(db, "trials", tNet));
+    if (d.exists()) for (const m of Object.keys(TRIAL_MODES)) tUsed[m] = Math.max(tUsed[m] || 0, Number(d.data()[m]) || 0);
+    tSaveLocal();
+  } catch (e) {}
+}
+async function tSaveNet() {
+  if (!tNet || !db || !tDirty) return;
+  tDirty = false;
+  const data = { updatedAt: serverTimestamp(), expireAt: Timestamp.fromMillis(Date.now() + TRIAL_DAYS * 864e5) };
+  for (const m of Object.keys(TRIAL_MODES)) data[m] = Math.min(TRIAL_SECONDS, Math.round(tUsed[m] || 0));
+  try { await setDoc(doc(db, "trials", tNet), data); } catch (e) {}
+}
+function tRefreshGate() {
+  const left = tAnyLeft();
+  $("g4trial").hidden = !left || !!user;
+  $("g4trialNote").hidden = !!user;
+}
+function tLock(m) {
+  // tCur stays: if the player goes "Back to the game" in this mode, the next tick locks again.
+  try { document.getElementById("menuBtn").click(); } catch (e) {}
+  tSaveNet();
+  tRefreshGate();
+  msg(`Hết 3 phút chơi thử "${TRIAL_MODES[m]}". Tạo tài khoản miễn phí để chơi tiếp` + (tAnyLeft() ? " — hoặc chơi thử chế độ khác." : "."));
+  $("g4trial").firstChild.textContent = tAnyLeft() ? "▶ Try another mode" : "";
+  gate.style.display = "flex";
+  bar.style.display = "none";
+}
+// Called before a mode starts; true when the trial still has time in that mode.
+function tAllow(m) {
+  if (tLeft(m) > 0) { tCur = m; showBar(); return true; }
+  tLock(m);
+  return false;
+}
+$("g4trial").onclick = async () => {
+  $("g4trial").disabled = true;
+  await tLoadNet();
+  $("g4trial").disabled = false;
+  tRefreshGate();
+  if (!tAnyLeft()) { msg("Bạn đã dùng hết thời gian chơi thử trên thiết bị hoặc mạng này. Tạo tài khoản miễn phí để chơi tiếp."); return; }
+  trial = true; msg(""); gate.style.display = "none"; showBar(); loadVocab();
+  try { document.getElementById("menu").style.display = "flex"; } catch (e) {}
+};
+setInterval(() => {
+  if (!trial || user || !tCur || gate.style.display === "flex" || document.visibilityState !== "visible") return;
+  const menu = document.getElementById("menu");
+  if (menu && menu.style.display !== "none" && getComputedStyle(menu).display !== "none") return;
+  if (tLeft(tCur) <= 0) { tLock(tCur); return; }
+  tUsed[tCur] = (tUsed[tCur] || 0) + 1; tDirty = true; tSaveLocal();
+  $("g4who").textContent = trialLabel();
+  if (tLeft(tCur) <= 0) tLock(tCur);
+}, 1000);
+setInterval(tSaveNet, 15000);
+addEventListener("pagehide", () => { tSaveNet(); });
+// The tour and review are not cases, so they are gated here.
+try {
+  const mT = document.getElementById("mT"), tourClick = mT && mT.onclick;
+  if (tourClick) mT.onclick = (e) => { if (trial && !tAllow("T")) return; return tourClick.call(mT, e); };
+} catch (e) {}
+if (typeof window.startReview === "function") {
+  const rv = window.startReview;
+  window.startReview = function (...a) { if (trial && !tAllow("Q")) return; return rv.apply(this, a); };
+}
+tRefreshGate();
 
 if (auth) onAuthStateChanged(auth, async (u) => {
   user = u;
-  if (!u) { gate.style.display = "flex"; bar.style.display = "none"; return; }
+  if (!u) { if (!trial) { gate.style.display = "flex"; bar.style.display = "none"; } tRefreshGate(); return; }
+  trial = false; tCur = null;
   gate.style.display = "none";
   try { await setDoc(doc(db, "users", u.uid), { email: u.email || "", lastSeen: serverTimestamp() }, { merge: true }); } catch (e) {}
   await loadEnt();
@@ -267,6 +368,7 @@ function countCase() {
   if (db && user) setDoc(doc(db, "users", user.uid), { usage: { date: today(), n } }, { merge: true }).catch(() => {});
 }
 function allowCase(kind, id) {
+  if (trial && !user) return tAllow(kind === "patient" ? "P" : "R");
   if (canPlay(ent, kind, id)) return true;
   if (!guest && !user) { gate.style.display = "flex"; return false; }
   const limit = guest ? GUEST_CASES_PER_DAY : FREE_CASES_PER_DAY;
