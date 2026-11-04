@@ -2434,6 +2434,10 @@ function debrief(cs){const src=cs._src||cs,box=document.createElement('div');box
   if(src.hc){sec('👥 Hội chẩn – kiến thức nền');src.hc.forEach(h=>{line(h[1],'',1);line('↳ '+h[2],h[5]+' ('+h[6]+')',1)})}
   if(src.tp){sec('📖 Guideline points (đã đối chiếu tài liệu)');src.tp.forEach(x=>line('• '+x[0]+' → '+x[1],x[4],0))}
   if(src.src){sec('🔗 References');src.src.forEach(u=>{const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=u.replace(/^https?:\/\/(www\.)?/,'').slice(0,70);a.style.cssText='display:block;font-size:12px;word-break:break-all';box.appendChild(a)})}
+  const disc=document.createElement('div');disc.className='rvl';disc.style.cssText='font-size:12px;color:#5b7384;margin-top:8px';
+  disc.textContent='ℹ️ Nội dung được đối chiếu với hướng dẫn quốc tế và nguồn tiếng Việt; dùng để học, không thay thế phác đồ tại cơ sở và ý kiến chuyên gia.';box.appendChild(disc);
+  const rep=document.createElement('a');rep.className='opt';rep.style.cssText='display:block;text-align:center;margin-top:6px;text-decoration:none';rep.textContent='🚩 Báo lỗi nội dung ca này / Report an error';
+  rep.href='mailto:ge4u.health.sciences@gmail.com?subject='+encodeURIComponent('[English Ward] Báo lỗi ca: '+(src.cc||''))+'&body='+encodeURIComponent('Ca: '+(src.cc||'')+'\nPhần bị sai (câu/đáp án):\n\nTheo tài liệu (ghi tên + link nếu có):\n');box.appendChild(rep);
   const ids=caseIds(src);bankAdd(ids);const f=document.createElement('div');f.className='rvl';f.style.color='#0b6e6e';f.textContent='📒 Saved '+ids.length+' items from this case to your review list (menu → 🧠 Review).';box.appendChild(f);
   return box}
 
