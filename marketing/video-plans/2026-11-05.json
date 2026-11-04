@@ -1,0 +1,1319 @@
+{
+  "date": "2026-11-05",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "combined: reach + soft CTA",
+  "rotation_day": 2,
+  "items": [
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Dược học nghĩa là gì?",
+      "slot": 0,
+      "time": "08:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "tablet",
+          "ipa": "/ˈtæblət/",
+          "meaning": "viên nén",
+          "definition": "A solid, compressed dose of medicine.",
+          "example": "Take one tablet twice a day."
+        }
+      ],
+      "caption": "💊 tablet /ˈtæblət/\n= viên nén\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Pharmacy English mỗi ngày.\n\n#PharmacyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "tablet — Pharmacy English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-00-pharmacy",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-00-pharmacy.mp4",
+      "duration_s": 13.97
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Hóa dược có trả lời được không?",
+      "slot": 0,
+      "time": "08:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "chromatography",
+          "ipa": "/ˌkrəʊməˈtɒɡrəfi/",
+          "meaning": "sắc ký",
+          "definition": "A technique for separating mixtures.",
+          "example": "Chromatography separated the compounds."
+        }
+      ],
+      "quiz": {
+        "question": "A technique for separating mixtures.",
+        "options": [
+          "solubility",
+          "chromatography",
+          "active pharmaceutical ingredient"
+        ],
+        "answer": "B"
+      },
+      "caption": "⚗️ Pharma Chemistry English quiz: \"A technique for separating mixtures.\"\nA) solubility  B) chromatography  C) active pharmaceutical ingredient\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaChemistry #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharma Chemistry English quiz: C…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-00-pharmaceutical-chemistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 13.2
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 0,
+      "time": "08:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "placebo effect",
+          "ipa": "/pləˈsiːbəʊ ɪˌfekt/",
+          "meaning": "hiệu ứng giả dược",
+          "definition": "Improvement due to belief in a treatment.",
+          "example": "The placebo effect was measured."
+        },
+        {
+          "term": "conditioning",
+          "ipa": "/kənˈdɪʃənɪŋ/",
+          "meaning": "điều kiện hóa",
+          "definition": "Learning through association or consequences.",
+          "example": "Classical conditioning links two stimuli."
+        },
+        {
+          "term": "personality",
+          "ipa": "/ˌpɜːsəˈnæləti/",
+          "meaning": "nhân cách",
+          "definition": "A person's characteristic patterns of thinking and behaving.",
+          "example": "Personality is fairly stable."
+        }
+      ],
+      "title": "3 Psychology English words in 30 seconds: placebo effect, conditioning, personality #Shorts",
+      "caption": "• placebo effect /pləˈsiːbəʊ ɪˌfekt/ = hiệu ứng giả dược\n• conditioning /kənˈdɪʃənɪŋ/ = điều kiện hóa\n• personality /ˌpɜːsəˈnæləti/ = nhân cách\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Psychology English miễn phí mỗi ngày.\n\n#PsychologyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-00-psychology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-00-psychology.mp4",
+      "duration_s": 22.2
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 1,
+      "time": "09:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "discharge",
+          "ipa": "/ˈdɪstʃɑːdʒ/",
+          "meaning": "xuất viện",
+          "definition": "Formally leaving hospital care.",
+          "example": "The patient's discharge is planned for tomorrow."
+        }
+      ],
+      "caption": "🩹 discharge /ˈdɪstʃɑːdʒ/\n= xuất viện\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Nursing English mỗi ngày.\n\n#NursingEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "discharge — Nursing English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-01-nursing",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-01-nursing.mp4",
+      "duration_s": 14.7
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 1,
+      "time": "09:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "sustained release",
+          "ipa": "/səˌsteɪnd rɪˈliːs/",
+          "meaning": "giải phóng kéo dài",
+          "definition": "Releasing a drug slowly over time.",
+          "example": "This is a sustained release tablet."
+        }
+      ],
+      "quiz": {
+        "question": "Releasing a drug slowly over time.",
+        "options": [
+          "sustained release",
+          "excipient",
+          "dissolution"
+        ],
+        "answer": "A"
+      },
+      "caption": "🏭 Pharma Technology English quiz: \"Releasing a drug slowly over time.\"\nA) sustained release  B) excipient  C) dissolution\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaTech #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharma Technology English quiz: S…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-01-pharmaceutical-technology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-01-pharmaceutical-technology.mp4",
+      "duration_s": 12.57
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Nutrition English trong 30 giây",
+      "slot": 1,
+      "time": "09:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "vitamin",
+          "ipa": "/ˈvɪtəmɪn/",
+          "meaning": "vitamin",
+          "definition": "An organic compound needed in small amounts.",
+          "example": "Vitamin C supports immunity."
+        },
+        {
+          "term": "mineral",
+          "ipa": "/ˈmɪnərəl/",
+          "meaning": "khoáng chất",
+          "definition": "An inorganic nutrient such as calcium or iron.",
+          "example": "Calcium is an important mineral."
+        },
+        {
+          "term": "portion size",
+          "ipa": "/ˈpɔːʃən saɪz/",
+          "meaning": "khẩu phần",
+          "definition": "The amount of food eaten at one time.",
+          "example": "Reduce portion size gradually."
+        }
+      ],
+      "title": "3 Nutrition English words in 30 seconds: vitamin, mineral, portion size #Shorts",
+      "caption": "• vitamin /ˈvɪtəmɪn/ = vitamin\n• mineral /ˈmɪnərəl/ = khoáng chất\n• portion size /ˈpɔːʃən saɪz/ = khẩu phần\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Nutrition English miễn phí mỗi ngày.\n\n#NutritionEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-01-nutrition",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-01-nutrition.mp4",
+      "duration_s": 21.23
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 2,
+      "time": "10:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "dilation",
+          "ipa": "/daɪˈleɪʃən/",
+          "meaning": "độ mở cổ tử cung",
+          "definition": "The opening of the cervix during labour.",
+          "example": "Dilation is now six centimetres."
+        }
+      ],
+      "caption": "🤰 dilation /daɪˈleɪʃən/\n= độ mở cổ tử cung\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Midwifery English mỗi ngày.\n\n#MidwiferyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "dilation — Midwifery English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-02-midwifery",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-02-midwifery.mp4",
+      "duration_s": 14.4
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 2,
+      "time": "10:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "pulse diagnosis",
+          "ipa": "/ˈpʌls daɪəɡˌnəʊsɪs/",
+          "meaning": "bắt mạch",
+          "definition": "Assessing health by feeling the pulse.",
+          "example": "Pulse diagnosis is a key method."
+        }
+      ],
+      "quiz": {
+        "question": "Assessing health by feeling the pulse.",
+        "options": [
+          "herbal formula",
+          "ginseng",
+          "pulse diagnosis"
+        ],
+        "answer": "C"
+      },
+      "caption": "🌿 Traditional Medicine English quiz: \"Assessing health by feeling the pulse.\"\nA) herbal formula  B) ginseng  C) pulse diagnosis\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#TraditionalMedicine #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Traditional Medicine English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-02-traditional-medicine",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-02-traditional-medicine.mp4",
+      "duration_s": 13.27
+    },
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Răng Hàm Mặt",
+      "slot": 2,
+      "time": "10:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "oral examination",
+          "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
+          "meaning": "khám miệng",
+          "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
+          "example": "An oral examination is part of the initial dental assessment."
+        },
+        {
+          "term": "radiograph",
+          "ipa": "/ˈreɪdiəɡrɑːf/",
+          "meaning": "phim X-quang",
+          "definition": "An image produced using X-rays for diagnostic assessment.",
+          "example": "The dentist reviewed the dental radiograph."
+        },
+        {
+          "term": "restoration",
+          "ipa": "/ˌrestəˈreɪʃən/",
+          "meaning": "phục hồi răng",
+          "definition": "A filling or other material used to restore damaged tooth structure.",
+          "example": "The restoration was checked for marginal integrity."
+        }
+      ],
+      "title": "3 Dental English words in 30 seconds: oral examination, radiograph, restoration #Shorts",
+      "caption": "• oral examination /ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/ = khám miệng\n• radiograph /ˈreɪdiəɡrɑːf/ = phim X-quang\n• restoration /ˌrestəˈreɪʃən/ = phục hồi răng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Dental English miễn phí mỗi ngày.\n\n#DentalEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-02-dentistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-02-dentistry.mp4",
+      "duration_s": 26.83
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Công tác xã hội nghĩa là gì?",
+      "slot": 3,
+      "time": "11:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "caseload",
+          "ipa": "/ˈkeɪsləʊd/",
+          "meaning": "số ca phụ trách",
+          "definition": "The number of clients a worker is responsible for.",
+          "example": "Her caseload is very high."
+        }
+      ],
+      "caption": "🤝 caseload /ˈkeɪsləʊd/\n= số ca phụ trách\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Social Work English mỗi ngày.\n\n📚 Bộ học liệu Social Work English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#SocialWorkEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "caseload — Social Work English",
+      "primary_metric": "average watch time, full-video-watched rate; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-tiktok-03-social-work",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-03-social-work.mp4",
+      "duration_s": 15.57
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Y tế công cộng có trả lời được không?",
+      "slot": 3,
+      "time": "11:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "mortality rate",
+          "ipa": "/mɔːˈtæləti reɪt/",
+          "meaning": "tỷ lệ tử vong",
+          "definition": "The number of deaths in a population over time.",
+          "example": "The mortality rate has fallen."
+        }
+      ],
+      "quiz": {
+        "question": "The number of deaths in a population over time.",
+        "options": [
+          "risk factor",
+          "mortality rate",
+          "prevalence"
+        ],
+        "answer": "B"
+      },
+      "caption": "🌍 Public Health English quiz: \"The number of deaths in a population over time.\"\nA) risk factor  B) mortality rate  C) prevalence\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n📚 Bộ học liệu Public Health English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#PublicHealthEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Public Health English quiz: M…?",
+      "primary_metric": "non-follower reach, shares; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-instagram-03-public-health",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-03-public-health.mp4",
+      "duration_s": 13.3
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 3,
+      "time": "11:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "benign",
+          "ipa": "/bɪˈnaɪn/",
+          "meaning": "lành tính",
+          "definition": "Not cancerous and not spreading.",
+          "example": "The biopsy showed a benign lump."
+        },
+        {
+          "term": "malignant",
+          "ipa": "/məˈlɪɡnənt/",
+          "meaning": "ác tính",
+          "definition": "Cancerous and able to spread.",
+          "example": "The tumour was found to be malignant."
+        },
+        {
+          "term": "fracture",
+          "ipa": "/ˈfræktʃə/",
+          "meaning": "gãy xương",
+          "definition": "A break in a bone.",
+          "example": "The X-ray confirmed a wrist fracture."
+        }
+      ],
+      "title": "3 Medical English words in 30 seconds: benign, malignant, fracture #Shorts",
+      "caption": "• benign /bɪˈnaɪn/ = lành tính\n• malignant /məˈlɪɡnənt/ = ác tính\n• fracture /ˈfræktʃə/ = gãy xương\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Medical English miễn phí mỗi ngày.\n\n📚 Bộ học liệu Medical English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#MedicalEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-youtube-03-medical",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-03-medical.mp4",
+      "duration_s": 17.63
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 4,
+      "time": "12:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "titration",
+          "ipa": "/taɪˈtreɪʃən/",
+          "meaning": "chuẩn độ",
+          "definition": "A method to find concentration by adding a reagent.",
+          "example": "We used titration to measure the acid."
+        }
+      ],
+      "caption": "⚗️ titration /taɪˈtreɪʃən/\n= chuẩn độ\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Pharma Chemistry English mỗi ngày.\n\n#PharmaChemistry #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "titration — Pharma Chemistry English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-04-pharmaceutical-chemistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-04-pharmaceutical-chemistry.mp4",
+      "duration_s": 15.63
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 4,
+      "time": "12:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "bias",
+          "ipa": "/ˈbaɪəs/",
+          "meaning": "thiên kiến",
+          "definition": "A tendency to favour one view unfairly.",
+          "example": "Confirmation bias affects judgement."
+        }
+      ],
+      "quiz": {
+        "question": "A tendency to favour one view unfairly.",
+        "options": [
+          "bias",
+          "conditioning",
+          "personality"
+        ],
+        "answer": "A"
+      },
+      "caption": "🧠 Psychology English quiz: \"A tendency to favour one view unfairly.\"\nA) bias  B) conditioning  C) personality\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PsychologyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Psychology English quiz: B…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-04-psychology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-04-psychology.mp4",
+      "duration_s": 13.23
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Pharmacy English trong 30 giây",
+      "slot": 4,
+      "time": "12:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "dispense",
+          "ipa": "/dɪˈspens/",
+          "meaning": "cấp phát thuốc",
+          "definition": "To prepare and supply medicine to a patient.",
+          "example": "The pharmacist dispensed the prescription."
+        },
+        {
+          "term": "half-life",
+          "ipa": "/ˈhɑːf laɪf/",
+          "meaning": "thời gian bán thải",
+          "definition": "The time for a drug's concentration to fall by half.",
+          "example": "This drug has a short half-life."
+        },
+        {
+          "term": "bioavailability",
+          "ipa": "/ˌbaɪəʊəˌveɪləˈbɪləti/",
+          "meaning": "sinh khả dụng",
+          "definition": "The proportion of a drug that reaches the circulation.",
+          "example": "Oral bioavailability is about fifty percent."
+        }
+      ],
+      "title": "3 Pharmacy English words in 30 seconds: dispense, half-life, bioavailability #Shorts",
+      "caption": "• dispense /dɪˈspens/ = cấp phát thuốc\n• half-life /ˈhɑːf laɪf/ = thời gian bán thải\n• bioavailability /ˌbaɪəʊəˌveɪləˈbɪləti/ = sinh khả dụng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharmacy English miễn phí mỗi ngày.\n\n#PharmacyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-04-pharmacy",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-04-pharmacy.mp4",
+      "duration_s": 22.1
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 5,
+      "time": "13:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "shelf life",
+          "ipa": "/ˈʃelf laɪf/",
+          "meaning": "tuổi thọ / hạn dùng",
+          "definition": "The period a product remains suitable for use.",
+          "example": "The shelf life is two years."
+        }
+      ],
+      "caption": "🏭 shelf life /ˈʃelf laɪf/\n= tuổi thọ / hạn dùng\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Pharma Technology English mỗi ngày.\n\n#PharmaTech #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "shelf life — Pharma Technology English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-05-pharmaceutical-technology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-05-pharmaceutical-technology.mp4",
+      "duration_s": 14.83
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 5,
+      "time": "13:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "obesity",
+          "ipa": "/əʊˈbiːsəti/",
+          "meaning": "béo phì",
+          "definition": "Excess body fat that may impair health.",
+          "example": "Obesity increases diabetes risk."
+        }
+      ],
+      "quiz": {
+        "question": "Excess body fat that may impair health.",
+        "options": [
+          "diet therapy",
+          "protein",
+          "obesity"
+        ],
+        "answer": "C"
+      },
+      "caption": "🥗 Nutrition English quiz: \"Excess body fat that may impair health.\"\nA) diet therapy  B) protein  C) obesity\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NutritionEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Nutrition English quiz: O…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-05-nutrition",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-05-nutrition.mp4",
+      "duration_s": 13.0
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Điều dưỡng",
+      "slot": 5,
+      "time": "13:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "pulse",
+          "ipa": "/pʌls/",
+          "meaning": "mạch",
+          "definition": "The rhythmic beat of arteries with each heartbeat.",
+          "example": "Check the radial pulse."
+        },
+        {
+          "term": "bedsore",
+          "ipa": "/ˈbedsɔː/",
+          "meaning": "loét do nằm lâu",
+          "definition": "An everyday term for a pressure ulcer.",
+          "example": "Bedsores can develop quickly in immobile patients."
+        },
+        {
+          "term": "dressing",
+          "ipa": "/ˈdresɪŋ/",
+          "meaning": "băng gạc",
+          "definition": "A covering applied to a wound.",
+          "example": "Change the dressing every two days."
+        }
+      ],
+      "title": "3 Nursing English words in 30 seconds: pulse, bedsore, dressing #Shorts",
+      "caption": "• pulse /pʌls/ = mạch\n• bedsore /ˈbedsɔː/ = loét do nằm lâu\n• dressing /ˈdresɪŋ/ = băng gạc\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Nursing English miễn phí mỗi ngày.\n\n#NursingEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-05-nursing",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-05-nursing.mp4",
+      "duration_s": 18.8
+    },
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Răng Hàm Mặt có trả lời được không?",
+      "slot": 6,
+      "time": "14:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "toothache",
+          "ipa": "/ˈtuːθeɪk/",
+          "meaning": "đau răng",
+          "definition": "Pain in or around a tooth.",
+          "example": "The patient reported a severe toothache at night."
+        }
+      ],
+      "quiz": {
+        "question": "Pain in or around a tooth.",
+        "options": [
+          "sterilisation",
+          "toothache",
+          "impression tray"
+        ],
+        "answer": "B"
+      },
+      "caption": "🦷 Dental English quiz: \"Pain in or around a tooth.\"\nA) sterilisation  B) toothache  C) impression tray\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#DentalEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Dental English quiz: T…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-06-dentistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-06-dentistry.mp4",
+      "duration_s": 13.3
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 6,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "neonate",
+          "ipa": "/ˈniːəʊneɪt/",
+          "meaning": "trẻ sơ sinh",
+          "definition": "A baby in the first four weeks of life.",
+          "example": "The neonate was weighed after birth."
+        },
+        {
+          "term": "birth plan",
+          "ipa": "/ˈbɜːθ plæn/",
+          "meaning": "kế hoạch sinh",
+          "definition": "A record of preferences for labour and birth.",
+          "example": "We discussed her birth plan."
+        },
+        {
+          "term": "caesarean section",
+          "ipa": "/sɪˈzeəriən ˌsekʃən/",
+          "meaning": "mổ lấy thai",
+          "definition": "Delivery of a baby through a surgical incision.",
+          "example": "She had a planned caesarean section."
+        }
+      ],
+      "title": "3 Midwifery English words in 30 seconds: neonate, birth plan, caesarean section #Shorts",
+      "caption": "• neonate /ˈniːəʊneɪt/ = trẻ sơ sinh\n• birth plan /ˈbɜːθ plæn/ = kế hoạch sinh\n• caesarean section /sɪˈzeəriən ˌsekʃən/ = mổ lấy thai\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Midwifery English miễn phí mỗi ngày.\n\n#MidwiferyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-06-midwifery",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-06-midwifery.mp4",
+      "duration_s": 21.8
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Y học cổ truyền nghĩa là gì?",
+      "slot": 6,
+      "time": "15:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "tuina",
+          "ipa": "/ˌtwiːˈnɑː/",
+          "meaning": "xoa bóp bấm huyệt",
+          "definition": "A Chinese therapeutic massage technique.",
+          "example": "Tuina was used for neck stiffness."
+        }
+      ],
+      "caption": "🌿 tuina /ˌtwiːˈnɑː/\n= xoa bóp bấm huyệt\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Traditional Medicine English mỗi ngày.\n\n#TraditionalMedicine #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "tuina — Traditional Medicine English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-06-traditional-medicine",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-06-traditional-medicine.mp4",
+      "duration_s": 14.2
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 7,
+      "time": "15:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "hypertension",
+          "ipa": "/ˌhaɪpəˈtenʃən/",
+          "meaning": "tăng huyết áp",
+          "definition": "Persistently high blood pressure.",
+          "example": "Hypertension increases the risk of stroke."
+        }
+      ],
+      "quiz": {
+        "question": "Persistently high blood pressure.",
+        "options": [
+          "hypertension",
+          "acute",
+          "fever"
+        ],
+        "answer": "A"
+      },
+      "caption": "🩺 Medical English quiz: \"Persistently high blood pressure.\"\nA) hypertension  B) acute  C) fever\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n📚 Bộ học liệu Medical English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#MedicalEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Medical English quiz: H…?",
+      "primary_metric": "non-follower reach, shares; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-instagram-07-medical",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-07-medical.mp4",
+      "duration_s": 12.57
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Social Work English trong 30 giây",
+      "slot": 7,
+      "time": "15:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "support network",
+          "ipa": "/səˈpɔːt ˌnetwɜːk/",
+          "meaning": "mạng lưới hỗ trợ",
+          "definition": "People and services that help someone.",
+          "example": "We mapped her support network."
+        },
+        {
+          "term": "intervention",
+          "ipa": "/ˌɪntəˈvenʃən/",
+          "meaning": "can thiệp",
+          "definition": "Action taken to improve a situation.",
+          "example": "Early intervention reduces risk."
+        },
+        {
+          "term": "wellbeing",
+          "ipa": "/ˌwelˈbiːɪŋ/",
+          "meaning": "sức khỏe toàn diện / an sinh",
+          "definition": "The state of being healthy and comfortable.",
+          "example": "The plan supports his wellbeing."
+        }
+      ],
+      "title": "3 Social Work English words in 30 seconds: support network, intervention, wellbeing #Shorts",
+      "caption": "• support network /səˈpɔːt ˌnetwɜːk/ = mạng lưới hỗ trợ\n• intervention /ˌɪntəˈvenʃən/ = can thiệp\n• wellbeing /ˌwelˈbiːɪŋ/ = sức khỏe toàn diện / an sinh\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Social Work English miễn phí mỗi ngày.\n\n📚 Bộ học liệu Social Work English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#SocialWorkEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-youtube-07-social-work",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-07-social-work.mp4",
+      "duration_s": 20.2
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 7,
+      "time": "16:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "herd immunity",
+          "ipa": "/ˌhɜːd ɪˈmjuːnəti/",
+          "meaning": "miễn dịch cộng đồng",
+          "definition": "Protection when enough people are immune.",
+          "example": "Herd immunity protects vulnerable people."
+        }
+      ],
+      "caption": "🌍 herd immunity /ˌhɜːd ɪˈmjuːnəti/\n= miễn dịch cộng đồng\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Public Health English mỗi ngày.\n\n📚 Bộ học liệu Public Health English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#PublicHealthEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "herd immunity — Public Health English",
+      "primary_metric": "average watch time, full-video-watched rate; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-tiktok-07-public-health",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-07-public-health.mp4",
+      "duration_s": 15.43
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 8,
+      "time": "16:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "capsule",
+          "ipa": "/ˈkæpsjuːl/",
+          "meaning": "viên nang",
+          "definition": "A medicine enclosed in a soluble shell.",
+          "example": "Swallow the capsule whole."
+        }
+      ],
+      "quiz": {
+        "question": "A medicine enclosed in a soluble shell.",
+        "options": [
+          "adverse drug reaction",
+          "dosage",
+          "capsule"
+        ],
+        "answer": "C"
+      },
+      "caption": "💊 Pharmacy English quiz: \"A medicine enclosed in a soluble shell.\"\nA) adverse drug reaction  B) dosage  C) capsule\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmacyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharmacy English quiz: C…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-08-pharmacy",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-08-pharmacy.mp4",
+      "duration_s": 12.7
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Hóa dược",
+      "slot": 8,
+      "time": "16:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "reagent",
+          "ipa": "/riˈeɪdʒənt/",
+          "meaning": "thuốc thử",
+          "definition": "A substance used to cause a chemical reaction.",
+          "example": "Add the reagent slowly."
+        },
+        {
+          "term": "catalyst",
+          "ipa": "/ˈkætəlɪst/",
+          "meaning": "chất xúc tác",
+          "definition": "A substance that speeds up a reaction without being used up.",
+          "example": "The catalyst lowered the reaction time."
+        },
+        {
+          "term": "yield",
+          "ipa": "/jiːld/",
+          "meaning": "hiệu suất",
+          "definition": "The amount of product obtained from a reaction.",
+          "example": "The yield was eighty percent."
+        }
+      ],
+      "title": "3 Pharma Chemistry English words in 30 seconds: reagent, catalyst, yield #Shorts",
+      "caption": "• reagent /riˈeɪdʒənt/ = thuốc thử\n• catalyst /ˈkætəlɪst/ = chất xúc tác\n• yield /jiːld/ = hiệu suất\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Chemistry English miễn phí mỗi ngày.\n\n#PharmaChemistry #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-08-pharmaceutical-chemistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-08-pharmaceutical-chemistry.mp4",
+      "duration_s": 21.13
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 8,
+      "time": "17:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "self-esteem",
+          "ipa": "/ˌself ɪˈstiːm/",
+          "meaning": "lòng tự trọng",
+          "definition": "A person's sense of their own worth.",
+          "example": "Praise can boost self-esteem."
+        }
+      ],
+      "caption": "🧠 self-esteem /ˌself ɪˈstiːm/\n= lòng tự trọng\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Psychology English mỗi ngày.\n\n#PsychologyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "self-esteem — Psychology English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-08-psychology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-08-psychology.mp4",
+      "duration_s": 14.37
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Điều dưỡng có trả lời được không?",
+      "slot": 9,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "oxygen saturation",
+          "ipa": "/ˈɒksɪdʒən ˌsætʃəˈreɪʃən/",
+          "meaning": "độ bão hòa oxy",
+          "definition": "The percentage of haemoglobin carrying oxygen.",
+          "example": "Her oxygen saturation is ninety-six percent."
+        }
+      ],
+      "quiz": {
+        "question": "The percentage of haemoglobin carrying oxygen.",
+        "options": [
+          "patient safety",
+          "oxygen saturation",
+          "handover"
+        ],
+        "answer": "B"
+      },
+      "caption": "🩹 Nursing English quiz: \"The percentage of haemoglobin carrying oxygen.\"\nA) patient safety  B) oxygen saturation  C) handover\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NursingEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Nursing English quiz: O…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-09-nursing",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-09-nursing.mp4",
+      "duration_s": 14.8
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 9,
+      "time": "17:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "disintegration",
+          "ipa": "/dɪsˌɪntɪˈɡreɪʃən/",
+          "meaning": "rã",
+          "definition": "Breaking apart into smaller pieces.",
+          "example": "Disintegration should occur within fifteen minutes."
+        },
+        {
+          "term": "GMP",
+          "ipa": "/ˌdʒiː em ˈpiː/",
+          "meaning": "thực hành sản xuất tốt",
+          "definition": "Good Manufacturing Practice: quality rules for production.",
+          "example": "The plant follows GMP."
+        },
+        {
+          "term": "validation",
+          "ipa": "/ˌvælɪˈdeɪʃən/",
+          "meaning": "thẩm định",
+          "definition": "Proving a process consistently gives the right result.",
+          "example": "Process validation is complete."
+        }
+      ],
+      "title": "3 Pharma Technology English words in 30 seconds: disintegration, GMP, validation #Shorts",
+      "caption": "• disintegration /dɪsˌɪntɪˈɡreɪʃən/ = rã\n• GMP /ˌdʒiː em ˈpiː/ = thực hành sản xuất tốt\n• validation /ˌvælɪˈdeɪʃən/ = thẩm định\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Technology English miễn phí mỗi ngày.\n\n#PharmaTech #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-09-pharmaceutical-technology",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-09-pharmaceutical-technology.mp4",
+      "duration_s": 22.7
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Dinh dưỡng nghĩa là gì?",
+      "slot": 9,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "hydration",
+          "ipa": "/haɪˈdreɪʃən/",
+          "meaning": "bù nước / đủ nước",
+          "definition": "Having enough water in the body.",
+          "example": "Hydration is important in hot weather."
+        }
+      ],
+      "caption": "🥗 hydration /haɪˈdreɪʃən/\n= bù nước / đủ nước\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Nutrition English mỗi ngày.\n\n#NutritionEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "hydration — Nutrition English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-09-nutrition",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-09-nutrition.mp4",
+      "duration_s": 14.47
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 10,
+      "time": "18:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "breastfeeding",
+          "ipa": "/ˈbrestfiːdɪŋ/",
+          "meaning": "nuôi con bằng sữa mẹ",
+          "definition": "Feeding a baby with milk from the breast.",
+          "example": "The midwife supported breastfeeding."
+        }
+      ],
+      "quiz": {
+        "question": "Feeding a baby with milk from the breast.",
+        "options": [
+          "breastfeeding",
+          "caesarean section",
+          "miscarriage"
+        ],
+        "answer": "A"
+      },
+      "caption": "🤰 Midwifery English quiz: \"Feeding a baby with milk from the breast.\"\nA) breastfeeding  B) caesarean section  C) miscarriage\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n📚 Bộ học liệu Midwifery English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#MidwiferyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Midwifery English quiz: B…?",
+      "primary_metric": "non-follower reach, shares; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-instagram-10-midwifery",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-10-midwifery.mp4",
+      "duration_s": 12.5
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Traditional Medicine English trong 30 giây",
+      "slot": 10,
+      "time": "18:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "tongue diagnosis",
+          "ipa": "/ˈtʌŋ daɪəɡˌnəʊsɪs/",
+          "meaning": "xem lưỡi",
+          "definition": "Assessing health by examining the tongue.",
+          "example": "Tongue diagnosis showed a pale tongue."
+        },
+        {
+          "term": "yin and yang",
+          "ipa": "/ˌjɪn ən ˈjæŋ/",
+          "meaning": "âm dương",
+          "definition": "Two opposite but complementary forces.",
+          "example": "Balance of yin and yang is central."
+        },
+        {
+          "term": "qi",
+          "ipa": "/tʃiː/",
+          "meaning": "khí",
+          "definition": "Vital energy in traditional Chinese medicine.",
+          "example": "Deficiency of qi may cause fatigue."
+        }
+      ],
+      "title": "3 Traditional Medicine English words in 30 seconds: tongue diagnosis, yin and yang, qi #Shorts",
+      "caption": "• tongue diagnosis /ˈtʌŋ daɪəɡˌnəʊsɪs/ = xem lưỡi\n• yin and yang /ˌjɪn ən ˈjæŋ/ = âm dương\n• qi /tʃiː/ = khí\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Traditional Medicine English miễn phí mỗi ngày.\n\n📚 Bộ học liệu Traditional Medicine English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#TraditionalMedicine #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-youtube-10-traditional-medicine",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-10-traditional-medicine.mp4",
+      "duration_s": 22.33
+    },
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "challenge",
+      "hook": "Bạn đọc đúng từ này trong 3 giây không?",
+      "slot": 10,
+      "time": "19:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "halitosis",
+          "ipa": "/ˌhælɪˈtəʊsɪs/",
+          "meaning": "hôi miệng",
+          "definition": "An unpleasant odour of the breath.",
+          "example": "The patient asked about persistent halitosis."
+        }
+      ],
+      "caption": "🦷 halitosis /ˌhælɪˈtəʊsɪs/\n= hôi miệng\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Dental English mỗi ngày.\n\n📚 Bộ học liệu Dental English đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u.\n\n#DentalEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "halitosis — Dental English",
+      "primary_metric": "average watch time, full-video-watched rate; profile visits, product page clicks",
+      "cta": true,
+      "id": "2026-11-05-tiktok-10-dentistry",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-10-dentistry.mp4",
+      "duration_s": 15.9
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 11,
+      "time": "19:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "home visit",
+          "ipa": "/ˌhəʊm ˈvɪzɪt/",
+          "meaning": "thăm hộ gia đình",
+          "definition": "A meeting with a client at their home.",
+          "example": "The home visit is on Friday."
+        }
+      ],
+      "quiz": {
+        "question": "A meeting with a client at their home.",
+        "options": [
+          "neglect",
+          "rapport",
+          "home visit"
+        ],
+        "answer": "C"
+      },
+      "caption": "🤝 Social Work English quiz: \"A meeting with a client at their home.\"\nA) neglect  B) rapport  C) home visit\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#SocialWorkEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Social Work English quiz: H…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-05-instagram-11-social-work",
+      "date": "2026-11-05",
+      "file": "2026-11-05-instagram-11-social-work.mp4",
+      "duration_s": 12.43
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Y tế công cộng",
+      "slot": 11,
+      "time": "19:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "morbidity",
+          "ipa": "/mɔːˈbɪdəti/",
+          "meaning": "tỷ lệ mắc bệnh",
+          "definition": "The state or rate of disease in a population.",
+          "example": "Morbidity from asthma is high."
+        },
+        {
+          "term": "screening",
+          "ipa": "/ˈskriːnɪŋ/",
+          "meaning": "sàng lọc",
+          "definition": "Testing people without symptoms for a disease.",
+          "example": "Screening for breast cancer saves lives."
+        },
+        {
+          "term": "quarantine",
+          "ipa": "/ˈkwɒrəntiːn/",
+          "meaning": "kiểm dịch / cách ly",
+          "definition": "Separating exposed people who may become ill.",
+          "example": "Travellers were placed in quarantine."
+        }
+      ],
+      "title": "3 Public Health English words in 30 seconds: morbidity, screening, quarantine #Shorts",
+      "caption": "• morbidity /mɔːˈbɪdəti/ = tỷ lệ mắc bệnh\n• screening /ˈskriːnɪŋ/ = sàng lọc\n• quarantine /ˈkwɒrəntiːn/ = kiểm dịch / cách ly\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Public Health English miễn phí mỗi ngày.\n\n#PublicHealthEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-05-youtube-11-public-health",
+      "date": "2026-11-05",
+      "file": "2026-11-05-youtube-11-public-health.mp4",
+      "duration_s": 20.73
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 11,
+      "time": "20:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "tachycardia",
+          "ipa": "/ˌtækɪˈkɑːdiə/",
+          "meaning": "nhịp tim nhanh",
+          "definition": "A heart rate that is faster than normal.",
+          "example": "The monitor showed tachycardia."
+        }
+      ],
+      "caption": "🩺 tachycardia /ˌtækɪˈkɑːdiə/\n= nhịp tim nhanh\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Medical English mỗi ngày.\n\n#MedicalEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "tachycardia — Medical English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-05-tiktok-11-medical",
+      "date": "2026-11-05",
+      "file": "2026-11-05-tiktok-11-medical.mp4",
+      "duration_s": 14.47
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-05-threads-02-traditional-medicine",
+      "time": "11:45",
+      "discipline": "traditional-medicine",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🌿 Traditional Medicine English quiz: \"Assessing health by feeling the pulse.\"\nA) herbal formula  B) ginseng  C) pulse diagnosis\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    },
+    {
+      "id": "2026-11-05-threads-02-dentistry",
+      "time": "20:15",
+      "discipline": "dentistry",
+      "format": "three_terms",
+      "topic": "dentalstudent",
+      "text": "• oral examination /ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/ = khám miệng\n• radiograph /ˈreɪdiəɡrɑːf/ = phim X-quang\n• restoration /ˌrestəˈreɪʃən/ = phục hồi răng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Follow GE4u để học Dental English miễn phí mỗi ngày.\n\n#dentalstudent"
+    }
+  ]
+}
