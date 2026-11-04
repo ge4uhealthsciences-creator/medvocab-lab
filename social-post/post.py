@@ -377,11 +377,14 @@ def status_rows(date, now, plan, jobs, done, pr):
         kind_vi = {"facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
                    "youtube": "Short", "threads": "Bài viết"}.get(kind, kind)
         rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", "")])
+    # YouTube Shorts left out by the daily API quota still show, so the Hub can count all 12 disciplines.
+    keys = {j[0] for j in jobs}
+    for it in plan["items"]:
+        if it["platform"] == "youtube" and f"youtube:{it['id']}" not in keys:
+            rows.append([date.isoformat(), it["time"], "YouTube", "Short", _title(it), "skipped",
+                         f"vượt hạn mức {YT_DAILY_MAX} Short/ngày (quota YouTube API)", ""])
     # TikTok is scheduled in TikTok Studio; it publishes itself at the scheduled time.
-    try:
-        studio = set(json.loads((ROOT / "marketing" / "tiktok-studio-scheduled.json").read_text())["ids"])
-    except Exception:
-        studio = set()
+    studio = _studio_ids()
     for it in plan["items"]:
         if it["platform"] != "tiktok":
             continue
@@ -391,6 +394,33 @@ def status_rows(date, now, plan, jobs, done, pr):
         else:
             st, detail = ("error", "chưa hẹn giờ trên TikTok Studio") if now >= t else ("pending", "chưa hẹn giờ")
         rows.append([date.isoformat(), it["time"], "TikTok", "Video", _title(it), st, detail, ""])
+    rows.sort(key=lambda r: (r[1], r[2]))
+    return rows
+
+
+def _studio_ids():
+    try:
+        return set(json.loads((ROOT / "marketing" / "tiktok-studio-scheduled.json").read_text())["ids"])
+    except Exception:
+        return set()
+
+
+def planned_rows(date, plan):
+    """Tomorrow's plan as status rows (nothing posted yet), so the Hub can show the next day."""
+    studio, rows = _studio_ids(), []
+    for it in plan.get("items", []):
+        d, tm, title = date.isoformat(), it["time"], _title(it)
+        if it["platform"] == "instagram":
+            rows += [[d, tm, "Instagram", "Reel", title, "planned", "", ""], [d, tm, "Facebook", "Reel", title, "planned", "", ""]]
+        elif it["platform"] == "youtube":
+            capped = YT_DAILY_MAX < 12 and int(tm[:2]) not in YT_HOURS
+            rows.append([d, tm, "YouTube", "Short", title, "skipped" if capped else "planned",
+                         f"vượt hạn mức {YT_DAILY_MAX} Short/ngày (quota YouTube API)" if capped else "", ""])
+        elif it["platform"] == "tiktok":
+            rows.append([d, tm, "TikTok", "Video", title, "planned",
+                         "đã hẹn giờ trên TikTok Studio" if it["id"] in studio else "chưa hẹn giờ trên TikTok Studio", ""])
+    for t in plan.get("threads", []):
+        rows.append([date.isoformat(), t["time"], "Threads", "Bài viết", (t["text"].split("\n")[0])[:90], "planned", "", ""])
     rows.sort(key=lambda r: (r[1], r[2]))
     return rows
 
@@ -422,7 +452,16 @@ def write_status(date, now, plan, jobs, done, pr):
     if r.returncode != 0:  # first run: create the branch from main
         main_sha = json.loads(gh("api", f"repos/{REPO}/git/ref/heads/main").stdout)["object"]["sha"]
         gh("api", "-X", "POST", f"repos/{REPO}/git/refs", "-f", f"ref=refs/heads/{STATUS_BRANCH}", "-f", f"sha={main_sha}")
-    text = _csv(status_rows(date, now, plan, jobs, done, pr))
+    rows = status_rows(date, now, plan, jobs, done, pr)
+    try:  # tomorrow's plan exists once the evening render (21:30) has published it
+        nxt = date + dt.timedelta(days=1)
+        rel = _release(nxt.isoformat())
+        wd = pathlib.Path(tempfile.mkdtemp())
+        if rel and _download(rel, "plan.json", wd):
+            rows += planned_rows(nxt, json.loads((wd / "plan.json").read_text()))
+    except Exception as e:
+        print("tomorrow's plan not added:", str(e)[:200])
+    text = _csv(rows)
     _put_file("status/today.csv", text, f"status {date} {now:%H:%M}")
     print("Hub status table updated:", text.count("\n") - 2, "posts")
 
