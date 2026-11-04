@@ -1,0 +1,598 @@
+{
+  "date": "2026-11-06",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 3,
+  "items": [
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Nga, 31 · Cấp cứu",
+      "slot": 0,
+      "time": "10:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 21,
+        "dept": "er",
+        "er": true,
+        "cc": "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều",
+        "who": "Ms. Nga, 31",
+        "vit": {
+          "hr": 118,
+          "bp": "95/60",
+          "sp": 98,
+          "t": 37
+        },
+        "says": "I gave birth at home an hour ago, and I'm still bleeding a lot.",
+        "options": [
+          {
+            "en": "You're bleeding heavily after the birth because your womb isn't contracting firmly enough.",
+            "ok": true,
+            "vi": "Chảy máu sau sinh (băng huyết sau sinh) do đờ tử cung",
+            "why": ""
+          },
+          {
+            "en": "This is normal bleeding after a birth.",
+            "ok": false,
+            "vi": "Sản dịch bình thường",
+            "why": "Thấm đẫm 4 băng lớn, mạch nhanh, HA tụt → chảy máu sau sinh."
+          },
+          {
+            "en": "It's a bleeding disorder.",
+            "ok": false,
+            "vi": "Rối loạn đông máu",
+            "why": "Đông máu bình thường; tử cung mềm nhão → nguyên nhân là đờ tử cung (Tone)."
+          }
+        ],
+        "src": [
+          "https://internationalmidwives.org/resources/joint-statement-of-recommendation-for-the-use-of-tranexamic-acid-for-the-treatment-of-postpartum-haemorrhage/",
+          "https://www.aafp.org/pubs/afp/issues/2007/0315/p875.html",
+          "https://www.msdmanuals.com/vi/professional/phụ-khoa-và-sản-khoa/biến-chứng-trong-khi-sinh/chảy-máu-sau-sinh"
+        ],
+        "answer": "A",
+        "dept_vi": "Cấp cứu"
+      },
+      "title": "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều: bạn chẩn đoán gì? (Medical English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Nga, 31 vào khoa Cấp cứu: \"I gave birth at home an hour ago, and I'm still bleeding a lot.\"\n(Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Chảy máu sau sinh (băng huyết sau sinh) do đờ tử cung\nB) Sản dịch bình thường\nC) Rối loạn đông máu\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-06-youtube-00-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-00-medical.mp4",
+      "duration_s": 26.27
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "11:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "ginseng",
+          "ipa": "/ˈdʒɪnseŋ/",
+          "meaning": "nhân sâm",
+          "definition": "A root used in traditional medicine.",
+          "example": "Ginseng is a well-known tonic herb."
+        }
+      ],
+      "quiz": {
+        "question": "A root used in traditional medicine.",
+        "options": [
+          "ginseng",
+          "tincture",
+          "syndrome differentiation"
+        ],
+        "answer": "A"
+      },
+      "caption": "🌿 Traditional Medicine English quiz: \"A root used in traditional medicine.\"\nA) ginseng  B) tincture  C) syndrome differentiation\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#TraditionalMedicine #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Traditional Medicine English quiz: G…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-06-instagram-00-traditional-medicine",
+      "date": "2026-11-06",
+      "file": "2026-11-06-instagram-00-traditional-medicine.mp4",
+      "duration_s": 12.77
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Thuy, 24 · Nội",
+      "slot": 0,
+      "time": "12:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 18,
+        "dept": "im",
+        "er": false,
+        "cc": "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+        "who": "Ms. Thuy, 24",
+        "vit": {
+          "hr": 108,
+          "bp": "100/80",
+          "sp": 97,
+          "t": 37.2
+        },
+        "says": "I had a high fever for four days. It's gone now, but my stomach hurts and I keep vomiting.",
+        "options": [
+          {
+            "en": "You have dengue fever with warning signs. You're in the critical phase, when fluid can leak out of the blood vessels.",
+            "ok": true,
+            "vi": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo (giai đoạn nguy hiểm)",
+            "why": ""
+          },
+          {
+            "en": "It's food poisoning.",
+            "ok": false,
+            "vi": "Ngộ độc thực phẩm",
+            "why": "Hết sốt kèm đau bụng, nôn, chảy máu, Hct tăng và tiểu cầu giảm là dấu hiệu cảnh báo của Dengue."
+          },
+          {
+            "en": "You've recovered from dengue, so you can go home.",
+            "ok": false,
+            "vi": "Dengue đã khỏi",
+            "why": "Lúc hết sốt chính là giai đoạn nguy hiểm — dễ thoát dịch, sốc."
+          }
+        ],
+        "src": [
+          "https://www.cdc.gov/dengue/hcp/clinical-care/index.html"
+        ],
+        "answer": "A",
+        "dept_vi": "Nội"
+      },
+      "title": "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng: bạn chẩn đoán gì? (Medical En",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Thuy, 24 vào khoa Nội: \"I had a high fever for four days. It's gone now, but my stomach hurts and I keep vomiting.\"\n(Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Sốt xuất huyết Dengue có dấu hiệu cảnh báo (giai đoạn nguy hiểm)\nB) Ngộ độc thực phẩm\nC) Dengue đã khỏi\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-06-tiktok-00-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-tiktok-00-medical.mp4",
+      "duration_s": 29.03
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Dược học",
+      "slot": 1,
+      "time": "12:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "expiry date",
+          "ipa": "/ɪkˈspaɪəri deɪt/",
+          "meaning": "hạn sử dụng",
+          "definition": "The date after which a product should not be used.",
+          "example": "Always check the expiry date."
+        },
+        {
+          "term": "antibiotic",
+          "ipa": "/ˌæntibaɪˈɒtɪk/",
+          "meaning": "kháng sinh",
+          "definition": "A medicine that kills or slows the growth of bacteria.",
+          "example": "Antibiotics do not treat viral infections."
+        },
+        {
+          "term": "analgesic",
+          "ipa": "/ˌænəlˈdʒiːzɪk/",
+          "meaning": "thuốc giảm đau",
+          "definition": "A medicine that relieves pain.",
+          "example": "An analgesic was given after surgery."
+        }
+      ],
+      "title": "3 Pharmacy English words in 30 seconds: expiry date, antibiotic, analgesic #Shorts",
+      "caption": "• expiry date /ɪkˈspaɪəri deɪt/ = hạn sử dụng\n• antibiotic /ˌæntibaɪˈɒtɪk/ = kháng sinh\n• analgesic /ˌænəlˈdʒiːzɪk/ = thuốc giảm đau\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharmacy English miễn phí mỗi ngày.\n\n#PharmacyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-06-youtube-01-pharmacy",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-01-pharmacy.mp4",
+      "duration_s": 21.6
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mrs. Lan, 72 · Nội tiết",
+      "slot": 2,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 22,
+        "dept": "endo",
+        "er": false,
+        "cc": "Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp",
+        "who": "Mrs. Lan, 72",
+        "vit": {
+          "hr": 104,
+          "bp": "140/85",
+          "sp": 98,
+          "t": 36.6
+        },
+        "says": "I feel shaky and sweaty, and my heart is racing.",
+        "options": [
+          {
+            "en": "You're having a panic attack.",
+            "ok": false,
+            "vi": "Cơn hoảng sợ",
+            "why": "Đường huyết 2,8 mmol/L — phải điều trị hạ đường huyết trước."
+          },
+          {
+            "en": "Your thyroid is overactive.",
+            "ok": false,
+            "vi": "Cường giáp",
+            "why": "Triệu chứng xuất hiện cấp, đường huyết thấp, đã dùng gliclazide và bỏ bữa."
+          },
+          {
+            "en": "Your blood sugar is too low. This is called hypoglycaemia, and it's probably caused by your tablets and the missed meal.",
+            "ok": true,
+            "vi": "Hạ đường huyết do sulfonylurea (gliclazide), bỏ bữa, suy thận",
+            "why": ""
+          }
+        ],
+        "src": [
+          "https://professional.diabetes.org/sites/dpro/files/2025-05/hypoglycemia-hcp-5-27-25.pdf"
+        ],
+        "answer": "C",
+        "dept_vi": "Nội tiết"
+      },
+      "title": "Bệnh nhân nói: \"I feel shaky and sweaty, and my heart is racing.\" Bạn chẩn đoán gì? #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mrs. Lan, 72 vào khoa Nội tiết: \"I feel shaky and sweaty, and my heart is racing.\"\n(Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Cơn hoảng sợ\nB) Cường giáp\nC) Hạ đường huyết do sulfonylurea (gliclazide), bỏ bữa, suy thận\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-06-youtube-02-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-02-medical.mp4",
+      "duration_s": 28.0
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "youtube",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 3,
+      "time": "15:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "sterile",
+          "ipa": "/ˈsteraɪl/",
+          "meaning": "vô khuẩn",
+          "definition": "Free from living microorganisms.",
+          "example": "Use sterile gloves for this procedure."
+        }
+      ],
+      "quiz": {
+        "question": "Free from living microorganisms.",
+        "options": [
+          "sterile",
+          "infusion",
+          "pressure ulcer"
+        ],
+        "answer": "A"
+      },
+      "caption": "🩹 Nursing English quiz: \"Free from living microorganisms.\"\nA) sterile  B) infusion  C) pressure ulcer\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NursingEnglish #hoctienganh #Shorts #GE4u",
+      "title": "Nursing English quiz: S…? #Shorts",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-06-youtube-03-nursing",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-03-nursing.mp4",
+      "duration_s": 12.77
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Hieu, 38 · Ngoại",
+      "slot": 4,
+      "time": "16:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 23,
+        "dept": "surg",
+        "er": false,
+        "cc": "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng",
+        "who": "Mr. Hieu, 38",
+        "vit": {
+          "hr": 100,
+          "bp": "145/90",
+          "sp": 99,
+          "t": 37
+        },
+        "says": "I've got terrible pain in my right side. It comes in waves and goes down to my groin.",
+        "options": [
+          {
+            "en": "It's a urinary infection.",
+            "ok": false,
+            "vi": "Nhiễm khuẩn tiết niệu",
+            "why": "Không sốt, bạch cầu và nitrit âm tính."
+          },
+          {
+            "en": "You have a small kidney stone in the tube that drains your right kidney. That's what's causing these waves of pain.",
+            "ok": true,
+            "vi": "Cơn đau quặn thận do sỏi niệu quản phải 4 mm",
+            "why": ""
+          },
+          {
+            "en": "It's appendicitis.",
+            "ok": false,
+            "vi": "Viêm ruột thừa",
+            "why": "Đau quặn lan bẹn, tiểu máu, CT thấy sỏi niệu quản; bụng mềm."
+          }
+        ],
+        "src": [
+          "https://nice.org.uk/guidance/ng118/chapter/Recommendations"
+        ],
+        "answer": "B",
+        "dept_vi": "Ngoại"
+      },
+      "title": "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng: bạn chẩn đoán gì? (Medical English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Hieu, 38 vào khoa Ngoại: \"I've got terrible pain in my right side. It comes in waves and goes down to my groin.\"\n(Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Nhiễm khuẩn tiết niệu\nB) Cơn đau quặn thận do sỏi niệu quản phải 4 mm\nC) Viêm ruột thừa\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-06-youtube-04-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-04-medical.mp4",
+      "duration_s": 29.53
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mẹ bé An (Ms. Thao) · Nhi",
+      "slot": 1,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 20,
+        "dept": "ped",
+        "er": false,
+        "cc": "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc",
+        "who": "Mẹ bé An (Ms. Thao)",
+        "vit": {
+          "hr": 130,
+          "bp": "95/60",
+          "sp": 99,
+          "t": 37.8
+        },
+        "says": "My son has had watery diarrhoea eight times today, and he's been sick twice.",
+        "options": [
+          {
+            "en": "There's no dehydration. You can go home.",
+            "ok": false,
+            "vi": "Không mất nước",
+            "why": "Có ≥ 2 dấu hiệu: kích thích, mắt trũng, uống háo hức, véo da mất chậm → có mất nước."
+          },
+          {
+            "en": "He has diarrhoea with some dehydration. We can treat it with oral rehydration solution here.",
+            "ok": true,
+            "vi": "Tiêu chảy cấp có mất nước (phác đồ B của WHO)",
+            "why": ""
+          },
+          {
+            "en": "He has severe dehydration and needs a drip straight away.",
+            "ok": false,
+            "vi": "Mất nước nặng",
+            "why": "Bé tỉnh, kích thích, uống háo hức → mất nước (chưa nặng); mất nước nặng khi li bì, không uống được, véo da mất rất chậm."
+          }
+        ],
+        "src": [
+          "https://medicalguidelines.msf.org/en/node/663",
+          "https://rehydrate.org/zinc/index.html"
+        ],
+        "answer": "B",
+        "dept_vi": "Nhi"
+      },
+      "title": "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mẹ bé An (Ms. Thao) vào khoa Nhi: \"My son has had watery diarrhoea eight times today, and he's been sick twice.\"\n(Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Không mất nước\nB) Tiêu chảy cấp có mất nước (phác đồ B của WHO)\nC) Mất nước nặng\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-06-instagram-01-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-instagram-01-medical.mp4",
+      "duration_s": 27.63
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "youtube",
+      "format": "pronounce",
+      "hook_variant": "curiosity",
+      "hook": "Từ này trong Hộ sinh nghĩa là gì?",
+      "slot": 5,
+      "time": "17:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "miscarriage",
+          "ipa": "/ˈmɪskærɪdʒ/",
+          "meaning": "sảy thai",
+          "definition": "Loss of a pregnancy before the fetus can survive.",
+          "example": "She needs support after a miscarriage."
+        }
+      ],
+      "caption": "🤰 miscarriage /ˈmɪskærɪdʒ/\n= sảy thai\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nSubscribe GE4u để học 1 từ Midwifery English mỗi ngày.\n\n#MidwiferyEnglish #hoctienganh #Shorts #GE4u",
+      "title": "miscarriage — Midwifery English #Shorts",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-06-youtube-05-midwifery",
+      "date": "2026-11-06",
+      "file": "2026-11-06-youtube-05-midwifery.mp4",
+      "duration_s": 16.17
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "tiktok",
+      "format": "pronounce",
+      "hook_variant": "mistake",
+      "hook": "Nhiều người đọc sai từ này 👀",
+      "slot": 1,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "fluid balance",
+          "ipa": "/ˈfluːɪd ˌbæləns/",
+          "meaning": "cân bằng dịch",
+          "definition": "The difference between fluid intake and output.",
+          "example": "Record fluid balance every shift."
+        }
+      ],
+      "caption": "🩹 fluid balance /ˈfluːɪd ˌbæləns/\n= cân bằng dịch\n\nNghe 2 lần rồi đọc theo. Bạn đọc đúng ngay lần đầu không? 👇\nFollow GE4u để học 1 từ Nursing English mỗi ngày.\n\n#NursingEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "fluid balance — Nursing English",
+      "primary_metric": "average watch time, full-video-watched rate",
+      "id": "2026-11-06-tiktok-01-nursing",
+      "date": "2026-11-06",
+      "file": "2026-11-06-tiktok-01-nursing.mp4",
+      "duration_s": 15.2
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Y tế công cộng có trả lời được không?",
+      "slot": 2,
+      "time": "19:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "cohort study",
+          "ipa": "/ˈkəʊhɔːt ˌstʌdi/",
+          "meaning": "nghiên cứu thuần tập",
+          "definition": "A study following a group over time.",
+          "example": "The cohort study ran for ten years."
+        }
+      ],
+      "quiz": {
+        "question": "A study following a group over time.",
+        "options": [
+          "epidemic",
+          "cohort study",
+          "surveillance"
+        ],
+        "answer": "B"
+      },
+      "caption": "🌍 Public Health English quiz: \"A study following a group over time.\"\nA) epidemic  B) cohort study  C) surveillance\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PublicHealthEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Public Health English quiz: C…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-06-instagram-02-public-health",
+      "date": "2026-11-06",
+      "file": "2026-11-06-instagram-02-public-health.mp4",
+      "duration_s": 13.07
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Quang, 68 · Hô hấp",
+      "slot": 2,
+      "time": "20:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 19,
+        "dept": "resp",
+        "er": false,
+        "cc": "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+        "who": "Mr. Quang, 68",
+        "vit": {
+          "hr": 104,
+          "bp": "118/70",
+          "sp": 91,
+          "t": 38.9
+        },
+        "says": "I've had a fever and a bad cough for three days. It hurts on the right when I breathe in.",
+        "options": [
+          {
+            "en": "It's just a common cold.",
+            "ok": false,
+            "vi": "Cảm lạnh thông thường",
+            "why": "Sốt cao, ran nổ khu trú, X-quang đông đặc → viêm phổi."
+          },
+          {
+            "en": "You have a blood clot in your lung.",
+            "ok": false,
+            "vi": "Thuyên tắc phổi",
+            "why": "Đờm gỉ sắt, sốt, bạch cầu và CRP tăng, X-quang đông đặc phù hợp viêm phổi hơn."
+          },
+          {
+            "en": "You have pneumonia, an infection in the lower part of your right lung.",
+            "ok": true,
+            "vi": "Viêm phổi cộng đồng thùy dưới phải (CURB-65 = 2)",
+            "why": ""
+          }
+        ],
+        "src": [
+          "https://gpnotebook.com/en-IE/pages/respiratory-and-chest-medicine/curb65-score-for-mortality-risk-assessment-of-community-acquired-pneumonia-cap-when-assessed-in-hospital-setting"
+        ],
+        "answer": "C",
+        "dept_vi": "Hô hấp"
+      },
+      "title": "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Quang, 68 vào khoa Hô hấp: \"I've had a fever and a bad cough for three days. It hurts on the right when I breathe in.\"\n(Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Cảm lạnh thông thường\nB) Thuyên tắc phổi\nC) Viêm phổi cộng đồng thùy dưới phải (CURB-65 = 2)\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-06-tiktok-02-medical",
+      "date": "2026-11-06",
+      "file": "2026-11-06-tiktok-02-medical.mp4",
+      "duration_s": 26.1
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-06-threads-00-traditional-medicine",
+      "time": "11:45",
+      "discipline": "traditional-medicine",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🌿 Traditional Medicine English quiz: \"A root used in traditional medicine.\"\nA) ginseng  B) tincture  C) syndrome differentiation\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    },
+    {
+      "id": "2026-11-06-threads-01-pharmacy",
+      "time": "20:15",
+      "discipline": "pharmacy",
+      "format": "three_terms",
+      "topic": "pharmacy",
+      "text": "• expiry date /ɪkˈspaɪəri deɪt/ = hạn sử dụng\n• antibiotic /ˌæntibaɪˈɒtɪk/ = kháng sinh\n• analgesic /ˌænəlˈdʒiːzɪk/ = thuốc giảm đau\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Follow GE4u để học Pharmacy English miễn phí mỗi ngày.\n\n#pharmacy"
+    }
+  ]
+}
