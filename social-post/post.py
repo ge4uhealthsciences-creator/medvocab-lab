@@ -356,8 +356,51 @@ def _title(it):
     return f"{t.get('term', '')} — {it.get('discipline_en', '')}".strip(" —") or it.get("title", "")
 
 
+def fetch_views(done):
+    """Current views of today's posted items, read from each platform's own API (Metricool lags a day).
+    Returns {key: views}. A platform whose token lacks the insights permission is reported once and skipped."""
+    out, failed = {}, set()
+    tok, th_tok = os.environ.get("META_PAGE_TOKEN"), os.environ.get("THREADS_TOKEN")
+    yt, yt_access = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN"), None
+    yt_ids = {}
+    for key, rec in done.items():
+        net, pid = key.split(":", 1)[0], str(rec.get("id") or "")
+        if not rec.get("ok") or not pid or net in failed:
+            continue
+        try:
+            if net == "instagram" and tok:
+                r = http("GET", f"{GRAPH}/{pid}/insights?metric=views&access_token={urllib.parse.quote(tok)}", timeout=20)
+                out[key] = int(r["data"][0]["values"][0]["value"])
+            elif net == "facebook" and tok:
+                r = http("GET", f"{GRAPH}/{pid}/video_insights?metric=blue_reels_play_count&access_token={urllib.parse.quote(tok)}", timeout=20)
+                out[key] = int(r["data"][0]["values"][0]["value"])
+            elif net == "threads" and th_tok:
+                r = http("GET", f"{THREADS}/{pid}/insights?metric=views&access_token={urllib.parse.quote(th_tok)}", timeout=20)
+                out[key] = int(r["data"][0]["values"][0]["value"])
+            elif net == "youtube" and yt:
+                yt_ids[pid] = key
+        except Exception as e:
+            failed.add(net); print(f"views not readable for {net}:", str(e)[:200])
+    if yt_ids:
+        try:
+            yt_access = yt_access_token(*yt)
+            req = urllib.request.Request("https://www.googleapis.com/youtube/v3/videos?part=statistics&id=" + ",".join(yt_ids),
+                                         headers={"Authorization": f"Bearer {yt_access}"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                for v in json.loads(r.read().decode()).get("items", []):
+                    out[yt_ids[v["id"]]] = int(v["statistics"].get("viewCount", 0))
+        except Exception as e:
+            print("views not readable for youtube:", str(e)[:200])
+    print("views read for", len(out), "posts")
+    return out
+
+
 def status_rows(date, now, plan, jobs, done, pr):
     """One row per post planned today on every platform: posted / pending / error / skipped."""
+    try:
+        views = fetch_views(done)
+    except Exception as e:
+        views = {}; print("views not read:", str(e)[:200])
     titles = {it["id"]: _title(it) for it in plan["items"]}
     for t in plan.get("threads", []):
         titles[t["id"]] = (t["text"].split("\n")[0])[:90]
@@ -376,7 +419,7 @@ def status_rows(date, now, plan, jobs, done, pr):
         title = titles.get(ident) or ("Bài quảng bá có ảnh" if kind == "facebook-promo" else "Bài quảng bá" if kind == "threads-promo" else ident)
         kind_vi = {"facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
                    "youtube": "Short", "threads": "Bài viết"}.get(kind, kind)
-        rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", "")])
+        rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", ""), views.get(key, "")])
     # YouTube Shorts left out by the daily API quota still show, so the Hub can count all 12 disciplines.
     keys = {j[0] for j in jobs}
     for it in plan["items"]:
@@ -429,9 +472,9 @@ def _csv(rows):
     import csv, io
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["date", "time", "platform", "kind", "title", "status", "detail", "post_id"])
+    w.writerow(["date", "time", "platform", "kind", "title", "status", "detail", "post_id", "views"])
     w.writerows(rows)
-    w.writerow(["_updated", dt.datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "", "", "", "", "", ""])
+    w.writerow(["_updated", dt.datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "", "", "", "", "", "", ""])
     return buf.getvalue()
 
 
