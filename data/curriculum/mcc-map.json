@@ -1,0 +1,772 @@
+{
+ "source": "Medical Council of Canada clinical presentations (MD Program Competency Framework, Appendix 2): https://md.utoronto.ca/sites/default/files/MD%20Program%20Competency%20Framework%20-%20Appendix%202.pdf",
+ "presentations": {
+  "1": "Abdominal distention",
+  "2": "Abdominal / pelvic mass",
+  "3": "Abdominal pain",
+  "4": "Allergic reactions and atopy",
+  "5": "Attention, learning and school problems",
+  "6": "Blood from gastrointestinal tract",
+  "7": "Blood in sputum (hemoptysis)",
+  "8": "Blood in urine (hematuria)",
+  "9": "Blood pressure, abnormal",
+  "10": "Breast disorders",
+  "11": "Burns",
+  "12": "Calcium disorders",
+  "13": "Cardiac arrest",
+  "14": "Chest pain",
+  "15": "Coagulation abnormalities",
+  "16": "Constipation",
+  "17": "Contraception",
+  "18": "Cough",
+  "19": "Cyanosis, hypoxia",
+  "20": "Limp in children",
+  "21": "Development disorder/developmental delay",
+  "22": "Diarrhea",
+  "23": "Diplopia",
+  "24": "Dizziness, vertigo",
+  "25": "Dying patient",
+  "26": "Dysphagia",
+  "27": "Dyspnea",
+  "28": "Ear pain",
+  "29": "Edema/anasarca/ascites",
+  "30": "Eye redness",
+  "31": "Failure to thrive",
+  "32": "Falls",
+  "33": "Fatigue",
+  "35": "Gait disturbances/ataxia",
+  "36": "Genetic concerns",
+  "37": "Glucose abnormal, serum/diabetes mellitus/polydipsia",
+  "38": "Hair and nail complaints",
+  "39": "Headache",
+  "40": "Hearing loss/deafness",
+  "41": "Hemiplegia, hemisensory loss ± aphasia",
+  "42": "Hemoglobin level, abnormal",
+  "43": "Hirsutism, hypertrichosis",
+  "44": "Language and speech disorders",
+  "45": "Acid-base abnormalities",
+  "46": "Infertility",
+  "47": "Incontinence",
+  "48": "Impotence/erectile dysfunction",
+  "49": "Jaundice",
+  "50": "Joint pain",
+  "51": "Abnormal serum lipids",
+  "52": "Abnormal liver function tests",
+  "53": "Lump/mass, musculoskeletal",
+  "54": "Lymphadenopathy",
+  "56": "Menstrual cycle, abnormal",
+  "57": "Menopause",
+  "58": "Mental status, altered",
+  "59": "Mood disorders",
+  "60": "Mouth problems",
+  "61": "Movement disorders, involuntary/tic disorders",
+  "62": "Abnormal heart sounds and murmur",
+  "63": "Neck mass/goiter/thyroid disease",
+  "64": "Neonatal distress",
+  "65": "Non-reassuring fetal status",
+  "66": "Numbness/tingling/altered sensation",
+  "67": "Pain",
+  "68": "Palpitations (arrhythmia)",
+  "69": "Anxiety",
+  "70": "Pap smear screening",
+  "71": "Pediatric emergencies – acutely ill infant/child",
+  "72": "Pelvic mass",
+  "73": "Pelvic pain",
+  "74": "Periodic health examination",
+  "75": "Personality disorders",
+  "76": "Pleural effusion",
+  "77": "Poisoning",
+  "78": "Population health and its determinants",
+  "79": "Potassium concentration, abnormal",
+  "80": "Pregnancy",
+  "81": "Pregnancy loss",
+  "82": "Preterm labour",
+  "83": "Prolapse/pelvic relaxation",
+  "84": "Proteinuria",
+  "85": "Pruritus",
+  "86": "Psychosis",
+  "89": "Kidney injury",
+  "90": "Scrotal mass",
+  "91": "Scrotal pain",
+  "92": "Seizures (epilepsy)",
+  "93": "Sexual maturation",
+  "94": "Sexually concerned patient",
+  "95": "Skin tumours and ulcers",
+  "96": "Skin rash, macules",
+  "97": "Skin rash, papules",
+  "98": "Sleep-wake disorders",
+  "99": "Sodium concentration abnormal",
+  "100": "Sore throat and/or rhinorrhea",
+  "101": "Stature abnormal",
+  "102": "Strabismus and/or amblyopia",
+  "103": "Substance-related or addictive",
+  "104": "SIDS/ALTE",
+  "105": "Suicidal behaviour",
+  "106": "Syncope and pre-syncope",
+  "107": "Temperature abnormal/fever and/or chills",
+  "108": "Tinnitus",
+  "109": "Trauma/accidents",
+  "110": "Urinary frequency",
+  "111": "Urinary tract obstruction",
+  "112": "Vaginal bleeding, abnormal",
+  "113": "Vaginal discharge/vulvar pruritus",
+  "114": "Violence, family",
+  "115": "Visual disturbance/loss",
+  "116": "Vomiting and/or nausea",
+  "117": "Weakness, paralysis, paresis",
+  "118": "Weight, low",
+  "120": "White blood cells, abnormalities of"
+ },
+ "case_map": {
+  "Ngã xe máy, đau cổ tay phải": [
+   109,
+   50
+  ],
+  "Méo miệng, yếu tay phải, nói khó": [
+   41,
+   44,
+   117
+  ],
+  "Khó thở khi nằm, phù hai chân": [
+   27,
+   29
+  ],
+  "Bé 4 tuổi ho, sốt, thở nhanh": [
+   18,
+   107,
+   71
+  ],
+  "Sưng má trái, đau răng hàm dưới": [
+   60,
+   67
+  ],
+  "Mắt phải đau dữ dội, nhìn mờ, buồn nôn": [
+   30,
+   115
+  ],
+  "Mụn nước thành dải ở ngực trái, đau rát": [
+   97,
+   67
+  ],
+  "Đau lưng lan xuống chân phải": [
+   67,
+   66
+  ],
+  "Chảy máu mũi 40 phút không cầm": [
+   15
+  ],
+  "Khát nước, tiểu nhiều, sụt cân": [
+   37,
+   118,
+   110
+  ],
+  "Thai 32 tuần, nhức đầu, phù mặt": [
+   80,
+   9,
+   39
+  ],
+  "Đau nửa đầu từng cơn, thấy chớp sáng": [
+   39,
+   115
+  ],
+  "Đau thượng vị, đi ngoài phân đen": [
+   6,
+   3
+  ],
+  "Khó thở, khò khè, khạc đờm vàng": [
+   27,
+   18
+  ],
+  "Hồi hộp, sụt cân dù ăn nhiều, run tay": [
+   63,
+   68,
+   118
+  ],
+  "Đau quanh rốn lan xuống hố chậu phải": [
+   3
+  ],
+  "Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ": [
+   14
+  ],
+  "Đau đầu dữ dội đột ngột \"như bị đánh vào đầu\", nôn": [
+   39,
+   116
+  ],
+  "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng": [
+   107,
+   15,
+   3,
+   116
+  ],
+  "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu": [
+   18,
+   107,
+   14,
+   19
+  ],
+  "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc": [
+   22,
+   71,
+   116
+  ],
+  "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều": [
+   112,
+   80
+  ],
+  "Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp": [
+   37
+  ],
+  "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng": [
+   8,
+   111,
+   3
+  ],
+  "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp": [
+   107,
+   58,
+   9
+  ],
+  "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu": [
+   77,
+   15
+  ],
+  "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ": [
+   96,
+   60,
+   107,
+   71
+  ],
+  "Cơn khó thở, khò khè, nói không thành câu": [
+   27,
+   19
+  ],
+  "Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng": [
+   11
+  ],
+  "Sưng môi, khó thở sau khi ăn tôm": [
+   4,
+   27
+  ],
+  "Tim đập nhanh không đều, chóng mặt": [
+   68,
+   24
+  ],
+  "Bé 7 tuổi khò khè, ho đêm, thở mệt": [
+   18,
+   27
+  ],
+  "Răng khôn mọc lệch, sưng lợi, khó há miệng": [
+   60
+  ],
+  "Chớp sáng, ruồi bay, bóng đen che mắt trái": [
+   115
+  ],
+  "Cẳng chân sưng đỏ, nóng, sốt": [
+   97,
+   107
+  ],
+  "Cụ bà ngã, đau háng phải, không đứng được": [
+   32,
+   109,
+   50
+  ],
+  "Đau họng dữ dội một bên, khó nuốt, khít hàm": [
+   100,
+   26
+  ],
+  "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang": [
+   33,
+   42
+  ],
+  "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu": [
+   81,
+   73,
+   112
+  ],
+  "Sáng ngủ dậy méo miệng, nhắm mắt trái không kín": [
+   117
+  ],
+  "Đau thượng vị dữ dội lan ra lưng sau tiệc rượu": [
+   3,
+   116
+  ],
+  "Đau ngực trái đột ngột, khó thở ở người trẻ": [
+   14,
+   27
+  ],
+  "Mệt, tăng cân, sợ lạnh, táo bón": [
+   63,
+   33,
+   16
+  ],
+  "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt": [
+   3,
+   107
+  ],
+  "Đau đầu, đo huyết áp ở nhà thấy cao": [
+   9,
+   39
+  ],
+  "Bé 18 tháng co giật khi sốt cao": [
+   92,
+   107,
+   71
+  ],
+  "Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn": [
+   60,
+   109
+  ],
+  "Đeo kính áp tròng, mắt đỏ đau, sợ ánh sáng": [
+   30
+  ],
+  "Nốt ruồi to lên, đổi màu, bờ nham nhở": [
+   95
+  ],
+  "Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng": [
+   50
+  ],
+  "Đột ngột nghe kém tai phải từ sáng": [
+   40
+  ],
+  "Sốt rét run, đau hông lưng phải, tiểu buốt": [
+   107,
+   110
+  ],
+  "Thai 26 tuần, nghiệm pháp đường huyết cao": [
+   80,
+   37
+  ],
+  "Run tay phải khi nghỉ, đi chậm, cứng người": [
+   61,
+   35
+  ],
+  "Vàng da, mệt, nước tiểu sẫm màu": [
+   49,
+   52
+  ],
+  "Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm": [
+   18,
+   118,
+   107
+  ],
+  "Nôn, đau bụng, thở sâu nhanh, khát nhiều": [
+   45,
+   37,
+   116
+  ],
+  "Khối phồng bẹn phải đau, không đẩy lên được, nôn": [
+   2,
+   3,
+   116
+  ],
+  "⚡ Đau ngực dữ dội — mỗi phút đều quý": [
+   14
+  ],
+  "Tức ngực khi leo cầu thang": [
+   14
+  ],
+  "⚡ Bé 9 tháng sốt cao, li bì": [
+   71,
+   107
+  ],
+  "Con 9 tháng sốt cao, bỏ bú": [
+   107,
+   71
+  ],
+  "Sản phụ con so chuyển dạ, nước ối xanh": [
+   65,
+   80
+  ],
+  "Khách mua ibuprofen cho bố đang dùng warfarin": [
+   15
+  ],
+  "Tư vấn ăn uống cho người mới mắc đái tháo đường": [
+   37
+  ],
+  "Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới": [
+   78,
+   22
+  ],
+  "Người bệnh sau đột quỵ sống một mình, lo viện phí": [
+   78,
+   117
+  ],
+  "Hướng dẫn tự tiêm insulin trước khi ra viện": [
+   37
+  ],
+  "Mẹ sau sinh 2 giờ: hỗ trợ bú mẹ & phát hiện băng huyết": [
+   112
+  ],
+  "Khách xin mua kháng sinh không đơn cho cảm lạnh": [
+   100
+  ],
+  "Tư vấn ăn dặm cho bé 6 tháng tuổi": [
+   74
+  ],
+  "Điều tra chùm ca sốt xuất huyết trong khu dân cư": [
+   78,
+   107
+  ],
+  "Nhiều vết bầm tái diễn — sàng lọc bạo lực gia đình": [
+   114
+  ],
+  "Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã": [
+   32,
+   58
+  ],
+  "Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng": [
+   80
+  ],
+  "Phụ nữ mang thai 30 tuần mua thuốc đau đầu": [
+   80,
+   39
+  ],
+  "Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực)": [
+   9,
+   74
+  ],
+  "Ca sởi ở trường tiểu học — truy vết tiếp xúc": [
+   78,
+   96
+  ],
+  "Con gái kiệt sức khi chăm mẹ sa sút trí tuệ": [
+   58
+  ]
+ },
+ "covered": {
+  "2": [
+   "Khối phồng bẹn phải đau, không đẩy lên được, nôn"
+  ],
+  "3": [
+   "Đau thượng vị, đi ngoài phân đen",
+   "Đau quanh rốn lan xuống hố chậu phải",
+   "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+   "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng",
+   "Đau thượng vị dữ dội lan ra lưng sau tiệc rượu",
+   "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt",
+   "Khối phồng bẹn phải đau, không đẩy lên được, nôn"
+  ],
+  "4": [
+   "Sưng môi, khó thở sau khi ăn tôm"
+  ],
+  "6": [
+   "Đau thượng vị, đi ngoài phân đen"
+  ],
+  "8": [
+   "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng"
+  ],
+  "9": [
+   "Thai 32 tuần, nhức đầu, phù mặt",
+   "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+   "Đau đầu, đo huyết áp ở nhà thấy cao",
+   "Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực)"
+  ],
+  "11": [
+   "Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng"
+  ],
+  "14": [
+   "Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ",
+   "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+   "Đau ngực trái đột ngột, khó thở ở người trẻ",
+   "⚡ Đau ngực dữ dội — mỗi phút đều quý",
+   "Tức ngực khi leo cầu thang"
+  ],
+  "15": [
+   "Chảy máu mũi 40 phút không cầm",
+   "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+   "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu",
+   "Khách mua ibuprofen cho bố đang dùng warfarin"
+  ],
+  "16": [
+   "Mệt, tăng cân, sợ lạnh, táo bón"
+  ],
+  "18": [
+   "Bé 4 tuổi ho, sốt, thở nhanh",
+   "Khó thở, khò khè, khạc đờm vàng",
+   "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+   "Bé 7 tuổi khò khè, ho đêm, thở mệt",
+   "Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm"
+  ],
+  "19": [
+   "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+   "Cơn khó thở, khò khè, nói không thành câu"
+  ],
+  "22": [
+   "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc",
+   "Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới"
+  ],
+  "24": [
+   "Tim đập nhanh không đều, chóng mặt"
+  ],
+  "26": [
+   "Đau họng dữ dội một bên, khó nuốt, khít hàm"
+  ],
+  "27": [
+   "Khó thở khi nằm, phù hai chân",
+   "Khó thở, khò khè, khạc đờm vàng",
+   "Cơn khó thở, khò khè, nói không thành câu",
+   "Sưng môi, khó thở sau khi ăn tôm",
+   "Bé 7 tuổi khò khè, ho đêm, thở mệt",
+   "Đau ngực trái đột ngột, khó thở ở người trẻ"
+  ],
+  "29": [
+   "Khó thở khi nằm, phù hai chân"
+  ],
+  "30": [
+   "Mắt phải đau dữ dội, nhìn mờ, buồn nôn",
+   "Đeo kính áp tròng, mắt đỏ đau, sợ ánh sáng"
+  ],
+  "32": [
+   "Cụ bà ngã, đau háng phải, không đứng được",
+   "Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã"
+  ],
+  "33": [
+   "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang",
+   "Mệt, tăng cân, sợ lạnh, táo bón"
+  ],
+  "35": [
+   "Run tay phải khi nghỉ, đi chậm, cứng người"
+  ],
+  "37": [
+   "Khát nước, tiểu nhiều, sụt cân",
+   "Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp",
+   "Thai 26 tuần, nghiệm pháp đường huyết cao",
+   "Nôn, đau bụng, thở sâu nhanh, khát nhiều",
+   "Tư vấn ăn uống cho người mới mắc đái tháo đường",
+   "Hướng dẫn tự tiêm insulin trước khi ra viện"
+  ],
+  "39": [
+   "Thai 32 tuần, nhức đầu, phù mặt",
+   "Đau nửa đầu từng cơn, thấy chớp sáng",
+   "Đau đầu dữ dội đột ngột \"như bị đánh vào đầu\", nôn",
+   "Đau đầu, đo huyết áp ở nhà thấy cao",
+   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu"
+  ],
+  "40": [
+   "Đột ngột nghe kém tai phải từ sáng"
+  ],
+  "41": [
+   "Méo miệng, yếu tay phải, nói khó"
+  ],
+  "42": [
+   "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang"
+  ],
+  "44": [
+   "Méo miệng, yếu tay phải, nói khó"
+  ],
+  "45": [
+   "Nôn, đau bụng, thở sâu nhanh, khát nhiều"
+  ],
+  "49": [
+   "Vàng da, mệt, nước tiểu sẫm màu"
+  ],
+  "50": [
+   "Ngã xe máy, đau cổ tay phải",
+   "Cụ bà ngã, đau háng phải, không đứng được",
+   "Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng"
+  ],
+  "52": [
+   "Vàng da, mệt, nước tiểu sẫm màu"
+  ],
+  "58": [
+   "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+   "Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã",
+   "Con gái kiệt sức khi chăm mẹ sa sút trí tuệ"
+  ],
+  "60": [
+   "Sưng má trái, đau răng hàm dưới",
+   "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+   "Răng khôn mọc lệch, sưng lợi, khó há miệng",
+   "Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn"
+  ],
+  "61": [
+   "Run tay phải khi nghỉ, đi chậm, cứng người"
+  ],
+  "63": [
+   "Hồi hộp, sụt cân dù ăn nhiều, run tay",
+   "Mệt, tăng cân, sợ lạnh, táo bón"
+  ],
+  "65": [
+   "Sản phụ con so chuyển dạ, nước ối xanh"
+  ],
+  "66": [
+   "Đau lưng lan xuống chân phải"
+  ],
+  "67": [
+   "Sưng má trái, đau răng hàm dưới",
+   "Mụn nước thành dải ở ngực trái, đau rát",
+   "Đau lưng lan xuống chân phải"
+  ],
+  "68": [
+   "Hồi hộp, sụt cân dù ăn nhiều, run tay",
+   "Tim đập nhanh không đều, chóng mặt"
+  ],
+  "71": [
+   "Bé 4 tuổi ho, sốt, thở nhanh",
+   "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc",
+   "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+   "Bé 18 tháng co giật khi sốt cao",
+   "⚡ Bé 9 tháng sốt cao, li bì",
+   "Con 9 tháng sốt cao, bỏ bú"
+  ],
+  "73": [
+   "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu"
+  ],
+  "74": [
+   "Tư vấn ăn dặm cho bé 6 tháng tuổi",
+   "Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực)"
+  ],
+  "77": [
+   "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu"
+  ],
+  "78": [
+   "Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới",
+   "Người bệnh sau đột quỵ sống một mình, lo viện phí",
+   "Điều tra chùm ca sốt xuất huyết trong khu dân cư",
+   "Ca sởi ở trường tiểu học — truy vết tiếp xúc"
+  ],
+  "80": [
+   "Thai 32 tuần, nhức đầu, phù mặt",
+   "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều",
+   "Thai 26 tuần, nghiệm pháp đường huyết cao",
+   "Sản phụ con so chuyển dạ, nước ối xanh",
+   "Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng",
+   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu"
+  ],
+  "81": [
+   "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu"
+  ],
+  "92": [
+   "Bé 18 tháng co giật khi sốt cao"
+  ],
+  "95": [
+   "Nốt ruồi to lên, đổi màu, bờ nham nhở"
+  ],
+  "96": [
+   "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+   "Ca sởi ở trường tiểu học — truy vết tiếp xúc"
+  ],
+  "97": [
+   "Mụn nước thành dải ở ngực trái, đau rát",
+   "Cẳng chân sưng đỏ, nóng, sốt"
+  ],
+  "100": [
+   "Đau họng dữ dội một bên, khó nuốt, khít hàm",
+   "Khách xin mua kháng sinh không đơn cho cảm lạnh"
+  ],
+  "107": [
+   "Bé 4 tuổi ho, sốt, thở nhanh",
+   "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+   "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+   "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+   "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+   "Cẳng chân sưng đỏ, nóng, sốt",
+   "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt",
+   "Bé 18 tháng co giật khi sốt cao",
+   "Sốt rét run, đau hông lưng phải, tiểu buốt",
+   "Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm",
+   "⚡ Bé 9 tháng sốt cao, li bì",
+   "Con 9 tháng sốt cao, bỏ bú",
+   "Điều tra chùm ca sốt xuất huyết trong khu dân cư"
+  ],
+  "109": [
+   "Ngã xe máy, đau cổ tay phải",
+   "Cụ bà ngã, đau háng phải, không đứng được",
+   "Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn"
+  ],
+  "110": [
+   "Khát nước, tiểu nhiều, sụt cân",
+   "Sốt rét run, đau hông lưng phải, tiểu buốt"
+  ],
+  "111": [
+   "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng"
+  ],
+  "112": [
+   "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều",
+   "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu",
+   "Mẹ sau sinh 2 giờ: hỗ trợ bú mẹ & phát hiện băng huyết"
+  ],
+  "114": [
+   "Nhiều vết bầm tái diễn — sàng lọc bạo lực gia đình"
+  ],
+  "115": [
+   "Mắt phải đau dữ dội, nhìn mờ, buồn nôn",
+   "Đau nửa đầu từng cơn, thấy chớp sáng",
+   "Chớp sáng, ruồi bay, bóng đen che mắt trái"
+  ],
+  "116": [
+   "Đau đầu dữ dội đột ngột \"như bị đánh vào đầu\", nôn",
+   "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+   "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc",
+   "Đau thượng vị dữ dội lan ra lưng sau tiệc rượu",
+   "Nôn, đau bụng, thở sâu nhanh, khát nhiều",
+   "Khối phồng bẹn phải đau, không đẩy lên được, nôn"
+  ],
+  "117": [
+   "Méo miệng, yếu tay phải, nói khó",
+   "Sáng ngủ dậy méo miệng, nhắm mắt trái không kín",
+   "Người bệnh sau đột quỵ sống một mình, lo viện phí"
+  ],
+  "118": [
+   "Khát nước, tiểu nhiều, sụt cân",
+   "Hồi hộp, sụt cân dù ăn nhiều, run tay",
+   "Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm"
+  ]
+ },
+ "gaps": {
+  "1": "Abdominal distention",
+  "5": "Attention, learning and school problems",
+  "7": "Blood in sputum (hemoptysis)",
+  "10": "Breast disorders",
+  "12": "Calcium disorders",
+  "13": "Cardiac arrest",
+  "17": "Contraception",
+  "20": "Limp in children",
+  "21": "Development disorder/developmental delay",
+  "23": "Diplopia",
+  "25": "Dying patient",
+  "28": "Ear pain",
+  "31": "Failure to thrive",
+  "36": "Genetic concerns",
+  "38": "Hair and nail complaints",
+  "43": "Hirsutism, hypertrichosis",
+  "46": "Infertility",
+  "47": "Incontinence",
+  "48": "Impotence/erectile dysfunction",
+  "51": "Abnormal serum lipids",
+  "53": "Lump/mass, musculoskeletal",
+  "54": "Lymphadenopathy",
+  "56": "Menstrual cycle, abnormal",
+  "57": "Menopause",
+  "59": "Mood disorders",
+  "62": "Abnormal heart sounds and murmur",
+  "64": "Neonatal distress",
+  "69": "Anxiety",
+  "70": "Pap smear screening",
+  "72": "Pelvic mass",
+  "75": "Personality disorders",
+  "76": "Pleural effusion",
+  "79": "Potassium concentration, abnormal",
+  "82": "Preterm labour",
+  "83": "Prolapse/pelvic relaxation",
+  "84": "Proteinuria",
+  "85": "Pruritus",
+  "86": "Psychosis",
+  "89": "Kidney injury",
+  "90": "Scrotal mass",
+  "91": "Scrotal pain",
+  "93": "Sexual maturation",
+  "94": "Sexually concerned patient",
+  "98": "Sleep-wake disorders",
+  "99": "Sodium concentration abnormal",
+  "101": "Stature abnormal",
+  "102": "Strabismus and/or amblyopia",
+  "103": "Substance-related or addictive",
+  "104": "SIDS/ALTE",
+  "105": "Suicidal behaviour",
+  "106": "Syncope and pre-syncope",
+  "108": "Tinnitus",
+  "113": "Vaginal discharge/vulvar pruritus",
+  "120": "White blood cells, abnormalities of"
+ }
+}
