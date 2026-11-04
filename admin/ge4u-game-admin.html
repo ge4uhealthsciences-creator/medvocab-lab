@@ -98,10 +98,35 @@ const say = (t, bad) => {
   clearTimeout(say.t); say.t = setTimeout(() => { b.style.display = "none"; }, 4000);
 };
 // Any failed save (no admin rights, offline, rules) is shown instead of failing silently.
-addEventListener("unhandledrejection", (e) => {
-  const c = (e.reason && (e.reason.code || e.reason.message)) || String(e.reason);
+const sayErr = (err) => {
+  const c = (err && (err.code || err.message)) || String(err);
   say(/permission/i.test(c) ? "❌ Không lưu được: tài khoản này chưa có quyền admin (kiểm tra collection admins / UID)." : "❌ Không lưu được: " + c, true);
-});
+};
+addEventListener("unhandledrejection", (e) => sayErr(e.reason));
+// Every button whose click handler is async is faded and locked ("⏳ Đang lưu…") until the save
+// finishes, so a second click cannot send it twice; it reopens as soon as the result is back.
+{
+  const d = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "onclick");
+  Object.defineProperty(HTMLButtonElement.prototype, "onclick", {
+    configurable: true,
+    get() { return d.get.call(this); },
+    set(fn) {
+      if (typeof fn !== "function") return d.set.call(this, fn);
+      const btn = this;
+      d.set.call(this, function (e) {
+        if (btn.dataset.busy) return;
+        const label = btn.textContent, r = fn.call(this, e);
+        if (!r || typeof r.then !== "function") return r;
+        btn.dataset.busy = "1"; btn.disabled = true; btn.style.opacity = ".5"; btn.style.cursor = "wait";
+        const t = setTimeout(() => { if (btn.dataset.busy) btn.textContent = "⏳ Đang lưu…"; }, 150);
+        r.catch(sayErr).finally(() => {
+          clearTimeout(t); btn.textContent = label; btn.disabled = false; btn.style.opacity = ""; btn.style.cursor = ""; delete btn.dataset.busy;
+        });
+        return r;
+      });
+    },
+  });
+}
 const el = (tag, txt, cls) => { const e = document.createElement(tag); if (txt != null) e.textContent = txt; if (cls) e.className = cls; return e; };
 const ms = (t) => (t && t.toMillis ? t.toMillis() : 0);
 const fmt = (t) => (ms(t) ? new Date(ms(t)).toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }) : "");
@@ -225,7 +250,7 @@ function fillPay(p) {
 }
 $("savePay").onclick = async () => {
   const acc = $("acc").value.replace(/\s+/g, ""), name = $("accName").value.trim().toUpperCase();
-  if (!/^\d{6,19}$/.test(acc)) { say("Số tài khoản chỉ gồm 6–19 chữ số."); return; }
+  if (!/^\d{6,19}$/.test(acc)) { say("❌ Số tài khoản chỉ gồm 6–19 chữ số.", true); return; }
   const bankName = BANKS.find((x) => x[0] === $("bank").value)[1];
   const p = { bankBin: $("bank").value, bankName, accountNo: acc, accountName: name, updatedAt: serverTimestamp() };
   await setDoc(doc(db, "config", "payment"), p); fillPay(p); say("Đã lưu tài khoản nhận tiền.");
