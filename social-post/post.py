@@ -133,7 +133,7 @@ def sanitize_views_reach_text(text):
         if any(marker in low for marker in SALES_MARKERS):
             continue
         kept.append(line.rstrip())
-    return re.sub(r"\\n{3,}", "\\n\\n", "\\n".join(kept)).strip()
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)).strip()
 
 
 # ---------------------------------------------------------------- platforms
