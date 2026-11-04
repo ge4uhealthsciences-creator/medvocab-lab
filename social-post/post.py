@@ -117,10 +117,29 @@ def download_asset(date, name, workdir):
         raise ApiError(f"asset {name} not in media-{date}")
 
 
+# ---------------------------------------------------------------- content safety
+SALES_MARKERS = (
+    "bộ học liệu", "link ở bio", "link in bio", "pdf in được", "99.000",
+    "vnd", "₫", "đặt mua", "mua ngay", "purchase", "buy now", "checkout",
+    "đăng ký", "register", "enrol", "ge4u-products.html", "ge4u.trungminhle.com",
+)
+
+
+def sanitize_views_reach_text(text):
+    """Remove legacy sales-promo lines from already-generated plans before publishing."""
+    kept = []
+    for line in str(text or "").splitlines():
+        low = line.casefold()
+        if any(marker in low for marker in SALES_MARKERS):
+            continue
+        kept.append(line.rstrip())
+    return re.sub(r"\\n{3,}", "\\n\\n", "\\n".join(kept)).strip()
+
+
 # ---------------------------------------------------------------- platforms
 def post_instagram(item, date, tok, ig_id):
     url = release_url(date, item["file"])
-    c = http("POST", f"{GRAPH}/{ig_id}/media", {"media_type": "REELS", "video_url": url, "caption": item["caption"],
+    c = http("POST", f"{GRAPH}/{ig_id}/media", {"media_type": "REELS", "video_url": url, "caption": sanitize_views_reach_text(item["caption"]),
                                                 "share_to_feed": "true", "access_token": tok})
     cid = c["id"]
     for _ in range(40):  # up to ~6.5 min of processing
@@ -145,13 +164,14 @@ def post_facebook_reel(item, date, tok, page_id):
     if not up.get("success"):
         raise ApiError(f"Facebook upload failed: {up}")
     fin = http("POST", f"{GRAPH}/{page_id}/video_reels", {"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-                                                          "description": item["caption"], "access_token": tok})
+                                                          "description": sanitize_views_reach_text(item["caption"]), "access_token": tok})
     if not fin.get("success"):
         raise ApiError(f"Facebook finish failed: {fin}")
     return vid
 
 
 def post_facebook_photo(text, image_url, tok, page_id):
+    text = sanitize_views_reach_text(text)
     data = {"caption": text, "access_token": tok}
     if image_url:
         data["url"] = image_url
@@ -160,6 +180,7 @@ def post_facebook_photo(text, image_url, tok, page_id):
 
 
 def post_threads(text, topic, tok, uid):
+    text = sanitize_views_reach_text(text)
     if len(text) > THREADS_LIMIT:
         raise ApiError(f"Threads text too long ({len(text)} > {THREADS_LIMIT})")
     data = {"media_type": "TEXT", "text": text, "access_token": tok}
@@ -183,7 +204,7 @@ def post_youtube(item, date, access, workdir):
     title = item.get("title") or item["caption"].split("\n")[0]
     if "#shorts" not in title.lower():
         title = (title[:91] + " #Shorts")
-    meta = {"snippet": {"title": title[:100], "description": item["caption"], "categoryId": "27",
+    meta = {"snippet": {"title": title[:100], "description": sanitize_views_reach_text(item["caption"]), "categoryId": "27",
                         "tags": ["GE4u", item.get("discipline_en", ""), "Medical English"], "defaultLanguage": "en"},
             "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False, "containsSyntheticMedia": False}}
     init = urllib.request.Request(
