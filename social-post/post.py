@@ -168,6 +168,38 @@ def post_threads(text, topic, tok, uid):
     return http("POST", f"{THREADS}/{uid}/threads_publish", {"creation_id": c["id"], "access_token": tok})["id"]
 
 
+def post_instagram_image(caption, image_url, tok, ig_id):
+    c = http("POST", f"{GRAPH}/{ig_id}/media", {"image_url": image_url, "caption": caption, "access_token": tok})
+    for _ in range(12):
+        st = http("GET", f"{GRAPH}/{c['id']}?fields=status_code&access_token={urllib.parse.quote(tok)}")
+        if st.get("status_code") in (None, "FINISHED"):
+            break
+        if st.get("status_code") in ("ERROR", "EXPIRED"):
+            raise ApiError(f"Instagram image {st.get('status_code')}")
+        time.sleep(5)
+    return http("POST", f"{GRAPH}/{ig_id}/media_publish", {"creation_id": c["id"], "access_token": tok})["id"]
+
+
+def post_threads_image(text, image_url, topic, tok, uid):
+    if len(text) > THREADS_LIMIT:
+        raise ApiError(f"Threads text too long ({len(text)} > {THREADS_LIMIT})")
+    data = {"media_type": "IMAGE", "image_url": image_url, "text": text, "access_token": tok}
+    if topic:
+        data["topic_tag"] = topic
+    c = http("POST", f"{THREADS}/{uid}/threads", data)
+    time.sleep(30)
+    return http("POST", f"{THREADS}/{uid}/threads_publish", {"creation_id": c["id"], "access_token": tok})["id"]
+
+
+def one_off_posts(date):
+    """Dated one-off posts (e.g. a product announcement) from marketing/scheduled-posts.json."""
+    try:
+        posts = json.loads((ROOT / "marketing" / "scheduled-posts.json").read_text())["posts"]
+    except Exception:
+        return []
+    return [p for p in posts if p.get("date") == date.isoformat()]
+
+
 def yt_access_token(cid, secret, refresh):
     r = http("POST", "https://oauth2.googleapis.com/token", {"client_id": cid, "client_secret": secret,
                                                             "refresh_token": refresh, "grant_type": "refresh_token"})
@@ -303,6 +335,17 @@ def main():
             jobs.append(("threads-promo:" + date.isoformat(), pr["time"], "threads",
                          lambda: post_threads(re.sub(r"\n*#\w+\s*$", "", pr["threads_text"]).rstrip(), "tienganh", *th)))
 
+    for op in one_off_posts(date):
+        img = op.get("image", "")
+        if op.get("facebook") and fb and want("facebook"):
+            jobs.append((f"facebook-post:{op['id']}", op["time"], "facebook-promo", lambda op=op, img=img: post_facebook_photo(op["facebook"], img, *fb)))
+        if op.get("instagram") and ig and want("instagram") and img:
+            jobs.append((f"instagram-post:{op['id']}", op["time"], "instagram", lambda op=op, img=img: post_instagram_image(op["instagram"], img, *ig)))
+        if op.get("threads") and th and want("threads"):
+            jobs.append((f"threads-post:{op['id']}", op["time"], "threads",
+                         (lambda op=op, img=img: post_threads_image(op["threads"], img, op.get("topic", ""), *th)) if img
+                         else (lambda op=op: post_threads(op["threads"], op.get("topic", ""), *th))))
+
     _yt = {}
     def yt_tok():
         if "t" not in _yt:
@@ -402,6 +445,7 @@ def status_rows(date, now, plan, jobs, done, pr):
     except Exception as e:
         views = {}; print("views not read:", str(e)[:200])
     titles = {it["id"]: _title(it) for it in plan["items"]}
+    one_titles = {op["id"]: op.get("title", op["id"]) for op in one_off_posts(date)}
     for t in plan.get("threads", []):
         titles[t["id"]] = (t["text"].split("\n")[0])[:90]
     rows = []
@@ -416,8 +460,9 @@ def status_rows(date, now, plan, jobs, done, pr):
             st, detail = ("error" if rec.get("tries", 0) >= 2 else "retry"), rec["error"][:140]
         else:
             st, detail = "pending", ""
-        title = titles.get(ident) or ("Bài quảng bá có ảnh" if kind == "facebook-promo" else "Bài quảng bá" if kind == "threads-promo" else ident)
-        kind_vi = {"facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
+        title = titles.get(ident) or (one_titles.get(ident)) or ("Bài quảng bá có ảnh" if kind == "facebook-promo" else "Bài quảng bá" if kind == "threads-promo" else ident)
+        kind_vi = {"facebook-post": "Bài ảnh", "instagram-post": "Bài ảnh", "threads-post": "Bài ảnh",
+                   "facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
                    "youtube": "Short", "threads": "Bài viết"}.get(kind, kind)
         rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", ""), views.get(key, "")])
     # YouTube Shorts left out by the daily API quota still show, so the Hub can count all 12 disciplines.
