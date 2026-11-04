@@ -1,0 +1,2065 @@
+[
+ {
+  "id": 0,
+  "dept": "er",
+  "er": true,
+  "cc": "Ngã xe máy, đau cổ tay phải",
+  "who": "Mr. Khoa, 24",
+  "vit": {
+   "hr": 96,
+   "bp": "125/80",
+   "sp": 98,
+   "t": 36.9
+  },
+  "says": "I fell off my motorbike. My right wrist really hurts and I can't move it.",
+  "options": [
+   {
+    "en": "You have a broken wrist. It's a fracture at the end of the forearm bone.",
+    "ok": true,
+    "vi": "Gãy đầu dưới xương quay",
+    "why": ""
+   },
+   {
+    "en": "It's just a bad sprain.",
+    "ok": false,
+    "vi": "Bong gân cổ tay",
+    "why": "Biến dạng + đau chói + X-quang có gãy → không phải bong gân."
+   },
+   {
+    "en": "You have a head injury.",
+    "ok": false,
+    "vi": "Chấn thương sọ não",
+    "why": "Khám thần kinh bình thường."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 1,
+  "dept": "er",
+  "er": true,
+  "cc": "Méo miệng, yếu tay phải, nói khó",
+  "who": "Mr. Hung, 68",
+  "vit": {
+   "hr": 88,
+   "bp": "185/100",
+   "sp": 96,
+   "t": 36.9
+  },
+  "says": "My right arm feels heavy... and my words come out strange.",
+  "options": [
+   {
+    "en": "You're having a stroke. A blood clot is blocking blood flow to part of your brain.",
+    "ok": true,
+    "vi": "Đột quỵ nhồi máu não",
+    "why": ""
+   },
+   {
+    "en": "It's a bleed in the brain.",
+    "ok": false,
+    "vi": "Xuất huyết não",
+    "why": "CT không có xuất huyết."
+   },
+   {
+    "en": "It's just low blood sugar.",
+    "ok": false,
+    "vi": "Hạ đường huyết",
+    "why": "Đường huyết bình thường."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 2,
+  "dept": "card",
+  "er": false,
+  "cc": "Khó thở khi nằm, phù hai chân",
+  "who": "Mr. Nam, 67",
+  "vit": {
+   "hr": 102,
+   "bp": "145/90",
+   "sp": 92,
+   "t": 36.7
+  },
+  "says": "I get breathless, especially at night when I lie down. My ankles are swollen too.",
+  "options": [
+   {
+    "en": "Your heart isn't pumping strongly enough. This is heart failure, and fluid is building up in your lungs and legs.",
+    "ok": true,
+    "vi": "Suy tim",
+    "why": ""
+   },
+   {
+    "en": "You have a chest infection.",
+    "ok": false,
+    "vi": "Viêm phổi",
+    "why": "Không sốt, BNP cao, tim to → suy tim."
+   },
+   {
+    "en": "It's asthma.",
+    "ok": false,
+    "vi": "Hen phế quản",
+    "why": "Ran ẩm + phù + BNP cao không phải hen."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 3,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 4 tuổi ho, sốt, thở nhanh",
+  "who": "Mẹ bé Na (Ms. Lan)",
+  "vit": {
+   "hr": 140,
+   "bp": "—",
+   "sp": 94,
+   "t": 39.1
+  },
+  "says": "My daughter is four. She's had a fever and a cough for three days, and now she's breathing very fast.",
+  "options": [
+   {
+    "en": "She has a chest infection called pneumonia in the lower part of her right lung.",
+    "ok": true,
+    "vi": "Viêm phổi",
+    "why": ""
+   },
+   {
+    "en": "It's just a common cold.",
+    "ok": false,
+    "vi": "Cảm lạnh thông thường",
+    "why": "Thở nhanh + ran nổ + đông đặc là viêm phổi."
+   },
+   {
+    "en": "She has asthma.",
+    "ok": false,
+    "vi": "Hen phế quản",
+    "why": "Không khò khè, có sốt và đông đặc."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 4,
+  "dept": "dent",
+  "er": false,
+  "cc": "Sưng má trái, đau răng hàm dưới",
+  "who": "Ms. Thu, 35",
+  "vit": {
+   "hr": 92,
+   "bp": "120/75",
+   "sp": 99,
+   "t": 38
+  },
+  "says": "My left cheek is swollen and my back tooth is throbbing. I couldn't sleep last night.",
+  "options": [
+   {
+    "en": "You have an infection at the root of this tooth. It's a dental abscess.",
+    "ok": true,
+    "vi": "Áp xe răng",
+    "why": ""
+   },
+   {
+    "en": "It's just a sensitive tooth.",
+    "ok": false,
+    "vi": "Răng ê buốt",
+    "why": "Sưng má, sốt, có mủ là áp xe."
+   },
+   {
+    "en": "It's only gum disease.",
+    "ok": false,
+    "vi": "Viêm nướu",
+    "why": "Nhiễm trùng xuất phát từ chóp răng."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 5,
+  "dept": "eye",
+  "er": false,
+  "cc": "Mắt phải đau dữ dội, nhìn mờ, buồn nôn",
+  "who": "Mrs. Hanh, 62",
+  "vit": {
+   "hr": 88,
+   "bp": "150/90",
+   "sp": 98,
+   "t": 36.6
+  },
+  "says": "My right eye suddenly became very painful and red. I can't see clearly and I feel sick.",
+  "options": [
+   {
+    "en": "The pressure inside your eye is dangerously high. This is acute angle-closure glaucoma.",
+    "ok": true,
+    "vi": "Glôcôm góc đóng cấp",
+    "why": ""
+   },
+   {
+    "en": "You have pink eye, an infection.",
+    "ok": false,
+    "vi": "Viêm kết mạc",
+    "why": "Viêm kết mạc không làm nhãn áp 56 mmHg."
+   },
+   {
+    "en": "You have a migraine.",
+    "ok": false,
+    "vi": "Đau nửa đầu",
+    "why": "Đồng tử giãn + nhãn áp cao → glôcôm cấp."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 6,
+  "dept": "derm",
+  "er": false,
+  "cc": "Mụn nước thành dải ở ngực trái, đau rát",
+  "who": "Mr. Binh, 70",
+  "vit": {
+   "hr": 84,
+   "bp": "135/80",
+   "sp": 98,
+   "t": 37.4
+  },
+  "says": "I have painful blisters on the left side of my chest. It burns like fire.",
+  "options": [
+   {
+    "en": "You have shingles. It comes from the chickenpox virus waking up again.",
+    "ok": true,
+    "vi": "Zona thần kinh",
+    "why": ""
+   },
+   {
+    "en": "It's a burn.",
+    "ok": false,
+    "vi": "Bỏng",
+    "why": "Không có tiền sử bỏng; phân bố theo khoanh da."
+   },
+   {
+    "en": "It's an allergic rash.",
+    "ok": false,
+    "vi": "Dị ứng",
+    "why": "Mụn nước một bên theo dải thần kinh → zona."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 7,
+  "dept": "ortho",
+  "er": false,
+  "cc": "Đau lưng lan xuống chân phải",
+  "who": "Mr. Phuc, 45",
+  "vit": {
+   "hr": 78,
+   "bp": "130/85",
+   "sp": 99,
+   "t": 36.6
+  },
+  "says": "I hurt my back lifting a heavy box. Now the pain shoots down my right leg.",
+  "options": [
+   {
+    "en": "A disc in your lower back is pressing on a nerve. It's a slipped disc.",
+    "ok": true,
+    "vi": "Thoát vị đĩa đệm",
+    "why": ""
+   },
+   {
+    "en": "It's kidney stones.",
+    "ok": false,
+    "vi": "Sỏi thận",
+    "why": "Đau lan theo rễ thần kinh, nâng chân thẳng dương tính."
+   },
+   {
+    "en": "You have a broken spine.",
+    "ok": false,
+    "vi": "Gãy cột sống",
+    "why": "Không có chấn thương mạnh."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 8,
+  "dept": "ent",
+  "er": false,
+  "cc": "Chảy máu mũi 40 phút không cầm",
+  "who": "Mr. Sang, 72",
+  "vit": {
+   "hr": 98,
+   "bp": "175/100",
+   "sp": 98,
+   "t": 36.8
+  },
+  "says": "My nose has been bleeding for forty minutes and it won't stop.",
+  "options": [
+   {
+    "en": "Your blood is too thin from the warfarin, and a blood vessel at the front of your nose is bleeding.",
+    "ok": true,
+    "vi": "Chảy máu mũi do quá liều chống đông",
+    "why": ""
+   },
+   {
+    "en": "You have a nose tumor.",
+    "ok": false,
+    "vi": "U mũi",
+    "why": "Điểm chảy máu rõ ở vách mũi trước + INR cao."
+   },
+   {
+    "en": "It's just dry air.",
+    "ok": false,
+    "vi": "Khô niêm mạc",
+    "why": "INR 4,3 là nguyên nhân chính."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 9,
+  "dept": "im",
+  "er": false,
+  "cc": "Khát nước, tiểu nhiều, sụt cân",
+  "who": "Ms. Lien, 50",
+  "vit": {
+   "hr": 84,
+   "bp": "140/85",
+   "sp": 99,
+   "t": 36.7
+  },
+  "says": "I'm always thirsty, I go to the toilet all the time, and I've lost five kilos.",
+  "options": [
+   {
+    "en": "Your blood sugar is too high. You have type 2 diabetes.",
+    "ok": true,
+    "vi": "Đái tháo đường type 2",
+    "why": ""
+   },
+   {
+    "en": "It's a urinary infection.",
+    "ok": false,
+    "vi": "Nhiễm trùng tiểu",
+    "why": "Không sốt; đường huyết và HbA1c cao."
+   },
+   {
+    "en": "You have kidney failure.",
+    "ok": false,
+    "vi": "Suy thận",
+    "why": "Chức năng thận bình thường."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 10,
+  "dept": "ob",
+  "er": false,
+  "cc": "Thai 32 tuần, nhức đầu, phù mặt",
+  "who": "Ms. Ngoc, 29",
+  "vit": {
+   "hr": 90,
+   "bp": "165/110",
+   "sp": 98,
+   "t": 36.8
+  },
+  "says": "I'm thirty-two weeks pregnant. I have a bad headache and my face and hands are swollen.",
+  "options": [
+   {
+    "en": "You have preeclampsia. It's high blood pressure in pregnancy that is affecting your kidneys and liver.",
+    "ok": true,
+    "vi": "Tiền sản giật nặng",
+    "why": ""
+   },
+   {
+    "en": "It's a normal pregnancy headache.",
+    "ok": false,
+    "vi": "Đau đầu thai kỳ thông thường",
+    "why": "HA 165/110 + đạm niệu là tiền sản giật."
+   },
+   {
+    "en": "You have a migraine.",
+    "ok": false,
+    "vi": "Đau nửa đầu",
+    "why": "Có dấu hiệu nặng: rối loạn thị giác, đau hạ sườn phải."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 11,
+  "dept": "neuro",
+  "er": false,
+  "cc": "Đau nửa đầu từng cơn, thấy chớp sáng",
+  "who": "Ms. Vy, 26",
+  "vit": {
+   "hr": 76,
+   "bp": "115/70",
+   "sp": 99,
+   "t": 36.6
+  },
+  "says": "I get terrible headaches on one side of my head, two or three times a month.",
+  "options": [
+   {
+    "en": "You have migraine with aura. The flashing lights are the aura.",
+    "ok": true,
+    "vi": "Đau nửa đầu có tiền triệu",
+    "why": ""
+   },
+   {
+    "en": "You might have a brain tumor.",
+    "ok": false,
+    "vi": "U não",
+    "why": "Không có dấu hiệu đỏ, khám thần kinh bình thường."
+   },
+   {
+    "en": "It's a tension headache.",
+    "ok": false,
+    "vi": "Đau đầu căng cơ",
+    "why": "Một bên, theo nhịp, có aura → migraine."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 12,
+  "dept": "gi",
+  "er": false,
+  "cc": "Đau thượng vị, đi ngoài phân đen",
+  "who": "Mr. Quang, 55",
+  "vit": {
+   "hr": 112,
+   "bp": "100/65",
+   "sp": 98,
+   "t": 36.7
+  },
+  "says": "I've had stomach pain for weeks, and since yesterday my stools are black.",
+  "options": [
+   {
+    "en": "You have a bleeding stomach ulcer, probably caused by the painkillers.",
+    "ok": true,
+    "vi": "Loét dạ dày chảy máu",
+    "why": ""
+   },
+   {
+    "en": "It's food poisoning.",
+    "ok": false,
+    "vi": "Ngộ độc thực phẩm",
+    "why": "Phân đen + Hb 7,8 là xuất huyết tiêu hóa."
+   },
+   {
+    "en": "You have hemorrhoids.",
+    "ok": false,
+    "vi": "Trĩ",
+    "why": "Trĩ chảy máu đỏ tươi, không làm phân đen."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 13,
+  "dept": "resp",
+  "er": false,
+  "cc": "Khó thở, khò khè, khạc đờm vàng",
+  "who": "Mr. Tam, 64",
+  "vit": {
+   "hr": 104,
+   "bp": "140/85",
+   "sp": 89,
+   "t": 37.8
+  },
+  "says": "I'm more breathless than usual and I'm coughing up yellow phlegm.",
+  "options": [
+   {
+    "en": "Your COPD has flared up, probably because of a chest infection.",
+    "ok": true,
+    "vi": "Đợt cấp COPD",
+    "why": ""
+   },
+   {
+    "en": "It's a heart attack.",
+    "ok": false,
+    "vi": "Nhồi máu cơ tim",
+    "why": "Không đau ngực; khò khè + đờm mủ → đợt cấp COPD."
+   },
+   {
+    "en": "You have pneumonia.",
+    "ok": false,
+    "vi": "Viêm phổi",
+    "why": "X-quang không đông đặc."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 14,
+  "dept": "endo",
+  "er": false,
+  "cc": "Hồi hộp, sụt cân dù ăn nhiều, run tay",
+  "who": "Ms. Huong, 31",
+  "vit": {
+   "hr": 118,
+   "bp": "135/65",
+   "sp": 99,
+   "t": 37.3
+  },
+  "says": "My heart races all the time, I've lost six kilos even though I eat a lot, and my hands shake.",
+  "options": [
+   {
+    "en": "Your thyroid gland is overactive. This is Graves' disease.",
+    "ok": true,
+    "vi": "Cường giáp (Basedow)",
+    "why": ""
+   },
+   {
+    "en": "It's just anxiety.",
+    "ok": false,
+    "vi": "Rối loạn lo âu",
+    "why": "Bướu giáp, lồi mắt, TSH giảm → cường giáp."
+   },
+   {
+    "en": "You have diabetes.",
+    "ok": false,
+    "vi": "Đái tháo đường",
+    "why": "Không phù hợp với xét nghiệm tuyến giáp."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 15,
+  "dept": "surg",
+  "er": false,
+  "cc": "Đau quanh rốn lan xuống hố chậu phải",
+  "who": "Mr. Duc, 19",
+  "vit": {
+   "hr": 100,
+   "bp": "120/75",
+   "sp": 99,
+   "t": 38.2
+  },
+  "says": "The pain started around my belly button yesterday, and now it's in the lower right side.",
+  "options": [
+   {
+    "en": "You have appendicitis. Your appendix is inflamed.",
+    "ok": true,
+    "vi": "Viêm ruột thừa cấp",
+    "why": ""
+   },
+   {
+    "en": "It's just gastritis.",
+    "ok": false,
+    "vi": "Viêm dạ dày",
+    "why": "Đau di chuyển xuống hố chậu phải + McBurney → ruột thừa."
+   },
+   {
+    "en": "It's a kidney stone.",
+    "ok": false,
+    "vi": "Sỏi thận",
+    "why": "Siêu âm thấy ruột thừa viêm."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 16,
+  "dept": "er",
+  "er": true,
+  "cc": "Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ",
+  "who": "Mr. Dung, 58",
+  "vit": {
+   "hr": 98,
+   "bp": "150/90",
+   "sp": 95,
+   "t": 36.8
+  },
+  "says": "I've had a crushing pain in my chest for about an hour. It goes down my left arm.",
+  "options": [
+   {
+    "en": "You're having a heart attack. One of the arteries supplying your heart is blocked.",
+    "ok": true,
+    "vi": "Nhồi máu cơ tim cấp ST chênh lên (STEMI) thành trước",
+    "why": ""
+   },
+   {
+    "en": "This is probably reflux from your stomach.",
+    "ok": false,
+    "vi": "Trào ngược dạ dày – thực quản",
+    "why": "ST chênh lên vùng V1–V4 + đau kiểu đè ép lan tay trái → STEMI, không được bỏ sót."
+   },
+   {
+    "en": "It's a pulled muscle in your chest.",
+    "ok": false,
+    "vi": "Đau cơ thành ngực",
+    "why": "Đau cơ không gây ST chênh lên và troponin tăng."
+   }
+  ],
+  "src": [
+   "https://www.emrsscotland.org/s/CG008-Acute-Coronary-Syndromes-v2.pdf"
+  ]
+ },
+ {
+  "id": 17,
+  "dept": "er",
+  "er": true,
+  "cc": "Đau đầu dữ dội đột ngột \"như bị đánh vào đầu\", nôn",
+  "who": "Ms. Hang, 46",
+  "vit": {
+   "hr": 88,
+   "bp": "170/95",
+   "sp": 98,
+   "t": 37
+  },
+  "says": "I suddenly got the worst headache of my life. It felt like someone hit me on the head.",
+  "options": [
+   {
+    "en": "The scan shows bleeding around the brain, called a subarachnoid haemorrhage. It's often caused by a weak, bulging blood vessel.",
+    "ok": true,
+    "vi": "Xuất huyết dưới nhện",
+    "why": ""
+   },
+   {
+    "en": "It's a migraine.",
+    "ok": false,
+    "vi": "Đau nửa đầu (migraine)",
+    "why": "Đau đỉnh điểm trong vài giây, lần đầu, cứng gáy và CT có máu → không phải migraine."
+   },
+   {
+    "en": "It's a tension headache from stress.",
+    "ok": false,
+    "vi": "Đau đầu do căng thẳng",
+    "why": "Đau đầu căng thẳng không khởi phát kiểu sét đánh và không có máu trên CT."
+   }
+  ],
+  "src": [
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC3138338"
+  ]
+ },
+ {
+  "id": 18,
+  "dept": "im",
+  "er": false,
+  "cc": "Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng",
+  "who": "Ms. Thuy, 24",
+  "vit": {
+   "hr": 108,
+   "bp": "100/80",
+   "sp": 97,
+   "t": 37.2
+  },
+  "says": "I had a high fever for four days. It's gone now, but my stomach hurts and I keep vomiting.",
+  "options": [
+   {
+    "en": "You have dengue fever with warning signs. You're in the critical phase, when fluid can leak out of the blood vessels.",
+    "ok": true,
+    "vi": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo (giai đoạn nguy hiểm)",
+    "why": ""
+   },
+   {
+    "en": "It's food poisoning.",
+    "ok": false,
+    "vi": "Ngộ độc thực phẩm",
+    "why": "Hết sốt kèm đau bụng, nôn, chảy máu, Hct tăng và tiểu cầu giảm là dấu hiệu cảnh báo của Dengue."
+   },
+   {
+    "en": "You've recovered from dengue, so you can go home.",
+    "ok": false,
+    "vi": "Dengue đã khỏi",
+    "why": "Lúc hết sốt chính là giai đoạn nguy hiểm — dễ thoát dịch, sốc."
+   }
+  ],
+  "src": [
+   "https://www.cdc.gov/dengue/hcp/clinical-care/index.html"
+  ]
+ },
+ {
+  "id": 19,
+  "dept": "resp",
+  "er": false,
+  "cc": "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
+  "who": "Mr. Quang, 68",
+  "vit": {
+   "hr": 104,
+   "bp": "118/70",
+   "sp": 91,
+   "t": 38.9
+  },
+  "says": "I've had a fever and a bad cough for three days. It hurts on the right when I breathe in.",
+  "options": [
+   {
+    "en": "You have pneumonia, an infection in the lower part of your right lung.",
+    "ok": true,
+    "vi": "Viêm phổi cộng đồng thùy dưới phải (CURB-65 = 2)",
+    "why": ""
+   },
+   {
+    "en": "It's just a common cold.",
+    "ok": false,
+    "vi": "Cảm lạnh thông thường",
+    "why": "Sốt cao, ran nổ khu trú, X-quang đông đặc → viêm phổi."
+   },
+   {
+    "en": "You have a blood clot in your lung.",
+    "ok": false,
+    "vi": "Thuyên tắc phổi",
+    "why": "Đờm gỉ sắt, sốt, bạch cầu và CRP tăng, X-quang đông đặc phù hợp viêm phổi hơn."
+   }
+  ],
+  "src": [
+   "https://gpnotebook.com/en-IE/pages/respiratory-and-chest-medicine/curb65-score-for-mortality-risk-assessment-of-community-acquired-pneumonia-cap-when-assessed-in-hospital-setting"
+  ]
+ },
+ {
+  "id": 20,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc",
+  "who": "Mẹ bé An (Ms. Thao)",
+  "vit": {
+   "hr": 130,
+   "bp": "95/60",
+   "sp": 99,
+   "t": 37.8
+  },
+  "says": "My son has had watery diarrhoea eight times today, and he's been sick twice.",
+  "options": [
+   {
+    "en": "He has diarrhoea with some dehydration. We can treat it with oral rehydration solution here.",
+    "ok": true,
+    "vi": "Tiêu chảy cấp có mất nước (phác đồ B của WHO)",
+    "why": ""
+   },
+   {
+    "en": "He has severe dehydration and needs a drip straight away.",
+    "ok": false,
+    "vi": "Mất nước nặng",
+    "why": "Bé tỉnh, kích thích, uống háo hức → mất nước (chưa nặng); mất nước nặng khi li bì, không uống được, véo da mất rất chậm."
+   },
+   {
+    "en": "There's no dehydration. You can go home.",
+    "ok": false,
+    "vi": "Không mất nước",
+    "why": "Có ≥ 2 dấu hiệu: kích thích, mắt trũng, uống háo hức, véo da mất chậm → có mất nước."
+   }
+  ],
+  "src": [
+   "https://medicalguidelines.msf.org/en/node/663",
+   "https://rehydrate.org/zinc/index.html"
+  ]
+ },
+ {
+  "id": 21,
+  "dept": "er",
+  "er": true,
+  "cc": "Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều",
+  "who": "Ms. Nga, 31",
+  "vit": {
+   "hr": 118,
+   "bp": "95/60",
+   "sp": 98,
+   "t": 37
+  },
+  "says": "I gave birth at home an hour ago, and I'm still bleeding a lot.",
+  "options": [
+   {
+    "en": "You're bleeding heavily after the birth because your womb isn't contracting firmly enough.",
+    "ok": true,
+    "vi": "Chảy máu sau sinh (băng huyết sau sinh) do đờ tử cung",
+    "why": ""
+   },
+   {
+    "en": "This is normal bleeding after a birth.",
+    "ok": false,
+    "vi": "Sản dịch bình thường",
+    "why": "Thấm đẫm 4 băng lớn, mạch nhanh, HA tụt → chảy máu sau sinh."
+   },
+   {
+    "en": "It's a bleeding disorder.",
+    "ok": false,
+    "vi": "Rối loạn đông máu",
+    "why": "Đông máu bình thường; tử cung mềm nhão → nguyên nhân là đờ tử cung (Tone)."
+   }
+  ],
+  "src": [
+   "https://internationalmidwives.org/resources/joint-statement-of-recommendation-for-the-use-of-tranexamic-acid-for-the-treatment-of-postpartum-haemorrhage/",
+   "https://www.aafp.org/pubs/afp/issues/2007/0315/p875.html",
+   "https://www.msdmanuals.com/vi/professional/phụ-khoa-và-sản-khoa/biến-chứng-trong-khi-sinh/chảy-máu-sau-sinh"
+  ]
+ },
+ {
+  "id": 22,
+  "dept": "endo",
+  "er": false,
+  "cc": "Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp",
+  "who": "Mrs. Lan, 72",
+  "vit": {
+   "hr": 104,
+   "bp": "140/85",
+   "sp": 98,
+   "t": 36.6
+  },
+  "says": "I feel shaky and sweaty, and my heart is racing.",
+  "options": [
+   {
+    "en": "Your blood sugar is too low. This is called hypoglycaemia, and it's probably caused by your tablets and the missed meal.",
+    "ok": true,
+    "vi": "Hạ đường huyết do sulfonylurea (gliclazide), bỏ bữa, suy thận",
+    "why": ""
+   },
+   {
+    "en": "You're having a panic attack.",
+    "ok": false,
+    "vi": "Cơn hoảng sợ",
+    "why": "Đường huyết 2,8 mmol/L — phải điều trị hạ đường huyết trước."
+   },
+   {
+    "en": "Your thyroid is overactive.",
+    "ok": false,
+    "vi": "Cường giáp",
+    "why": "Triệu chứng xuất hiện cấp, đường huyết thấp, đã dùng gliclazide và bỏ bữa."
+   }
+  ],
+  "src": [
+   "https://professional.diabetes.org/sites/dpro/files/2025-05/hypoglycemia-hcp-5-27-25.pdf"
+  ]
+ },
+ {
+  "id": 23,
+  "dept": "surg",
+  "er": false,
+  "cc": "Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng",
+  "who": "Mr. Hieu, 38",
+  "vit": {
+   "hr": 100,
+   "bp": "145/90",
+   "sp": 99,
+   "t": 37
+  },
+  "says": "I've got terrible pain in my right side. It comes in waves and goes down to my groin.",
+  "options": [
+   {
+    "en": "You have a small kidney stone in the tube that drains your right kidney. That's what's causing these waves of pain.",
+    "ok": true,
+    "vi": "Cơn đau quặn thận do sỏi niệu quản phải 4 mm",
+    "why": ""
+   },
+   {
+    "en": "It's appendicitis.",
+    "ok": false,
+    "vi": "Viêm ruột thừa",
+    "why": "Đau quặn lan bẹn, tiểu máu, CT thấy sỏi niệu quản; bụng mềm."
+   },
+   {
+    "en": "It's a urinary infection.",
+    "ok": false,
+    "vi": "Nhiễm khuẩn tiết niệu",
+    "why": "Không sốt, bạch cầu và nitrit âm tính."
+   }
+  ],
+  "src": [
+   "https://nice.org.uk/guidance/ng118/chapter/Recommendations"
+  ]
+ },
+ {
+  "id": 24,
+  "dept": "er",
+  "er": true,
+  "cc": "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+  "who": "Mr. Tam, 76",
+  "vit": {
+   "hr": 122,
+   "bp": "82/48",
+   "sp": 93,
+   "t": 39.2
+  },
+  "says": "(Daughter) My father has had a high fever since yesterday, and today he's very drowsy and confused.",
+  "options": [
+   {
+    "en": "Your father has a severe infection that started in his urine and has spread to his blood. His blood pressure is dangerously low. This is called septic shock.",
+    "ok": true,
+    "vi": "Sốc nhiễm khuẩn, nguồn nhiễm khuẩn tiết niệu",
+    "why": ""
+   },
+   {
+    "en": "He's just dehydrated from the fever.",
+    "ok": false,
+    "vi": "Mất nước đơn thuần",
+    "why": "Tụt huyết áp + lactat 4,6 + lơ mơ + nguồn nhiễm khuẩn → sốc nhiễm khuẩn, không chỉ là mất nước."
+   },
+   {
+    "en": "He's had a stroke.",
+    "ok": false,
+    "vi": "Đột quỵ",
+    "why": "Không có dấu thần kinh khu trú; lú lẫn kèm sốt và tụt huyết áp do nhiễm khuẩn."
+   }
+  ],
+  "src": [
+   "https://openaccess.sgul.ac.uk/id/eprint/109902/3/Figure%201.%20%20Hour-1%20Surviving%20Sepsis%20Campaign%20Bundle%20of%20Care%20Revised%2025%20Jan.pdf",
+   "https://www.vinmec.com/vie/bai-viet/phac-do-dieu-tri-va-chan-doan-soc-nhiem-trung-vi"
+  ]
+ },
+ {
+  "id": 25,
+  "dept": "er",
+  "er": true,
+  "cc": "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu",
+  "who": "Mr. Tien, 45",
+  "vit": {
+   "hr": 104,
+   "bp": "125/80",
+   "sp": 98,
+   "t": 37
+  },
+  "says": "A green snake bit my foot while I was working in the garden. It's very swollen and still bleeding.",
+  "options": [
+   {
+    "en": "You've been bitten by a venomous green pit viper. The venom is stopping your blood from clotting.",
+    "ok": true,
+    "vi": "Rắn lục xanh cắn, có rối loạn đông máu",
+    "why": ""
+   },
+   {
+    "en": "It's a dry bite with no venom.",
+    "ok": false,
+    "vi": "Cắn khô, không nhiễm độc",
+    "why": "Sưng lan nhanh, chảy máu không cầm và đông máu 20 phút dương tính → có nhiễm độc."
+   },
+   {
+    "en": "It's an infected wound.",
+    "ok": false,
+    "vi": "Nhiễm trùng vết thương",
+    "why": "Mới 2 giờ; biểu hiện là rối loạn đông máu do nọc rắn lục."
+   }
+  ],
+  "src": [
+   "https://kcb.vn/upload/2005611/20210723//Hướng-dẫn-chẩn-đoán-và-điều-trị-Rắn-lục-xanh-đuôi-đỏ.pdf",
+   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8186896/"
+  ]
+ },
+ {
+  "id": 26,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+  "who": "Mẹ bé Bin (Ms. Huong)",
+  "vit": {
+   "hr": 135,
+   "bp": "95/60",
+   "sp": 98,
+   "t": 39.5
+  },
+  "says": "My son has had a high fever for two days, sores in his mouth, and spots on his hands and feet.",
+  "options": [
+   {
+    "en": "Your son has hand, foot and mouth disease. Because of the high fever for two days, the vomiting and the startle in his sleep, it's grade 2a, so he needs to stay in hospital.",
+    "ok": true,
+    "vi": "Bệnh tay chân miệng độ 2a",
+    "why": ""
+   },
+   {
+    "en": "It's grade 1. He can go home.",
+    "ok": false,
+    "vi": "Tay chân miệng độ 1",
+    "why": "Sốt ≥ 39°C/sốt > 2 ngày, nôn nhiều, giật mình < 2 lần/30 phút → độ 2a, không còn độ 1."
+   },
+   {
+    "en": "It's chickenpox.",
+    "ok": false,
+    "vi": "Thủy đậu",
+    "why": "Loét miệng + phỏng nước lòng bàn tay, bàn chân, mông là đặc trưng của tay chân miệng."
+   }
+  ],
+  "src": [
+   "https://tamanhhospital.vn/tre-bi-tay-chan-mieng-khi-nao-can-nhap-vien/"
+  ]
+ },
+ {
+  "id": 27,
+  "dept": "resp",
+  "er": false,
+  "cc": "Cơn khó thở, khò khè, nói không thành câu",
+  "who": "Ms. Vy, 28",
+  "vit": {
+   "hr": 118,
+   "bp": "130/80",
+   "sp": 91,
+   "t": 36.8
+  },
+  "says": "I can't… catch my breath… My inhaler isn't working.",
+  "options": [
+   {
+    "en": "You're having a severe asthma attack.",
+    "ok": true,
+    "vi": "Cơn hen phế quản cấp mức độ nặng",
+    "why": ""
+   },
+   {
+    "en": "It's a panic attack. Try to calm down.",
+    "ok": false,
+    "vi": "Cơn hoảng sợ",
+    "why": "Ran rít lan tỏa, SpO₂ 91%, PEF giảm → cơn hen nặng, không phải hoảng sợ."
+   },
+   {
+    "en": "You have pneumonia.",
+    "ok": false,
+    "vi": "Viêm phổi",
+    "why": "Không sốt, ran rít lan tỏa hai bên, khởi phát sau dùng thuốc cắt cơn không đỡ."
+   }
+  ],
+  "src": [
+   "https://www.asthmahandbook.org.au/acute-asthma/adults-and-adolescents/managing-acute-asthma-in-adults-and-adolescents-in-primary-care",
+   "https://ginasthma.org/wp-content/uploads/2023/09/GINA-2023-POCKET-GUIDE-VIETNAMESE-WMS.pdf"
+  ]
+ },
+ {
+  "id": 28,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng",
+  "who": "Mẹ bé Na (Ms. Trang)",
+  "vit": {
+   "hr": 140,
+   "bp": "95/60",
+   "sp": 99,
+   "t": 37.1
+  },
+  "says": "My daughter pulled a bowl of hot soup onto her arm. I put toothpaste on it.",
+  "options": [
+   {
+    "en": "She has a superficial partial-thickness burn on her forearm, with blisters. It's small, but it needs proper care.",
+    "ok": true,
+    "vi": "Bỏng nước nóng độ 2 nông, khoảng 1% diện tích cơ thể",
+    "why": ""
+   },
+   {
+    "en": "It's a minor redness. No treatment needed.",
+    "ok": false,
+    "vi": "Bỏng độ 1",
+    "why": "Có nốt phỏng → bỏng độ 2, cần đánh giá và chăm sóc tại cơ sở y tế."
+   },
+   {
+    "en": "It's a deep full-thickness burn and needs surgery today.",
+    "ok": false,
+    "vi": "Bỏng độ 3",
+    "why": "Vết bỏng đỏ, phỏng nước và rất đau → bỏng nông; bỏng sâu thường ít đau, trắng/khô."
+   }
+  ],
+  "src": [
+   "https://www.schn.health.nsw.gov.au/kids-health-hub/safety-and-injury-prevention/burns-and-fire/first-aid-burns",
+   "https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/so-cuu-dung-khi-bi-bong-bo-bong-nhiet"
+  ]
+ },
+ {
+  "id": 29,
+  "dept": "er",
+  "er": true,
+  "cc": "Sưng môi, khó thở sau khi ăn tôm",
+  "who": "Ms. Trang, 22",
+  "vit": {
+   "hr": 128,
+   "bp": "85/50",
+   "sp": 91,
+   "t": 36.8
+  },
+  "says": "I ate some shrimp twenty minutes ago. Now my lips are swelling and it's hard to breathe.",
+  "options": [
+   {
+    "en": "You're having a severe allergic reaction called anaphylaxis.",
+    "ok": true,
+    "vi": "Sốc phản vệ",
+    "why": ""
+   },
+   {
+    "en": "It's a panic attack.",
+    "ok": false,
+    "vi": "Cơn hoảng sợ",
+    "why": "Tụt huyết áp, phù môi, ran rít → phản vệ."
+   },
+   {
+    "en": "It's food poisoning.",
+    "ok": false,
+    "vi": "Ngộ độc thực phẩm",
+    "why": "Đây là phản ứng dị ứng toàn thân."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 30,
+  "dept": "card",
+  "er": false,
+  "cc": "Tim đập nhanh không đều, chóng mặt",
+  "who": "Mrs. Kim, 66",
+  "vit": {
+   "hr": 142,
+   "bp": "128/82",
+   "sp": 97,
+   "t": 36.6
+  },
+  "says": "My heart has been racing and fluttering since yesterday evening, and I feel a bit dizzy.",
+  "options": [
+   {
+    "en": "Your heart has an irregular rhythm called atrial fibrillation.",
+    "ok": true,
+    "vi": "Rung nhĩ",
+    "why": ""
+   },
+   {
+    "en": "You're having a heart attack.",
+    "ok": false,
+    "vi": "Nhồi máu cơ tim",
+    "why": "Không đau ngực, ECG không có ST chênh."
+   },
+   {
+    "en": "It's just anxiety.",
+    "ok": false,
+    "vi": "Lo âu",
+    "why": "ECG xác nhận rung nhĩ."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 31,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 7 tuổi khò khè, ho đêm, thở mệt",
+  "who": "Bố bé Minh (Mr. Hai)",
+  "vit": {
+   "hr": 120,
+   "bp": "—",
+   "sp": 93,
+   "t": 37
+  },
+  "says": "My son is seven. He's been wheezing and coughing at night, and today he's out of breath.",
+  "options": [
+   {
+    "en": "He's having a moderate asthma attack.",
+    "ok": true,
+    "vi": "Cơn hen phế quản mức độ trung bình",
+    "why": ""
+   },
+   {
+    "en": "He has pneumonia.",
+    "ok": false,
+    "vi": "Viêm phổi",
+    "why": "Không sốt, khò khè lan tỏa, có yếu tố khởi phát."
+   },
+   {
+    "en": "He's swallowed something.",
+    "ok": false,
+    "vi": "Dị vật đường thở",
+    "why": "Ran rít hai bên, khởi phát sau tiếp xúc mèo."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 32,
+  "dept": "dent",
+  "er": false,
+  "cc": "Răng khôn mọc lệch, sưng lợi, khó há miệng",
+  "who": "Mr. Long, 22",
+  "vit": {
+   "hr": 88,
+   "bp": "118/72",
+   "sp": 99,
+   "t": 37.9
+  },
+  "says": "The gum at the back on the lower right is swollen and sore, and I can't open my mouth fully.",
+  "options": [
+   {
+    "en": "Your wisdom tooth is stuck, and the gum over it is infected. This is called pericoronitis.",
+    "ok": true,
+    "vi": "Viêm quanh thân răng khôn",
+    "why": ""
+   },
+   {
+    "en": "You've broken your jaw.",
+    "ok": false,
+    "vi": "Gãy xương hàm",
+    "why": "Không có chấn thương."
+   },
+   {
+    "en": "It's tonsillitis.",
+    "ok": false,
+    "vi": "Viêm amidan",
+    "why": "Sưng khu trú quanh răng 48."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 33,
+  "dept": "eye",
+  "er": false,
+  "cc": "Chớp sáng, ruồi bay, bóng đen che mắt trái",
+  "who": "Mr. Son, 58",
+  "vit": {
+   "hr": 76,
+   "bp": "132/80",
+   "sp": 98,
+   "t": 36.6
+  },
+  "says": "Since this morning I've seen flashing lights and lots of black spots, and now there's a dark shadow over my left eye.",
+  "options": [
+   {
+    "en": "The thin layer at the back of your eye is coming away. This is a retinal detachment, and it's an emergency.",
+    "ok": true,
+    "vi": "Bong võng mạc",
+    "why": ""
+   },
+   {
+    "en": "It's just floaters from getting older.",
+    "ok": false,
+    "vi": "Ruồi bay sinh lý",
+    "why": "Có màn che và khuyết thị trường → bong võng mạc."
+   },
+   {
+    "en": "It's a migraine aura.",
+    "ok": false,
+    "vi": "Tiền triệu migraine",
+    "why": "Không đau đầu; soi đáy mắt thấy bong võng mạc."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 34,
+  "dept": "derm",
+  "er": false,
+  "cc": "Cẳng chân sưng đỏ, nóng, sốt",
+  "who": "Mr. Hoang, 60",
+  "vit": {
+   "hr": 104,
+   "bp": "130/80",
+   "sp": 97,
+   "t": 38.6
+  },
+  "says": "My left leg has been red, hot and swollen for two days, and I've got a fever.",
+  "options": [
+   {
+    "en": "You have a skin infection called cellulitis, probably from the cracks between your toes.",
+    "ok": true,
+    "vi": "Viêm mô tế bào cẳng chân",
+    "why": ""
+   },
+   {
+    "en": "It's a blood clot in your leg.",
+    "ok": false,
+    "vi": "Huyết khối tĩnh mạch sâu",
+    "why": "Sốt, đỏ nóng lan, có cửa ngõ nhiễm trùng → viêm mô tế bào."
+   },
+   {
+    "en": "It's an allergy.",
+    "ok": false,
+    "vi": "Dị ứng",
+    "why": "Không ngứa; có sốt và bạch cầu tăng."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 35,
+  "dept": "ortho",
+  "er": false,
+  "cc": "Cụ bà ngã, đau háng phải, không đứng được",
+  "who": "Mrs. Sau, 82",
+  "vit": {
+   "hr": 96,
+   "bp": "140/85",
+   "sp": 97,
+   "t": 36.7
+  },
+  "says": "I slipped in the bathroom this morning. My right hip hurts and I can't stand up.",
+  "options": [
+   {
+    "en": "You've broken the top of your thigh bone, near the hip joint.",
+    "ok": true,
+    "vi": "Gãy cổ xương đùi",
+    "why": ""
+   },
+   {
+    "en": "It's just a bruised hip.",
+    "ok": false,
+    "vi": "Đụng dập",
+    "why": "Chân ngắn, xoay ngoài, X-quang có gãy."
+   },
+   {
+    "en": "Your hip has dislocated.",
+    "ok": false,
+    "vi": "Trật khớp háng",
+    "why": "Đây là gãy cổ xương đùi."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 36,
+  "dept": "ent",
+  "er": false,
+  "cc": "Đau họng dữ dội một bên, khó nuốt, khít hàm",
+  "who": "Mr. Phong, 25",
+  "vit": {
+   "hr": 102,
+   "bp": "122/78",
+   "sp": 98,
+   "t": 38.7
+  },
+  "says": "My throat has been getting worse for four days. Now it's really painful on the left, and I can hardly swallow.",
+  "options": [
+   {
+    "en": "You have a collection of pus next to your left tonsil. It's called a peritonsillar abscess, or quinsy.",
+    "ok": true,
+    "vi": "Áp xe quanh amidan",
+    "why": ""
+   },
+   {
+    "en": "It's a common cold.",
+    "ok": false,
+    "vi": "Cảm lạnh",
+    "why": "Lưỡi gà lệch + khít hàm → áp xe."
+   },
+   {
+    "en": "It's tonsil cancer.",
+    "ok": false,
+    "vi": "Ung thư amidan",
+    "why": "Diễn biến cấp tính, sốt, sau viêm amidan."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 37,
+  "dept": "im",
+  "er": false,
+  "cc": "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang",
+  "who": "Ms. Hanh, 38",
+  "vit": {
+   "hr": 104,
+   "bp": "110/70",
+   "sp": 99,
+   "t": 36.7
+  },
+  "says": "I've been very tired for months, and I get out of breath walking up the stairs.",
+  "options": [
+   {
+    "en": "You have anaemia because your body is low in iron, probably from heavy periods.",
+    "ok": true,
+    "vi": "Thiếu máu thiếu sắt",
+    "why": ""
+   },
+   {
+    "en": "It's a thyroid problem.",
+    "ok": false,
+    "vi": "Bệnh tuyến giáp",
+    "why": "Hb thấp, hồng cầu nhỏ, ferritin thấp → thiếu sắt."
+   },
+   {
+    "en": "You're just stressed.",
+    "ok": false,
+    "vi": "Căng thẳng",
+    "why": "Có bằng chứng thiếu máu rõ."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 38,
+  "dept": "ob",
+  "er": false,
+  "cc": "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu",
+  "who": "Ms. Thao, 27",
+  "vit": {
+   "hr": 110,
+   "bp": "95/60",
+   "sp": 99,
+   "t": 36.8
+  },
+  "says": "My period is seven weeks late. I've had a sharp pain low on the right since this morning, and some spotting.",
+  "options": [
+   {
+    "en": "The pregnancy is growing outside the womb, in your right tube. This is an ectopic pregnancy, and it may be bleeding.",
+    "ok": true,
+    "vi": "Thai ngoài tử cung (nghi vỡ)",
+    "why": ""
+   },
+   {
+    "en": "It's a normal early pregnancy.",
+    "ok": false,
+    "vi": "Thai trong tử cung bình thường",
+    "why": "Tử cung trống, khối phần phụ, dịch ổ bụng."
+   },
+   {
+    "en": "It's appendicitis.",
+    "ok": false,
+    "vi": "Viêm ruột thừa",
+    "why": "βhCG dương tính, siêu âm thấy khối phần phụ."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 39,
+  "dept": "neuro",
+  "er": false,
+  "cc": "Sáng ngủ dậy méo miệng, nhắm mắt trái không kín",
+  "who": "Mr. Tuan, 35",
+  "vit": {
+   "hr": 72,
+   "bp": "120/76",
+   "sp": 99,
+   "t": 36.6
+  },
+  "says": "I woke up this morning and the left side of my face is drooping. I can't close my left eye.",
+  "options": [
+   {
+    "en": "You have Bell's palsy. The nerve that moves your face is inflamed.",
+    "ok": true,
+    "vi": "Liệt mặt ngoại biên (liệt Bell)",
+    "why": ""
+   },
+   {
+    "en": "You're having a stroke.",
+    "ok": false,
+    "vi": "Đột quỵ",
+    "why": "Liệt cả trán, không yếu chi → liệt ngoại biên."
+   },
+   {
+    "en": "It's shingles in the ear.",
+    "ok": false,
+    "vi": "Zona tai (Ramsay Hunt)",
+    "why": "Không có mụn nước ở tai."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 40,
+  "dept": "gi",
+  "er": false,
+  "cc": "Đau thượng vị dữ dội lan ra lưng sau tiệc rượu",
+  "who": "Mr. Vinh, 45",
+  "vit": {
+   "hr": 112,
+   "bp": "118/74",
+   "sp": 96,
+   "t": 37.9
+  },
+  "says": "I've had terrible pain in my upper stomach since last night. It goes through to my back, and I keep vomiting.",
+  "options": [
+   {
+    "en": "Your pancreas is inflamed. This is acute pancreatitis, most likely caused by alcohol.",
+    "ok": true,
+    "vi": "Viêm tụy cấp do rượu",
+    "why": ""
+   },
+   {
+    "en": "It's a stomach ulcer.",
+    "ok": false,
+    "vi": "Loét dạ dày",
+    "why": "Lipase tăng > 3 lần, đau lan sau lưng → viêm tụy."
+   },
+   {
+    "en": "It's a heart attack.",
+    "ok": false,
+    "vi": "Nhồi máu cơ tim",
+    "why": "Nên loại trừ, nhưng lipase và siêu âm phù hợp viêm tụy."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 41,
+  "dept": "resp",
+  "er": false,
+  "cc": "Đau ngực trái đột ngột, khó thở ở người trẻ",
+  "who": "Mr. Kien, 21",
+  "vit": {
+   "hr": 108,
+   "bp": "124/78",
+   "sp": 94,
+   "t": 36.7
+  },
+  "says": "I suddenly got a sharp pain on the left side of my chest while I was sitting, and now I'm short of breath.",
+  "options": [
+   {
+    "en": "Air has leaked around your left lung, and part of it has collapsed. This is called a pneumothorax.",
+    "ok": true,
+    "vi": "Tràn khí màng phổi tự phát",
+    "why": ""
+   },
+   {
+    "en": "You're having a heart attack.",
+    "ok": false,
+    "vi": "Nhồi máu cơ tim",
+    "why": "Người trẻ, gõ vang, X-quang có tràn khí."
+   },
+   {
+    "en": "It's a pulled muscle.",
+    "ok": false,
+    "vi": "Căng cơ",
+    "why": "Rì rào giảm + X-quang có tràn khí."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 42,
+  "dept": "endo",
+  "er": false,
+  "cc": "Mệt, tăng cân, sợ lạnh, táo bón",
+  "who": "Ms. Nga, 45",
+  "vit": {
+   "hr": 56,
+   "bp": "130/85",
+   "sp": 98,
+   "t": 36.1
+  },
+  "says": "I feel exhausted all the time, I've put on weight, and I'm always cold.",
+  "options": [
+   {
+    "en": "Your thyroid gland is underactive. This is hypothyroidism, probably from Hashimoto's disease.",
+    "ok": true,
+    "vi": "Suy giáp (Hashimoto)",
+    "why": ""
+   },
+   {
+    "en": "It's depression.",
+    "ok": false,
+    "vi": "Trầm cảm",
+    "why": "TSH cao, FT4 thấp → suy giáp."
+   },
+   {
+    "en": "You're anaemic.",
+    "ok": false,
+    "vi": "Thiếu máu",
+    "why": "Xét nghiệm tuyến giáp bất thường rõ."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 43,
+  "dept": "surg",
+  "er": false,
+  "cc": "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt",
+  "who": "Ms. Phuong, 48",
+  "vit": {
+   "hr": 98,
+   "bp": "128/80",
+   "sp": 98,
+   "t": 38.3
+  },
+  "says": "I've had pain under my right ribs since dinner yesterday. It's constant now, and I have a fever.",
+  "options": [
+   {
+    "en": "Your gallbladder is inflamed because of gallstones. This is acute cholecystitis.",
+    "ok": true,
+    "vi": "Viêm túi mật cấp do sỏi",
+    "why": ""
+   },
+   {
+    "en": "It's a stomach ulcer.",
+    "ok": false,
+    "vi": "Loét dạ dày",
+    "why": "Siêu âm thấy túi mật viêm, có sỏi."
+   },
+   {
+    "en": "It's hepatitis.",
+    "ok": false,
+    "vi": "Viêm gan",
+    "why": "Bilirubin bình thường, Murphy dương tính."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 44,
+  "dept": "card",
+  "er": false,
+  "cc": "Đau đầu, đo huyết áp ở nhà thấy cao",
+  "who": "Mr. Quoc, 52",
+  "vit": {
+   "hr": 82,
+   "bp": "168/102",
+   "sp": 98,
+   "t": 36.6
+  },
+  "says": "I've been getting headaches, and my home monitor keeps showing high readings, around one sixty.",
+  "options": [
+   {
+    "en": "You have high blood pressure, and it's starting to affect your heart a little.",
+    "ok": true,
+    "vi": "Tăng huyết áp độ 2",
+    "why": ""
+   },
+   {
+    "en": "It's a hypertensive emergency.",
+    "ok": false,
+    "vi": "Tăng huyết áp cấp cứu",
+    "why": "Không có tổn thương cơ quan cấp tính (đau ngực, yếu liệt, phù gai)."
+   },
+   {
+    "en": "It's just stress.",
+    "ok": false,
+    "vi": "Căng thẳng",
+    "why": "Huyết áp cao kéo dài 3 tháng, có dày thất trái."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 45,
+  "dept": "ped",
+  "er": false,
+  "cc": "Bé 18 tháng co giật khi sốt cao",
+  "who": "Mẹ bé Tí (Ms. Hong)",
+  "vit": {
+   "hr": 150,
+   "bp": "—",
+   "sp": 98,
+   "t": 39.4
+  },
+  "says": "My son had a fit at home! He was shaking all over for about two minutes. He's had a high fever since this morning.",
+  "options": [
+   {
+    "en": "He had a simple febrile seizure, triggered by a high fever from an ear infection.",
+    "ok": true,
+    "vi": "Co giật do sốt đơn thuần (viêm tai giữa)",
+    "why": ""
+   },
+   {
+    "en": "He has epilepsy.",
+    "ok": false,
+    "vi": "Động kinh",
+    "why": "Co giật toàn thể < 15 phút khi sốt, tỉnh lại hoàn toàn → co giật do sốt."
+   },
+   {
+    "en": "He has meningitis.",
+    "ok": false,
+    "vi": "Viêm màng não",
+    "why": "Không cứng gáy, thóp phẳng, bé tỉnh táo."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 46,
+  "dept": "dent",
+  "er": false,
+  "cc": "Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn",
+  "who": "Bố bé Nam (Mr. Hai)",
+  "vit": {
+   "hr": 110,
+   "bp": "—",
+   "sp": 99,
+   "t": 36.8
+  },
+  "says": "My son fell off his bike, and his front tooth came out completely! I've got it here in a cup of milk.",
+  "options": [
+   {
+    "en": "His adult front tooth has been completely knocked out, but because it was kept in milk, we can try to put it back.",
+    "ok": true,
+    "vi": "Răng vĩnh viễn bật khỏi ổ",
+    "why": ""
+   },
+   {
+    "en": "It's a baby tooth, so we'll leave it.",
+    "ok": false,
+    "vi": "Răng sữa",
+    "why": "Bé 9 tuổi, răng cửa giữa hàm trên đã là răng vĩnh viễn."
+   },
+   {
+    "en": "The tooth is broken in half.",
+    "ok": false,
+    "vi": "Gãy thân răng",
+    "why": "Răng nguyên vẹn, bật hẳn khỏi ổ."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 47,
+  "dept": "eye",
+  "er": false,
+  "cc": "Đeo kính áp tròng, mắt đỏ đau, sợ ánh sáng",
+  "who": "Ms. Yen, 24",
+  "vit": {
+   "hr": 80,
+   "bp": "115/70",
+   "sp": 99,
+   "t": 36.8
+  },
+  "says": "My right eye is very red and painful, and the light really hurts. I wear contact lenses.",
+  "options": [
+   {
+    "en": "You have an infected ulcer on the front of your eye, probably from the contact lenses.",
+    "ok": true,
+    "vi": "Loét giác mạc do vi khuẩn",
+    "why": ""
+   },
+   {
+    "en": "It's just dry eye.",
+    "ok": false,
+    "vi": "Khô mắt",
+    "why": "Có ổ loét bắt màu fluorescein."
+   },
+   {
+    "en": "It's pink eye.",
+    "ok": false,
+    "vi": "Viêm kết mạc",
+    "why": "Đau, sợ ánh sáng, giảm thị lực, loét giác mạc → không phải viêm kết mạc."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 48,
+  "dept": "derm",
+  "er": false,
+  "cc": "Nốt ruồi to lên, đổi màu, bờ nham nhở",
+  "who": "Mr. Trung, 55",
+  "vit": {
+   "hr": 74,
+   "bp": "125/80",
+   "sp": 99,
+   "t": 36.6
+  },
+  "says": "The mole on my back has got bigger and darker over the last few months. My wife made me come.",
+  "options": [
+   {
+    "en": "This mole has some worrying features. It could be a type of skin cancer called melanoma, so we need to remove it and test it.",
+    "ok": true,
+    "vi": "Nghi u hắc tố (melanoma)",
+    "why": ""
+   },
+   {
+    "en": "It's a normal mole. Don't worry.",
+    "ok": false,
+    "vi": "Nốt ruồi lành",
+    "why": "Có đủ dấu hiệu ABCDE đáng lo."
+   },
+   {
+    "en": "It's a wart.",
+    "ok": false,
+    "vi": "Mụn cóc",
+    "why": "Tổn thương sắc tố, không phải mụn cóc."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 49,
+  "dept": "ortho",
+  "er": false,
+  "cc": "Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng",
+  "who": "Mr. Nhat, 23",
+  "vit": {
+   "hr": 78,
+   "bp": "120/75",
+   "sp": 99,
+   "t": 36.6
+  },
+  "says": "I twisted my knee playing football yesterday. I heard a pop, and now it's swollen and feels unstable.",
+  "options": [
+   {
+    "en": "You've torn the main ligament in the middle of your knee, called the ACL.",
+    "ok": true,
+    "vi": "Đứt dây chằng chéo trước",
+    "why": ""
+   },
+   {
+    "en": "It's just a bruise.",
+    "ok": false,
+    "vi": "Đụng dập",
+    "why": "Tiếng rắc + sưng nhanh + Lachman dương tính."
+   },
+   {
+    "en": "You've broken your kneecap.",
+    "ok": false,
+    "vi": "Gãy xương bánh chè",
+    "why": "Không có gãy xương; MRI đứt dây chằng."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 50,
+  "dept": "ent",
+  "er": false,
+  "cc": "Đột ngột nghe kém tai phải từ sáng",
+  "who": "Ms. Hoa, 44",
+  "vit": {
+   "hr": 76,
+   "bp": "122/78",
+   "sp": 99,
+   "t": 36.7
+  },
+  "says": "I woke up this morning and I can hardly hear anything in my right ear. There's a ringing noise too.",
+  "options": [
+   {
+    "en": "You have sudden hearing loss in your right ear. It comes from the inner ear or the hearing nerve, not a blockage.",
+    "ok": true,
+    "vi": "Điếc đột ngột thể tiếp nhận",
+    "why": ""
+   },
+   {
+    "en": "It's just earwax.",
+    "ok": false,
+    "vi": "Nút ráy tai",
+    "why": "Ống tai sạch, Weber lệch về tai lành → tiếp nhận."
+   },
+   {
+    "en": "It's a middle ear infection.",
+    "ok": false,
+    "vi": "Viêm tai giữa",
+    "why": "Màng nhĩ bình thường, không sốt, không đau."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 51,
+  "dept": "im",
+  "er": false,
+  "cc": "Sốt rét run, đau hông lưng phải, tiểu buốt",
+  "who": "Ms. Thanh, 30",
+  "vit": {
+   "hr": 108,
+   "bp": "115/72",
+   "sp": 98,
+   "t": 39.1
+  },
+  "says": "I've got a high fever and shivers, pain in my right side, and it burns when I pee.",
+  "options": [
+   {
+    "en": "You have a kidney infection, called pyelonephritis.",
+    "ok": true,
+    "vi": "Viêm thận – bể thận cấp",
+    "why": ""
+   },
+   {
+    "en": "It's just a simple bladder infection.",
+    "ok": false,
+    "vi": "Viêm bàng quang đơn thuần",
+    "why": "Sốt cao, rét run, rung thận đau → viêm thận bể thận."
+   },
+   {
+    "en": "You have kidney stones.",
+    "ok": false,
+    "vi": "Sỏi thận",
+    "why": "Siêu âm không có sỏi, không giãn đài bể thận."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 52,
+  "dept": "ob",
+  "er": false,
+  "cc": "Thai 26 tuần, nghiệm pháp đường huyết cao",
+  "who": "Ms. Linh, 33",
+  "vit": {
+   "hr": 84,
+   "bp": "118/72",
+   "sp": 99,
+   "t": 36.7
+  },
+  "says": "I'm twenty-six weeks pregnant. The nurse said my sugar test was high. Is my baby okay?",
+  "options": [
+   {
+    "en": "You have gestational diabetes. Your blood sugar is higher than normal during pregnancy.",
+    "ok": true,
+    "vi": "Đái tháo đường thai kỳ",
+    "why": ""
+   },
+   {
+    "en": "It's type 1 diabetes.",
+    "ok": false,
+    "vi": "Đái tháo đường type 1",
+    "why": "Phát hiện lần đầu khi mang thai, chưa từng có trước đó."
+   },
+   {
+    "en": "It's normal in pregnancy. Don't worry.",
+    "ok": false,
+    "vi": "Neutral",
+    "why": "Cả 3 mốc đều vượt ngưỡng."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 53,
+  "dept": "neuro",
+  "er": false,
+  "cc": "Run tay phải khi nghỉ, đi chậm, cứng người",
+  "who": "Mr. Hien, 68",
+  "vit": {
+   "hr": 70,
+   "bp": "128/80",
+   "sp": 98,
+   "t": 36.6
+  },
+  "says": "My right hand shakes when I'm resting, and my family says I've become slow and stiff.",
+  "options": [
+   {
+    "en": "These signs fit Parkinson's disease. Some of the brain cells that control movement aren't working well.",
+    "ok": true,
+    "vi": "Bệnh Parkinson",
+    "why": ""
+   },
+   {
+    "en": "It's a stroke.",
+    "ok": false,
+    "vi": "Đột quỵ",
+    "why": "Diễn biến từ từ nhiều tháng, run khi nghỉ, cứng kiểu bánh xe răng cưa."
+   },
+   {
+    "en": "It's just old age.",
+    "ok": false,
+    "vi": "Lão hóa",
+    "why": "Có đủ tam chứng Parkinson."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 54,
+  "dept": "gi",
+  "er": false,
+  "cc": "Vàng da, mệt, nước tiểu sẫm màu",
+  "who": "Mr. Tung, 28",
+  "vit": {
+   "hr": 86,
+   "bp": "120/76",
+   "sp": 99,
+   "t": 37.8
+  },
+  "says": "For a week I've felt very tired and sick, and now my eyes have gone yellow and my pee is dark.",
+  "options": [
+   {
+    "en": "You have hepatitis A, a virus that inflames the liver. You probably caught it from the oysters.",
+    "ok": true,
+    "vi": "Viêm gan A cấp",
+    "why": ""
+   },
+   {
+    "en": "It's gallstones blocking the bile duct.",
+    "ok": false,
+    "vi": "Sỏi đường mật",
+    "why": "Đường mật không giãn, men gan tăng rất cao."
+   },
+   {
+    "en": "It's hepatitis B.",
+    "ok": false,
+    "vi": "Viêm gan B",
+    "why": "HBsAg âm tính, IgM anti-HAV dương tính."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 55,
+  "dept": "resp",
+  "er": false,
+  "cc": "Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm",
+  "who": "Mr. Lam, 40",
+  "vit": {
+   "hr": 96,
+   "bp": "115/72",
+   "sp": 96,
+   "t": 37.9
+  },
+  "says": "I've had a cough for six weeks, with fevers in the evening, and I've lost about five kilos.",
+  "options": [
+   {
+    "en": "You have tuberculosis in your lungs. It's an infection that we can cure with the right treatment.",
+    "ok": true,
+    "vi": "Lao phổi",
+    "why": ""
+   },
+   {
+    "en": "It's lung cancer.",
+    "ok": false,
+    "vi": "Ung thư phổi",
+    "why": "AFB và GeneXpert dương tính → lao."
+   },
+   {
+    "en": "It's a common cold that won't go away.",
+    "ok": false,
+    "vi": "Cảm lạnh kéo dài",
+    "why": "Có hang, sụt cân, sốt chiều, AFB dương tính."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 56,
+  "dept": "endo",
+  "er": false,
+  "cc": "Nôn, đau bụng, thở sâu nhanh, khát nhiều",
+  "who": "Ms. Ly, 19",
+  "vit": {
+   "hr": 122,
+   "bp": "98/60",
+   "sp": 98,
+   "t": 37.2
+  },
+  "says": "I've been vomiting since last night, my stomach hurts, and I'm so thirsty. I feel terrible.",
+  "options": [
+   {
+    "en": "Your body has no insulin, so it's burning fat and making acids. This is diabetic ketoacidosis, and it's an emergency.",
+    "ok": true,
+    "vi": "Nhiễm toan ceton do đái tháo đường type 1",
+    "why": ""
+   },
+   {
+    "en": "It's food poisoning.",
+    "ok": false,
+    "vi": "Ngộ độc thực phẩm",
+    "why": "Đường huyết 28, ceton cao, pH 7,12."
+   },
+   {
+    "en": "It's appendicitis.",
+    "ok": false,
+    "vi": "Viêm ruột thừa",
+    "why": "Đau bụng là triệu chứng của nhiễm toan ceton."
+   }
+  ],
+  "src": null
+ },
+ {
+  "id": 57,
+  "dept": "surg",
+  "er": false,
+  "cc": "Khối phồng bẹn phải đau, không đẩy lên được, nôn",
+  "who": "Mr. Ba, 70",
+  "vit": {
+   "hr": 104,
+   "bp": "135/85",
+   "sp": 97,
+   "t": 37.6
+  },
+  "says": "I've had a lump in my right groin for years, but today it won't go back in, it's very painful, and I've been vomiting.",
+  "options": [
+   {
+    "en": "Part of your bowel is trapped in the hernia and its blood supply may be cut off. This is a strangulated hernia.",
+    "ok": true,
+    "vi": "Thoát vị bẹn nghẹt",
+    "why": ""
+   },
+   {
+    "en": "It's a swollen lymph node.",
+    "ok": false,
+    "vi": "Hạch bẹn",
+    "why": "Khối có từ lâu, nay không đẩy lên được, có tắc ruột."
+   },
+   {
+    "en": "It's constipation.",
+    "ok": false,
+    "vi": "Táo bón",
+    "why": "X-quang có tắc ruột non."
+   }
+  ],
+  "src": null
+ }
+]

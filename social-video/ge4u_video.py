@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """GE4u daily short-video pipeline (views & reach phase).
 
-Builds 12 vertical videos per day - one per discipline - split across
-Instagram Reels, TikTok and YouTube Shorts (4 each), with platform-specific
-format, hook, caption and timing. No sales language, prices or purchase CTAs.
+Builds 12 vertical videos per day (SLOTS): TikTok 3, Instagram/Facebook Reels 3, YouTube Shorts 6.
+Half are ~30 s clinical case quizzes taken from the GE4u English Ward game (data/game/cases.json,
+refresh with `node scripts/export_game_cases.js`), half are word videos; disciplines rotate daily.
 
   python3 social-video/ge4u_video.py plan   --date 2026-11-04 --out out/
   python3 social-video/ge4u_video.py render --plan out/plan.json
@@ -74,6 +74,18 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
                     ("list", "3 từ bạn sẽ gặp khi học {vi}"),
                     ("test", "Bạn biết mấy từ trong 3 từ này?")],
 }
+# Quality over volume (owner approved the marketing plan, 5 Nov 2026): 12 videos a day instead of 36.
+# TikTok, YouTube and Meta all reduce reach for mass-produced look-alike videos, so each platform gets a
+# few slots, half of them a longer clinical "case" quiz drawn from the English Ward game.
+SLOTS = {"tiktok": [("12:10", "case"), ("18:10", "pronounce"), ("20:10", "case")],
+         "instagram": [("11:30", "quiz"), ("17:30", "case"), ("19:30", "quiz")],
+         "youtube": [("10:50", "case"), ("12:50", "three_terms"), ("14:50", "case"),
+                     ("15:50", "quiz"), ("16:50", "case"), ("17:50", "pronounce")]}
+CASE_DISC = {"dent": "dentistry", "ob": "midwifery"}  # every other department is shown as Medical English
+DEPT_VI = {"er": "Cấp cứu", "card": "Tim mạch", "ped": "Nhi", "dent": "Răng Hàm Mặt", "eye": "Mắt", "derm": "Da liễu",
+           "ortho": "Chấn thương chỉnh hình", "ent": "Tai Mũi Họng", "im": "Nội", "ob": "Sản", "neuro": "Thần kinh",
+           "gi": "Tiêu hoá", "resp": "Hô hấp", "endo": "Nội tiết", "surg": "Ngoại"}
+GAME_LINE = "🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u."
 # Combined phase (owner decision, 3 Nov 2026): one video per platform per day carries a soft CTA.
 CTA_SLOTS = {3, 7, 10}  # 3 of 12 videos per platform carry the soft CTA
 CTA_LINE = "📚 Bộ học liệu {en} đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u."
@@ -122,14 +134,45 @@ PLATFORM_TAGS = {"tiktok": "#hoctienganh #sinhvien #LearnOnTikTok #xuhuong",
                  "youtube": "#hoctienganh #Shorts"}
 
 
-def build_item(day, cid, platform, slot, bank):
+def load_cases():
+    return json.loads((DATA / "game" / "cases.json").read_text(encoding="utf-8"))
+
+
+def build_case(day, k, platform, slot, time, cases):
+    """A clinical case quiz from the game: the patient's own words, vitals, three diagnoses, the answer and why."""
+    c = cases[(day * 6 + k) % len(cases)]
+    cid = CASE_DISC.get(c["dept"], "medical")
+    vi, en, emoji, tag = LABEL[cid]
+    opts = list(c["options"])
+    rot = (day + k) % 3
+    opts = opts[rot:] + opts[:rot]
+    answer = "ABC"[[o["ok"] for o in opts].index(True)]
+    dept = DEPT_VI.get(c["dept"], "")
+    sfx = " #Shorts" if platform == "youtube" else ""
+    title = f"Bệnh nhân nói: \"{c['says']}\" Bạn chẩn đoán gì?"
+    if len(title + sfx) > 100:
+        title = f"{c['cc']}: bạn chẩn đoán gì? ({en})"
+    item = {"discipline": cid, "discipline_vi": vi, "discipline_en": en, "platform": platform, "format": "case",
+            "hook_variant": "case", "hook": f"{c['who']} · {dept}", "slot": slot, "time": time,
+            "voice": VOICES[platform], "terms": [], "case": {**c, "options": opts, "answer": answer, "dept_vi": dept},
+            "title": (title + sfx)[:100], "cta": True,
+            "primary_metric": "average watch time, comments with A/B/C, game trial starts"}
+    item["caption"] = (f"🚑 {c['who']} vào khoa {dept}: \"{c['says']}\"\n({c['cc']})\n\n"
+                       f"Hỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\n"
+                       + "\n".join(f"{'ABC'[i]}) {o['vi']}" for i, o in enumerate(opts)) +
+                       f"\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n{GAME_LINE}\n\n"
+                       f"#{tag} #TiengAnhYKhoa {PLATFORM_TAGS[platform]} #GE4u")
+    return item
+
+
+def build_item(day, cid, platform, slot, bank, fmt=None, time=None):
     vi, en, emoji, tag = LABEL[cid]
     terms = bank[cid]
     n = len(terms)
     # After each full pass through a discipline's terms, every platform moves to the next format,
     # so the same (platform, format, term) video does not come back for about 3 x n days.
     cycle = day // n if day >= 0 else 0
-    fmt = FMTS[(FMTS.index(FORMAT[platform]) + cycle) % 3]
+    fmt = fmt or FMTS[(FMTS.index(FORMAT[platform]) + cycle) % 3]
     follow, ptag = FOLLOW[platform], PLATFORM_TAGS[platform]
     salt = int(hashlib.sha1(f"{cid}{platform}".encode()).hexdigest(), 16) % n
     # Each discipline uses 5 consecutive terms per day: TikTok 1, Instagram 1, YouTube 3 — no overlap across platforms.
@@ -139,7 +182,7 @@ def build_item(day, cid, platform, slot, bank):
     hook = hook.format(vi=vi, en=en)
     item = {"discipline": cid, "discipline_vi": vi, "discipline_en": en, "platform": platform,
             "format": fmt, "hook_variant": hook_id, "hook": hook, "slot": slot,
-            "time": TIMES[platform][slot], "voice": VOICES[platform]}
+            "time": time or TIMES[platform][slot], "voice": VOICES[platform]}
     if fmt == "pronounce":
         t = terms[base % n]
         item["terms"] = [t]
@@ -191,32 +234,37 @@ def dedupe_tags(text):
     return head + sep + " ".join(keep)
 
 
+def _items(day, bank, cases):
+    """The day's 12 videos (SLOTS): case quizzes from the game plus word videos, disciplines rotating daily."""
+    items, k, w = [], 0, 0
+    for pi, platform in enumerate(PLATFORMS):
+        for slot, (time, fmt) in enumerate(SLOTS[platform]):
+            if fmt == "case":
+                it = build_case(day, k, platform, slot, time, cases); k += 1
+            else:
+                cid = ORDER[(day * 5 + w + 4 * pi) % 12]; w += 1
+                it = build_item(day, cid, platform, slot, bank, fmt=fmt, time=time)
+            items.append(it)
+    return items
+
+
 def make_plan(date):
-    """36 items: every platform gets all 12 disciplines, each platform in a different order."""
-    bank = load_bank()
+    """12 items a day (see SLOTS); every discipline still comes round every few days."""
+    bank, cases = load_bank(), load_cases()
     day = (date - EPOCH).days
     items = []
-    for pi, platform in enumerate(PLATFORMS):
-        for slot in range(12):
-            cid = ORDER[(day + slot + 4 * pi) % 12]
-            it = build_item(day, cid, platform, slot, bank)
-            if slot in CTA_SLOTS:
-                it["cta"] = True
-                head, sep, tags = it["caption"].rpartition("\n\n")
-                it["caption"] = head + "\n\n" + CTA_LINE.format(en=it["discipline_en"]) + sep + tags
-                it["primary_metric"] += "; profile visits, product page clicks"
-            it["caption"] = dedupe_tags(it["caption"])
-            it["id"] = f"{date.isoformat()}-{platform}-{slot:02d}-{cid}"
-            it["date"] = date.isoformat()
-            items.append(it)
+    for it in _items(day, bank, cases):
+        it["caption"] = dedupe_tags(it["caption"])
+        it["id"] = f"{date.isoformat()}-{it['platform']}-{it['slot']:02d}-{it['discipline']}"
+        it["date"] = date.isoformat()
+        items.append(it)
     items.sort(key=lambda x: (x["time"], x["platform"]))
-    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "combined: reach + soft CTA",
+    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "quality: 12 videos, half clinical cases",
             "rotation_day": day, "items": items, "threads": make_threads(items, day)}
 
 
 def _day_items(day, bank):
-    return [dict(build_item(day, ORDER[(day + slot + 4 * pi) % 12], platform, slot, bank), cta=slot in CTA_SLOTS)
-            for pi, platform in enumerate(PLATFORMS) for slot in range(12)]
+    return _items(day, bank, load_cases())
 
 
 def _threads_pick(items, day, avoid=frozenset()):
@@ -415,12 +463,78 @@ def scenes_for(item):
         sc.append(dict(min=2.0, say=None, draw=lambda c: (
             c.header(), c.block("Bạn biết mấy từ?", 600, 116), c.block("Comment 0 – 3", 900, 90, "bold", color=c.acc),
             c.block("Subscribe để học miễn phí mỗi ngày", 1120, 56, "semi"))))
+    if fmt == "case":
+        return case_scenes(item)
     if item.get("cta"):
         sc[-1] = dict(min=2.6, say=None, draw=lambda c: (
             c.header(), c.block("Muốn học trọn bộ?", 560, 96),
             c.block(f"{item['discipline_en']} Learning Pack", 740, 70, "bold", color=c.acc),
             c.block("PDF in được · bài tập · đáp án", 960, 56, "semi"),
             c.pill("Link ở bio GE4u", 1140, 80)))
+    return sc
+
+
+PATIENT_VOICE = {"m": 6, "f": 3}  # kokoro v0.19: am_michael, af_sarah
+
+
+def _sex(who):
+    w = who.lower()
+    return "f" if any(x in w for x in ("ms.", "mrs.", "miss", "bà ", "cô ", "chị ", "bé gái", "girl")) else "m"
+
+
+def case_scenes(item):
+    c = item["case"]
+    opts, ans = c["options"], c["answer"]
+    good = next(o for o in opts if o["ok"])
+    pv = PATIENT_VOICE[_sex(c["who"])]
+    def boxes(cv, reveal=False, y=760):
+        from PIL import ImageFont  # noqa: F401  (fonts come from font())
+        for i, o in enumerate(opts):
+            L = "ABC"[i]
+            hit = reveal and o["ok"]
+            fill = cv.acc if hit else ((70, 70, 85) if reveal else (255, 255, 255))
+            fg = (10, 10, 20) if not reveal or hit else (190, 190, 200)
+            size = 56
+            f = font("bold", size)
+            lines = wrap(cv.d, f"{L}  {o['vi']}", f, W - 300)
+            while len(lines) > 2 and size > 42:
+                size -= 6; f = font("bold", size); lines = wrap(cv.d, f"{L}  {o['vi']}", f, W - 300)
+            lead = int(size * 1.18)
+            hgt = 70 + lead * len(lines)
+            cv.d.rounded_rectangle((90, y, W - 90, y + hgt), 36, fill=fill)
+            yy = y + 35
+            for ln in lines:
+                cv.d.text((140, yy), ln, font=f, fill=fg); yy += lead
+            y += hgt + 30
+        return y
+    vit = c.get("vit") or {}
+    vtxt = " · ".join(x for x in [f"Mạch {vit['hr']}" if vit.get("hr") else "", f"HA {vit['bp']}" if vit.get("bp") else "",
+                                  f"SpO₂ {vit['sp']}%" if vit.get("sp") else "", f"{vit['t']}°C" if vit.get("t") else ""] if x)
+    sc = [dict(min=2.2, say=None, draw=lambda cv: (cv.header(), cv.block("Bạn là bác sĩ trực", 430, 70, "semi", color=cv.acc),
+                                                     cv.block(f"{c['who']} vào khoa {c['dept_vi']}", 560, 84),
+                                                     cv.block(c["cc"], 820, 62, "semi"))),
+          dict(min=2.5, say=c["says"], voice=pv, draw=lambda cv: (
+              cv.header(), cv.block("Bệnh nhân nói:", 400, 60, "semi", color=cv.acc),
+              cv.block(f"“{c['says']}”", 520, 74, "bold"),
+              cv.block(vtxt, 1250, 52, "semi", color=cv.acc) if vtxt else None)),
+          dict(min=3.2, say=None, draw=lambda cv: (
+              cv.header(), cv.block("Hỏi bệnh, khám, xét nghiệm xong.", 380, 54, "semi"),
+              cv.block("Chẩn đoán đúng là gì?", 470, 76), boxes(cv)))]
+    for n in ["3", "2", "1"]:
+        sc.append(dict(min=0.8, say=None, beep=True, draw=lambda cv, n=n: (
+            cv.header(), cv.block(n, 330, 200, color=cv.acc), boxes(cv))))
+    sc.append(dict(min=2.6, say=None, draw=lambda cv: (cv.header(), cv.block(f"Đáp án: {ans}", 360, 110, color=cv.acc),
+                                                       boxes(cv, True))))
+    whys = [o for o in opts if not o["ok"] and o["why"]]
+    if whys:
+        sc.append(dict(min=3.2, say=None, draw=lambda cv: (cv.header(), cv.block("Vì sao không phải:", 380, 62, "bold", color=cv.acc),
+                       [cv.block(f"{o['vi']}: {o['why']}", 520 + 330 * i, 50, "semi") for i, o in enumerate(whys[:2])])))
+    sc.append(dict(min=2.5, say=good["en"], draw=lambda cv: (
+        cv.header(), cv.block("Bác sĩ nói với bệnh nhân:", 420, 60, "semi", color=cv.acc),
+        cv.block(f"“{good['en']}”", 560, 74, "bold"))))
+    sc.append(dict(min=2.6, say=None, draw=lambda cv: (
+        cv.header(), cv.block("Chơi trọn ca này", 560, 96), cv.block("GE4u English Ward", 720, 80, "bold", color=cv.acc),
+        cv.block("Game tiếng Anh y khoa · chơi thử miễn phí", 900, 52, "semi"), cv.pill("Link ở bio GE4u", 1100, 80))))
     return sc
 
 
@@ -456,7 +570,7 @@ def render_item(item, outdir, work):
         wav = None
         if s.get("say"):
             wav = work / f"s{i}.wav"
-            dur = max(dur, tts(s["say"], item["voice"], wav) + 0.45)
+            dur = max(dur, tts(s["say"], s.get("voice", item["voice"]), wav) + 0.45)
         dur = round(dur * FPS) / FPS
         seg = work / f"s{i}.mp4"
         tmp = work / f"s{i}.tmp.mp4"
