@@ -51,52 +51,8 @@ def fallback():
     item.update(date=TODAY, source_mode="curated-fallback")
     return item
 
-def generate_with_api(api_key):
-    prompt = (
-        "Create one concise Medical English lesson for adult health-science students. Return JSON only "
-        "with keys topic,title,objective,vocabulary,quiz. vocabulary must contain exactly 3 items, each with "
-        "term,ipa,meaning (Vietnamese),definition,example. quiz must have question, exactly 3 options, answer "
-        "matching one option, and explanation. Use general educational terminology, no patient-specific advice, "
-        "no dosages, no diagnosis or treatment recommendations. Avoid uncertain clinical claims. Topic: rotate "
-        "among respiratory medicine, cardiovascular terminology, anatomy, pharmacy communication, nutrition."
-    )
-    payload = {"model": os.getenv("OPENAI_MODEL", "gpt-4.1-mini"), "input": prompt,
-               "text": {"format": {"type": "json_object"}}}
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/responses",
-        data=json.dumps(payload).encode(),
-        headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=90) as response:
-        data = json.loads(response.read().decode())
-    texts = [c["text"] for out in data.get("output", []) for c in out.get("content", [])
-             if c.get("type") in ("output_text", "text") and c.get("text")]
-    if not texts and data.get("output_text"):
-        texts = [data["output_text"]]
-    lesson = json.loads("\n".join(texts))
-    if any(not isinstance(lesson.get(k), str) or not lesson[k].strip() for k in ("topic", "title", "objective")):
-        raise ValueError("Missing lesson metadata")
-    vocab = lesson.get("vocabulary")
-    if not isinstance(vocab, list) or len(vocab) != 3:
-        raise ValueError("Vocabulary must contain exactly 3 items")
-    for word in vocab:
-        if any(not isinstance(word.get(k), str) or not word[k].strip()
-               for k in ("term", "ipa", "meaning", "definition", "example")):
-            raise ValueError("Invalid vocabulary item")
-    quiz = lesson.get("quiz", {})
-    if not isinstance(quiz.get("options"), list) or len(quiz["options"]) != 3 or quiz.get("answer") not in quiz["options"]:
-        raise ValueError("Quiz validation failed")
-    lesson.update(date=TODAY, source_mode="ai-generated-review-required")
-    return lesson
-
 if __name__ == "__main__":
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    key = os.getenv("OPENAI_API_KEY", "").strip()
-    try:
-        lesson = generate_with_api(key) if key else fallback()
-    except Exception as exc:
-        print(f"AI generation failed; using curated fallback. Reason: {exc}")
-        lesson = fallback()
+    lesson = fallback()  # curated lesson bank only (no third-party AI API)
     OUT.write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUT.relative_to(ROOT)} for {TODAY}; mode={lesson['source_mode']}")
