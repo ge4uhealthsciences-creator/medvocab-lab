@@ -10,10 +10,10 @@ date,time,platform,kind,title,status,detail,post_id
 2026-11-04,10:30,Instagram,Reel,compression — Pharma Technology English,error,"POST https://graph.facebook.com/v25.0/17841430068914832/media -> 400: {""error"":{""message"":""Error validating access token: Session has expire",
 2026-11-04,10:50,YouTube,Short,dietary fibre — Nutrition English,posted,10:50,eDEyn5xr8fc
 2026-11-04,11:10,TikTok,Video,gestation — Midwifery English,posted,TikTok Studio,
-2026-11-04,11:30,Facebook,Reel,acupoint — Traditional Medicine English,retry,"POST https://graph.facebook.com/v25.0/1437506622777073/video_reels -> 400: {""error"":{""message"":""Error validating access token: Session has e",
-2026-11-04,11:30,Instagram,Reel,acupoint — Traditional Medicine English,retry,"POST https://graph.facebook.com/v25.0/17841430068914832/media -> 400: {""error"":{""message"":""Error validating access token: Session has expire",
-2026-11-04,11:45,Threads,Bài viết,"⚗️ Pharma Chemistry English quiz: ""A property of molecules that are non-superimposable mir",pending,,
-2026-11-04,12:10,TikTok,Video,advocacy — Social Work English,pending,đã hẹn giờ trên TikTok Studio,
+2026-11-04,11:30,Facebook,Reel,acupoint — Traditional Medicine English,error,"POST https://graph.facebook.com/v25.0/1437506622777073/video_reels -> 400: {""error"":{""message"":""Error validating access token: Session has e",
+2026-11-04,11:30,Instagram,Reel,acupoint — Traditional Medicine English,error,"POST https://graph.facebook.com/v25.0/17841430068914832/media -> 400: {""error"":{""message"":""Error validating access token: Session has expire",
+2026-11-04,11:45,Threads,Bài viết,"⚗️ Pharma Chemistry English quiz: ""A property of molecules that are non-superimposable mir",posted,12:12,18098580935404706
+2026-11-04,12:10,TikTok,Video,advocacy — Social Work English,posted,TikTok Studio,
 2026-11-04,12:30,Facebook,Reel,pandemic — Public Health English,pending,,
 2026-11-04,12:30,Instagram,Reel,pandemic — Public Health English,pending,,
 2026-11-04,12:50,YouTube,Short,fever — Medical English,pending,,
@@ -43,4 +43,4 @@ date,time,platform,kind,title,status,detail,post_id
 2026-11-04,19:30,Instagram,Reel,trimester — Midwifery English,pending,,
 2026-11-04,20:10,TikTok,Video,plaque — Dental English,pending,đã hẹn giờ trên TikTok Studio,
 2026-11-04,20:15,Threads,Bài viết,• perception /pəˈsepʃən/ = tri giác,pending,,
-_updated,2026-11-04 11:39,,,,,,
+_updated,2026-11-04 12:12,,,,,,
