@@ -232,6 +232,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--only", default="")
     ap.add_argument("--now", help="override current time HH:MM (testing)")
+    ap.add_argument("--retry-failed", action="store_true", help="forget earlier failed attempts (e.g. after renewing an expired token)")
     a = ap.parse_args()
     now = dt.datetime.now(VN)
     date = dt.date.fromisoformat(a.date) if a.date else now.date()
@@ -276,6 +277,9 @@ def main():
     plan = load_plan(date.isoformat(), workdir)
     log = load_log(date.isoformat(), workdir)
     done = log["posts"]
+    if a.retry_failed:
+        for k in [k for k, v in done.items() if not v.get("ok")]:
+            print("retrying", k); del done[k]
     count = lambda net: sum(1 for k, v in done.items() if k.startswith(net + ":") and v.get("ok"))
 
     jobs = []  # (key, time, net, fn)

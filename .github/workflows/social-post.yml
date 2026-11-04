@@ -20,6 +20,13 @@ on:
       only:
         description: 'Limit to platforms, e.g. threads or instagram,facebook,youtube,promo'
         required: false
+      retry_failed:
+        description: 'Retry posts that failed earlier today (after renewing a token)'
+        type: boolean
+        default: false
+      late_limit_min:
+        description: 'Post items up to this many minutes late (default 180)'
+        required: false
 permissions:
   contents: write
 concurrency:
@@ -43,11 +50,13 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           YT_DAILY_MAX: ${{ vars.YT_DAILY_MAX || '6' }}
+          LATE_LIMIT_MIN: ${{ github.event.inputs.late_limit_min || '180' }}
         run: |
           ARGS=""
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
           [ -n "${{ github.event.inputs.only }}" ] && ARGS="$ARGS --only ${{ github.event.inputs.only }}"
+          [ "${{ github.event.inputs.retry_failed }}" = "true" ] && ARGS="$ARGS --retry-failed"
           python3 social-post/post.py $ARGS
       - name: Keep the Threads token alive (Mondays)
         if: github.event_name == 'schedule'
