@@ -74,8 +74,9 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
                     ("list", "3 từ bạn sẽ gặp khi học {vi}"),
                     ("test", "Bạn biết mấy từ trong 3 từ này?")],
 }
-# Current owner phase: views & reach only. No product, course, material or sales CTAs.
-CTA_SLOTS = set()
+# Combined phase (owner decision, 3 Nov 2026): one video per platform per day carries a soft CTA.
+CTA_SLOTS = {3, 7, 10}  # 3 of 12 videos per platform carry the soft CTA
+CTA_LINE = "📚 Bộ học liệu {en} đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u."
 VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, af_sarah, am_michael
 
 
@@ -199,12 +200,17 @@ def make_plan(date):
         for slot in range(12):
             cid = ORDER[(day + slot + 4 * pi) % 12]
             it = build_item(day, cid, platform, slot, bank)
+            if slot in CTA_SLOTS:
+                it["cta"] = True
+                head, sep, tags = it["caption"].rpartition("\n\n")
+                it["caption"] = head + "\n\n" + CTA_LINE.format(en=it["discipline_en"]) + sep + tags
+                it["primary_metric"] += "; profile visits, product page clicks"
             it["caption"] = dedupe_tags(it["caption"])
             it["id"] = f"{date.isoformat()}-{platform}-{slot:02d}-{cid}"
             it["date"] = date.isoformat()
             items.append(it)
     items.sort(key=lambda x: (x["time"], x["platform"]))
-    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "views & reach only",
+    return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "combined: reach + soft CTA",
             "rotation_day": day, "items": items, "threads": make_threads(items, day)}
 
 
