@@ -42,6 +42,9 @@ canvas{display:block}
 :root{--ink:#0e2433;--teal:#0b8f8f;--teal2:#14b8a6;--amber:#f5a524;--rose:#e5484d;--paper:#f6fafb;--glass:rgba(255,255,255,.92);--line:#d5e4ea}
 html,body{font-family:"Plus Jakarta Sans","Trebuchet MS","Segoe UI",sans-serif;color:var(--ink)}
 .ov{background:radial-gradient(1200px 600px at 20% -10%,#14b8a6 0%,transparent 55%),radial-gradient(900px 500px at 110% 110%,#2563eb 0%,transparent 55%),linear-gradient(160deg,#0b2a3c,#081b27);gap:12px}
+/* long menus: start at the top and scroll, so nothing is cut off above or below (centered flex hides overflow) */
+.ov{justify-content:safe center;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+#menu{justify-content:flex-start}
 .ov h1{font-weight:800;font-size:clamp(26px,6vw,36px);letter-spacing:-.01em;text-wrap:balance}
 .ov p{color:#b8d3de;font-size:14.5px}
 .big{background:var(--glass);border:1px solid rgba(255,255,255,.6);border-radius:18px;padding:14px 18px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
@@ -73,6 +76,8 @@ html,body{font-family:"Plus Jakarta Sans","Trebuchet MS","Segoe UI",sans-serif;c
 <div id="dlg"><div id="st"></div><div id="voc"></div><div id="chat"></div><div id="opts"></div></div>
 <div class="ov" id="lift" style="display:none"><h1>🛗 Elevator</h1><p>Which floor would you like to go to?</p><div id="liftBtns" style="display:flex;flex-direction:column;gap:8px;align-items:center"></div><button class="big" id="liftX" style="text-align:center">✖ Stay on this floor</button></div>
 <div class="ov" id="menu">
+  <div id="menuTop" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:min(560px,94vw)"><a href="index.html" style="color:#cfe3ec;text-decoration:none;padding:6px 10px;border:1px solid rgba(255,255,255,.3);border-radius:10px">← GE4u home</a></div>
+  <button class="big" id="mBack" style="display:none;text-align:center;background:#087e83;color:#fff">▶ Back to the game</button>
   <h1>🏥 GE4u English Ward</h1>
   <p>Practise real hospital conversations in English. Move with WASD / arrow keys or the joystick, talk with E or the orange button.</p>
   <button class="big" id="mP">🛵 Visit as a patient<small>Park → reception → consultation → tests and scans → cashier → pharmacy or admission</small></button>
@@ -2481,7 +2486,8 @@ $('mRep').onclick=()=>{repeatOn=!repeatOn;prefs()};$('mEasy').onclick=()=>{easyO
 const vlab=()=>$('mV').textContent=SR?'🎤 Speaking practice: '+(voiceOn?'ON':'OFF'):'🎤 Speaking practice needs Chrome (not supported here)';vlab();$('mV').onclick=()=>{voiceOn=SR?!voiceOn:false;vlab()};
 $('spGrid').innerHTML='<div style="grid-column:1/-1;color:#a9c4d2">👩‍⚕️ Other health professions</div>'+PROF.map(p=>'<button data-r="'+p.id+'">'+p.e+' '+p.n+'<br><small>'+R[p.room].n+'</small></button>').join('')+'<div style="grid-column:1/-1;color:#a9c4d2">🩺 Specialist doctors</div>'+ROOMS.filter(r=>r.d).map(r=>{const n=casesFor(r.id),c=n.filter(x=>x.k=='c').length,g=n.filter(x=>x.k=='g').length;return'<button data-i="'+r.id+'">'+r.e+' '+r.n+'<br><small>Floor '+r.f+' · '+n.length+' cases'+(c?' · '+c+' full':'')+(g?' · '+g+' ⚡':'')+'</small></button>'}).join('');
 $('spGrid').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.r){mode='R';begin(PROF.find(p=>p.id==b.dataset.r).role);startProf(b.dataset.r)}else{mode='D';begin();startDoctor(b.dataset.i)}};
-$('menuBtn').onclick=()=>{busy=true;clearTimeout(voteTimer);$('dlg').style.display='none';$('lift').style.display='none';$('menu').style.display='flex';$('spGrid').style.display='none'};
+$('menuBtn').onclick=()=>{busy=true;clearTimeout(voteTimer);$('dlg').style.display='none';$('lift').style.display='none';$('menu').style.display='flex';$('spGrid').style.display='none';$('mBack').style.display=P?'block':'none';$('menu').scrollTop=0};
+$('mBack').onclick=()=>{$('menu').style.display='none';busy=false;hud()};
 
 function talk(){if(!near||busy)return;
   if(near.lift)return openLift();

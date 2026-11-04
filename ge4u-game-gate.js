@@ -27,7 +27,7 @@ css.textContent = `
 #g4gate button{border:0;border-radius:12px;padding:12px;font:inherit;font-weight:700;cursor:pointer}
 #g4gate .pri{background:#087e83;color:#fff}#g4gate .sec{background:#eaf1f4;color:#10283a}
 #g4gate .msg{min-height:18px;font-size:13px;color:#8f1d2c}
-#g4bar{position:fixed;left:8px;bottom:8px;z-index:8;background:rgba(255,255,255,.95);color:#10283a;border-radius:10px;padding:6px 10px;font-size:12.5px;display:none;gap:8px;align-items:center}
+#g4bar{position:static;background:rgba(255,255,255,.95);color:#10283a;border-radius:10px;padding:6px 10px;font-size:12.5px;display:none;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;width:min(560px,94vw);margin:0 auto}
 #g4bar button{border:0;background:#10283a;color:#fff;border-radius:8px;padding:4px 8px;font:inherit;font-size:12px;cursor:pointer}
 #g4wall{position:fixed;inset:0;z-index:61;background:rgba(16,40,58,.95);display:none;align-items:center;justify-content:center;padding:16px}
 #g4wall .card{width:min(400px,100%);background:#fff;color:#10283a;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px;text-align:center}
@@ -77,7 +77,7 @@ document.body.append(gate);
 const bar = document.createElement("div");
 bar.id = "g4bar";
 bar.innerHTML = `<span id="g4who"></span><button id="g4shopBtn" style="background:#f5a30a;color:#10283a;font-weight:700">⭐ Nâng cấp</button><button id="g4vocBtn">📚 GE4u words</button><button id="g4out">Sign out</button>`;
-document.body.append(bar);
+(document.getElementById("menuTop") || document.body).append(bar);  // inside the menu, so it never covers the joystick or buttons
 
 const wall = document.createElement("div");
 wall.id = "g4wall";
