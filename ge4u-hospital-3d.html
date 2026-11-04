@@ -349,7 +349,176 @@ const CASES=[
  t:{cbc:'Bạch cầu 15.800/mm³, trung tính 85%.',crp:'CRP 48 mg/L.',us:'Siêu âm: ruột thừa đường kính 10 mm, thành dày, đè không xẹp.'},
  d:[["You have appendicitis. Your appendix is inflamed.",1,'Viêm ruột thừa cấp'],["It's just gastritis.",0,'Viêm dạ dày','Đau di chuyển xuống hố chậu phải + McBurney → ruột thừa.'],["It's a kidney stone.",0,'Sỏi thận','Siêu âm thấy ruột thừa viêm.']],
  r:[["You need an operation today to remove your appendix. Please don't eat or drink anything from now on.",2,''],["Take painkillers and go home.",0,'Nguy cơ vỡ ruột thừa.'],["Let's wait two days and see.",0,'Chờ đợi làm tăng nguy cơ thủng.']],
- adm:1,pq:["Will it be keyhole surgery?","It will be keyhole surgery?"]}
+ adm:1,pq:["Will it be keyhole surgery?","It will be keyhole surgery?"]},
+// ---- Ca chuyên sâu bổ sung (11/2026). tp=[câu hỏi ôn tập, đáp án đúng, sai 1, sai 2, nguồn]; src=tài liệu tham khảo đã đối chiếu ----
+{dept:'er',er:1,adm:1,cc:'Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ',who:'Mr. Dung, 58',pic:'👨',vit:{hr:98,bp:'150/90',sp:95,t:36.8},tlim:30,worse:{bp:'85/55',hr:120,sp:91},
+ v:[['chest pain','đau ngực'],['radiate','lan ra'],['sweating','vã mồ hôi'],['heart attack','nhồi máu cơ tim'],['ST elevation','ST chênh lên'],['stent','stent mạch vành'],['blood thinner','thuốc chống đông / chống kết tập']],
+ o:["I've had a crushing pain in my chest for about an hour. It goes down my left arm.","My chest pain very much one hour. It go to left arm."],
+ h:[["When exactly did the pain start?","About an hour ago, while I was carrying boxes upstairs.","One hour before, when I carry box go upstairs.",1],
+  ["Can you describe the pain? Is it sharp, or more like pressure?","It's like a heavy weight pressing on my chest.","Like heavy thing press my chest.",1],
+  ["Does the pain go anywhere else?","Yes, down my left arm and up into my jaw.","Yes, go left arm and jaw.",1],
+  ["Do you smoke, or have high blood pressure or diabetes?","I smoke a pack a day, and I take tablets for blood pressure.","I smoke one pack every day and take pill blood pressure.",1],
+  ["Have you ever had bleeding problems, a stroke or recent surgery?","No, never.","No, never have.",1],
+  ["Are you allergic to aspirin or any other medicine?","No, I'm not.","No allergy aspirin.",0]],
+ x:[['🫀 Nghe tim, phổi',"I'm going to listen to your heart and lungs. Breathe normally.",'Thở đều','Tim đều, không có tiếng thổi; phổi không ran.',1],
+  ['💪 Bắt mạch hai tay, đo huyết áp hai tay',"I'm going to check the pulse and blood pressure in both arms.",'Đưa cả hai tay ra','Mạch hai bên đều, chênh lệch huyết áp hai tay < 10 mmHg.',1],
+  ['🦵 Khám phù chân, tĩnh mạch cổ',"Let me check your neck and your ankles for swelling.",'Ngả đầu ra sau, duỗi chân','Không phù, tĩnh mạch cổ không nổi.',0]],
+ t:{ecg:'ST chênh lên 3 mm ở V1–V4 — nhồi máu cơ tim cấp ST chênh lên (STEMI) thành trước.',trop:'Troponin T hs tăng cao.',bio:'Kali 4,1 mmol/L; creatinin bình thường; đường huyết 7,8 mmol/L.'},
+ d:[["You're having a heart attack. One of the arteries supplying your heart is blocked.",1,'Nhồi máu cơ tim cấp ST chênh lên (STEMI) thành trước'],["This is probably reflux from your stomach.",0,'Trào ngược dạ dày – thực quản','ST chênh lên vùng V1–V4 + đau kiểu đè ép lan tay trái → STEMI, không được bỏ sót.'],["It's a pulled muscle in your chest.",0,'Đau cơ thành ngực','Đau cơ không gây ST chênh lên và troponin tăng.']],
+ r:[["You need an emergency procedure to open the blocked artery. I'm giving you aspirin to chew now, and the cardiology team is on its way.",2,''],["We'll give you painkillers and repeat the ECG tomorrow morning.",0,'STEMI cần tái thông mạch cấp cứu (can thiệp mạch vành qua da trong 120 phút từ khi chẩn đoán).'],["Rest here and we'll see if the pain settles.",0,'Chậm trễ làm chết thêm cơ tim.']],
+ pq:["Will I need an operation on my heart?","I need operation heart?"],
+ tp:[['Điện tâm đồ 12 chuyển đạo cần được làm trong bao lâu kể từ lần tiếp xúc y tế đầu tiên khi nghi hội chứng vành cấp?','Trong 10 phút','Trong 30 phút','Trong 1 giờ','EMRS Scotland CG008 (theo ESC)'],
+  ['Mục tiêu thời gian từ chẩn đoán STEMI trên ECG đến can thiệp mạch vành qua da (bóng nong) là?','≤ 120 phút','≤ 6 giờ','≤ 24 giờ','EMRS Scotland CG008 (theo ESC)'],
+  ['Khi nào cho thở oxy ở bệnh nhân hội chứng vành cấp?','Khi SpO₂ < 90%','Cho tất cả bệnh nhân','Chỉ khi có đau ngực','EMRS Scotland CG008 (theo ESC)'],
+  ['Nếu không thể can thiệp mạch vành trong 120 phút và triệu chứng < 12 giờ, không có chống chỉ định, lựa chọn là?','Tiêu sợi huyết','Chờ đến hôm sau rồi can thiệp','Chỉ dùng thuốc giảm đau','EMRS Scotland CG008 (theo ESC)']],
+ src:['https://www.emrsscotland.org/s/CG008-Acute-Coronary-Syndromes-v2.pdf']},
+
+{dept:'er',er:1,adm:1,cc:'Đau đầu dữ dội đột ngột "như bị đánh vào đầu", nôn',who:'Ms. Hang, 46',pic:'👩',vit:{hr:88,bp:'170/95',sp:98,t:37},tlim:40,worse:{bp:'190/105',hr:58},
+ v:[['thunderclap headache','đau đầu sét đánh'],['the worst headache','cơn đau đầu tồi tệ nhất'],['neck stiffness','cứng gáy'],['brain bleed','chảy máu não'],['aneurysm','phình mạch'],['lumbar puncture','chọc dịch não tủy']],
+ o:["I suddenly got the worst headache of my life. It felt like someone hit me on the head.","Suddenly I have headache worst of my life, like someone hit head."],
+ h:[["How quickly did the headache reach its worst?","Within a few seconds. It was instant.","In some seconds. Very fast.",1],
+  ["What were you doing when it started?","I was lifting a heavy pot in the kitchen.","I lift heavy pot in kitchen.",1],
+  ["Did you pass out, or have a fit?","I felt faint for a moment, but I didn't pass out.","I feel faint a moment but not pass out.",1],
+  ["Does bright light bother you? Is your neck stiff?","Yes, the light hurts my eyes, and my neck feels stiff.","Yes, light hurt eyes and neck stiff.",1],
+  ["Have you had headaches like this before?","Never. I don't usually get headaches.","Never. Normally I no headache.",1],
+  ["Do you take any blood thinners?","No, I don't.","No take.",0]],
+ x:[['🧠 Đánh giá tri giác (GCS), đồng tử',"Can you tell me your name and where you are? Now follow my finger.",'Trả lời, nhìn theo ngón tay','GCS 15, đồng tử đều 3 mm, phản xạ ánh sáng tốt.',1],
+  ['🦒 Khám dấu hiệu màng não',"I'm going to gently bend your neck forward. Tell me if it hurts.",'Thả lỏng cổ','Cứng gáy (+).',1],
+  ['💪 Khám vận động, cảm giác tứ chi',"Squeeze my fingers, then push your feet against my hands.",'Bóp tay, đạp chân','Sức cơ 5/5 tứ chi, không có dấu hiệu thần kinh khu trú.',1]],
+ t:{ct:'CT sọ não không cản quang (chụp 2 giờ sau khởi phát): máu trong khoang dưới nhện ở bể đáy — xuất huyết dưới nhện.',coag:'Đông máu bình thường (INR 1,0).'},
+ d:[["The scan shows bleeding around the brain, called a subarachnoid haemorrhage. It's often caused by a weak, bulging blood vessel.",1,'Xuất huyết dưới nhện'],["It's a migraine.",0,'Đau nửa đầu (migraine)','Đau đỉnh điểm trong vài giây, lần đầu, cứng gáy và CT có máu → không phải migraine.'],["It's a tension headache from stress.",0,'Đau đầu do căng thẳng','Đau đầu căng thẳng không khởi phát kiểu sét đánh và không có máu trên CT.']],
+ r:[["We'll admit you urgently, contact the neurosurgery team, arrange a scan of the blood vessels, control your pain and blood pressure, and monitor you closely.",2,''],["Take some paracetamol and go home to rest.",0,'Xuất huyết dưới nhện có nguy cơ chảy máu lại — phải nhập viện cấp cứu.'],["We'll do a lumbar puncture right now before anything else.",1,'CT đã thấy máu nên không cần chọc dịch não tủy để chẩn đoán.']],
+ pq:["Could this happen again?","This can happen again?"],
+ tp:[['Ở bệnh nhân tỉnh, không dấu thần kinh khu trú, đau đầu đạt đỉnh trong 1 giờ: độ nhạy của CT không cản quang làm trong 6 giờ đầu với xuất huyết dưới nhện là?','100% (trong nghiên cứu của Perry, BMJ 2011)','Khoảng 50%','Khoảng 70%','Perry et al., BMJ 2011'],
+  ['Độ nhạy của CT giảm còn khoảng bao nhiêu khi chụp sau 6 giờ khởi phát (cùng nghiên cứu)?','Khoảng 86%','100%','Khoảng 30%','Perry et al., BMJ 2011'],
+  ['Đặc điểm "đau đầu sét đánh" là?','Đau dữ dội đạt đỉnh rất nhanh (vài giây – < 1 giờ)','Đau âm ỉ tăng dần nhiều ngày','Đau nửa đầu có tiền triệu thị giác','Perry et al., BMJ 2011']],
+ src:['https://pmc.ncbi.nlm.nih.gov/articles/PMC3138338']},
+
+{dept:'im',adm:1,cc:'Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng',who:'Ms. Thuy, 24',pic:'👩',vit:{hr:108,bp:'100/80',sp:97,t:37.2},tlim:40,worse:{bp:'90/76',hr:124},
+ v:[['dengue fever','sốt xuất huyết Dengue'],['warning signs','dấu hiệu cảnh báo'],['bleeding gums','chảy máu chân răng'],['platelets','tiểu cầu'],['haematocrit','hematocrit (dung tích hồng cầu)'],['fluid leakage','thoát dịch'],['paracetamol','paracetamol']],
+ o:["I had a high fever for four days. It's gone now, but my stomach hurts and I keep vomiting.","I have high fever four day. Now no fever but stomach hurt and vomit many."],
+ h:[["How many times have you vomited today?","Five or six times. I can't keep any water down.","Five six time. Water also cannot keep.",1],
+  ["Have you noticed any bleeding, from your gums, nose, or in your urine or stools?","My gums bled when I brushed my teeth this morning.","My gum bleed when I brush teeth this morning.",1],
+  ["When did the fever stop?","Yesterday evening.","Yesterday evening it stop.",1],
+  ["What medicine have you taken for the fever?","Only paracetamol. A friend told me to take ibuprofen, but I didn't.","Only paracetamol. Friend say take ibuprofen but I not take.",1],
+  ["How much urine have you passed today?","Very little. I've only been to the toilet once.","Very little. Only one time toilet.",1],
+  ["Has anyone around you had dengue recently?","Yes, two people in my building have had it this month.","Yes, two people my building have it this month.",0]],
+ x:[['🫃 Khám bụng, gan',"I'm going to press on your tummy. Tell me where it's sore.",'Nằm ngửa, co nhẹ gối','Ấn đau vùng hạ sườn phải, gan to 2 cm dưới bờ sườn.',1],
+  ['🩸 Kiểm tra dấu xuất huyết dưới da, niêm mạc',"Let me look at your skin and inside your mouth.",'Há miệng, vén tay áo','Chấm xuất huyết rải rác hai cẳng tay; rỉ máu chân răng.',1],
+  ['🫁 Nghe phổi, gõ đáy phổi',"Take some deep breaths for me.",'Hít thở sâu','Giảm rì rào phế nang đáy phổi phải.',1],
+  ['🖐️ Đánh giá tưới máu ngoại vi (thời gian làm đầy mao mạch)',"I'm going to press on your fingernail for a moment.",'Đưa tay ra','Chi mát, thời gian làm đầy mao mạch 2–3 giây.',1]],
+ t:{cbc:'Hematocrit 48% (tăng so với 40% hai ngày trước); tiểu cầu 45 G/L; bạch cầu 3,2 G/L.',bio:'AST 210 U/L, ALT 160 U/L; albumin 30 g/L.',us:'Dịch màng phổi phải lượng ít, dịch quanh gan và túi mật dày thành.'},
+ d:[["You have dengue fever with warning signs. You're in the critical phase, when fluid can leak out of the blood vessels.",1,'Sốt xuất huyết Dengue có dấu hiệu cảnh báo (giai đoạn nguy hiểm)'],["It's food poisoning.",0,'Ngộ độc thực phẩm','Hết sốt kèm đau bụng, nôn, chảy máu, Hct tăng và tiểu cầu giảm là dấu hiệu cảnh báo của Dengue.'],["You've recovered from dengue, so you can go home.",0,'Dengue đã khỏi','Lúc hết sốt chính là giai đoạn nguy hiểm — dễ thoát dịch, sốc.']],
+ r:[["We'll admit you, start intravenous fluids, and check your blood count and vital signs every few hours. Please avoid ibuprofen and aspirin.",2,''],["Go home, drink plenty of water and come back if you feel worse.",0,'Có dấu hiệu cảnh báo → phải điều trị nội trú.'],["We'll give you a platelet transfusion straight away.",0,'Không khuyến cáo truyền tiểu cầu dự phòng ở Dengue.']],
+ pq:["Why can't I take ibuprofen?","Why I cannot take ibuprofen?"],
+ tp:[['Dấu hiệu nào sau đây là dấu hiệu cảnh báo của Dengue?','Đau bụng nhiều, nôn liên tục, chảy máu niêm mạc, gan to, Hct tăng','Sốt cao 39°C ngày đầu','Đau mỏi cơ','CDC – Clinical Care of Dengue'],
+  ['Giai đoạn nguy hiểm của Dengue có dấu hiệu cảnh báo thường bắt đầu khi nào?','Quanh thời điểm hết sốt (thường ngày 3–8)','Ngay ngày đầu sốt','Sau 3 tuần','CDC – Clinical Care of Dengue'],
+  ['Thuốc hạ sốt nên dùng cho người bệnh Dengue là?','Paracetamol; tránh aspirin và NSAID (ibuprofen)','Ibuprofen','Aspirin','CDC – Clinical Care of Dengue'],
+  ['Có nên truyền tiểu cầu dự phòng cho người bệnh Dengue không chảy máu nặng?','Không khuyến cáo','Có, khi tiểu cầu < 100 G/L','Có, cho mọi bệnh nhân nhập viện','CDC – Clinical Care of Dengue']],
+ src:['https://www.cdc.gov/dengue/hcp/clinical-care/index.html']},
+
+{dept:'resp',adm:1,cc:'Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu',who:'Mr. Quang, 68',pic:'👴',vit:{hr:104,bp:'118/70',sp:91,t:38.9},
+ v:[['pneumonia','viêm phổi'],['rusty sputum','đờm gỉ sắt'],['pleuritic pain','đau kiểu màng phổi'],['shortness of breath','khó thở'],['antibiotics','kháng sinh'],['consolidation','đông đặc']],
+ o:["I've had a fever and a bad cough for three days. It hurts on the right when I breathe in.","I have fever and bad cough three days. Right side hurt when breathe in."],
+ h:[["What colour is the phlegm you're coughing up?","It's rusty brown.","It brown like rust.",1],
+  ["Does the chest pain get worse when you take a deep breath?","Yes, it's sharp when I breathe in deeply.","Yes, sharp when I breathe deep.",1],
+  ["Have you felt confused or drowsy at all?","No, my head is clear.","No, head is clear.",1],
+  ["Have you been in hospital or had antibiotics in the last three months?","No, I haven't.","No, not have.",1],
+  ["Do you have any long-term illnesses?","I have high blood pressure. That's all.","I have high blood pressure only.",0]],
+ x:[['🔢 Đếm nhịp thở',"I'm just going to watch your breathing for a minute.",'Ngồi yên, thở bình thường','Nhịp thở 26 lần/phút.',1],
+  ['🫁 Nghe phổi, gõ phổi',"Take a deep breath in and out through your mouth.",'Hít sâu thở ra bằng miệng','Ran nổ và tiếng thở phế quản đáy phổi phải; gõ đục.',1],
+  ['🧠 Đánh giá tri giác (định hướng lực)',"Can you tell me today's date and where we are?",'Trả lời câu hỏi','Tỉnh, định hướng tốt — không lú lẫn.',1]],
+ t:{xr:'X-quang ngực: đám mờ đông đặc thùy dưới phổi phải.',cbc:'Bạch cầu 16 G/L, đa nhân trung tính 85%.',bio:'Ure 8,2 mmol/L; creatinin 105 µmol/L.',crp:'CRP 180 mg/L.'},
+ d:[["You have pneumonia, an infection in the lower part of your right lung.",1,'Viêm phổi cộng đồng thùy dưới phải (CURB-65 = 2)'],["It's just a common cold.",0,'Cảm lạnh thông thường','Sốt cao, ran nổ khu trú, X-quang đông đặc → viêm phổi.'],["You have a blood clot in your lung.",0,'Thuyên tắc phổi','Đờm gỉ sắt, sốt, bạch cầu và CRP tăng, X-quang đông đặc phù hợp viêm phổi hơn.']],
+ r:[["Your score shows a moderate risk, so we'll admit you, start antibiotics today and give you oxygen to keep your levels up.",2,''],["You can take antibiotic tablets at home.",1,'CURB-65 = 2 (ure > 7 mmol/L, tuổi ≥ 65) → cân nhắc điều trị tại bệnh viện.'],["No antibiotics. It's a virus.",0,'Viêm phổi do vi khuẩn cần kháng sinh sớm.']],
+ pq:["How long will I need to stay in hospital?","How long I must stay hospital?"],
+ tp:[['Các tiêu chí của thang điểm CURB-65 là?','Lú lẫn, Ure > 7 mmol/L, nhịp thở ≥ 30, HA tâm thu < 90 hoặc tâm trương ≤ 60, tuổi ≥ 65','Sốt, ho, đờm, đau ngực, khó thở','Mạch > 100, SpO₂ < 94%, bạch cầu > 12, CRP > 100, tuổi ≥ 70','GPnotebook – CURB65 (BTS)'],
+  ['Ông Quang (68 tuổi, ure 8,2, tỉnh, nhịp thở 26, HA 118/70) có CURB-65 bằng bao nhiêu?','2','1','3','GPnotebook – CURB65 (BTS)'],
+  ['CURB-65 từ 3 đến 5 gợi ý xử trí thế nào?','Nguy cơ cao: điều trị tại bệnh viện và đánh giá hồi sức tích cực','Điều trị tại nhà','Không cần kháng sinh','GPnotebook – CURB65 (BTS)']],
+ src:['https://gpnotebook.com/en-IE/pages/respiratory-and-chest-medicine/curb65-score-for-mortality-risk-assessment-of-community-acquired-pneumonia-cap-when-assessed-in-hospital-setting']},
+
+{dept:'ped',cc:'Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc',who:'Mẹ bé An (Ms. Thao)',pic:'👩',vit:{hr:130,bp:'95/60',sp:99,t:37.8},
+ v:[['diarrhoea','tiêu chảy'],['dehydration','mất nước'],['sunken eyes','mắt trũng'],['skin pinch','nếp véo da'],['oral rehydration solution (ORS)','dung dịch bù nước oresol'],['zinc','kẽm'],['wet nappy','tã ướt']],
+ o:["My son has had watery diarrhoea eight times today, and he's been sick twice.","My son diarrhoea water eight times today, and vomit two time."],
+ h:[["Is there any blood in his stools?","No, it's just watery.","No, only water.",1],
+  ["How many wet nappies has he had today?","Only two, and they weren't very wet.","Only two, not very wet.",1],
+  ["Is he drinking? Does he seem thirsty?","He grabs the cup and drinks very fast.","He take cup and drink very fast.",1],
+  ["Is he alert, or very sleepy and hard to wake?","He's awake but very fussy and irritable.","He awake but very fussy, irritable.",1],
+  ["How much does he weigh?","He was 12 kilos last month.","He 12 kilo last month.",1],
+  ["Is he still eating?","He's eating a little porridge.","He eat little porridge.",0]],
+ x:[['👀 Quan sát mắt, tri giác',"Let me have a look at his eyes and see how alert he is.",'Bế bé ngồi yên','Mắt trũng, bé kích thích, quấy khóc.',1],
+  ['🤏 Véo nếp da bụng',"I'm going to gently pinch the skin on his tummy.",'Giữ bé nằm ngửa','Nếp véo da mất chậm.',1],
+  ['🥤 Cho bé uống thử',"Let's offer him some water and see how he drinks.",'Đưa cốc nước cho bé','Bé uống háo hức.',1]],
+ t:{},
+ d:[["He has diarrhoea with some dehydration. We can treat it with oral rehydration solution here.",1,'Tiêu chảy cấp có mất nước (phác đồ B của WHO)'],["He has severe dehydration and needs a drip straight away.",0,'Mất nước nặng','Bé tỉnh, kích thích, uống háo hức → mất nước (chưa nặng); mất nước nặng khi li bì, không uống được, véo da mất rất chậm.'],["There's no dehydration. You can go home.",0,'Không mất nước','Có ≥ 2 dấu hiệu: kích thích, mắt trũng, uống háo hức, véo da mất chậm → có mất nước.']],
+ r:[["We'll give him ORS, about 900 millilitres over the next four hours, a little at a time, then check him again. He'll also take zinc for 10 to 14 days.",2,''],["We'll give him antibiotics and anti-diarrhoea medicine.",0,'Tiêu chảy phân nước không máu ở trẻ không dùng kháng sinh/thuốc cầm tiêu chảy thường quy.'],["Stop all milk and food until the diarrhoea stops.",0,'Tiếp tục bú mẹ; cho ăn lại sớm.']],
+ pq:["How do I make him drink if he keeps vomiting?","How I make him drink if he vomit?"],
+ tp:[['Theo WHO, trẻ "có mất nước" khi có ít nhất mấy dấu hiệu: kích thích, mắt trũng, uống háo hức, véo da mất chậm?','2 dấu hiệu','1 dấu hiệu','4 dấu hiệu','WHO Plan B (MSF Medical Guidelines)'],
+  ['Phác đồ B: lượng ORS trong 4 giờ đầu là?','75 ml/kg','20 ml/kg','150 ml/kg','WHO Plan B (MSF Medical Guidelines)'],
+  ['Liều kẽm cho trẻ ≥ 6 tháng bị tiêu chảy là?','20 mg/ngày trong 10–14 ngày','10 mg/ngày trong 3 ngày','50 mg một liều duy nhất','WHO/UNICEF (rehydrate.org)'],
+  ['Nếu trẻ nôn khi đang uống ORS, nên làm gì?','Chờ khoảng 5 phút rồi cho uống lại từng ít một','Ngừng hẳn ORS','Cho uống nhanh một lần thật nhiều','WHO Plan B (MSF Medical Guidelines)']],
+ src:['https://medicalguidelines.msf.org/en/node/663','https://rehydrate.org/zinc/index.html']},
+
+{dept:'er',er:1,cc:'Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều',who:'Ms. Nga, 31',pic:'🤱',vit:{hr:118,bp:'95/60',sp:98,t:37},tlim:15,worse:{bp:'75/45',hr:138},
+ v:[['postpartum haemorrhage','băng huyết sau sinh'],['uterus','tử cung'],['uterine massage','xoa bóp tử cung'],['oxytocin','oxytocin'],['placenta','nhau thai'],['blood transfusion','truyền máu'],['soaked pad','băng vệ sinh thấm đẫm']],
+ o:["I gave birth at home an hour ago, and I'm still bleeding a lot.","I give birth at home one hour ago and still bleed much."],
+ h:[["How many pads have you soaked since the birth?","Four big pads, completely soaked.","Four big pads, all wet.",1],
+  ["Did the whole placenta come out?","Yes, the midwife said it was complete.","Yes, midwife say it complete.",1],
+  ["Do you feel dizzy or faint?","Yes, I feel very dizzy when I sit up.","Yes, very dizzy when sit up.",1],
+  ["Is this your first baby?","No, it's my fourth.","No, fourth baby.",1],
+  ["Do you have any bleeding disorders?","Not that I know of.","I not know.",0]],
+ x:[['🤰 Sờ đáy tử cung',"I'm going to press on your tummy to feel your womb.",'Nằm ngửa, thả lỏng bụng','Tử cung mềm nhão, đáy tử cung trên rốn — đờ tử cung.',1],
+  ['🩸 Đánh giá lượng máu mất, kiểm tra tầng sinh môn',"I need to check where the bleeding is coming from.",'Nằm co chân','Máu đỏ tươi chảy nhiều qua âm đạo; không thấy rách tầng sinh môn lớn.',1],
+  ['📟 Đo lại mạch, huyết áp',"I'm checking your pulse and blood pressure again.",'Đưa tay ra','Mạch 118, HA 95/60.',1]],
+ t:{cbc:'Hemoglobin 82 g/L.',coag:'Đông máu cơ bản trong giới hạn bình thường.'},
+ d:[["You're bleeding heavily after the birth because your womb isn't contracting firmly enough.",1,'Băng huyết sau sinh do đờ tử cung'],["This is normal bleeding after a birth.",0,'Sản dịch bình thường','Thấm đẫm 4 băng lớn, mạch nhanh, HA tụt → băng huyết sau sinh.'],["It's a bleeding disorder.",0,'Rối loạn đông máu','Đông máu bình thường; tử cung mềm nhão → nguyên nhân là đờ tử cung (Tone).']],
+ r:[["I'm going to massage your womb and give you an injection of oxytocin to make it contract, put in two drips, and give tranexamic acid. We'll prepare blood in case you need it.",2,''],["Let's wait and see if the bleeding stops on its own.",0,'Băng huyết cần xử trí ngay: xoa tử cung + thuốc co hồi tử cung.'],["We'll give you iron tablets and send you home.",0,'Đang mất máu cấp với dấu hiệu sốc — phải hồi sức tại viện.']],
+ pq:["Will I be able to breastfeed my baby?","I can breastfeed my baby?"],
+ tp:[['Nguyên nhân thường gặp nhất của băng huyết sau sinh (4T) là?','Tone – đờ tử cung (khoảng 70%)','Trauma – chấn thương đường sinh dục','Thrombin – rối loạn đông máu','AAFP 2007 (Anderson & Etches)'],
+  ['Tranexamic acid trong băng huyết sau sinh: liều và thời điểm?','1 g tiêm tĩnh mạch chậm (1 ml/phút), bắt đầu trong vòng 3 giờ sau sinh','1 g uống sau 24 giờ','10 g tiêm bắp bất kỳ lúc nào','FIGO/ICM – WHO 2017 TXA statement'],
+  ['Khi nào dùng liều tranexamic acid thứ hai?','Nếu còn chảy máu sau 30 phút hoặc chảy máu lại trong 24 giờ','Luôn dùng 2 liều liền nhau','Sau 72 giờ','FIGO/ICM – WHO 2017 TXA statement'],
+  ['Xử trí đầu tiên khi đờ tử cung?','Xoa bóp tử cung và dùng oxytocin','Chờ theo dõi','Cắt tử cung ngay','AAFP 2007 (Anderson & Etches)']],
+ src:['https://internationalmidwives.org/resources/joint-statement-of-recommendation-for-the-use-of-tranexamic-acid-for-the-treatment-of-postpartum-haemorrhage/','https://www.aafp.org/pubs/afp/issues/2007/0315/p875.html']},
+
+{dept:'endo',cc:'Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp',who:'Mrs. Lan, 72',pic:'👵',vit:{hr:104,bp:'140/85',sp:98,t:36.6},tlim:15,worse:{hr:118},
+ v:[['low blood sugar','hạ đường huyết'],['shaky','run'],['sweaty','vã mồ hôi'],['fast-acting sugar','đường hấp thu nhanh'],['glucose meter','máy đo đường huyết'],['skip a meal','bỏ bữa']],
+ o:["I feel shaky and sweaty, and my heart is racing.","I shaky and sweat, my heart run fast."],
+ h:[["What diabetes medicine do you take?","Gliclazide tablets, twice a day.","Gliclazide tablet, two time a day.",1],
+  ["Have you eaten today?","I skipped lunch because I wasn't hungry.","I skip lunch because not hungry.",1],
+  ["Has this happened before?","Once, last month, but it was milder.","One time last month but more mild.",1],
+  ["Have you had any kidney problems?","The doctor said my kidneys are a bit weak.","Doctor say my kidney little weak.",1],
+  ["Can you swallow safely right now?","Yes, I can.","Yes I can.",1]],
+ x:[['🩸 Đo đường huyết mao mạch ngay',"I'm going to prick your finger to check your sugar level.",'Đưa ngón tay','Đường huyết mao mạch 2,8 mmol/L (50 mg/dL).',1],
+  ['🧠 Đánh giá tri giác, khả năng nuốt',"Can you tell me your name and today's date?",'Trả lời câu hỏi','Tỉnh, trả lời đúng, nuốt được.',1]],
+ t:{bio:'Glucose máu 2,9 mmol/L; creatinin 140 µmol/L (eGFR khoảng 34).'},
+ d:[["Your blood sugar is too low. This is called hypoglycaemia, and it's probably caused by your tablets and the missed meal.",1,'Hạ đường huyết do sulfonylurea (gliclazide), bỏ bữa, suy thận'],["You're having a panic attack.",0,'Cơn hoảng sợ','Đường huyết 2,8 mmol/L — phải điều trị hạ đường huyết trước.'],["Your thyroid is overactive.",0,'Cường giáp','Triệu chứng xuất hiện cấp, đường huyết thấp, đã dùng gliclazide và bỏ bữa.']],
+ r:[["Please drink this glass of juice now. I'll recheck your sugar in 15 minutes. Because of your tablets and kidneys, we'll keep you for observation and review your diabetes medicine.",2,''],["Have something sweet when you get home.",0,'Phải điều trị ngay và đo lại sau 15 phút.'],["Take an extra gliclazide tablet.",0,'Gliclazide gây hạ đường huyết — không dùng thêm.']],
+ pq:["What should I do if this happens at home?","What I do if this happen at home?"],
+ tp:[['Theo ADA, hạ đường huyết mức 2 là khi đường huyết?','< 54 mg/dL (khoảng 3,0 mmol/L)','< 100 mg/dL','< 70 mg/dL nhưng ≥ 54 mg/dL','ADA – Hypoglycemia (2025)'],
+  ['Quy tắc "15-15" khi người bệnh tỉnh, nuốt được là?','Cho 15 g carbohydrate hấp thu nhanh, đo lại sau 15 phút, lặp lại nếu còn thấp','Cho 15 đơn vị insulin','Chờ 15 phút rồi mới cho ăn','ADA – Hypoglycemia (2025)'],
+  ['Khi người bệnh không thể uống/ăn được, có thể dùng thuốc gì (kể cả người không phải nhân viên y tế)?','Glucagon','Insulin','Metformin','ADA – Hypoglycemia (2025)'],
+  ['Hạ đường huyết mức 3 được định nghĩa là?','Thay đổi tri giác/thể chất cần người khác hỗ trợ, bất kể mức đường huyết','Đường huyết < 40 mg/dL','Có run tay','ADA – Hypoglycemia (2025)']],
+ src:['https://professional.diabetes.org/sites/dpro/files/2025-05/hypoglycemia-hcp-5-27-25.pdf']},
+
+{dept:'surg',cc:'Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng',who:'Mr. Hieu, 38',pic:'👨',vit:{hr:100,bp:'145/90',sp:99,t:37},
+ v:[['kidney stone','sỏi thận / sỏi niệu quản'],['colicky pain','đau quặn từng cơn'],['loin','hông lưng'],['groin','bẹn'],['blood in the urine','tiểu máu'],['painkiller','thuốc giảm đau'],['pass a stone','tống sỏi ra']],
+ o:["I've got terrible pain in my right side. It comes in waves and goes down to my groin.","I have terrible pain right side. It come like wave and go down groin."],
+ h:[["Does the pain come and go, or is it constant?","It comes in waves. I can't keep still.","It come wave. I cannot stay still.",1],
+  ["Have you noticed any blood in your urine?","Yes, it looks pink.","Yes, it pink.",1],
+  ["Have you had a fever or shivers?","No, no fever.","No, no fever.",1],
+  ["Have you had kidney stones before?","My father had them, but I haven't.","My father had, but I not.",0],
+  ["Do you have any stomach ulcers or kidney disease?","No, I don't.","No, I don't have.",1]],
+ x:[['👊 Gõ hông lưng hai bên',"I'm going to tap gently on your back. Tell me if it hurts.",'Ngồi dậy, cúi nhẹ','Đau khi gõ hông lưng phải.',1],
+  ['🫃 Khám bụng',"I'm going to press on your tummy.",'Nằm ngửa','Bụng mềm, không phản ứng phúc mạc.',1]],
+ t:{ua:'Hồng cầu niệu (++); bạch cầu âm tính; nitrit âm tính.',ct:'CT hệ tiết niệu không cản quang liều thấp: sỏi niệu quản đoạn chậu phải 4 mm, giãn nhẹ đài bể thận phải.',bio:'Creatinin bình thường.'},
+ d:[["You have a small kidney stone in the tube that drains your right kidney. That's what's causing these waves of pain.",1,'Cơn đau quặn thận do sỏi niệu quản phải 4 mm'],["It's appendicitis.",0,'Viêm ruột thừa','Đau quặn lan bẹn, tiểu máu, CT thấy sỏi niệu quản; bụng mềm.'],["It's a urinary infection.",0,'Nhiễm khuẩn tiết niệu','Không sốt, bạch cầu và nitrit âm tính.']],
+ r:[["I'll give you an anti-inflammatory painkiller. Your stone is small and is likely to pass. Drink plenty, and come back straight away if you get a fever.",2,''],["We'll give you a strong opioid only and no follow-up.",1,'NSAID là lựa chọn đầu tay; opioid khi NSAID chống chỉ định/không đủ.'],["You need open surgery today.",0,'Sỏi nhỏ 4 mm, không nhiễm khuẩn — thường theo dõi và giảm đau.']],
+ pq:["How long will it take for the stone to pass?","How long the stone pass?"],
+ tp:[['Thuốc giảm đau đầu tay cho cơn đau quặn thận (NICE NG118)?','NSAID (mọi đường dùng)','Thuốc chống co thắt','Opioid trước tiên','NICE NG118'],
+  ['Chẩn đoán hình ảnh khuyến cáo cho người lớn nghi cơn đau quặn thận?','CT không cản quang liều thấp trong 24 giờ','X-quang ngực','MRI có cản quang','NICE NG118'],
+  ['Phụ nữ có thai nghi sỏi niệu quản: chẩn đoán hình ảnh đầu tiên?','Siêu âm','CT liều thấp','Chụp niệu đồ tĩnh mạch','NICE NG118'],
+  ['Thuốc chẹn alpha có thể cân nhắc cho sỏi niệu quản đoạn xa kích thước?','Dưới 10 mm','Trên 20 mm','Mọi kích thước sỏi thận','NICE NG118']],
+ src:['https://nice.org.uk/guidance/ng118/chapter/Recommendations']}
 ];
 
 // ===================== ĐỢT 1: thêm 1 ca đầy đủ cho mỗi khoa =====================
@@ -2044,7 +2213,8 @@ function rvPool(){if(RV)return RV;const P=[],seen=new Set(),V=[];
     if(c.o&&c.o[1])P.push({id:'o|'+i,k:'natO',c,L:1});
     if(c.d&&c.d.length>1&&c.d.some(d=>d[1]))P.push({id:'d|'+i,k:'dx',c,C:1});
     if(c.r&&c.r.length>1&&c.r.some(r=>r[1]==2))P.push({id:'r|'+i,k:'mx',c,C:1});
-    Object.entries(c.t||{}).forEach(([k,res])=>{if(TS[k])P.push({id:'t|'+i+'|'+k,k:'test',c,tk:k,res,C:1})})});
+    Object.entries(c.t||{}).forEach(([k,res])=>{if(TS[k])P.push({id:'t|'+i+'|'+k,k:'test',c,tk:k,res,C:1})});
+    (c.tp||[]).forEach((x,j)=>P.push({id:'k|'+i+'|'+j,k:'tp',c,x,C:1}))});
   RCASES.forEach((c,i)=>(c.st||[]).forEach((s,j)=>{if(s.q&&s.o&&s.o.length>1&&s.o.some(o=>o[1]==2))P.push({id:'s|'+i+'|'+j,k:'prof',c,s,C:1,L:1})}));
   return RV={P,V}}
 const caseIds=src=>{const i=CASES.indexOf(src),ri=RCASES.indexOf(src);return rvPool().P.filter(p=>(p.w&&(src.v||[]).some(w=>w[0]==p.w[0]))||(i>=0&&p.c===src)||(ri>=0&&p.c===src)).map(p=>p.id)};
@@ -2061,6 +2231,7 @@ function rvQ(p){const V=rvPool().V,T=Object.keys(TS);
     return{tag:'🩺 Clinical',q:'Ca: '+c.cc+(right?' — chẩn đoán: '+right[2]:'')+'. Hướng xử trí tốt nhất?',o:c.r.map(r=>({t:r[0],ok:r[1]==2?1:0,why:r[2]||''})),ans:best[0],say:best[0]}}
   if(p.k=='test'){const res=String(p.res).replace(/^[^:]{2,45}:\s*/,'');
     return{tag:'🧪 Paraclinical',q:'Ca: '+p.c.cc+'. Kết quả “'+res+'” đến từ xét nghiệm / chẩn đoán hình ảnh nào?',o:[{t:TS[p.tk].n,ok:1}].concat(pick(T,3,k=>k==p.tk).map(k=>({t:TS[k].n}))),ans:TS[p.tk].n+' = '+cap(TS[p.tk].en),say:cap(TS[p.tk].en)}}
+  if(p.k=='tp')return{tag:'📖 Guideline',q:p.x[0],o:[{t:p.x[1],ok:1},{t:p.x[2],why:''},{t:p.x[3],why:''}],ans:p.x[1]+' — nguồn: '+p.x[4]};
   if(p.k=='prof'){const pf=PROF.find(x=>x.id==p.c.prof)||{vi:''},best=p.s.o.find(o=>o[1]==2);
     return{tag:'🎭 Professional',q:(pf.e||'')+' '+pf.vi+' · '+p.c.cc+(p.s.n?' — “'+p.s.n+'”':'')+' → '+p.s.q,sp:p.s.n,o:p.s.o.map(o=>({t:o[0],ok:o[1]==2?1:0,why:o[2]||''})),ans:best[0],say:best[0]}}}
 
@@ -2104,6 +2275,8 @@ function debrief(cs){const src=cs._src||cs,box=document.createElement('div');box
   const best=(src.r||[]).find(r=>r[1]==2);if(best){sec('💊 Management');line(best[0],'',1);(src.r||[]).filter(r=>r[1]<2&&r[2]).forEach(r=>line('✗ '+r[0],r[2],0))}
   if(src.st){sec('🗣️ Best professional lines');src.st.forEach(s=>{const o=(s.o||[]).find(o=>o[1]==2);if(o)line(o[0],s.q,1)})}
   if(src.pq){sec('🙋 The patient may ask');line(src.pq[0],'',1)}
+  if(src.tp){sec('📖 Guideline points (đã đối chiếu tài liệu)');src.tp.forEach(x=>line('• '+x[0]+' → '+x[1],x[4],0))}
+  if(src.src){sec('🔗 References');src.src.forEach(u=>{const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';a.textContent=u.replace(/^https?:\/\/(www\.)?/,'').slice(0,70);a.style.cssText='display:block;font-size:12px;word-break:break-all';box.appendChild(a)})}
   const ids=caseIds(src);bankAdd(ids);const f=document.createElement('div');f.className='rvl';f.style.color='#0b6e6e';f.textContent='📒 Saved '+ids.length+' items from this case to your review list (menu → 🧠 Review).';box.appendChild(f);
   return box}
 
