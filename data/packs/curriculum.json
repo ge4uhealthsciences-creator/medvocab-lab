@@ -29,7 +29,8 @@
               "id": "medical-biochemistry",
               "vi": "Hóa sinh",
               "en": "Biochemistry",
-              "status": "planned"
+              "status": "ready",
+              "review": "public-source check 2026-11-05; expert review pending"
             },
             {
               "id": "medical-microbiology",
