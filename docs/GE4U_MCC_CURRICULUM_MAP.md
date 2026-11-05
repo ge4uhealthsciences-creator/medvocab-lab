@@ -2,7 +2,7 @@
 
 Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program Competency Framework, Appendix 2): https://md.utoronto.ca/sites/default/files/MD%20Program%20Competency%20Framework%20-%20Appendix%202.pdf
 
-Đã có ca: **61/115**. Còn thiếu: **54**.
+Đã có ca: **66/115**. Còn thiếu: **49**.
 
 ## Đã có ca
 
@@ -15,7 +15,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 8 | Blood in urine (hematuria) | Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng |
 | 9 | Blood pressure, abnormal | Thai 32 tuần, nhức đầu, phù mặt; Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp; Đau đầu, đo huyết áp ở nhà thấy cao; Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực) |
 | 11 | Burns | Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng |
-| 14 | Chest pain | Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Đau ngực trái đột ngột, khó thở ở người trẻ; ⚡ Đau ngực dữ dội — mỗi phút đều quý; Tức ngực khi leo cầu thang |
+| 14 | Chest pain | Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Đau ngực trái đột ngột, khó thở ở người trẻ; ⚡ Đau ngực dữ dội — mỗi phút đều quý; Tức ngực khi leo cầu thang; Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng |
 | 15 | Coagulation abnormalities | Chảy máu mũi 40 phút không cầm; Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng; Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu; Khách mua ibuprofen cho bố đang dùng warfarin |
 | 16 | Constipation | Mệt, tăng cân, sợ lạnh, táo bón |
 | 18 | Cough | Bé 4 tuổi ho, sốt, thở nhanh; Khó thở, khò khè, khạc đờm vàng; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Bé 7 tuổi khò khè, ho đêm, thở mệt; Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm |
@@ -40,6 +40,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 50 | Joint pain | Ngã xe máy, đau cổ tay phải; Cụ bà ngã, đau háng phải, không đứng được; Nghe tiếng "rắc" ở gối khi xoay người, gối sưng |
 | 52 | Abnormal liver function tests | Vàng da, mệt, nước tiểu sẫm màu |
 | 58 | Mental status, altered | Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp; Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã; Con gái kiệt sức khi chăm mẹ sa sút trí tuệ |
+| 59 | Mood disorders | Buồn chán, mất hứng thú, mất ngủ 6 tuần nay; Sinh viên 22 tuổi nói "không muốn sống nữa", bạn cùng phòng đưa đến khám |
 | 60 | Mouth problems | Sưng má trái, đau răng hàm dưới; Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ; Răng khôn mọc lệch, sưng lợi, khó há miệng; Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn |
 | 61 | Movement disorders, involuntary/tic disorders | Run tay phải khi nghỉ, đi chậm, cứng người |
 | 63 | Neck mass/goiter/thyroid disease | Hồi hộp, sụt cân dù ăn nhiều, run tay; Mệt, tăng cân, sợ lạnh, táo bón |
@@ -47,6 +48,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 66 | Numbness/tingling/altered sensation | Đau lưng lan xuống chân phải |
 | 67 | Pain | Sưng má trái, đau răng hàm dưới; Mụn nước thành dải ở ngực trái, đau rát; Đau lưng lan xuống chân phải |
 | 68 | Palpitations (arrhythmia) | Hồi hộp, sụt cân dù ăn nhiều, run tay; Tim đập nhanh không đều, chóng mặt |
+| 69 | Anxiety | Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng |
 | 71 | Pediatric emergencies – acutely ill infant/child | Bé 4 tuổi ho, sốt, thở nhanh; Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc; Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ; Bé 18 tháng co giật khi sốt cao; ⚡ Bé 9 tháng sốt cao, li bì; Con 9 tháng sốt cao, bỏ bú |
 | 73 | Pelvic pain | Trễ kinh 7 tuần, đau bụng dưới phải, ra máu |
 | 74 | Periodic health examination | Tư vấn ăn dặm cho bé 6 tháng tuổi; Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực) |
@@ -54,11 +56,14 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 78 | Population health and its determinants | Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới; Người bệnh sau đột quỵ sống một mình, lo viện phí; Điều tra chùm ca sốt xuất huyết trong khu dân cư; Ca sởi ở trường tiểu học — truy vết tiếp xúc |
 | 80 | Pregnancy | Thai 32 tuần, nhức đầu, phù mặt; Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều; Thai 26 tuần, nghiệm pháp đường huyết cao; Sản phụ con so chuyển dạ, nước ối xanh; Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng; Phụ nữ mang thai 30 tuần mua thuốc đau đầu |
 | 81 | Pregnancy loss | Trễ kinh 7 tuần, đau bụng dưới phải, ra máu |
+| 86 | Psychosis | Thanh niên 20 tuổi nghe tiếng nói trong đầu, nghi hàng xóm theo dõi, mất ngủ 3 tuần |
 | 92 | Seizures (epilepsy) | Bé 18 tháng co giật khi sốt cao |
 | 95 | Skin tumours and ulcers | Nốt ruồi to lên, đổi màu, bờ nham nhở |
 | 96 | Skin rash, macules | Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ; Ca sởi ở trường tiểu học — truy vết tiếp xúc |
 | 97 | Skin rash, papules | Mụn nước thành dải ở ngực trái, đau rát; Cẳng chân sưng đỏ, nóng, sốt |
 | 100 | Sore throat and/or rhinorrhea | Đau họng dữ dội một bên, khó nuốt, khít hàm; Khách xin mua kháng sinh không đơn cho cảm lạnh |
+| 103 | Substance-related or addictive | Uống rượu nhiều năm, bỏ rượu từ hôm qua, nay run tay, vã mồ hôi, bồn chồn |
+| 105 | Suicidal behaviour | Sinh viên 22 tuổi nói "không muốn sống nữa", bạn cùng phòng đưa đến khám |
 | 107 | Temperature abnormal/fever and/or chills | Bé 4 tuổi ho, sốt, thở nhanh; Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp; Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ; Cẳng chân sưng đỏ, nóng, sốt; Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt; Bé 18 tháng co giật khi sốt cao; Sốt rét run, đau hông lưng phải, tiểu buốt; Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm; ⚡ Bé 9 tháng sốt cao, li bì; Con 9 tháng sốt cao, bỏ bú; Điều tra chùm ca sốt xuất huyết trong khu dân cư |
 | 109 | Trauma/accidents | Ngã xe máy, đau cổ tay phải; Cụ bà ngã, đau háng phải, không đứng được; Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn |
 | 110 | Urinary frequency | Khát nước, tiểu nhiều, sụt cân; Sốt rét run, đau hông lưng phải, tiểu buốt |
@@ -98,10 +103,8 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 54 | Lymphadenopathy |
 | 56 | Menstrual cycle, abnormal |
 | 57 | Menopause |
-| 59 | Mood disorders |
 | 62 | Abnormal heart sounds and murmur |
 | 64 | Neonatal distress |
-| 69 | Anxiety |
 | 70 | Pap smear screening |
 | 72 | Pelvic mass |
 | 75 | Personality disorders |
@@ -111,7 +114,6 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 83 | Prolapse/pelvic relaxation |
 | 84 | Proteinuria |
 | 85 | Pruritus |
-| 86 | Psychosis |
 | 89 | Kidney injury |
 | 90 | Scrotal mass |
 | 91 | Scrotal pain |
@@ -121,9 +123,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 99 | Sodium concentration abnormal |
 | 101 | Stature abnormal |
 | 102 | Strabismus and/or amblyopia |
-| 103 | Substance-related or addictive |
 | 104 | SIDS/ALTE |
-| 105 | Suicidal behaviour |
 | 106 | Syncope and pre-syncope |
 | 108 | Tinnitus |
 | 113 | Vaginal discharge/vulvar pruritus |

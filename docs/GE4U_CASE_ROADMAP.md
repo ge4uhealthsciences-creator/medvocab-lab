@@ -21,7 +21,7 @@ Bản đồ hiện trạng: `docs/GE4U_MCC_CURRICULUM_MAP.md` và `data/curricul
 ## Thứ tự (MCC presentation → ca dự kiến)
 | Ngày | Nhóm | Ca dự kiến (MCC #) | Trạng thái |
 |---|---|---|---|
-| 1 | Tâm thần | Trầm cảm (59) · Rối loạn lo âu / cơn hoảng sợ (69) · Ý tưởng tự sát – đánh giá nguy cơ (105) · Loạn thần cấp (86) · Cai rượu (103) | todo |
+| 1 | Tâm thần | Trầm cảm (59) · Rối loạn lo âu / cơn hoảng sợ (69) · Ý tưởng tự sát – đánh giá nguy cơ (105) · Loạn thần cấp (86) · Cai rượu (103) | done |
 | 2 | Sản phụ khoa | Tư vấn tránh thai (17) · Rong kinh (56) · Dọa sinh non (82) · Khí hư – viêm âm đạo (113) · Mãn kinh (57) | todo |
 | 3 | Thận – điện giải | Tổn thương thận cấp (89) · Hạ natri máu (99) · Tăng kali máu (79) · Protein niệu / hội chứng thận hư (84) · Tăng canxi máu (12) | todo |
 | 4 | Tim mạch – hô hấp | Ngừng tim – hồi sinh tim phổi (13) · Ngất (106) · Tiếng thổi tim (62) · Ho ra máu (7) · Tràn dịch màng phổi (76) | todo |
