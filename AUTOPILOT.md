@@ -6,10 +6,10 @@ Chủ sở hữu (owner) cho phép Claude **tự chạy mọi việc cần thi�
 1. **Lịch đăng**
    - Hẹn giờ video TikTok trên TikTok Studio qua Claude in Chrome. Gồm: tải video, dán caption từ plan, chọn giờ, gắn nhãn "Nội dung do AI tạo"; với bài CTA thì gắn thêm "Thương hiệu của bạn". Sau đó ghi id vào `marketing/tiktok-studio-scheduled.json`.
    - Chạy lại (dispatch) các workflow `social-post.yml`, `social-video.yml`, `deploy.yml` khi một lượt chạy bị lỗi hoặc thiếu release của ngày.
-   - Dùng Metricool chỉ làm dự phòng cho TikTok. Bản trùng thì chuyển thành nháp, không xoá.
+   - Không dùng Metricool (owner ngắt hoàn toàn từ 05/11/2026). TikTok chỉ qua TikTok Studio.
 2. **Theo dõi & Hub**
    - Cập nhật tab `LiveSnapshot` trong sheet đơn hàng bằng `status/today.csv` (nhánh `status`) để Hub luôn đúng.
-   - Đọc số liệu Metricool và GitHub để báo cáo.
+   - Đọc số liệu GitHub (`status/today.csv`, posted.json) để báo cáo.
 3. **Nội dung**
    - Sửa caption hoặc kế hoạch của ngày chưa đăng khi có lỗi rõ ràng: quá giới hạn ký tự, sai hashtag, trùng từ.
    - Tạo bản nháp bộ học liệu và mẫu Canva theo các tác vụ đã có.
@@ -26,7 +26,7 @@ Chủ sở hữu (owner) cho phép Claude **tự chạy mọi việc cần thi�
 - Xác nhận đơn đã thanh toán hoặc gửi tài liệu trả phí. Đơn chỉ là yêu cầu: owner phải kiểm tra ngân hàng trước.
 - Đọc hoặc báo cáo tên, liên hệ của khách. Từ sheet Orders chỉ đọc orderId, createdAt, productId, productName, amountVnd.
 - Nhập mật khẩu, đăng nhập thay owner, tạo tài khoản, hoặc đổi quyền, cài đặt tài khoản hay bảo mật.
-- Xoá bài đã đăng, xoá bài Metricool, xoá file hoặc dữ liệu của owner.
+- Xoá bài đã đăng, xoá file hoặc dữ liệu của owner.
 - Đưa token hay khoá vào chat hoặc vào repo. Token chỉ nằm trong GitHub Secrets.
 - Đưa nội dung bộ học liệu trả phí vào repo công khai.
 - Nhắn tin, trả lời bình luận hay gửi email thay owner.
@@ -41,7 +41,6 @@ Chủ sở hữu (owner) cho phép Claude **tự chạy mọi việc cần thi�
 ## 4. Lịch tự động (giờ Việt Nam)
 | Giờ | Việc |
 |---|---|
-| 05:01 | TikTok dự phòng qua Metricool (bỏ qua id đã có trên Studio) |
 | 06:50 | Báo cáo sáng |
 | 08:00–22:00, mỗi 20' | Tự đăng IG / FB / Threads / YouTube (GitHub Actions) |
 | 08:13, 20:13 | Bản nháp bộ học liệu |
