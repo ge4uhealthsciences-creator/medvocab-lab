@@ -431,6 +431,23 @@
   ],
   "Con gái kiệt sức khi chăm mẹ sa sút trí tuệ": [
    58
+  ],
+  "Buồn chán, mất hứng thú, mất ngủ 6 tuần nay": [
+   59
+  ],
+  "Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng": [
+   69,
+   14
+  ],
+  "Sinh viên 22 tuổi nói \"không muốn sống nữa\", bạn cùng phòng đưa đến khám": [
+   105,
+   59
+  ],
+  "Thanh niên 20 tuổi nghe tiếng nói trong đầu, nghi hàng xóm theo dõi, mất ngủ 3 tuần": [
+   86
+  ],
+  "Uống rượu nhiều năm, bỏ rượu từ hôm qua, nay run tay, vã mồ hôi, bồn chồn": [
+   103
   ]
  },
  "covered": {
@@ -469,7 +486,8 @@
    "Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu",
    "Đau ngực trái đột ngột, khó thở ở người trẻ",
    "⚡ Đau ngực dữ dội — mỗi phút đều quý",
-   "Tức ngực khi leo cầu thang"
+   "Tức ngực khi leo cầu thang",
+   "Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng"
   ],
   "15": [
    "Chảy máu mũi 40 phút không cầm",
@@ -573,6 +591,10 @@
    "Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã",
    "Con gái kiệt sức khi chăm mẹ sa sút trí tuệ"
   ],
+  "59": [
+   "Buồn chán, mất hứng thú, mất ngủ 6 tuần nay",
+   "Sinh viên 22 tuổi nói \"không muốn sống nữa\", bạn cùng phòng đưa đến khám"
+  ],
   "60": [
    "Sưng má trái, đau răng hàm dưới",
    "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
@@ -600,6 +622,9 @@
   "68": [
    "Hồi hộp, sụt cân dù ăn nhiều, run tay",
    "Tim đập nhanh không đều, chóng mặt"
+  ],
+  "69": [
+   "Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng"
   ],
   "71": [
    "Bé 4 tuổi ho, sốt, thở nhanh",
@@ -636,6 +661,9 @@
   "81": [
    "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu"
   ],
+  "86": [
+   "Thanh niên 20 tuổi nghe tiếng nói trong đầu, nghi hàng xóm theo dõi, mất ngủ 3 tuần"
+  ],
   "92": [
    "Bé 18 tháng co giật khi sốt cao"
   ],
@@ -653,6 +681,12 @@
   "100": [
    "Đau họng dữ dội một bên, khó nuốt, khít hàm",
    "Khách xin mua kháng sinh không đơn cho cảm lạnh"
+  ],
+  "103": [
+   "Uống rượu nhiều năm, bỏ rượu từ hôm qua, nay run tay, vã mồ hôi, bồn chồn"
+  ],
+  "105": [
+   "Sinh viên 22 tuổi nói \"không muốn sống nữa\", bạn cùng phòng đưa đến khám"
   ],
   "107": [
    "Bé 4 tuổi ho, sốt, thở nhanh",
@@ -738,10 +772,8 @@
   "54": "Lymphadenopathy",
   "56": "Menstrual cycle, abnormal",
   "57": "Menopause",
-  "59": "Mood disorders",
   "62": "Abnormal heart sounds and murmur",
   "64": "Neonatal distress",
-  "69": "Anxiety",
   "70": "Pap smear screening",
   "72": "Pelvic mass",
   "75": "Personality disorders",
@@ -751,7 +783,6 @@
   "83": "Prolapse/pelvic relaxation",
   "84": "Proteinuria",
   "85": "Pruritus",
-  "86": "Psychosis",
   "89": "Kidney injury",
   "90": "Scrotal mass",
   "91": "Scrotal pain",
@@ -761,9 +792,7 @@
   "99": "Sodium concentration abnormal",
   "101": "Stature abnormal",
   "102": "Strabismus and/or amblyopia",
-  "103": "Substance-related or addictive",
   "104": "SIDS/ALTE",
-  "105": "Suicidal behaviour",
   "106": "Syncope and pre-syncope",
   "108": "Tinnitus",
   "113": "Vaginal discharge/vulvar pruritus",
