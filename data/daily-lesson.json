@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-05",
-  "channel_id": "midwifery",
-  "discipline": "Midwifery English",
-  "topic": "Hộ sinh · Midwifery English",
-  "title": "GE4u Daily Practice: Midwifery English",
-  "objective": "Review three core terms and practise one knowledge check in Midwifery English.",
+  "date": "2026-11-06",
+  "channel_id": "social-work",
+  "discipline": "Healthcare Social Work",
+  "topic": "Công tác xã hội · Healthcare Social Work",
+  "title": "GE4u Daily Practice: Healthcare Social Work",
+  "objective": "Review three core terms and practise one knowledge check in Healthcare Social Work.",
   "vocabulary": [
     {
-      "term": "antenatal care",
-      "ipa": "/ˌæntiˈneɪtəl keə/",
-      "meaning": "chăm sóc trước sinh",
-      "definition": "Healthcare provided during pregnancy.",
-      "example": "Antenatal care supports maternal health."
+      "term": "case management",
+      "ipa": "/ˈkeɪs ˌmænɪdʒmənt/",
+      "meaning": "quản lý ca",
+      "definition": "Coordination of services around a person's needs.",
+      "example": "Case management coordinated support."
     },
     {
-      "term": "labour",
-      "ipa": "/ˈleɪbə/",
-      "meaning": "chuyển dạ",
-      "definition": "The process leading to childbirth.",
-      "example": "The midwife assessed labour."
+      "term": "needs assessment",
+      "ipa": "/niːdz əˈsesmənt/",
+      "meaning": "đánh giá nhu cầu",
+      "definition": "A process to identify needs and resources.",
+      "example": "The social worker completed a needs assessment."
     },
     {
-      "term": "contraction",
-      "ipa": "/kənˈtrækʃən/",
-      "meaning": "cơn co tử cung",
-      "definition": "Tightening of uterine muscle, especially during labour.",
-      "example": "The patient described the contractions."
+      "term": "confidentiality",
+      "ipa": "/ˌkɒnfɪdenʃiˈæləti/",
+      "meaning": "tính bảo mật",
+      "definition": "Protection of private information under applicable rules.",
+      "example": "Confidentiality matters in client discussions."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Healthcare provided during pregnancy.",
+    "question": "Which term is defined as: Coordination of services around a person's needs.",
     "options": [
-      "antenatal care",
-      "labour",
-      "contraction"
+      "case management",
+      "needs assessment",
+      "confidentiality"
     ],
-    "answer": "antenatal care",
-    "explanation": "antenatal care means Healthcare provided during pregnancy."
+    "answer": "case management",
+    "explanation": "case management means Coordination of services around a person's needs."
   },
   "source_mode": "curated-channel-data"
 }
