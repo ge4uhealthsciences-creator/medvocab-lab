@@ -1,7 +1,7 @@
 date,time,platform,kind,title,status,detail,post_id,views
 2026-11-05,08:10,TikTok,Video,tablet — Pharmacy English,posted,TikTok Studio,,
 2026-11-05,08:50,YouTube,Short,placebo effect — Psychology English,skipped,vượt hạn mức 6 Short/ngày (quota YouTube API),
-2026-11-05,09:10,TikTok,Video,discharge — Nursing English,pending,đã hẹn giờ trên TikTok Studio,,
+2026-11-05,09:10,TikTok,Video,discharge — Nursing English,posted,TikTok Studio,,
 2026-11-05,09:50,YouTube,Short,vitamin — Nutrition English,skipped,vượt hạn mức 6 Short/ngày (quota YouTube API),
 2026-11-05,10:10,TikTok,Video,dilation — Midwifery English,pending,đã hẹn giờ trên TikTok Studio,,
 2026-11-05,10:50,YouTube,Short,oral examination — Dental English,pending,,,
@@ -51,4 +51,4 @@ date,time,platform,kind,title,status,detail,post_id,views
 2026-11-06,19:30,Instagram,Reel,cohort study — Public Health English,planned,,
 2026-11-06,20:10,TikTok,Video,Medical English,planned,chưa hẹn giờ trên TikTok Studio,
 2026-11-06,20:15,Threads,Bài viết,• expiry date /ɪkˈspaɪəri deɪt/ = hạn sử dụng,planned,,
-_updated,2026-11-05 08:54,,,,,,,
+_updated,2026-11-05 09:50,,,,,,,
