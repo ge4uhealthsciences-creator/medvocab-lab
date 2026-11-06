@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-06",
-  "channel_id": "social-work",
-  "discipline": "Healthcare Social Work",
-  "topic": "Công tác xã hội · Healthcare Social Work",
-  "title": "GE4u Daily Practice: Healthcare Social Work",
-  "objective": "Review three core terms and practise one knowledge check in Healthcare Social Work.",
+  "date": "2026-11-07",
+  "channel_id": "pharmaceutical-chemistry",
+  "discipline": "Pharmaceutical Chemistry",
+  "topic": "Hóa dược · Pharmaceutical Chemistry",
+  "title": "GE4u Daily Practice: Pharmaceutical Chemistry",
+  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Chemistry.",
   "vocabulary": [
     {
-      "term": "case management",
-      "ipa": "/ˈkeɪs ˌmænɪdʒmənt/",
-      "meaning": "quản lý ca",
-      "definition": "Coordination of services around a person's needs.",
-      "example": "Case management coordinated support."
+      "term": "molecular structure",
+      "ipa": "/məˈlekjələ ˈstrʌktʃə/",
+      "meaning": "cấu trúc phân tử",
+      "definition": "Arrangement of atoms in a molecule.",
+      "example": "The molecular structure was examined."
     },
     {
-      "term": "needs assessment",
-      "ipa": "/niːdz əˈsesmənt/",
-      "meaning": "đánh giá nhu cầu",
-      "definition": "A process to identify needs and resources.",
-      "example": "The social worker completed a needs assessment."
+      "term": "active pharmaceutical ingredient",
+      "ipa": "/ˈæktɪv ˌfɑːməˈsuːtɪkəl ɪnˈɡriːdiənt/",
+      "meaning": "dược chất",
+      "definition": "Substance responsible for intended pharmacological activity.",
+      "example": "The active pharmaceutical ingredient was identified."
     },
     {
-      "term": "confidentiality",
-      "ipa": "/ˌkɒnfɪdenʃiˈæləti/",
-      "meaning": "tính bảo mật",
-      "definition": "Protection of private information under applicable rules.",
-      "example": "Confidentiality matters in client discussions."
+      "term": "solubility",
+      "ipa": "/ˌsɒljʊˈbɪləti/",
+      "meaning": "độ tan",
+      "definition": "Ability of a substance to dissolve in a solvent.",
+      "example": "Solubility affects formulation."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Coordination of services around a person's needs.",
+    "question": "Which term is defined as: Arrangement of atoms in a molecule.",
     "options": [
-      "case management",
-      "needs assessment",
-      "confidentiality"
+      "molecular structure",
+      "active pharmaceutical ingredient",
+      "solubility"
     ],
-    "answer": "case management",
-    "explanation": "case management means Coordination of services around a person's needs."
+    "answer": "molecular structure",
+    "explanation": "molecular structure means Arrangement of atoms in a molecule."
   },
   "source_mode": "curated-channel-data"
 }
