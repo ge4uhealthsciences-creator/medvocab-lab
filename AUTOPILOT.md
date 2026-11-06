@@ -6,7 +6,7 @@ Chủ sở hữu (owner) cho phép Claude **tự chạy mọi việc cần thi�
 1. **Lịch đăng**
    - Hẹn giờ video TikTok trên TikTok Studio qua Claude in Chrome. Gồm: tải video, dán caption từ plan, chọn giờ, gắn nhãn "Nội dung do AI tạo"; với bài CTA thì gắn thêm "Thương hiệu của bạn". Sau đó ghi id vào `marketing/tiktok-studio-scheduled.json`.
    - Chạy lại (dispatch) các workflow `social-post.yml`, `social-video.yml`, `deploy.yml` khi một lượt chạy bị lỗi hoặc thiếu release của ngày.
-   - Không dùng Metricool (owner ngắt hoàn toàn từ 05/11/2026). TikTok chỉ qua TikTok Studio.
+   - Không dùng Metricool (owner ngắt hoàn toàn từ 05/11/2026). TikTok tự đăng qua TikTok API trong `post.py` (GitHub Actions).
 2. **Theo dõi & Hub**
    - Cập nhật tab `LiveSnapshot` trong sheet đơn hàng bằng `status/today.csv` (nhánh `status`) để Hub luôn đúng.
    - Đọc số liệu GitHub (`status/today.csv`, posted.json) để báo cáo.

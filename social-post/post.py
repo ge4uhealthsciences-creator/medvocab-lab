@@ -236,6 +236,66 @@ def post_youtube(item, date, access, workdir):
         raise ApiError(f"YouTube upload -> {e.code}: {e.read().decode(errors='replace')[:400]}") from None
 
 
+# ---------------------------------------------------------------- TikTok (Content Posting API, Direct Post)
+TT = "https://open.tiktokapis.com/v2"
+TIKTOK_PRIVACY = os.environ.get("TIKTOK_PRIVACY", "SELF_ONLY")  # unaudited apps may only post SELF_ONLY
+
+
+def tiktok_access_token(key, secret, refresh):
+    r = http("POST", f"{TT}/oauth/token/", {"client_key": key, "client_secret": secret,
+                                            "grant_type": "refresh_token", "refresh_token": refresh},
+             headers={"Content-Type": "application/x-www-form-urlencoded"})
+    if "access_token" not in r:
+        raise ApiError(f"TikTok token refresh failed: {str(r)[:300]}")
+    if r.get("refresh_token") and r["refresh_token"] != refresh:
+        print("NOTE: TikTok issued a new refresh token; update secret TIKTOK_REFRESH_TOKEN before the old one expires")
+    return r["access_token"]
+
+
+def _tt(path, access, body):
+    r = http("POST", f"{TT}{path}", raw=json.dumps(body).encode(),
+             headers={"Authorization": f"Bearer {access}", "Content-Type": "application/json; charset=UTF-8"})
+    err = (r.get("error") or {})
+    if err.get("code") not in (None, "ok"):
+        raise ApiError(f"TikTok {path} -> {err.get('code')}: {err.get('message', '')[:300]}")
+    return r.get("data") or {}
+
+
+def post_tiktok(item, date, access, workdir):
+    info = _tt("/post/publish/creator_info/query/", access, {})
+    opts = info.get("privacy_level_options") or []
+    privacy = TIKTOK_PRIVACY if TIKTOK_PRIVACY in opts or not opts else "SELF_ONLY"
+    f = workdir / item["file"]
+    if not f.exists():
+        download_asset(date, item["file"], workdir)
+    size = f.stat().st_size
+    if size > 64 * 1024 * 1024:
+        raise ApiError("TikTok: video > 64 MB, chunked upload not implemented")
+    d = _tt("/post/publish/video/init/", access, {
+        "post_info": {"title": item["caption"][:2200], "privacy_level": privacy,
+                      "disable_duet": False, "disable_comment": False, "disable_stitch": False,
+                      "video_cover_timestamp_ms": 1000, "is_aigc": True,
+                      "brand_content_toggle": False, "brand_organic_toggle": bool(item.get("cta"))},
+        "source_info": {"source": "FILE_UPLOAD", "video_size": size, "chunk_size": size, "total_chunk_count": 1}})
+    put = urllib.request.Request(d["upload_url"], data=f.read_bytes(), method="PUT",
+                                 headers={"Content-Type": "video/mp4", "Content-Length": str(size),
+                                          "Content-Range": f"bytes 0-{size - 1}/{size}"})
+    try:
+        urllib.request.urlopen(put, timeout=600).read()
+    except urllib.error.HTTPError as e:
+        raise ApiError(f"TikTok upload -> {e.code}: {e.read().decode(errors='replace')[:300]}") from None
+    pid = d["publish_id"]
+    for _ in range(24):  # wait up to ~2 min for TikTok to process
+        time.sleep(5)
+        st = _tt("/post/publish/status/fetch/", access, {"publish_id": pid})
+        if st.get("status") == "PUBLISH_COMPLETE":
+            ids = st.get("publicaly_available_post_id") or st.get("publicly_available_post_id") or []
+            return str(ids[0]) if ids else pid
+        if st.get("status") == "FAILED":
+            raise ApiError(f"TikTok publish failed: {st.get('fail_reason', '?')}")
+    return pid  # still processing; TikTok finishes it on its side
+
+
 # ---------------------------------------------------------------- promo
 def promo_for(date):
     p = json.loads((ROOT / "marketing" / "promo-posts.json").read_text())
@@ -280,7 +340,8 @@ def main():
     fb = env("META_PAGE_TOKEN", "FB_PAGE_ID")
     th = env("THREADS_TOKEN", "THREADS_USER_ID")
     yt = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
-    print("Enabled:", ", ".join(k for k, v in [("instagram", ig), ("facebook", fb), ("threads", th), ("youtube", yt)] if v) or "none (no secrets set)")
+    tt = env("TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET", "TIKTOK_REFRESH_TOKEN")
+    print("Enabled:", ", ".join(k for k, v in [("instagram", ig), ("facebook", fb), ("threads", th), ("youtube", yt), ("tiktok", tt)] if v) or "none (no secrets set)")
     # connection check: read-only calls that prove each token works, without posting anything
     if th:
         try:
@@ -306,6 +367,12 @@ def main():
             print("Instagram connected as @" + u.get("username", "?"))
         except Exception as e:
             print("Instagram token check FAILED:", str(e)[:300])
+    if tt:
+        try:
+            ci = _tt("/post/publish/creator_info/query/", tiktok_access_token(*tt), {})
+            print("TikTok connected as @" + str(ci.get("creator_username", "?")), "| privacy:", TIKTOK_PRIVACY)
+        except Exception as e:
+            print("TikTok token check FAILED:", str(e)[:300])
 
     workdir = pathlib.Path(tempfile.mkdtemp())
     plan = load_plan(date.isoformat(), workdir)
@@ -328,6 +395,8 @@ def main():
                 jobs.append((f"facebook:{it['id']}", it["time"], "facebook", lambda it=it: post_facebook_reel(it, date.isoformat(), *fb)))
         elif it["platform"] == "youtube" and yt and want("youtube") and (YT_DAILY_MAX >= 12 or int(it["time"][:2]) in YT_HOURS):
             jobs.append((f"youtube:{it['id']}", it["time"], "youtube", lambda it=it: post_youtube(it, date.isoformat(), yt_tok(), workdir)))
+        elif it["platform"] == "tiktok" and tt and want("tiktok") and it["id"] not in _studio_ids():
+            jobs.append((f"tiktok:{it['id']}", it["time"], "tiktok", lambda it=it: post_tiktok(it, date.isoformat(), tt_tok(), workdir)))
     for t in plan.get("threads", []):
         if th and want("threads"):
             body = re.sub(r"\n*#\w+\s*$", "", t["text"]).rstrip()  # topic goes in topic_tag, keep text clean
@@ -350,6 +419,12 @@ def main():
             jobs.append((f"threads-post:{op['id']}", op["time"], "threads",
                          (lambda op=op, img=img: post_threads_image(op["threads"], img, op.get("topic", ""), *th)) if img
                          else (lambda op=op: post_threads(op["threads"], op.get("topic", ""), *th))))
+
+    _tt_tok = {}
+    def tt_tok():
+        if "t" not in _tt_tok:
+            _tt_tok["t"] = tiktok_access_token(*tt)
+        return _tt_tok["t"]
 
     _yt = {}
     def yt_tok():
@@ -496,7 +571,7 @@ def status_rows(date, now, plan, jobs, done, pr):
         title = titles.get(ident) or (one_titles.get(ident)) or ("Bài quảng bá có ảnh" if kind == "facebook-promo" else "Bài quảng bá" if kind == "threads-promo" else ident)
         kind_vi = {"facebook-post": "Bài ảnh", "instagram-post": "Bài ảnh", "threads-post": "Bài ảnh",
                    "facebook": "Reel", "facebook-promo": "Ảnh quảng bá", "threads-promo": "Quảng bá", "instagram": "Reel",
-                   "youtube": "Short", "threads": "Bài viết"}.get(kind, kind)
+                   "youtube": "Short", "threads": "Bài viết", "tiktok": "Video"}.get(kind, kind)
         rows.append([date.isoformat(), tm, NET_VI.get(net, net), kind_vi, title, st, detail, rec.get("id", ""), views.get(key, "")])
     # YouTube Shorts left out by the daily API quota still show, so the Hub can count all 12 disciplines.
     keys = {j[0] for j in jobs}
@@ -508,7 +583,7 @@ def status_rows(date, now, plan, jobs, done, pr):
     studio = _studio_ids()
     tk_views = tiktok_views()
     for it in plan["items"]:
-        if it["platform"] != "tiktok":
+        if it["platform"] != "tiktok" or f"tiktok:{it['id']}" in keys:
             continue
         t = dt.datetime.combine(date, dt.time.fromisoformat(it["time"]), VN)
         if it["id"] in studio:
@@ -541,7 +616,8 @@ def planned_rows(date, plan):
                          f"vượt hạn mức {YT_DAILY_MAX} Short/ngày (quota YouTube API)" if capped else "", ""])
         elif it["platform"] == "tiktok":
             rows.append([d, tm, "TikTok", "Video", title, "planned",
-                         "đã hẹn giờ trên TikTok Studio" if it["id"] in studio else "chưa hẹn giờ trên TikTok Studio", ""])
+                         "đã hẹn giờ trên TikTok Studio" if it["id"] in studio else
+                         ("tự đăng qua TikTok API" if os.environ.get("TIKTOK_REFRESH_TOKEN") else "chưa có token TikTok API"), ""])
     for t in plan.get("threads", []):
         rows.append([date.isoformat(), t["time"], "Threads", "Bài viết", (t["text"].split("\n")[0])[:90], "planned", "", ""])
     rows.sort(key=lambda r: (r[1], r[2]))
