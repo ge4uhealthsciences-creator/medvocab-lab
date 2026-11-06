@@ -2,7 +2,7 @@ name: Social video render
 # Separate from the daily-lesson/Pages workflow: a failure here never blocks lessons or the website.
 on:
   schedule:
-    # 14:30 UTC = 21:30 Asia/Ho_Chi_Minh: renders TOMORROW's 36 videos the evening before
+    # 14:30 UTC = 21:30 Asia/Ho_Chi_Minh: renders TOMORROW's videos (count = SLOTS in ge4u_video.py) the evening before
     - cron: '30 14 * * *'
   workflow_dispatch:
     inputs:
@@ -42,7 +42,7 @@ jobs:
           if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date -d tomorrow +%F); fi
           echo "date=$D" >> "$GITHUB_OUTPUT"
           python social-video/ge4u_video.py plan --date "$D" --out "out/$D"
-      - name: Render 36 videos
+      - name: Render videos
         run: |
           export GE4U_TTS_DIR="$HOME/ge4u-tts"
           python social-video/ge4u_video.py render --plan "out/${{ steps.plan.outputs.date }}/plan.json"
@@ -55,8 +55,12 @@ jobs:
           d = sys.argv[1]; base = pathlib.Path("out") / d
           plan = json.loads((base / "plan.json").read_text())
           n = len(plan["items"])
-          assert n == 12, f"expected 12 items, got {n}"
-          for pf, want in (("tiktok", 3), ("instagram", 3), ("youtube", 6)):
+          # expected counts come from SLOTS in ge4u_video.py, so changing the daily volume never breaks this check
+          sys.path.insert(0, "social-video"); from ge4u_video import SLOTS
+          want_total = sum(len(v) for v in SLOTS.values())
+          assert n == want_total, f"expected {want_total} items, got {n}"
+          for pf, slots in SLOTS.items():
+              want = len(slots)
               assert sum(i["platform"] == pf for i in plan["items"]) == want, f"{pf}: expected {want} items"
           assert len({i["id"] for i in plan["items"]}) == n, "duplicate item ids"
           for t in plan.get("threads", []):
