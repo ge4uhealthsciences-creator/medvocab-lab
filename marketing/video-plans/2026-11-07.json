@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-07",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 4,
+  "items": [
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mẹ bé Bin (Ms. Huong) · Nhi",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 26,
+        "dept": "ped",
+        "er": false,
+        "cc": "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ",
+        "who": "Mẹ bé Bin (Ms. Huong)",
+        "vit": {
+          "hr": 135,
+          "bp": "95/60",
+          "sp": 98,
+          "t": 39.5
+        },
+        "says": "My son has had a high fever for two days, sores in his mouth, and spots on his hands and feet.",
+        "options": [
+          {
+            "en": "Your son has hand, foot and mouth disease. Because of the high fever for two days, the vomiting and the startle in his sleep, it's grade 2a, so he needs to stay in hospital.",
+            "ok": true,
+            "vi": "Bệnh tay chân miệng độ 2a",
+            "why": ""
+          },
+          {
+            "en": "It's grade 1. He can go home.",
+            "ok": false,
+            "vi": "Tay chân miệng độ 1",
+            "why": "Sốt ≥ 39°C/sốt > 2 ngày, nôn nhiều, giật mình < 2 lần/30 phút → độ 2a, không còn độ 1."
+          },
+          {
+            "en": "It's chickenpox.",
+            "ok": false,
+            "vi": "Thủy đậu",
+            "why": "Loét miệng + phỏng nước lòng bàn tay, bàn chân, mông là đặc trưng của tay chân miệng."
+          }
+        ],
+        "src": [
+          "https://tamanhhospital.vn/tre-bi-tay-chan-mieng-khi-nao-can-nhap-vien/"
+        ],
+        "answer": "A",
+        "dept_vi": "Nhi"
+      },
+      "title": "Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ: bạn chẩn đoá",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mẹ bé Bin (Ms. Huong) vào khoa Nhi: \"My son has had a high fever for two days, sores in his mouth, and spots on his hands and feet.\"\n(Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Bệnh tay chân miệng độ 2a\nB) Tay chân miệng độ 1\nC) Thủy đậu\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-07-youtube-00-medical",
+      "date": "2026-11-07",
+      "file": "2026-11-07-youtube-00-medical.mp4",
+      "duration_s": 33.8
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Tien, 45 · Cấp cứu",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 25,
+        "dept": "er",
+        "er": true,
+        "cc": "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu",
+        "who": "Mr. Tien, 45",
+        "vit": {
+          "hr": 104,
+          "bp": "125/80",
+          "sp": 98,
+          "t": 37
+        },
+        "says": "A green snake bit my foot while I was working in the garden. It's very swollen and still bleeding.",
+        "options": [
+          {
+            "en": "It's an infected wound.",
+            "ok": false,
+            "vi": "Nhiễm trùng vết thương",
+            "why": "Mới 2 giờ; biểu hiện là rối loạn đông máu do nọc rắn lục."
+          },
+          {
+            "en": "You've been bitten by a venomous green pit viper. The venom is stopping your blood from clotting.",
+            "ok": true,
+            "vi": "Rắn lục xanh cắn, có rối loạn đông máu",
+            "why": ""
+          },
+          {
+            "en": "It's a dry bite with no venom.",
+            "ok": false,
+            "vi": "Cắn khô, không nhiễm độc",
+            "why": "Sưng lan nhanh, chảy máu không cầm và đông máu 20 phút dương tính → có nhiễm độc."
+          }
+        ],
+        "src": [
+          "https://kcb.vn/upload/2005611/20210723//Hướng-dẫn-chẩn-đoán-và-điều-trị-Rắn-lục-xanh-đuôi-đỏ.pdf",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8186896/"
+        ],
+        "answer": "B",
+        "dept_vi": "Cấp cứu"
+      },
+      "title": "Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu: bạn chẩn đoán gì? (Medical English",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Tien, 45 vào khoa Cấp cứu: \"A green snake bit my foot while I was working in the garden. It's very swollen and still bleeding.\"\n(Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Nhiễm trùng vết thương\nB) Rắn lục xanh cắn, có rối loạn đông máu\nC) Cắn khô, không nhiễm độc\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-07-instagram-00-medical",
+      "date": "2026-11-07",
+      "file": "2026-11-07-instagram-00-medical.mp4",
+      "duration_s": 28.7
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Tam, 76 · Cấp cứu",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 24,
+        "dept": "er",
+        "er": true,
+        "cc": "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+        "who": "Mr. Tam, 76",
+        "vit": {
+          "hr": 122,
+          "bp": "82/48",
+          "sp": 93,
+          "t": 39.2
+        },
+        "says": "(Daughter) My father has had a high fever since yesterday, and today he's very drowsy and confused.",
+        "options": [
+          {
+            "en": "He's just dehydrated from the fever.",
+            "ok": false,
+            "vi": "Mất nước đơn thuần",
+            "why": "Tụt huyết áp + lactat 4,6 + lơ mơ + nguồn nhiễm khuẩn → sốc nhiễm khuẩn, không chỉ là mất nước."
+          },
+          {
+            "en": "He's had a stroke.",
+            "ok": false,
+            "vi": "Đột quỵ",
+            "why": "Không có dấu thần kinh khu trú; lú lẫn kèm sốt và tụt huyết áp do nhiễm khuẩn."
+          },
+          {
+            "en": "Your father has a severe infection that started in his urine and has spread to his blood. His blood pressure is dangerously low. This is called septic shock.",
+            "ok": true,
+            "vi": "Sốc nhiễm khuẩn, nguồn nhiễm khuẩn tiết niệu",
+            "why": ""
+          }
+        ],
+        "src": [
+          "https://openaccess.sgul.ac.uk/id/eprint/109902/3/Figure%201.%20%20Hour-1%20Surviving%20Sepsis%20Campaign%20Bundle%20of%20Care%20Revised%2025%20Jan.pdf",
+          "https://www.vinmec.com/vie/bai-viet/phac-do-dieu-tri-va-chan-doan-soc-nhiem-trung-vi"
+        ],
+        "answer": "C",
+        "dept_vi": "Cấp cứu"
+      },
+      "title": "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Tam, 76 vào khoa Cấp cứu: \"(Daughter) My father has had a high fever since yesterday, and today he's very drowsy and confused.\"\n(Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Mất nước đơn thuần\nB) Đột quỵ\nC) Sốc nhiễm khuẩn, nguồn nhiễm khuẩn tiết niệu\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-07-tiktok-00-medical",
+      "date": "2026-11-07",
+      "file": "2026-11-07-tiktok-00-medical.mp4",
+      "duration_s": 32.87
+    }
+  ],
+  "threads": []
+}
