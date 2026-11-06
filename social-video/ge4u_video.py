@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """GE4u daily short-video pipeline (views & reach phase).
 
-Builds 12 vertical videos per day (SLOTS): TikTok 3, Instagram/Facebook Reels 3, YouTube Shorts 6.
+Builds 3 vertical videos per day (SLOTS): TikTok 1, Instagram/Facebook Reels 1, YouTube Shorts 1
+(owner cut this to 1/platform/day on 6 Nov 2026 to conserve Claude usage; see AUTOPILOT.md).
 Half are ~30 s clinical case quizzes taken from the GE4u English Ward game (data/game/cases.json,
 refresh with `node scripts/export_game_cases.js`), half are word videos; disciplines rotate daily.
 
@@ -77,10 +78,9 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
 # Quality over volume (owner approved the marketing plan, 5 Nov 2026): 12 videos a day instead of 36.
 # TikTok, YouTube and Meta all reduce reach for mass-produced look-alike videos, so each platform gets a
 # few slots, half of them a longer clinical "case" quiz drawn from the English Ward game.
-SLOTS = {"tiktok": [("12:10", "case"), ("18:10", "pronounce"), ("20:10", "case")],
-         "instagram": [("11:30", "quiz"), ("17:30", "case"), ("19:30", "quiz")],
-         "youtube": [("10:50", "case"), ("12:50", "three_terms"), ("14:50", "case"),
-                     ("15:50", "quiz"), ("16:50", "case"), ("17:50", "pronounce")]}
+SLOTS = {"tiktok": [("18:10", "case")],
+         "instagram": [("17:30", "case")],
+         "youtube": [("14:50", "case")]}
 CASE_DISC = {"dent": "dentistry", "ob": "midwifery"}  # every other department is shown as Medical English
 DEPT_VI = {"er": "Cấp cứu", "card": "Tim mạch", "ped": "Nhi", "dent": "Răng Hàm Mặt", "eye": "Mắt", "derm": "Da liễu",
            "ortho": "Chấn thương chỉnh hình", "ent": "Tai Mũi Họng", "im": "Nội", "ob": "Sản", "neuro": "Thần kinh",
