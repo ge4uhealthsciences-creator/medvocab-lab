@@ -241,14 +241,55 @@ TT = "https://open.tiktokapis.com/v2"
 TIKTOK_PRIVACY = os.environ.get("TIKTOK_PRIVACY", "SELF_ONLY")  # unaudited apps may only post SELF_ONLY
 
 
+TT_REDIRECT = os.environ.get("TIKTOK_REDIRECT_URI", "https://ge4u.trungminhle.com/")
+TT_TOKEN_FILE = "tiktok/refresh.enc"  # refresh token, AES-256 encrypted with TIKTOK_CLIENT_SECRET, on branch status
+
+
+def _crypt(text, secret, decrypt=False):
+    args = ["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-iter", "200000", "-a", "-A", "-pass", "env:TT_KEY"] + (["-d"] if decrypt else [])
+    r = subprocess.run(args, input=text, capture_output=True, text=True, env={**os.environ, "TT_KEY": secret})
+    if r.returncode:
+        raise ApiError("TikTok token (de)crypt failed: " + r.stderr[:200])
+    return r.stdout.strip()
+
+
+def tiktok_refresh_token(secret):
+    if os.environ.get("TIKTOK_REFRESH_TOKEN", "").strip():
+        return os.environ["TIKTOK_REFRESH_TOKEN"].strip()
+    r = gh("api", f"repos/{REPO}/contents/{TT_TOKEN_FILE}?ref={STATUS_BRANCH}", "--jq", ".content", check=False)
+    if r.returncode or not r.stdout.strip():
+        return ""
+    import base64
+    return _crypt(base64.b64decode(r.stdout).decode(), secret, decrypt=True)
+
+
+def _save_tiktok_refresh(tok, secret):
+    _put_file(TT_TOKEN_FILE, _crypt(tok, secret) + "\n", "TikTok: update encrypted refresh token")
+
+
+def tiktok_exchange_code(key, secret, code):
+    """One-time: turn the ?code= from the TikTok login redirect into a stored refresh token."""
+    code = urllib.parse.unquote(code.strip())
+    r = http("POST", f"{TT}/oauth/token/", {"client_key": key, "client_secret": secret, "code": code,
+                                            "grant_type": "authorization_code", "redirect_uri": TT_REDIRECT},
+             headers={"Content-Type": "application/x-www-form-urlencoded"})
+    if "refresh_token" not in r:
+        raise ApiError(f"TikTok code exchange failed: {str(r)[:300]}")
+    _save_tiktok_refresh(r["refresh_token"], secret)
+    print("TikTok authorised, scopes:", r.get("scope"), "| refresh token stored encrypted on branch status")
+
+
 def tiktok_access_token(key, secret, refresh):
     r = http("POST", f"{TT}/oauth/token/", {"client_key": key, "client_secret": secret,
                                             "grant_type": "refresh_token", "refresh_token": refresh},
              headers={"Content-Type": "application/x-www-form-urlencoded"})
     if "access_token" not in r:
         raise ApiError(f"TikTok token refresh failed: {str(r)[:300]}")
-    if r.get("refresh_token") and r["refresh_token"] != refresh:
-        print("NOTE: TikTok issued a new refresh token; update secret TIKTOK_REFRESH_TOKEN before the old one expires")
+    if r.get("refresh_token") and r["refresh_token"] != refresh and not os.environ.get("TIKTOK_REFRESH_TOKEN"):
+        try:
+            _save_tiktok_refresh(r["refresh_token"], secret)
+        except Exception as e:
+            print("WARN: new TikTok refresh token not saved:", str(e)[:200])
     return r["access_token"]
 
 
@@ -326,6 +367,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--only", default="")
     ap.add_argument("--now", help="override current time HH:MM (testing)")
+    ap.add_argument("--tiktok-code", default="", help="one-time: code from the TikTok authorisation redirect")
     ap.add_argument("--retry-failed", action="store_true", help="forget earlier failed attempts (e.g. after renewing an expired token)")
     a = ap.parse_args()
     now = dt.datetime.now(VN)
@@ -340,7 +382,15 @@ def main():
     fb = env("META_PAGE_TOKEN", "FB_PAGE_ID")
     th = env("THREADS_TOKEN", "THREADS_USER_ID")
     yt = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
-    tt = env("TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET", "TIKTOK_REFRESH_TOKEN")
+    tt = env("TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET")
+    if tt and a.tiktok_code:
+        tiktok_exchange_code(*tt, a.tiktok_code); return
+    if tt:
+        try:
+            rt = tiktok_refresh_token(tt[1])
+        except Exception as e:
+            rt = ""; print("TikTok refresh token not readable:", str(e)[:200])
+        tt = (*tt, rt) if rt else None
     print("Enabled:", ", ".join(k for k, v in [("instagram", ig), ("facebook", fb), ("threads", th), ("youtube", yt), ("tiktok", tt)] if v) or "none (no secrets set)")
     # connection check: read-only calls that prove each token works, without posting anything
     if th:
@@ -617,7 +667,7 @@ def planned_rows(date, plan):
         elif it["platform"] == "tiktok":
             rows.append([d, tm, "TikTok", "Video", title, "planned",
                          "đã hẹn giờ trên TikTok Studio" if it["id"] in studio else
-                         ("tự đăng qua TikTok API" if os.environ.get("TIKTOK_REFRESH_TOKEN") else "chưa có token TikTok API"), ""])
+                         ("tự đăng qua TikTok API" if os.environ.get("TIKTOK_CLIENT_KEY") else "chưa có khoá TikTok API"), ""])
     for t in plan.get("threads", []):
         rows.append([date.isoformat(), t["time"], "Threads", "Bài viết", (t["text"].split("\n")[0])[:90], "planned", "", ""])
     rows.sort(key=lambda r: (r[1], r[2]))

@@ -27,6 +27,9 @@ on:
       late_limit_min:
         description: 'Post items up to this many minutes late (default 180)'
         required: false
+      tiktok_code:
+        description: 'One-time: the code= value from the TikTok authorisation redirect (connects TikTok, posts nothing)'
+        required: false
 permissions:
   contents: write
 concurrency:
@@ -55,7 +58,9 @@ jobs:
           TIKTOK_PRIVACY: ${{ vars.TIKTOK_PRIVACY || 'SELF_ONLY' }}
           YT_DAILY_MAX: ${{ vars.YT_DAILY_MAX || '6' }}
           LATE_LIMIT_MIN: ${{ github.event.inputs.late_limit_min || '180' }}
+          TIKTOK_CODE: ${{ github.event.inputs.tiktok_code }}
         run: |
+          if [ -n "$TIKTOK_CODE" ]; then python3 social-post/post.py --tiktok-code "$TIKTOK_CODE"; exit $?; fi
           ARGS=""
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
