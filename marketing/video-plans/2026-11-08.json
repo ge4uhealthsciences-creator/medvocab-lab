@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-08",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 5,
+  "items": [
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Long, 22 · Răng Hàm Mặt",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 32,
+        "dept": "dent",
+        "er": false,
+        "cc": "Răng khôn mọc lệch, sưng lợi, khó há miệng",
+        "who": "Mr. Long, 22",
+        "vit": {
+          "hr": 88,
+          "bp": "118/72",
+          "sp": 99,
+          "t": 37.9
+        },
+        "says": "The gum at the back on the lower right is swollen and sore, and I can't open my mouth fully.",
+        "options": [
+          {
+            "en": "You've broken your jaw.",
+            "ok": false,
+            "vi": "Gãy xương hàm",
+            "why": "Không có chấn thương."
+          },
+          {
+            "en": "It's tonsillitis.",
+            "ok": false,
+            "vi": "Viêm amidan",
+            "why": "Sưng khu trú quanh răng 48."
+          },
+          {
+            "en": "Your wisdom tooth is stuck, and the gum over it is infected. This is called pericoronitis.",
+            "ok": true,
+            "vi": "Viêm quanh thân răng khôn",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Răng Hàm Mặt"
+      },
+      "title": "Răng khôn mọc lệch, sưng lợi, khó há miệng: bạn chẩn đoán gì? (Dental English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Long, 22 vào khoa Răng Hàm Mặt: \"The gum at the back on the lower right is swollen and sore, and I can't open my mouth fully.\"\n(Răng khôn mọc lệch, sưng lợi, khó há miệng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Gãy xương hàm\nB) Viêm amidan\nC) Viêm quanh thân răng khôn\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#DentalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-08-youtube-00-dentistry",
+      "date": "2026-11-08",
+      "file": "2026-11-08-youtube-00-dentistry.mp4",
+      "duration_s": 28.57
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Bố bé Minh (Mr. Hai) · Nhi",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 31,
+        "dept": "ped",
+        "er": false,
+        "cc": "Bé 7 tuổi khò khè, ho đêm, thở mệt",
+        "who": "Bố bé Minh (Mr. Hai)",
+        "vit": {
+          "hr": 120,
+          "bp": "—",
+          "sp": 93,
+          "t": 37
+        },
+        "says": "My son is seven. He's been wheezing and coughing at night, and today he's out of breath.",
+        "options": [
+          {
+            "en": "He's having a moderate asthma attack.",
+            "ok": true,
+            "vi": "Cơn hen phế quản mức độ trung bình",
+            "why": ""
+          },
+          {
+            "en": "He has pneumonia.",
+            "ok": false,
+            "vi": "Viêm phổi",
+            "why": "Không sốt, khò khè lan tỏa, có yếu tố khởi phát."
+          },
+          {
+            "en": "He's swallowed something.",
+            "ok": false,
+            "vi": "Dị vật đường thở",
+            "why": "Ran rít hai bên, khởi phát sau tiếp xúc mèo."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Nhi"
+      },
+      "title": "Bé 7 tuổi khò khè, ho đêm, thở mệt: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Bố bé Minh (Mr. Hai) vào khoa Nhi: \"My son is seven. He's been wheezing and coughing at night, and today he's out of breath.\"\n(Bé 7 tuổi khò khè, ho đêm, thở mệt)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Cơn hen phế quản mức độ trung bình\nB) Viêm phổi\nC) Dị vật đường thở\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-08-instagram-00-medical",
+      "date": "2026-11-08",
+      "file": "2026-11-08-instagram-00-medical.mp4",
+      "duration_s": 24.83
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mrs. Kim, 66 · Tim mạch",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 30,
+        "dept": "card",
+        "er": false,
+        "cc": "Tim đập nhanh không đều, chóng mặt",
+        "who": "Mrs. Kim, 66",
+        "vit": {
+          "hr": 142,
+          "bp": "128/82",
+          "sp": 97,
+          "t": 36.6
+        },
+        "says": "My heart has been racing and fluttering since yesterday evening, and I feel a bit dizzy.",
+        "options": [
+          {
+            "en": "It's just anxiety.",
+            "ok": false,
+            "vi": "Lo âu",
+            "why": "ECG xác nhận rung nhĩ."
+          },
+          {
+            "en": "Your heart has an irregular rhythm called atrial fibrillation.",
+            "ok": true,
+            "vi": "Rung nhĩ",
+            "why": ""
+          },
+          {
+            "en": "You're having a heart attack.",
+            "ok": false,
+            "vi": "Nhồi máu cơ tim",
+            "why": "Không đau ngực, ECG không có ST chênh."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Tim mạch"
+      },
+      "title": "Tim đập nhanh không đều, chóng mặt: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mrs. Kim, 66 vào khoa Tim mạch: \"My heart has been racing and fluttering since yesterday evening, and I feel a bit dizzy.\"\n(Tim đập nhanh không đều, chóng mặt)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Lo âu\nB) Rung nhĩ\nC) Nhồi máu cơ tim\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-08-tiktok-00-medical",
+      "date": "2026-11-08",
+      "file": "2026-11-08-tiktok-00-medical.mp4",
+      "duration_s": 25.77
+    }
+  ],
+  "threads": []
+}
