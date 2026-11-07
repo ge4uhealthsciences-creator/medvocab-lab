@@ -1,5 +1,5 @@
 date,time,platform,kind,title,status,detail,post_id,views
-2026-11-07,14:50,YouTube,Short,Medical English,posted,15:33,nec41Il4Z7c,17
+2026-11-07,14:50,YouTube,Short,Medical English,posted,15:33,nec41Il4Z7c,25
 2026-11-07,17:30,Facebook,Reel,Medical English,posted,18:01,1007906695687185,
 2026-11-07,17:30,Instagram,Reel,Medical English,posted,18:01,17944555866367317,
 2026-11-07,18:10,TikTok,Video,Medical English,posted,TikTok Studio,,
@@ -7,4 +7,4 @@ date,time,platform,kind,title,status,detail,post_id,views
 2026-11-08,17:30,Facebook,Reel,Medical English,planned,,
 2026-11-08,17:30,Instagram,Reel,Medical English,planned,,
 2026-11-08,18:10,TikTok,Video,Medical English,planned,chưa có khoá TikTok API,
-_updated,2026-11-07 22:22,,,,,,,
+_updated,2026-11-07 22:58,,,,,,,
