@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-07",
-  "channel_id": "pharmaceutical-chemistry",
-  "discipline": "Pharmaceutical Chemistry",
-  "topic": "Hóa dược · Pharmaceutical Chemistry",
-  "title": "GE4u Daily Practice: Pharmaceutical Chemistry",
-  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Chemistry.",
+  "date": "2026-11-08",
+  "channel_id": "pharmaceutical-technology",
+  "discipline": "Pharmaceutical Technology",
+  "topic": "Công nghệ dược phẩm · Pharmaceutical Technology",
+  "title": "GE4u Daily Practice: Pharmaceutical Technology",
+  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Technology.",
   "vocabulary": [
     {
-      "term": "molecular structure",
-      "ipa": "/məˈlekjələ ˈstrʌktʃə/",
-      "meaning": "cấu trúc phân tử",
-      "definition": "Arrangement of atoms in a molecule.",
-      "example": "The molecular structure was examined."
+      "term": "dosage form",
+      "ipa": "/ˈdəʊsɪdʒ fɔːm/",
+      "meaning": "dạng bào chế",
+      "definition": "The physical form in which a medicine is produced.",
+      "example": "A tablet is a solid dosage form."
     },
     {
-      "term": "active pharmaceutical ingredient",
-      "ipa": "/ˈæktɪv ˌfɑːməˈsuːtɪkəl ɪnˈɡriːdiənt/",
-      "meaning": "dược chất",
-      "definition": "Substance responsible for intended pharmacological activity.",
-      "example": "The active pharmaceutical ingredient was identified."
+      "term": "excipient",
+      "ipa": "/ɪkˈsɪpiənt/",
+      "meaning": "tá dược",
+      "definition": "A formulation ingredient other than the active substance.",
+      "example": "The excipient supported product stability."
     },
     {
-      "term": "solubility",
-      "ipa": "/ˌsɒljʊˈbɪləti/",
-      "meaning": "độ tan",
-      "definition": "Ability of a substance to dissolve in a solvent.",
-      "example": "Solubility affects formulation."
+      "term": "dissolution",
+      "ipa": "/ˌdɪsəˈluːʃən/",
+      "meaning": "sự hòa tan",
+      "definition": "The process by which a substance goes into solution.",
+      "example": "Dissolution testing was performed."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Arrangement of atoms in a molecule.",
+    "question": "Which term is defined as: The physical form in which a medicine is produced.",
     "options": [
-      "molecular structure",
-      "active pharmaceutical ingredient",
-      "solubility"
+      "dosage form",
+      "excipient",
+      "dissolution"
     ],
-    "answer": "molecular structure",
-    "explanation": "molecular structure means Arrangement of atoms in a molecule."
+    "answer": "dosage form",
+    "explanation": "dosage form means The physical form in which a medicine is produced."
   },
   "source_mode": "curated-channel-data"
 }
