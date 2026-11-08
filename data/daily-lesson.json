@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-08",
-  "channel_id": "pharmaceutical-technology",
-  "discipline": "Pharmaceutical Technology",
-  "topic": "Công nghệ dược phẩm · Pharmaceutical Technology",
-  "title": "GE4u Daily Practice: Pharmaceutical Technology",
-  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Technology.",
+  "date": "2026-11-09",
+  "channel_id": "traditional-medicine",
+  "discipline": "Traditional Medicine English",
+  "topic": "Y học cổ truyền · Traditional Medicine English",
+  "title": "GE4u Daily Practice: Traditional Medicine English",
+  "objective": "Review three core terms and practise one knowledge check in Traditional Medicine English.",
   "vocabulary": [
     {
-      "term": "dosage form",
-      "ipa": "/ˈdəʊsɪdʒ fɔːm/",
-      "meaning": "dạng bào chế",
-      "definition": "The physical form in which a medicine is produced.",
-      "example": "A tablet is a solid dosage form."
+      "term": "medicinal herb",
+      "ipa": "/məˈdɪsɪnəl hɜːb/",
+      "meaning": "dược liệu / thảo dược",
+      "definition": "A plant used in a medicinal context.",
+      "example": "The medicinal herb was identified."
     },
     {
-      "term": "excipient",
-      "ipa": "/ɪkˈsɪpiənt/",
-      "meaning": "tá dược",
-      "definition": "A formulation ingredient other than the active substance.",
-      "example": "The excipient supported product stability."
+      "term": "herbal preparation",
+      "ipa": "/ˈhɜːbəl ˌprepəˈreɪʃən/",
+      "meaning": "chế phẩm thảo dược",
+      "definition": "A product prepared from herbal materials.",
+      "example": "The herbal preparation was described."
     },
     {
-      "term": "dissolution",
-      "ipa": "/ˌdɪsəˈluːʃən/",
-      "meaning": "sự hòa tan",
-      "definition": "The process by which a substance goes into solution.",
-      "example": "Dissolution testing was performed."
+      "term": "traditional diagnosis",
+      "ipa": "/trəˈdɪʃənəl ˌdaɪəɡˈnəʊsɪs/",
+      "meaning": "chẩn đoán theo y học cổ truyền",
+      "definition": "Assessment using a traditional medicine framework.",
+      "example": "The practitioner documented the traditional diagnosis."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: The physical form in which a medicine is produced.",
+    "question": "Which term is defined as: A plant used in a medicinal context.",
     "options": [
-      "dosage form",
-      "excipient",
-      "dissolution"
+      "medicinal herb",
+      "herbal preparation",
+      "traditional diagnosis"
     ],
-    "answer": "dosage form",
-    "explanation": "dosage form means The physical form in which a medicine is produced."
+    "answer": "medicinal herb",
+    "explanation": "medicinal herb means A plant used in a medicinal context."
   },
   "source_mode": "curated-channel-data"
 }
