@@ -1,10 +1,6 @@
 date,time,platform,kind,title,status,detail,post_id,views
-2026-11-08,14:50,YouTube,Short,Dental English,posted,14:59,KB5Iv1hIrtc,13
-2026-11-08,17:30,Facebook,Reel,Medical English,posted,18:02,4216750298616044,
-2026-11-08,17:30,Instagram,Reel,Medical English,error,Instagram processing ERROR: Error: Media upload has failed with error code 2207077,,
-2026-11-08,18:10,TikTok,Video,Medical English,error,chưa hẹn giờ trên TikTok Studio,,
-2026-11-09,14:50,YouTube,Short,Midwifery English,planned,,
-2026-11-09,17:30,Facebook,Reel,Medical English,planned,,
-2026-11-09,17:30,Instagram,Reel,Medical English,planned,,
-2026-11-09,18:10,TikTok,Video,Medical English,planned,chưa có khoá TikTok API,
-_updated,2026-11-08 22:56,,,,,,,
+2026-11-09,14:50,YouTube,Short,Midwifery English,pending,,,
+2026-11-09,17:30,Facebook,Reel,Medical English,pending,,,
+2026-11-09,17:30,Instagram,Reel,Medical English,pending,,,
+2026-11-09,18:10,TikTok,Video,Medical English,pending,chưa hẹn giờ,,
+_updated,2026-11-09 06:37,,,,,,,
