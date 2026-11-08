@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-09",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 6,
+  "items": [
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Thao, 27 · Sản",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 38,
+        "dept": "ob",
+        "er": false,
+        "cc": "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu",
+        "who": "Ms. Thao, 27",
+        "vit": {
+          "hr": 110,
+          "bp": "95/60",
+          "sp": 99,
+          "t": 36.8
+        },
+        "says": "My period is seven weeks late. I've had a sharp pain low on the right since this morning, and some spotting.",
+        "options": [
+          {
+            "en": "It's appendicitis.",
+            "ok": false,
+            "vi": "Viêm ruột thừa",
+            "why": "βhCG dương tính, siêu âm thấy khối phần phụ."
+          },
+          {
+            "en": "The pregnancy is growing outside the womb, in your right tube. This is an ectopic pregnancy, and it may be bleeding.",
+            "ok": true,
+            "vi": "Thai ngoài tử cung (nghi vỡ)",
+            "why": ""
+          },
+          {
+            "en": "It's a normal early pregnancy.",
+            "ok": false,
+            "vi": "Thai trong tử cung bình thường",
+            "why": "Tử cung trống, khối phần phụ, dịch ổ bụng."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Sản"
+      },
+      "title": "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu: bạn chẩn đoán gì? (Midwifery English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Thao, 27 vào khoa Sản: \"My period is seven weeks late. I've had a sharp pain low on the right since this morning, and some spotting.\"\n(Trễ kinh 7 tuần, đau bụng dưới phải, ra máu)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Viêm ruột thừa\nB) Thai ngoài tử cung (nghi vỡ)\nC) Thai trong tử cung bình thường\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MidwiferyEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-09-youtube-00-midwifery",
+      "date": "2026-11-09",
+      "file": "2026-11-09-youtube-00-midwifery.mp4",
+      "duration_s": 30.57
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Hanh, 38 · Nội",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 37,
+        "dept": "im",
+        "er": false,
+        "cc": "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang",
+        "who": "Ms. Hanh, 38",
+        "vit": {
+          "hr": 104,
+          "bp": "110/70",
+          "sp": 99,
+          "t": 36.7
+        },
+        "says": "I've been very tired for months, and I get out of breath walking up the stairs.",
+        "options": [
+          {
+            "en": "It's a thyroid problem.",
+            "ok": false,
+            "vi": "Bệnh tuyến giáp",
+            "why": "Hb thấp, hồng cầu nhỏ, ferritin thấp → thiếu sắt."
+          },
+          {
+            "en": "You're just stressed.",
+            "ok": false,
+            "vi": "Căng thẳng",
+            "why": "Có bằng chứng thiếu máu rõ."
+          },
+          {
+            "en": "You have anaemia because your body is low in iron, probably from heavy periods.",
+            "ok": true,
+            "vi": "Thiếu máu thiếu sắt",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Nội"
+      },
+      "title": "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Hanh, 38 vào khoa Nội: \"I've been very tired for months, and I get out of breath walking up the stairs.\"\n(Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Bệnh tuyến giáp\nB) Căng thẳng\nC) Thiếu máu thiếu sắt\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-09-instagram-00-medical",
+      "date": "2026-11-09",
+      "file": "2026-11-09-instagram-00-medical.mp4",
+      "duration_s": 26.13
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Phong, 25 · Tai Mũi Họng",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 36,
+        "dept": "ent",
+        "er": false,
+        "cc": "Đau họng dữ dội một bên, khó nuốt, khít hàm",
+        "who": "Mr. Phong, 25",
+        "vit": {
+          "hr": 102,
+          "bp": "122/78",
+          "sp": 98,
+          "t": 38.7
+        },
+        "says": "My throat has been getting worse for four days. Now it's really painful on the left, and I can hardly swallow.",
+        "options": [
+          {
+            "en": "You have a collection of pus next to your left tonsil. It's called a peritonsillar abscess, or quinsy.",
+            "ok": true,
+            "vi": "Áp xe quanh amidan",
+            "why": ""
+          },
+          {
+            "en": "It's a common cold.",
+            "ok": false,
+            "vi": "Cảm lạnh",
+            "why": "Lưỡi gà lệch + khít hàm → áp xe."
+          },
+          {
+            "en": "It's tonsil cancer.",
+            "ok": false,
+            "vi": "Ung thư amidan",
+            "why": "Diễn biến cấp tính, sốt, sau viêm amidan."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Tai Mũi Họng"
+      },
+      "title": "Đau họng dữ dội một bên, khó nuốt, khít hàm: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Phong, 25 vào khoa Tai Mũi Họng: \"My throat has been getting worse for four days. Now it's really painful on the left, and I can hardly swallow.\"\n(Đau họng dữ dội một bên, khó nuốt, khít hàm)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Áp xe quanh amidan\nB) Cảm lạnh\nC) Ung thư amidan\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-09-tiktok-00-medical",
+      "date": "2026-11-09",
+      "file": "2026-11-09-tiktok-00-medical.mp4",
+      "duration_s": 29.8
+    }
+  ],
+  "threads": []
+}
