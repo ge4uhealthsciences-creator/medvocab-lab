@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-10",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 7,
+  "items": [
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Quoc, 52 · Tim mạch",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 44,
+        "dept": "card",
+        "er": false,
+        "cc": "Đau đầu, đo huyết áp ở nhà thấy cao",
+        "who": "Mr. Quoc, 52",
+        "vit": {
+          "hr": 82,
+          "bp": "168/102",
+          "sp": 98,
+          "t": 36.6
+        },
+        "says": "I've been getting headaches, and my home monitor keeps showing high readings, around one sixty.",
+        "options": [
+          {
+            "en": "You have high blood pressure, and it's starting to affect your heart a little.",
+            "ok": true,
+            "vi": "Tăng huyết áp độ 2",
+            "why": ""
+          },
+          {
+            "en": "It's a hypertensive emergency.",
+            "ok": false,
+            "vi": "Tăng huyết áp cấp cứu",
+            "why": "Không có tổn thương cơ quan cấp tính (đau ngực, yếu liệt, phù gai)."
+          },
+          {
+            "en": "It's just stress.",
+            "ok": false,
+            "vi": "Căng thẳng",
+            "why": "Huyết áp cao kéo dài 3 tháng, có dày thất trái."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Tim mạch"
+      },
+      "title": "Đau đầu, đo huyết áp ở nhà thấy cao: bạn chẩn đoán gì? (Medical English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Quoc, 52 vào khoa Tim mạch: \"I've been getting headaches, and my home monitor keeps showing high readings, around one sixty.\"\n(Đau đầu, đo huyết áp ở nhà thấy cao)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Tăng huyết áp độ 2\nB) Tăng huyết áp cấp cứu\nC) Căng thẳng\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-10-youtube-00-medical",
+      "date": "2026-11-10",
+      "file": "2026-11-10-youtube-00-medical.mp4",
+      "duration_s": 26.7
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Phuong, 48 · Ngoại",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 43,
+        "dept": "surg",
+        "er": false,
+        "cc": "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt",
+        "who": "Ms. Phuong, 48",
+        "vit": {
+          "hr": 98,
+          "bp": "128/80",
+          "sp": 98,
+          "t": 38.3
+        },
+        "says": "I've had pain under my right ribs since dinner yesterday. It's constant now, and I have a fever.",
+        "options": [
+          {
+            "en": "It's hepatitis.",
+            "ok": false,
+            "vi": "Viêm gan",
+            "why": "Bilirubin bình thường, Murphy dương tính."
+          },
+          {
+            "en": "Your gallbladder is inflamed because of gallstones. This is acute cholecystitis.",
+            "ok": true,
+            "vi": "Viêm túi mật cấp do sỏi",
+            "why": ""
+          },
+          {
+            "en": "It's a stomach ulcer.",
+            "ok": false,
+            "vi": "Loét dạ dày",
+            "why": "Siêu âm thấy túi mật viêm, có sỏi."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Ngoại"
+      },
+      "title": "Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Phuong, 48 vào khoa Ngoại: \"I've had pain under my right ribs since dinner yesterday. It's constant now, and I have a fever.\"\n(Đau hạ sườn phải sau bữa ăn nhiều dầu mỡ, sốt)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Viêm gan\nB) Viêm túi mật cấp do sỏi\nC) Loét dạ dày\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-10-instagram-00-medical",
+      "date": "2026-11-10",
+      "file": "2026-11-10-instagram-00-medical.mp4",
+      "duration_s": 28.37
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Nga, 45 · Nội tiết",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 42,
+        "dept": "endo",
+        "er": false,
+        "cc": "Mệt, tăng cân, sợ lạnh, táo bón",
+        "who": "Ms. Nga, 45",
+        "vit": {
+          "hr": 56,
+          "bp": "130/85",
+          "sp": 98,
+          "t": 36.1
+        },
+        "says": "I feel exhausted all the time, I've put on weight, and I'm always cold.",
+        "options": [
+          {
+            "en": "It's depression.",
+            "ok": false,
+            "vi": "Trầm cảm",
+            "why": "TSH cao, FT4 thấp → suy giáp."
+          },
+          {
+            "en": "You're anaemic.",
+            "ok": false,
+            "vi": "Thiếu máu",
+            "why": "Xét nghiệm tuyến giáp bất thường rõ."
+          },
+          {
+            "en": "Your thyroid gland is underactive. This is hypothyroidism, probably from Hashimoto's disease.",
+            "ok": true,
+            "vi": "Suy giáp (Hashimoto)",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Nội tiết"
+      },
+      "title": "Mệt, tăng cân, sợ lạnh, táo bón: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Nga, 45 vào khoa Nội tiết: \"I feel exhausted all the time, I've put on weight, and I'm always cold.\"\n(Mệt, tăng cân, sợ lạnh, táo bón)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Trầm cảm\nB) Thiếu máu\nC) Suy giáp (Hashimoto)\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-10-tiktok-00-medical",
+      "date": "2026-11-10",
+      "file": "2026-11-10-tiktok-00-medical.mp4",
+      "duration_s": 27.43
+    }
+  ],
+  "threads": []
+}
