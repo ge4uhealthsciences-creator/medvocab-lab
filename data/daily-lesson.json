@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-09",
-  "channel_id": "traditional-medicine",
-  "discipline": "Traditional Medicine English",
-  "topic": "Y học cổ truyền · Traditional Medicine English",
-  "title": "GE4u Daily Practice: Traditional Medicine English",
-  "objective": "Review three core terms and practise one knowledge check in Traditional Medicine English.",
+  "date": "2026-11-10",
+  "channel_id": "public-health",
+  "discipline": "Public Health English",
+  "topic": "Y tế công cộng · Public Health English",
+  "title": "GE4u Daily Practice: Public Health English",
+  "objective": "Review three core terms and practise one knowledge check in Public Health English.",
   "vocabulary": [
     {
-      "term": "medicinal herb",
-      "ipa": "/məˈdɪsɪnəl hɜːb/",
-      "meaning": "dược liệu / thảo dược",
-      "definition": "A plant used in a medicinal context.",
-      "example": "The medicinal herb was identified."
+      "term": "incidence",
+      "ipa": "/ˈɪnsɪdəns/",
+      "meaning": "tỷ lệ mới mắc",
+      "definition": "Occurrence of new cases in a population over time.",
+      "example": "The study measured incidence."
     },
     {
-      "term": "herbal preparation",
-      "ipa": "/ˈhɜːbəl ˌprepəˈreɪʃən/",
-      "meaning": "chế phẩm thảo dược",
-      "definition": "A product prepared from herbal materials.",
-      "example": "The herbal preparation was described."
+      "term": "prevalence",
+      "ipa": "/ˈprevələns/",
+      "meaning": "tỷ lệ hiện mắc",
+      "definition": "Proportion of a population with a condition at a given time.",
+      "example": "Prevalence was estimated from survey data."
     },
     {
-      "term": "traditional diagnosis",
-      "ipa": "/trəˈdɪʃənəl ˌdaɪəɡˈnəʊsɪs/",
-      "meaning": "chẩn đoán theo y học cổ truyền",
-      "definition": "Assessment using a traditional medicine framework.",
-      "example": "The practitioner documented the traditional diagnosis."
+      "term": "risk factor",
+      "ipa": "/ˈrɪsk ˌfæktə/",
+      "meaning": "yếu tố nguy cơ",
+      "definition": "A characteristic associated with increased likelihood of an outcome.",
+      "example": "Smoking is a risk factor."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A plant used in a medicinal context.",
+    "question": "Which term is defined as: Occurrence of new cases in a population over time.",
     "options": [
-      "medicinal herb",
-      "herbal preparation",
-      "traditional diagnosis"
+      "incidence",
+      "prevalence",
+      "risk factor"
     ],
-    "answer": "medicinal herb",
-    "explanation": "medicinal herb means A plant used in a medicinal context."
+    "answer": "incidence",
+    "explanation": "incidence means Occurrence of new cases in a population over time."
   },
   "source_mode": "curated-channel-data"
 }
