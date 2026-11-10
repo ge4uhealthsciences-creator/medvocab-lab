@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-11",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 8,
+  "items": [
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Hoa, 44 · Tai Mũi Họng",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 50,
+        "dept": "ent",
+        "er": false,
+        "cc": "Đột ngột nghe kém tai phải từ sáng",
+        "who": "Ms. Hoa, 44",
+        "vit": {
+          "hr": 76,
+          "bp": "122/78",
+          "sp": 99,
+          "t": 36.7
+        },
+        "says": "I woke up this morning and I can hardly hear anything in my right ear. There's a ringing noise too.",
+        "options": [
+          {
+            "en": "It's just earwax.",
+            "ok": false,
+            "vi": "Nút ráy tai",
+            "why": "Ống tai sạch, Weber lệch về tai lành → tiếp nhận."
+          },
+          {
+            "en": "It's a middle ear infection.",
+            "ok": false,
+            "vi": "Viêm tai giữa",
+            "why": "Màng nhĩ bình thường, không sốt, không đau."
+          },
+          {
+            "en": "You have sudden hearing loss in your right ear. It comes from the inner ear or the hearing nerve, not a blockage.",
+            "ok": true,
+            "vi": "Điếc đột ngột thể tiếp nhận",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Tai Mũi Họng"
+      },
+      "title": "Đột ngột nghe kém tai phải từ sáng: bạn chẩn đoán gì? (Medical English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Hoa, 44 vào khoa Tai Mũi Họng: \"I woke up this morning and I can hardly hear anything in my right ear. There's a ringing noise too.\"\n(Đột ngột nghe kém tai phải từ sáng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Nút ráy tai\nB) Viêm tai giữa\nC) Điếc đột ngột thể tiếp nhận\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-11-youtube-00-medical",
+      "date": "2026-11-11",
+      "file": "2026-11-11-youtube-00-medical.mp4",
+      "duration_s": 29.23
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Nhat, 23 · Chấn thương chỉnh hình",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 49,
+        "dept": "ortho",
+        "er": false,
+        "cc": "Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng",
+        "who": "Mr. Nhat, 23",
+        "vit": {
+          "hr": 78,
+          "bp": "120/75",
+          "sp": 99,
+          "t": 36.6
+        },
+        "says": "I twisted my knee playing football yesterday. I heard a pop, and now it's swollen and feels unstable.",
+        "options": [
+          {
+            "en": "You've torn the main ligament in the middle of your knee, called the ACL.",
+            "ok": true,
+            "vi": "Đứt dây chằng chéo trước",
+            "why": ""
+          },
+          {
+            "en": "It's just a bruise.",
+            "ok": false,
+            "vi": "Đụng dập",
+            "why": "Tiếng rắc + sưng nhanh + Lachman dương tính."
+          },
+          {
+            "en": "You've broken your kneecap.",
+            "ok": false,
+            "vi": "Gãy xương bánh chè",
+            "why": "Không có gãy xương; MRI đứt dây chằng."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Chấn thương chỉnh hình"
+      },
+      "title": "Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Nhat, 23 vào khoa Chấn thương chỉnh hình: \"I twisted my knee playing football yesterday. I heard a pop, and now it's swollen and feels unstable.\"\n(Nghe tiếng \"rắc\" ở gối khi xoay người, gối sưng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Đứt dây chằng chéo trước\nB) Đụng dập\nC) Gãy xương bánh chè\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-11-instagram-00-medical",
+      "date": "2026-11-11",
+      "file": "2026-11-11-instagram-00-medical.mp4",
+      "duration_s": 27.63
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Trung, 55 · Da liễu",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 48,
+        "dept": "derm",
+        "er": false,
+        "cc": "Nốt ruồi to lên, đổi màu, bờ nham nhở",
+        "who": "Mr. Trung, 55",
+        "vit": {
+          "hr": 74,
+          "bp": "125/80",
+          "sp": 99,
+          "t": 36.6
+        },
+        "says": "The mole on my back has got bigger and darker over the last few months. My wife made me come.",
+        "options": [
+          {
+            "en": "It's a wart.",
+            "ok": false,
+            "vi": "Mụn cóc",
+            "why": "Tổn thương sắc tố, không phải mụn cóc."
+          },
+          {
+            "en": "This mole has some worrying features. It could be a type of skin cancer called melanoma, so we need to remove it and test it.",
+            "ok": true,
+            "vi": "Nghi u hắc tố (melanoma)",
+            "why": ""
+          },
+          {
+            "en": "It's a normal mole. Don't worry.",
+            "ok": false,
+            "vi": "Nốt ruồi lành",
+            "why": "Có đủ dấu hiệu ABCDE đáng lo."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Da liễu"
+      },
+      "title": "Nốt ruồi to lên, đổi màu, bờ nham nhở: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Trung, 55 vào khoa Da liễu: \"The mole on my back has got bigger and darker over the last few months. My wife made me come.\"\n(Nốt ruồi to lên, đổi màu, bờ nham nhở)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Mụn cóc\nB) Nghi u hắc tố (melanoma)\nC) Nốt ruồi lành\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-11-tiktok-00-medical",
+      "date": "2026-11-11",
+      "file": "2026-11-11-tiktok-00-medical.mp4",
+      "duration_s": 30.2
+    }
+  ],
+  "threads": []
+}
