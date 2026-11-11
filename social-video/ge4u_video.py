@@ -78,9 +78,10 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
 # Quality over volume (owner approved the marketing plan, 5 Nov 2026): 12 videos a day instead of 36.
 # TikTok, YouTube and Meta all reduce reach for mass-produced look-alike videos, so each platform gets a
 # few slots, half of them a longer clinical "case" quiz drawn from the English Ward game.
-SLOTS = {"tiktok": [("18:10", "case")],
-         "instagram": [("17:30", "case")],
-         "youtube": [("14:50", "case")]}
+SLOTS = {"tiktok": [("18:10", "rotate")],
+         "instagram": [("17:30", "rotate")],
+         "youtube": [("14:50", "rotate")]}
+ROTATE_FMT = {"tiktok": "quiz", "instagram": "quiz", "youtube": "three_terms"}  # for disciplines without game cases
 CASE_DISC = {"dent": "dentistry", "ob": "midwifery"}  # every other department is shown as Medical English
 DEPT_VI = {"er": "Cấp cứu", "card": "Tim mạch", "ped": "Nhi", "dent": "Răng Hàm Mặt", "eye": "Mắt", "derm": "Da liễu",
            "ortho": "Chấn thương chỉnh hình", "ent": "Tai Mũi Họng", "im": "Nội", "ob": "Sản", "neuro": "Thần kinh",
@@ -138,8 +139,10 @@ def load_cases():
     return json.loads((DATA / "game" / "cases.json").read_text(encoding="utf-8"))
 
 
-def build_case(day, k, platform, slot, time, cases):
+def build_case(day, k, platform, slot, time, cases, cid_want=None):
     """A clinical case quiz from the game: the patient's own words, vitals, three diagnoses, the answer and why."""
+    if cid_want:
+        cases = [x for x in cases if CASE_DISC.get(x["dept"], "medical") == cid_want] or cases
     c = cases[(day * 6 + k) % len(cases)]
     cid = CASE_DISC.get(c["dept"], "medical")
     vi, en, emoji, tag = LABEL[cid]
@@ -239,7 +242,15 @@ def _items(day, bank, cases):
     items, k, w = [], 0, 0
     for pi, platform in enumerate(PLATFORMS):
         for slot, (time, fmt) in enumerate(SLOTS[platform]):
-            if fmt == "case":
+            if fmt == "rotate":
+                # Owner (12 Nov 2026): one post a day per platform, rotating through all 12 disciplines.
+                # Each platform is 4 disciplines apart, so every discipline reaches every platform every 12 days.
+                cid = ORDER[(day + 4 * pi) % 12]
+                if cid in CASE_DISC.values() or cid == "medical":
+                    it = build_case(day, k, platform, slot, time, cases, cid_want=cid); k += 1
+                else:
+                    it = build_item(day, cid, platform, slot, bank, fmt=ROTATE_FMT[platform], time=time)
+            elif fmt == "case":
                 it = build_case(day, k, platform, slot, time, cases); k += 1
             else:
                 cid = ORDER[(day * 5 + w + 4 * pi) % 12]; w += 1
