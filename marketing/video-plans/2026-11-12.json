@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-12",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 9,
+  "items": [
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Social Work English trong 30 giây",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "needs assessment",
+          "ipa": "/niːdz əˈsesmənt/",
+          "meaning": "đánh giá nhu cầu",
+          "definition": "A process to identify needs and resources.",
+          "example": "The social worker completed a needs assessment."
+        },
+        {
+          "term": "confidentiality",
+          "ipa": "/ˌkɒnfɪdenʃiˈæləti/",
+          "meaning": "tính bảo mật",
+          "definition": "Protection of private information under applicable rules.",
+          "example": "Confidentiality matters in client discussions."
+        },
+        {
+          "term": "referral",
+          "ipa": "/rɪˈfɜːrəl/",
+          "meaning": "chuyển gửi",
+          "definition": "Directing a person to another service or professional.",
+          "example": "The client received a referral."
+        }
+      ],
+      "title": "3 Social Work English words in 30 seconds: needs assessment, confidentiality, referral #Shorts",
+      "caption": "• needs assessment /niːdz əˈsesmənt/ = đánh giá nhu cầu\n• confidentiality /ˌkɒnfɪdenʃiˈæləti/ = tính bảo mật\n• referral /rɪˈfɜːrəl/ = chuyển gửi\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Social Work English miễn phí mỗi ngày.\n\n#SocialWorkEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-12-youtube-00-social-work",
+      "date": "2026-11-12",
+      "file": "2026-11-12-youtube-00-social-work.mp4",
+      "duration_s": 23.53
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Nam, 67 · Tim mạch",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 2,
+        "dept": "card",
+        "er": false,
+        "cc": "Khó thở khi nằm, phù hai chân",
+        "who": "Mr. Nam, 67",
+        "vit": {
+          "hr": 102,
+          "bp": "145/90",
+          "sp": 92,
+          "t": 36.7
+        },
+        "says": "I get breathless, especially at night when I lie down. My ankles are swollen too.",
+        "options": [
+          {
+            "en": "Your heart isn't pumping strongly enough. This is heart failure, and fluid is building up in your lungs and legs.",
+            "ok": true,
+            "vi": "Suy tim",
+            "why": ""
+          },
+          {
+            "en": "You have a chest infection.",
+            "ok": false,
+            "vi": "Viêm phổi",
+            "why": "Không sốt, BNP cao, tim to → suy tim."
+          },
+          {
+            "en": "It's asthma.",
+            "ok": false,
+            "vi": "Hen phế quản",
+            "why": "Ran ẩm + phù + BNP cao không phải hen."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Tim mạch"
+      },
+      "title": "Khó thở khi nằm, phù hai chân: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Nam, 67 vào khoa Tim mạch: \"I get breathless, especially at night when I lie down. My ankles are swollen too.\"\n(Khó thở khi nằm, phù hai chân)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Suy tim\nB) Viêm phổi\nC) Hen phế quản\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-12-instagram-00-medical",
+      "date": "2026-11-12",
+      "file": "2026-11-12-instagram-00-medical.mp4",
+      "duration_s": 29.13
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "incidence",
+          "ipa": "/ˈɪnsɪdəns/",
+          "meaning": "tỷ lệ mới mắc",
+          "definition": "Occurrence of new cases in a population over time.",
+          "example": "The study measured incidence."
+        }
+      ],
+      "quiz": {
+        "question": "Occurrence of new cases in a population over time.",
+        "options": [
+          "incidence",
+          "burden of disease",
+          "prevalence"
+        ],
+        "answer": "A"
+      },
+      "caption": "🌍 Public Health English quiz: \"Occurrence of new cases in a population over time.\"\nA) incidence  B) burden of disease  C) prevalence\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PublicHealthEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Public Health English quiz: I…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-12-tiktok-00-public-health",
+      "date": "2026-11-12",
+      "file": "2026-11-12-tiktok-00-public-health.mp4",
+      "duration_s": 13.2
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-12-threads-00-public-health",
+      "time": "11:45",
+      "discipline": "public-health",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🌍 Public Health English quiz: \"Occurrence of new cases in a population over time.\"\nA) incidence  B) burden of disease  C) prevalence\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    },
+    {
+      "id": "2026-11-12-threads-00-social-work",
+      "time": "20:15",
+      "discipline": "social-work",
+      "format": "three_terms",
+      "topic": "socialwork",
+      "text": "• needs assessment /niːdz əˈsesmənt/ = đánh giá nhu cầu\n• confidentiality /ˌkɒnfɪdenʃiˈæləti/ = tính bảo mật\n• referral /rɪˈfɜːrəl/ = chuyển gửi\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Follow GE4u để học Social Work English miễn phí mỗi ngày.\n\n#socialwork"
+    }
+  ]
+}
