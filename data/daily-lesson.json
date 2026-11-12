@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-12",
-  "channel_id": "nutrition",
-  "discipline": "Nutrition English",
-  "topic": "Dinh dưỡng · Nutrition English",
-  "title": "GE4u Daily Practice: Nutrition English",
-  "objective": "Review three core terms and practise one knowledge check in Nutrition English.",
+  "date": "2026-11-13",
+  "channel_id": "dentistry",
+  "discipline": "Dental English",
+  "topic": "Răng Hàm Mặt · Dental English",
+  "title": "GE4u Daily Practice: Dental English",
+  "objective": "Review three core terms and practise one knowledge check in Dental English.",
   "vocabulary": [
     {
-      "term": "macronutrient",
-      "ipa": "/ˌmækrəʊˈnjuːtriənt/",
-      "meaning": "chất dinh dưỡng đa lượng",
-      "definition": "A nutrient needed in relatively large amounts.",
-      "example": "Protein is a macronutrient."
+      "term": "toothache",
+      "ipa": "/ˈtuːθeɪk/",
+      "meaning": "đau răng",
+      "definition": "Pain in or around a tooth.",
+      "example": "The patient reported a severe toothache at night."
     },
     {
-      "term": "micronutrient",
-      "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
-      "meaning": "vi chất dinh dưỡng",
-      "definition": "A nutrient needed in small amounts.",
-      "example": "Iron is an essential micronutrient."
+      "term": "oral examination",
+      "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
+      "meaning": "khám miệng",
+      "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
+      "example": "An oral examination is part of the initial dental assessment."
     },
     {
-      "term": "malnutrition",
-      "ipa": "/ˌmælnjuːˈtrɪʃən/",
-      "meaning": "suy dinh dưỡng / rối loạn dinh dưỡng",
-      "definition": "A state caused by inadequate, excessive or imbalanced intake.",
-      "example": "Malnutrition can affect recovery."
+      "term": "radiograph",
+      "ipa": "/ˈreɪdiəɡrɑːf/",
+      "meaning": "phim X-quang",
+      "definition": "An image produced using X-rays for diagnostic assessment.",
+      "example": "The dentist reviewed the dental radiograph."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A nutrient needed in relatively large amounts.",
+    "question": "Which term means inflammation of the gingiva?",
     "options": [
-      "macronutrient",
-      "micronutrient",
-      "malnutrition"
+      "Halitosis",
+      "Gingivitis",
+      "Malocclusion"
     ],
-    "answer": "macronutrient",
-    "explanation": "macronutrient means A nutrient needed in relatively large amounts."
+    "answer": "Gingivitis",
+    "explanation": "Gingivitis is inflammation of the gingiva."
   },
   "source_mode": "curated-channel-data"
 }
