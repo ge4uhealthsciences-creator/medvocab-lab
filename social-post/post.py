@@ -340,6 +340,8 @@ def post_tiktok(item, date, access, workdir):
 # ---------------------------------------------------------------- promo
 def promo_for(date):
     p = json.loads((ROOT / "marketing" / "promo-posts.json").read_text())
+    if not p.get("enabled", True):
+        return None
     start = dt.date.fromisoformat(p["start_date"])
     if date < start:
         return None

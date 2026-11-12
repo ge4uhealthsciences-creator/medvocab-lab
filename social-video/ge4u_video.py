@@ -58,7 +58,7 @@ MINUTE = {"tiktok": 10, "instagram": 30, "youtube": 50}
 TIMES = {p: [f"{h:02d}:{MINUTE[p]:02d}" for h in HOURS[p]] for p in MINUTE}
 # Native Threads posts: Threads uses only the FIRST hashtag as the post's topic tag, so each post ends with one
 # searched topic. Noon post uses the broad Vietnamese learner topic, evening post the discipline topic.
-THREADS_TIMES = ["11:45", "20:15"]
+THREADS_TIMES = ["11:45"]  # 1 bài/nền tảng/ngày (chủ sở hữu quyết định 12/11/2026)
 THREADS_TOPIC = {"medical": "medstudent", "dentistry": "dentalstudent", "pharmacy": "pharmacy", "nursing": "nursing",
                  "midwifery": "midwifery", "public-health": "publichealth", "psychology": "psychology",
                  "nutrition": "nutrition", "social-work": "socialwork", "traditional-medicine": "traditionalmedicine",
@@ -88,7 +88,6 @@ DEPT_VI = {"er": "Cấp cứu", "card": "Tim mạch", "ped": "Nhi", "dent": "Ră
            "gi": "Tiêu hoá", "resp": "Hô hấp", "endo": "Nội tiết", "surg": "Ngoại"}
 GAME_LINE = "🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u."
 # Combined phase (owner decision, 3 Nov 2026): one video per platform per day carries a soft CTA.
-CTA_SLOTS = {3, 7, 10}  # 3 of 12 videos per platform carry the soft CTA
 CTA_LINE = "📚 Bộ học liệu {en} đầy đủ (PDF in được, có bài tập + đáp án): link ở bio GE4u."
 VOICES = {"tiktok": 1, "instagram": 3, "youtube": 6}  # kokoro v0.19: af_bella, af_sarah, am_michael
 
