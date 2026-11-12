@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-13",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 10,
+  "items": [
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Hóa dược",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "purity",
+          "ipa": "/ˈpjʊərəti/",
+          "meaning": "độ tinh khiết",
+          "definition": "The degree to which a substance is free from impurities.",
+          "example": "Purity was confirmed by HPLC."
+        },
+        {
+          "term": "impurity",
+          "ipa": "/ɪmˈpjʊərəti/",
+          "meaning": "tạp chất",
+          "definition": "An unwanted substance in a material.",
+          "example": "The impurity level is within limits."
+        },
+        {
+          "term": "titration",
+          "ipa": "/taɪˈtreɪʃən/",
+          "meaning": "chuẩn độ",
+          "definition": "A method to find concentration by adding a reagent.",
+          "example": "We used titration to measure the acid."
+        }
+      ],
+      "title": "3 Pharma Chemistry English words in 30 seconds: purity, impurity, titration #Shorts",
+      "caption": "• purity /ˈpjʊərəti/ = độ tinh khiết\n• impurity /ɪmˈpjʊərəti/ = tạp chất\n• titration /taɪˈtreɪʃən/ = chuẩn độ\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Chemistry English miễn phí mỗi ngày.\n\n#PharmaChemistry #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-13-youtube-00-pharmaceutical-chemistry",
+      "date": "2026-11-13",
+      "file": "2026-11-13-youtube-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 21.23
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "prescription",
+          "ipa": "/prɪˈskrɪpʃən/",
+          "meaning": "đơn thuốc",
+          "definition": "A written order for a medicine from an authorised prescriber.",
+          "example": "You need a prescription for this antibiotic."
+        }
+      ],
+      "quiz": {
+        "question": "A written order for a medicine from an authorised prescriber.",
+        "options": [
+          "drug interaction",
+          "over-the-counter",
+          "prescription"
+        ],
+        "answer": "C"
+      },
+      "caption": "💊 Pharmacy English quiz: \"A written order for a medicine from an authorised prescriber.\"\nA) drug interaction  B) over-the-counter  C) prescription\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmacyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharmacy English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-13-instagram-00-pharmacy",
+      "date": "2026-11-13",
+      "file": "2026-11-13-instagram-00-pharmacy.mp4",
+      "duration_s": 14.27
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "resilience",
+          "ipa": "/rɪˈzɪliəns/",
+          "meaning": "khả năng phục hồi",
+          "definition": "The ability to recover from difficulties.",
+          "example": "Support networks build resilience."
+        }
+      ],
+      "quiz": {
+        "question": "The ability to recover from difficulties.",
+        "options": [
+          "well-being",
+          "anxiety",
+          "resilience"
+        ],
+        "answer": "C"
+      },
+      "caption": "🧠 Psychology English quiz: \"The ability to recover from difficulties.\"\nA) well-being  B) anxiety  C) resilience\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PsychologyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Psychology English quiz: R…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-13-tiktok-00-psychology",
+      "date": "2026-11-13",
+      "file": "2026-11-13-tiktok-00-psychology.mp4",
+      "duration_s": 12.6
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-13-threads-00-pharmacy",
+      "time": "11:45",
+      "discipline": "pharmacy",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "💊 Pharmacy English quiz: \"A written order for a medicine from an authorised prescriber.\"\nA) drug interaction  B) over-the-counter  C) prescription\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
