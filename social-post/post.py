@@ -704,7 +704,7 @@ def write_status(date, now, plan, jobs, done, pr):
         main_sha = json.loads(gh("api", f"repos/{REPO}/git/ref/heads/main").stdout)["object"]["sha"]
         gh("api", "-X", "POST", f"repos/{REPO}/git/refs", "-f", f"ref=refs/heads/{STATUS_BRANCH}", "-f", f"sha={main_sha}")
     rows = status_rows(date, now, plan, jobs, done, pr)
-    try:  # tomorrow's plan exists once the evening render (21:30) has published it
+    try:  # tomorrow's plan exists once the evening render (18:00) has published it
         nxt = date + dt.timedelta(days=1)
         rel = _release(nxt.isoformat())
         wd = pathlib.Path(tempfile.mkdtemp())

@@ -2,8 +2,9 @@ name: Social video render
 # Separate from the daily-lesson/Pages workflow: a failure here never blocks lessons or the website.
 on:
   schedule:
-    # 14:30 UTC = 21:30 Asia/Ho_Chi_Minh: renders TOMORROW's videos (count = SLOTS in ge4u_video.py) the evening before
-    - cron: '30 14 * * *'
+    # 11:00 UTC = 18:00 Asia/Ho_Chi_Minh: renders TOMORROW's videos (count = SLOTS in ge4u_video.py) the evening before,
+    # early enough that the 20:00 Autopilot can schedule them on TikTok Studio
+    - cron: '0 11 * * *'
   workflow_dispatch:
     inputs:
       date:
