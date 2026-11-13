@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-13",
-  "channel_id": "dentistry",
-  "discipline": "Dental English",
-  "topic": "Răng Hàm Mặt · Dental English",
-  "title": "GE4u Daily Practice: Dental English",
-  "objective": "Review three core terms and practise one knowledge check in Dental English.",
+  "date": "2026-11-14",
+  "channel_id": "medical",
+  "discipline": "Medical English",
+  "topic": "Y khoa · Medical English",
+  "title": "GE4u Daily Practice: Medical English",
+  "objective": "Review three core terms and practise one knowledge check in Medical English.",
   "vocabulary": [
     {
-      "term": "toothache",
-      "ipa": "/ˈtuːθeɪk/",
-      "meaning": "đau răng",
-      "definition": "Pain in or around a tooth.",
-      "example": "The patient reported a severe toothache at night."
+      "term": "diagnosis",
+      "ipa": "/ˌdaɪəɡˈnəʊsɪs/",
+      "meaning": "chẩn đoán",
+      "definition": "Identification of a disease or condition.",
+      "example": "The diagnosis followed the examination."
     },
     {
-      "term": "oral examination",
-      "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
-      "meaning": "khám miệng",
-      "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
-      "example": "An oral examination is part of the initial dental assessment."
+      "term": "medical history",
+      "ipa": "/ˈmedɪkəl ˈhɪstəri/",
+      "meaning": "tiền sử bệnh",
+      "definition": "Information about past and current health.",
+      "example": "The clinician reviewed the medical history."
     },
     {
-      "term": "radiograph",
-      "ipa": "/ˈreɪdiəɡrɑːf/",
-      "meaning": "phim X-quang",
-      "definition": "An image produced using X-rays for diagnostic assessment.",
-      "example": "The dentist reviewed the dental radiograph."
+      "term": "physical examination",
+      "ipa": "/ˈfɪzɪkəl ɪɡˌzæmɪˈneɪʃən/",
+      "meaning": "khám thực thể",
+      "definition": "Assessment of the body for clinical signs.",
+      "example": "A physical examination was performed."
     }
   ],
   "quiz": {
-    "question": "Which term means inflammation of the gingiva?",
+    "question": "Which term is defined as: Identification of a disease or condition.",
     "options": [
-      "Halitosis",
-      "Gingivitis",
-      "Malocclusion"
+      "medical history",
+      "physical examination",
+      "diagnosis"
     ],
-    "answer": "Gingivitis",
-    "explanation": "Gingivitis is inflammation of the gingiva."
+    "answer": "diagnosis",
+    "explanation": "diagnosis means Identification of a disease or condition."
   },
   "source_mode": "curated-channel-data"
 }
