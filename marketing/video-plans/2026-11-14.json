@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-14",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 11,
+  "items": [
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "lyophilisation",
+          "ipa": "/laɪˌɒfɪlaɪˈzeɪʃən/",
+          "meaning": "đông khô",
+          "definition": "Freeze-drying to remove water.",
+          "example": "The vaccine is made by lyophilisation."
+        },
+        {
+          "term": "blister pack",
+          "ipa": "/ˈblɪstə pæk/",
+          "meaning": "vỉ thuốc",
+          "definition": "Packaging with individual pockets for doses.",
+          "example": "Tablets are supplied in a blister pack."
+        },
+        {
+          "term": "ointment",
+          "ipa": "/ˈɔɪntmənt/",
+          "meaning": "thuốc mỡ",
+          "definition": "A greasy semi-solid preparation for the skin.",
+          "example": "Apply the ointment twice daily."
+        }
+      ],
+      "title": "3 Pharma Technology English words in 30 seconds: lyophilisation, blister pack, ointment #Shorts",
+      "caption": "• lyophilisation /laɪˌɒfɪlaɪˈzeɪʃən/ = đông khô\n• blister pack /ˈblɪstə pæk/ = vỉ thuốc\n• ointment /ˈɔɪntmənt/ = thuốc mỡ\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Technology English miễn phí mỗi ngày.\n\n#PharmaTech #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-14-youtube-00-pharmaceutical-technology",
+      "date": "2026-11-14",
+      "file": "2026-11-14-youtube-00-pharmaceutical-technology.mp4",
+      "duration_s": 21.03
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Điều dưỡng có trả lời được không?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "pressure ulcer",
+          "ipa": "/ˈpreʃə ˌʌlsə/",
+          "meaning": "loét tì đè",
+          "definition": "Skin damage caused by prolonged pressure.",
+          "example": "Turn the patient regularly to prevent pressure ulcers."
+        }
+      ],
+      "quiz": {
+        "question": "Skin damage caused by prolonged pressure.",
+        "options": [
+          "hygiene",
+          "pressure ulcer",
+          "infusion"
+        ],
+        "answer": "B"
+      },
+      "caption": "🩹 Nursing English quiz: \"Skin damage caused by prolonged pressure.\"\nA) hygiene  B) pressure ulcer  C) infusion\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NursingEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Nursing English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-14-instagram-00-nursing",
+      "date": "2026-11-14",
+      "file": "2026-11-14-instagram-00-nursing.mp4",
+      "duration_s": 14.1
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Dinh dưỡng có trả lời được không?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "hydration",
+          "ipa": "/haɪˈdreɪʃən/",
+          "meaning": "bù nước / đủ nước",
+          "definition": "Having enough water in the body.",
+          "example": "Hydration is important in hot weather."
+        }
+      ],
+      "quiz": {
+        "question": "Having enough water in the body.",
+        "options": [
+          "malnutrition",
+          "hydration",
+          "micronutrient"
+        ],
+        "answer": "B"
+      },
+      "caption": "🥗 Nutrition English quiz: \"Having enough water in the body.\"\nA) malnutrition  B) hydration  C) micronutrient\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NutritionEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Nutrition English quiz: H…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-14-tiktok-00-nutrition",
+      "date": "2026-11-14",
+      "file": "2026-11-14-tiktok-00-nutrition.mp4",
+      "duration_s": 12.77
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-14-threads-00-nutrition",
+      "time": "11:45",
+      "discipline": "nutrition",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🥗 Nutrition English quiz: \"Having enough water in the body.\"\nA) malnutrition  B) hydration  C) micronutrient\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
