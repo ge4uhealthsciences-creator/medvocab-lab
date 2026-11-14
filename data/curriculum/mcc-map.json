@@ -448,6 +448,24 @@
   ],
   "Uống rượu nhiều năm, bỏ rượu từ hôm qua, nay run tay, vã mồ hôi, bồn chồn": [
    103
+  ],
+  "Mới cưới, muốn tránh thai 2–3 năm, hay đau nửa đầu có thấy chớp sáng trước cơn": [
+   17,
+   39
+  ],
+  "Hành kinh ra rất nhiều, phải thay băng mỗi giờ, mệt, hoa mắt 6 tháng nay": [
+   56,
+   42
+  ],
+  "Thai 31 tuần, đau bụng từng cơn đều, ra dịch nhầy hồng": [
+   82,
+   80
+  ],
+  "Khí hư loãng màu xám, mùi tanh, nặng hơn sau quan hệ": [
+   113
+  ],
+  "51 tuổi, mất kinh 14 tháng, bốc hỏa, đổ mồ hôi đêm, mất ngủ": [
+   57
   ]
  },
  "covered": {
@@ -497,6 +515,9 @@
   ],
   "16": [
    "Mệt, tăng cân, sợ lạnh, táo bón"
+  ],
+  "17": [
+   "Mới cưới, muốn tránh thai 2–3 năm, hay đau nửa đầu có thấy chớp sáng trước cơn"
   ],
   "18": [
    "Bé 4 tuổi ho, sốt, thở nhanh",
@@ -558,7 +579,8 @@
    "Đau nửa đầu từng cơn, thấy chớp sáng",
    "Đau đầu dữ dội đột ngột \"như bị đánh vào đầu\", nôn",
    "Đau đầu, đo huyết áp ở nhà thấy cao",
-   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu"
+   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu",
+   "Mới cưới, muốn tránh thai 2–3 năm, hay đau nửa đầu có thấy chớp sáng trước cơn"
   ],
   "40": [
    "Đột ngột nghe kém tai phải từ sáng"
@@ -567,7 +589,8 @@
    "Méo miệng, yếu tay phải, nói khó"
   ],
   "42": [
-   "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang"
+   "Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang",
+   "Hành kinh ra rất nhiều, phải thay băng mỗi giờ, mệt, hoa mắt 6 tháng nay"
   ],
   "44": [
    "Méo miệng, yếu tay phải, nói khó"
@@ -585,6 +608,12 @@
   ],
   "52": [
    "Vàng da, mệt, nước tiểu sẫm màu"
+  ],
+  "56": [
+   "Hành kinh ra rất nhiều, phải thay băng mỗi giờ, mệt, hoa mắt 6 tháng nay"
+  ],
+  "57": [
+   "51 tuổi, mất kinh 14 tháng, bốc hỏa, đổ mồ hôi đêm, mất ngủ"
   ],
   "58": [
    "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
@@ -656,10 +685,14 @@
    "Thai 26 tuần, nghiệm pháp đường huyết cao",
    "Sản phụ con so chuyển dạ, nước ối xanh",
    "Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng",
-   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu"
+   "Phụ nữ mang thai 30 tuần mua thuốc đau đầu",
+   "Thai 31 tuần, đau bụng từng cơn đều, ra dịch nhầy hồng"
   ],
   "81": [
    "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu"
+  ],
+  "82": [
+   "Thai 31 tuần, đau bụng từng cơn đều, ra dịch nhầy hồng"
   ],
   "86": [
    "Thanh niên 20 tuổi nghe tiếng nói trong đầu, nghi hàng xóm theo dõi, mất ngủ 3 tuần"
@@ -720,6 +753,9 @@
    "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu",
    "Mẹ sau sinh 2 giờ: hỗ trợ bú mẹ & phát hiện băng huyết"
   ],
+  "113": [
+   "Khí hư loãng màu xám, mùi tanh, nặng hơn sau quan hệ"
+  ],
   "114": [
    "Nhiều vết bầm tái diễn — sàng lọc bạo lực gia đình"
   ],
@@ -754,7 +790,6 @@
   "10": "Breast disorders",
   "12": "Calcium disorders",
   "13": "Cardiac arrest",
-  "17": "Contraception",
   "20": "Limp in children",
   "21": "Development disorder/developmental delay",
   "23": "Diplopia",
@@ -770,8 +805,6 @@
   "51": "Abnormal serum lipids",
   "53": "Lump/mass, musculoskeletal",
   "54": "Lymphadenopathy",
-  "56": "Menstrual cycle, abnormal",
-  "57": "Menopause",
   "62": "Abnormal heart sounds and murmur",
   "64": "Neonatal distress",
   "70": "Pap smear screening",
@@ -779,7 +812,6 @@
   "75": "Personality disorders",
   "76": "Pleural effusion",
   "79": "Potassium concentration, abnormal",
-  "82": "Preterm labour",
   "83": "Prolapse/pelvic relaxation",
   "84": "Proteinuria",
   "85": "Pruritus",
@@ -795,7 +827,6 @@
   "104": "SIDS/ALTE",
   "106": "Syncope and pre-syncope",
   "108": "Tinnitus",
-  "113": "Vaginal discharge/vulvar pruritus",
   "120": "White blood cells, abnormalities of"
  }
 }

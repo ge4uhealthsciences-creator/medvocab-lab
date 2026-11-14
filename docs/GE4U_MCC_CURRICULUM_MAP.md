@@ -2,7 +2,7 @@
 
 Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program Competency Framework, Appendix 2): https://md.utoronto.ca/sites/default/files/MD%20Program%20Competency%20Framework%20-%20Appendix%202.pdf
 
-Đã có ca: **66/115**. Còn thiếu: **49**.
+Đã có ca: **71/115**. Còn thiếu: **44**.
 
 ## Đã có ca
 
@@ -18,6 +18,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 14 | Chest pain | Đau thắt ngực trái lan tay trái, vã mồ hôi 1 giờ; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Đau ngực trái đột ngột, khó thở ở người trẻ; ⚡ Đau ngực dữ dội — mỗi phút đều quý; Tức ngực khi leo cầu thang; Đột ngột tim đập mạnh, tức ngực, tê tay, sợ sắp chết — cơn thứ 3 trong tháng |
 | 15 | Coagulation abnormalities | Chảy máu mũi 40 phút không cầm; Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng; Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu; Khách mua ibuprofen cho bố đang dùng warfarin |
 | 16 | Constipation | Mệt, tăng cân, sợ lạnh, táo bón |
+| 17 | Contraception | Mới cưới, muốn tránh thai 2–3 năm, hay đau nửa đầu có thấy chớp sáng trước cơn |
 | 18 | Cough | Bé 4 tuổi ho, sốt, thở nhanh; Khó thở, khò khè, khạc đờm vàng; Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Bé 7 tuổi khò khè, ho đêm, thở mệt; Ho kéo dài 6 tuần, sốt chiều, sụt cân, đổ mồ hôi đêm |
 | 19 | Cyanosis, hypoxia | Sốt, ho khạc đờm gỉ sắt, đau ngực phải khi hít sâu; Cơn khó thở, khò khè, nói không thành câu |
 | 22 | Diarrhea | Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc; Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới |
@@ -30,15 +31,17 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 33 | Fatigue | Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang; Mệt, tăng cân, sợ lạnh, táo bón |
 | 35 | Gait disturbances/ataxia | Run tay phải khi nghỉ, đi chậm, cứng người |
 | 37 | Glucose abnormal, serum/diabetes mellitus/polydipsia | Khát nước, tiểu nhiều, sụt cân; Đái tháo đường đang dùng thuốc, nay vã mồ hôi, run tay, hồi hộp; Thai 26 tuần, nghiệm pháp đường huyết cao; Nôn, đau bụng, thở sâu nhanh, khát nhiều; Tư vấn ăn uống cho người mới mắc đái tháo đường; Hướng dẫn tự tiêm insulin trước khi ra viện |
-| 39 | Headache | Thai 32 tuần, nhức đầu, phù mặt; Đau nửa đầu từng cơn, thấy chớp sáng; Đau đầu dữ dội đột ngột "như bị đánh vào đầu", nôn; Đau đầu, đo huyết áp ở nhà thấy cao; Phụ nữ mang thai 30 tuần mua thuốc đau đầu |
+| 39 | Headache | Thai 32 tuần, nhức đầu, phù mặt; Đau nửa đầu từng cơn, thấy chớp sáng; Đau đầu dữ dội đột ngột "như bị đánh vào đầu", nôn; Đau đầu, đo huyết áp ở nhà thấy cao; Phụ nữ mang thai 30 tuần mua thuốc đau đầu; Mới cưới, muốn tránh thai 2–3 năm, hay đau nửa đầu có thấy chớp sáng trước cơn |
 | 40 | Hearing loss/deafness | Đột ngột nghe kém tai phải từ sáng |
 | 41 | Hemiplegia, hemisensory loss ± aphasia | Méo miệng, yếu tay phải, nói khó |
-| 42 | Hemoglobin level, abnormal | Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang |
+| 42 | Hemoglobin level, abnormal | Mệt kéo dài, hoa mắt, khó thở khi leo cầu thang; Hành kinh ra rất nhiều, phải thay băng mỗi giờ, mệt, hoa mắt 6 tháng nay |
 | 44 | Language and speech disorders | Méo miệng, yếu tay phải, nói khó |
 | 45 | Acid-base abnormalities | Nôn, đau bụng, thở sâu nhanh, khát nhiều |
 | 49 | Jaundice | Vàng da, mệt, nước tiểu sẫm màu |
 | 50 | Joint pain | Ngã xe máy, đau cổ tay phải; Cụ bà ngã, đau háng phải, không đứng được; Nghe tiếng "rắc" ở gối khi xoay người, gối sưng |
 | 52 | Abnormal liver function tests | Vàng da, mệt, nước tiểu sẫm màu |
+| 56 | Menstrual cycle, abnormal | Hành kinh ra rất nhiều, phải thay băng mỗi giờ, mệt, hoa mắt 6 tháng nay |
+| 57 | Menopause | 51 tuổi, mất kinh 14 tháng, bốc hỏa, đổ mồ hôi đêm, mất ngủ |
 | 58 | Mental status, altered | Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp; Ca đêm: cụ ông lú lẫn, đòi tự đi vệ sinh — nguy cơ té ngã; Con gái kiệt sức khi chăm mẹ sa sút trí tuệ |
 | 59 | Mood disorders | Buồn chán, mất hứng thú, mất ngủ 6 tuần nay; Sinh viên 22 tuổi nói "không muốn sống nữa", bạn cùng phòng đưa đến khám |
 | 60 | Mouth problems | Sưng má trái, đau răng hàm dưới; Bé 3 tuổi sốt 39,5°C 2 ngày, loét miệng, phát ban lòng bàn tay chân, giật mình khi ngủ; Răng khôn mọc lệch, sưng lợi, khó há miệng; Bé 9 tuổi ngã, rơi hẳn răng cửa vĩnh viễn |
@@ -54,8 +57,9 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 74 | Periodic health examination | Tư vấn ăn dặm cho bé 6 tháng tuổi; Tư vấn giảm cân cho người tăng huyết áp (phỏng vấn tạo động lực) |
 | 77 | Poisoning | Bị rắn lục xanh cắn vào bàn chân 2 giờ trước, sưng đau, chảy máu |
 | 78 | Population health and its determinants | Điều tra ổ dịch ngộ độc thực phẩm sau đám cưới; Người bệnh sau đột quỵ sống một mình, lo viện phí; Điều tra chùm ca sốt xuất huyết trong khu dân cư; Ca sởi ở trường tiểu học — truy vết tiếp xúc |
-| 80 | Pregnancy | Thai 32 tuần, nhức đầu, phù mặt; Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều; Thai 26 tuần, nghiệm pháp đường huyết cao; Sản phụ con so chuyển dạ, nước ối xanh; Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng; Phụ nữ mang thai 30 tuần mua thuốc đau đầu |
+| 80 | Pregnancy | Thai 32 tuần, nhức đầu, phù mặt; Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều; Thai 26 tuần, nghiệm pháp đường huyết cao; Sản phụ con so chuyển dạ, nước ối xanh; Khám thai lần đầu: tư vấn dấu hiệu nguy hiểm & dinh dưỡng; Phụ nữ mang thai 30 tuần mua thuốc đau đầu; Thai 31 tuần, đau bụng từng cơn đều, ra dịch nhầy hồng |
 | 81 | Pregnancy loss | Trễ kinh 7 tuần, đau bụng dưới phải, ra máu |
+| 82 | Preterm labour | Thai 31 tuần, đau bụng từng cơn đều, ra dịch nhầy hồng |
 | 86 | Psychosis | Thanh niên 20 tuổi nghe tiếng nói trong đầu, nghi hàng xóm theo dõi, mất ngủ 3 tuần |
 | 92 | Seizures (epilepsy) | Bé 18 tháng co giật khi sốt cao |
 | 95 | Skin tumours and ulcers | Nốt ruồi to lên, đổi màu, bờ nham nhở |
@@ -69,6 +73,7 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 110 | Urinary frequency | Khát nước, tiểu nhiều, sụt cân; Sốt rét run, đau hông lưng phải, tiểu buốt |
 | 111 | Urinary tract obstruction | Đau quặn hông lưng phải lan xuống bẹn, tiểu hồng |
 | 112 | Vaginal bleeding, abnormal | Sinh thường tại nhà 1 giờ trước, ra máu âm đạo nhiều; Trễ kinh 7 tuần, đau bụng dưới phải, ra máu; Mẹ sau sinh 2 giờ: hỗ trợ bú mẹ & phát hiện băng huyết |
+| 113 | Vaginal discharge/vulvar pruritus | Khí hư loãng màu xám, mùi tanh, nặng hơn sau quan hệ |
 | 114 | Violence, family | Nhiều vết bầm tái diễn — sàng lọc bạo lực gia đình |
 | 115 | Visual disturbance/loss | Mắt phải đau dữ dội, nhìn mờ, buồn nôn; Đau nửa đầu từng cơn, thấy chớp sáng; Chớp sáng, ruồi bay, bóng đen che mắt trái |
 | 116 | Vomiting and/or nausea | Đau đầu dữ dội đột ngột "như bị đánh vào đầu", nôn; Sốt 5 ngày, nay hết sốt nhưng đau bụng, nôn nhiều, chảy máu chân răng; Bé 2 tuổi tiêu chảy 8 lần/ngày, nôn, quấy khóc; Đau thượng vị dữ dội lan ra lưng sau tiệc rượu; Nôn, đau bụng, thở sâu nhanh, khát nhiều; Khối phồng bẹn phải đau, không đẩy lên được, nôn |
@@ -85,7 +90,6 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 10 | Breast disorders |
 | 12 | Calcium disorders |
 | 13 | Cardiac arrest |
-| 17 | Contraception |
 | 20 | Limp in children |
 | 21 | Development disorder/developmental delay |
 | 23 | Diplopia |
@@ -101,8 +105,6 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 51 | Abnormal serum lipids |
 | 53 | Lump/mass, musculoskeletal |
 | 54 | Lymphadenopathy |
-| 56 | Menstrual cycle, abnormal |
-| 57 | Menopause |
 | 62 | Abnormal heart sounds and murmur |
 | 64 | Neonatal distress |
 | 70 | Pap smear screening |
@@ -110,7 +112,6 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 75 | Personality disorders |
 | 76 | Pleural effusion |
 | 79 | Potassium concentration, abnormal |
-| 82 | Preterm labour |
 | 83 | Prolapse/pelvic relaxation |
 | 84 | Proteinuria |
 | 85 | Pruritus |
@@ -126,5 +127,4 @@ Nguồn danh mục: Medical Council of Canada clinical presentations (MD Program
 | 104 | SIDS/ALTE |
 | 106 | Syncope and pre-syncope |
 | 108 | Tinnitus |
-| 113 | Vaginal discharge/vulvar pruritus |
 | 120 | White blood cells, abnormalities of |
