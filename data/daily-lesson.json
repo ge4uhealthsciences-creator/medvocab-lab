@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-14",
-  "channel_id": "medical",
-  "discipline": "Medical English",
-  "topic": "Y khoa · Medical English",
-  "title": "GE4u Daily Practice: Medical English",
-  "objective": "Review three core terms and practise one knowledge check in Medical English.",
+  "date": "2026-11-15",
+  "channel_id": "pharmacy",
+  "discipline": "Pharmacy English",
+  "topic": "Dược học · Pharmacy English",
+  "title": "GE4u Daily Practice: Pharmacy English",
+  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
   "vocabulary": [
     {
-      "term": "diagnosis",
-      "ipa": "/ˌdaɪəɡˈnəʊsɪs/",
-      "meaning": "chẩn đoán",
-      "definition": "Identification of a disease or condition.",
-      "example": "The diagnosis followed the examination."
+      "term": "contraindication",
+      "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+      "meaning": "chống chỉ định",
+      "definition": "A factor that makes a treatment inadvisable.",
+      "example": "An allergy may be a contraindication."
     },
     {
-      "term": "medical history",
-      "ipa": "/ˈmedɪkəl ˈhɪstəri/",
-      "meaning": "tiền sử bệnh",
-      "definition": "Information about past and current health.",
-      "example": "The clinician reviewed the medical history."
+      "term": "adverse drug reaction",
+      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
+      "meaning": "phản ứng có hại của thuốc",
+      "definition": "An unintended harmful response to a medicine.",
+      "example": "The patient reported an adverse drug reaction."
     },
     {
-      "term": "physical examination",
-      "ipa": "/ˈfɪzɪkəl ɪɡˌzæmɪˈneɪʃən/",
-      "meaning": "khám thực thể",
-      "definition": "Assessment of the body for clinical signs.",
-      "example": "A physical examination was performed."
+      "term": "dosage",
+      "ipa": "/ˈdəʊsɪdʒ/",
+      "meaning": "liều dùng",
+      "definition": "The amount and frequency of a medicine taken.",
+      "example": "Follow the prescribed dosage."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Identification of a disease or condition.",
+    "question": "Which term is defined as: A factor that makes a treatment inadvisable.",
     "options": [
-      "medical history",
-      "physical examination",
-      "diagnosis"
+      "adverse drug reaction",
+      "dosage",
+      "contraindication"
     ],
-    "answer": "diagnosis",
-    "explanation": "diagnosis means Identification of a disease or condition."
+    "answer": "contraindication",
+    "explanation": "contraindication means A factor that makes a treatment inadvisable."
   },
   "source_mode": "curated-channel-data"
 }
