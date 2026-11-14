@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-16",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 13,
+  "items": [
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Y tế công cộng",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "notifiable disease",
+          "ipa": "/ˈnəʊtɪfaɪəbl dɪˌziːz/",
+          "meaning": "bệnh phải khai báo",
+          "definition": "A disease that must be reported to authorities.",
+          "example": "Cholera is a notifiable disease."
+        },
+        {
+          "term": "burden of disease",
+          "ipa": "/ˌbɜːdn əv dɪˈziːz/",
+          "meaning": "gánh nặng bệnh tật",
+          "definition": "The overall impact of a disease on a population.",
+          "example": "The burden of disease from diabetes is rising."
+        },
+        {
+          "term": "incidence",
+          "ipa": "/ˈɪnsɪdəns/",
+          "meaning": "tỷ lệ mới mắc",
+          "definition": "Occurrence of new cases in a population over time.",
+          "example": "The study measured incidence."
+        }
+      ],
+      "title": "3 Public Health English words in 30 seconds #Shorts",
+      "caption": "• notifiable disease /ˈnəʊtɪfaɪəbl dɪˌziːz/ = bệnh phải khai báo\n• burden of disease /ˌbɜːdn əv dɪˈziːz/ = gánh nặng bệnh tật\n• incidence /ˈɪnsɪdəns/ = tỷ lệ mới mắc\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Public Health English miễn phí mỗi ngày.\n\n#PublicHealthEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-16-youtube-00-public-health",
+      "date": "2026-11-16",
+      "file": "2026-11-16-youtube-00-public-health.mp4",
+      "duration_s": 24.53
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "rapport",
+          "ipa": "/ræˈpɔː/",
+          "meaning": "mối quan hệ tin cậy",
+          "definition": "A trusting, positive relationship.",
+          "example": "Building rapport takes time."
+        }
+      ],
+      "quiz": {
+        "question": "A trusting, positive relationship.",
+        "options": [
+          "empowerment",
+          "vulnerable",
+          "rapport"
+        ],
+        "answer": "C"
+      },
+      "caption": "🤝 Social Work English quiz: \"A trusting, positive relationship.\"\nA) empowerment  B) vulnerable  C) rapport\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#SocialWorkEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Social Work English quiz: R…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-16-instagram-00-social-work",
+      "date": "2026-11-16",
+      "file": "2026-11-16-instagram-00-social-work.mp4",
+      "duration_s": 12.4
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mẹ bé Na (Ms. Trang) · Nhi",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 28,
+        "dept": "ped",
+        "er": false,
+        "cc": "Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng",
+        "who": "Mẹ bé Na (Ms. Trang)",
+        "vit": {
+          "hr": 140,
+          "bp": "95/60",
+          "sp": 99,
+          "t": 37.1
+        },
+        "says": "My daughter pulled a bowl of hot soup onto her arm. I put toothpaste on it.",
+        "options": [
+          {
+            "en": "It's a minor redness. No treatment needed.",
+            "ok": false,
+            "vi": "Bỏng độ 1",
+            "why": "Có nốt phỏng → bỏng độ 2, cần đánh giá và chăm sóc tại cơ sở y tế."
+          },
+          {
+            "en": "It's a deep full-thickness burn and needs surgery today.",
+            "ok": false,
+            "vi": "Bỏng độ 3",
+            "why": "Vết bỏng đỏ, phỏng nước và rất đau → bỏng nông; bỏng sâu thường ít đau, trắng/khô."
+          },
+          {
+            "en": "She has a superficial partial-thickness burn on her forearm, with blisters. It's small, but it needs proper care.",
+            "ok": true,
+            "vi": "Bỏng nước nóng độ 2 nông, khoảng 1% diện tích cơ thể",
+            "why": ""
+          }
+        ],
+        "src": [
+          "https://www.schn.health.nsw.gov.au/kids-health-hub/safety-and-injury-prevention/burns-and-fire/first-aid-burns",
+          "https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/so-cuu-dung-khi-bi-bong-bo-bong-nhiet"
+        ],
+        "answer": "C",
+        "dept_vi": "Nhi"
+      },
+      "title": "Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng: bạn chẩn đoán gì",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mẹ bé Na (Ms. Trang) vào khoa Nhi: \"My daughter pulled a bowl of hot soup onto her arm. I put toothpaste on it.\"\n(Bé 2 tuổi bị bỏng nước canh nóng ở cẳng tay 20 phút trước, mẹ đã bôi kem đánh răng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Bỏng độ 1\nB) Bỏng độ 3\nC) Bỏng nước nóng độ 2 nông, khoảng 1% diện tích cơ thể\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-16-tiktok-00-medical",
+      "date": "2026-11-16",
+      "file": "2026-11-16-tiktok-00-medical.mp4",
+      "duration_s": 28.13
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-16-threads-00-social-work",
+      "time": "11:45",
+      "discipline": "social-work",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🤝 Social Work English quiz: \"A trusting, positive relationship.\"\nA) empowerment  B) vulnerable  C) rapport\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
