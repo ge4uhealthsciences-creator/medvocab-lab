@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-15",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 12,
+  "items": [
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Traditional Medicine English trong 30 giây",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "ginseng",
+          "ipa": "/ˈdʒɪnseŋ/",
+          "meaning": "nhân sâm",
+          "definition": "A root used in traditional medicine.",
+          "example": "Ginseng is a well-known tonic herb."
+        },
+        {
+          "term": "dried herb",
+          "ipa": "/ˌdraɪd ˈhɜːb/",
+          "meaning": "dược liệu khô",
+          "definition": "Plant material preserved by drying.",
+          "example": "Store dried herbs away from moisture."
+        },
+        {
+          "term": "tincture",
+          "ipa": "/ˈtɪŋktʃə/",
+          "meaning": "cồn thuốc",
+          "definition": "A herbal extract made in alcohol.",
+          "example": "Take ten drops of the tincture."
+        }
+      ],
+      "title": "3 Traditional Medicine English words in 30 seconds: ginseng, dried herb, tincture #Shorts",
+      "caption": "• ginseng /ˈdʒɪnseŋ/ = nhân sâm\n• dried herb /ˌdraɪd ˈhɜːb/ = dược liệu khô\n• tincture /ˈtɪŋktʃə/ = cồn thuốc\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Traditional Medicine English miễn phí mỗi ngày.\n\n#TraditionalMedicine #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-15-youtube-00-traditional-medicine",
+      "date": "2026-11-15",
+      "file": "2026-11-15-youtube-00-traditional-medicine.mp4",
+      "duration_s": 18.83
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Thao, 27 · Sản",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 38,
+        "dept": "ob",
+        "er": false,
+        "cc": "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu",
+        "who": "Ms. Thao, 27",
+        "vit": {
+          "hr": 110,
+          "bp": "95/60",
+          "sp": 99,
+          "t": 36.8
+        },
+        "says": "My period is seven weeks late. I've had a sharp pain low on the right since this morning, and some spotting.",
+        "options": [
+          {
+            "en": "It's a normal early pregnancy.",
+            "ok": false,
+            "vi": "Thai trong tử cung bình thường",
+            "why": "Tử cung trống, khối phần phụ, dịch ổ bụng."
+          },
+          {
+            "en": "It's appendicitis.",
+            "ok": false,
+            "vi": "Viêm ruột thừa",
+            "why": "βhCG dương tính, siêu âm thấy khối phần phụ."
+          },
+          {
+            "en": "The pregnancy is growing outside the womb, in your right tube. This is an ectopic pregnancy, and it may be bleeding.",
+            "ok": true,
+            "vi": "Thai ngoài tử cung (nghi vỡ)",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Sản"
+      },
+      "title": "Trễ kinh 7 tuần, đau bụng dưới phải, ra máu: bạn chẩn đoán gì? (Midwifery English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Thao, 27 vào khoa Sản: \"My period is seven weeks late. I've had a sharp pain low on the right since this morning, and some spotting.\"\n(Trễ kinh 7 tuần, đau bụng dưới phải, ra máu)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Thai trong tử cung bình thường\nB) Viêm ruột thừa\nC) Thai ngoài tử cung (nghi vỡ)\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MidwiferyEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-15-instagram-00-midwifery",
+      "date": "2026-11-15",
+      "file": "2026-11-15-instagram-00-midwifery.mp4",
+      "duration_s": 29.97
+    },
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Thu, 35 · Răng Hàm Mặt",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 4,
+        "dept": "dent",
+        "er": false,
+        "cc": "Sưng má trái, đau răng hàm dưới",
+        "who": "Ms. Thu, 35",
+        "vit": {
+          "hr": 92,
+          "bp": "120/75",
+          "sp": 99,
+          "t": 38
+        },
+        "says": "My left cheek is swollen and my back tooth is throbbing. I couldn't sleep last night.",
+        "options": [
+          {
+            "en": "You have an infection at the root of this tooth. It's a dental abscess.",
+            "ok": true,
+            "vi": "Áp xe răng",
+            "why": ""
+          },
+          {
+            "en": "It's just a sensitive tooth.",
+            "ok": false,
+            "vi": "Răng ê buốt",
+            "why": "Sưng má, sốt, có mủ là áp xe."
+          },
+          {
+            "en": "It's only gum disease.",
+            "ok": false,
+            "vi": "Viêm nướu",
+            "why": "Nhiễm trùng xuất phát từ chóp răng."
+          }
+        ],
+        "src": null,
+        "answer": "A",
+        "dept_vi": "Răng Hàm Mặt"
+      },
+      "title": "Sưng má trái, đau răng hàm dưới: bạn chẩn đoán gì? (Dental English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Thu, 35 vào khoa Răng Hàm Mặt: \"My left cheek is swollen and my back tooth is throbbing. I couldn't sleep last night.\"\n(Sưng má trái, đau răng hàm dưới)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Áp xe răng\nB) Răng ê buốt\nC) Viêm nướu\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#DentalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-15-tiktok-00-dentistry",
+      "date": "2026-11-15",
+      "file": "2026-11-15-tiktok-00-dentistry.mp4",
+      "duration_s": 26.2
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-15-threads-00-traditional-medicine",
+      "time": "11:45",
+      "discipline": "traditional-medicine",
+      "format": "three_terms",
+      "topic": "tienganh",
+      "text": "• ginseng /ˈdʒɪnseŋ/ = nhân sâm\n• dried herb /ˌdraɪd ˈhɜːb/ = dược liệu khô\n• tincture /ˈtɪŋktʃə/ = cồn thuốc\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Follow GE4u để học Traditional Medicine English miễn phí mỗi ngày.\n\n#tienganh"
+    }
+  ]
+}
