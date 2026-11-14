@@ -1,32 +1,9 @@
 {
  "note": "TikTok plan item ids scheduled in TikTok Studio (via Claude in Chrome). The Metricool task skips these.",
  "ids": [
-  "2026-11-04-tiktok-00-medical",
-  "2026-11-04-tiktok-01-pharmacy",
-  "2026-11-04-tiktok-02-nursing",
-  "2026-11-04-tiktok-03-midwifery",
-  "2026-11-04-tiktok-04-social-work",
-  "2026-11-04-tiktok-05-pharmaceutical-chemistry",
-  "2026-11-04-tiktok-06-pharmaceutical-technology",
-  "2026-11-04-tiktok-07-traditional-medicine",
-  "2026-11-04-tiktok-08-public-health",
-  "2026-11-04-tiktok-09-psychology",
-  "2026-11-04-tiktok-10-nutrition",
-  "2026-11-04-tiktok-11-dentistry",
-  "2026-11-05-tiktok-00-pharmacy",
-  "2026-11-05-tiktok-01-nursing",
-  "2026-11-05-tiktok-02-midwifery",
-  "2026-11-05-tiktok-03-social-work",
-  "2026-11-05-tiktok-04-pharmaceutical-chemistry",
-  "2026-11-05-tiktok-05-pharmaceutical-technology",
-  "2026-11-05-tiktok-06-traditional-medicine",
-  "2026-11-05-tiktok-07-public-health",
-  "2026-11-05-tiktok-08-psychology",
-  "2026-11-05-tiktok-09-nutrition",
-  "2026-11-05-tiktok-10-dentistry",
-  "2026-11-05-tiktok-11-medical",
   "2026-11-07-tiktok-00-medical",
   "2026-11-12-tiktok-00-public-health",
-  "2026-11-13-tiktok-00-psychology"
+  "2026-11-13-tiktok-00-psychology",
+  "2026-11-14-tiktok-00-nutrition"
  ]
 }
