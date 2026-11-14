@@ -5,6 +5,11 @@ on:
     # 11:00 UTC = 18:00 Asia/Ho_Chi_Minh: renders TOMORROW's videos (count = SLOTS in ge4u_video.py) the evening before,
     # early enough that the 20:00 Autopilot can schedule them on TikTok Studio
     - cron: '0 11 * * *'
+    # Back-up runs: GitHub sometimes skips a scheduled run (13 Nov 2026). Each back-up renders only what is missing:
+    # today's release first, then tomorrow's. 15:10 UTC = 22:10 VN, 19:40 UTC = 02:40 VN, 23:20 UTC = 06:20 VN.
+    - cron: '10 15 * * *'
+    - cron: '40 19 * * *'
+    - cron: '20 23 * * *'
   workflow_dispatch:
     inputs:
       date:
@@ -20,35 +25,54 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
+      - name: Pick date (skip if already rendered)
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D="${{ github.event.inputs.date }}"
+          if [ -z "$D" ]; then
+            T=$(TZ=Asia/Ho_Chi_Minh date +%F); N=$(TZ=Asia/Ho_Chi_Minh date -d tomorrow +%F)
+            has() { gh api "repos/${{ github.repository }}/releases/tags/media-$1" --jq '.assets[].name' 2>/dev/null | grep -qx plan.json; }
+            if ! has "$T"; then D=$T; elif ! has "$N"; then D=$N; else echo "skip=true" >> "$GITHUB_OUTPUT"; echo "Both $T and $N already rendered"; exit 0; fi
+          fi
+          echo "date=$D" >> "$GITHUB_OUTPUT"; echo "Rendering $D"
       - uses: actions/checkout@v4
+        if: steps.pick.outputs.skip != 'true'
       - uses: actions/setup-python@v5
+        if: steps.pick.outputs.skip != 'true'
         with:
           python-version: '3.12'
       - name: Install fonts and Python deps
+        if: steps.pick.outputs.skip != 'true'
         run: |
           sudo apt-get update -q
           sudo apt-get install -y -q ffmpeg fonts-inter fonts-dejavu-core
           pip install pillow
       - name: Cache TTS
+        if: steps.pick.outputs.skip != 'true'
         uses: actions/cache@v4
         with:
           path: ~/ge4u-tts
           key: ge4u-tts-v1.13.8-kokoro-v0_19
       - name: Set up TTS
+        if: steps.pick.outputs.skip != 'true'
         run: bash social-video/setup_tts.sh
       - name: Build plan
+        if: steps.pick.outputs.skip != 'true'
         id: plan
         run: |
-          D="${{ github.event.inputs.date }}"
-          if [ -z "$D" ]; then D=$(TZ=Asia/Ho_Chi_Minh date -d tomorrow +%F); fi
+          D="${{ steps.pick.outputs.date }}"
           echo "date=$D" >> "$GITHUB_OUTPUT"
           python social-video/ge4u_video.py plan --date "$D" --out "out/$D"
       - name: Render videos
+        if: steps.pick.outputs.skip != 'true'
         run: |
           export GE4U_TTS_DIR="$HOME/ge4u-tts"
           python social-video/ge4u_video.py render --plan "out/${{ steps.plan.outputs.date }}/plan.json"
           ls -la "out/${{ steps.plan.outputs.date }}"
       - name: Validate output
+        if: steps.pick.outputs.skip != 'true'
         run: |
           D="${{ steps.plan.outputs.date }}"
           python - "$D" <<'PY'
@@ -78,6 +102,7 @@ jobs:
           print("OK", d)
           PY
       - name: Publish media release
+        if: steps.pick.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -90,6 +115,7 @@ jobs:
           gh release list --limit 100 --json tagName --jq '.[].tagName' | grep '^media-' | sort -r | tail -n +8 | \
             while read t; do gh release delete "$t" --yes --cleanup-tag; done
       - name: Record plan in repo
+        if: steps.pick.outputs.skip != 'true'
         run: |
           D="${{ steps.plan.outputs.date }}"
           cp "out/$D/plan.json" /tmp/plan.json
