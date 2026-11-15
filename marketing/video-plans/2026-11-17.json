@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-17",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 14,
+  "items": [
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "resilience",
+          "ipa": "/rɪˈzɪliəns/",
+          "meaning": "khả năng phục hồi",
+          "definition": "The ability to recover from difficulties.",
+          "example": "Support networks build resilience."
+        },
+        {
+          "term": "self-esteem",
+          "ipa": "/ˌself ɪˈstiːm/",
+          "meaning": "lòng tự trọng",
+          "definition": "A person's sense of their own worth.",
+          "example": "Praise can boost self-esteem."
+        },
+        {
+          "term": "bias",
+          "ipa": "/ˈbaɪəs/",
+          "meaning": "thiên kiến",
+          "definition": "A tendency to favour one view unfairly.",
+          "example": "Confirmation bias affects judgement."
+        }
+      ],
+      "title": "3 Psychology English words in 30 seconds: resilience, self-esteem, bias #Shorts",
+      "caption": "• resilience /rɪˈzɪliəns/ = khả năng phục hồi\n• self-esteem /ˌself ɪˈstiːm/ = lòng tự trọng\n• bias /ˈbaɪəs/ = thiên kiến\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Psychology English miễn phí mỗi ngày.\n\n#PsychologyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-17-youtube-00-psychology",
+      "date": "2026-11-17",
+      "file": "2026-11-17-youtube-00-psychology.mp4",
+      "duration_s": 19.73
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Hóa dược có trả lời được không?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "isomer",
+          "ipa": "/ˈaɪsəmə/",
+          "meaning": "đồng phân",
+          "definition": "A molecule with the same formula but different structure.",
+          "example": "These two isomers have different effects."
+        }
+      ],
+      "quiz": {
+        "question": "A molecule with the same formula but different structure.",
+        "options": [
+          "salt form",
+          "isomer",
+          "precipitate"
+        ],
+        "answer": "B"
+      },
+      "caption": "⚗️ Pharma Chemistry English quiz: \"A molecule with the same formula but different structure.\"\nA) salt form  B) isomer  C) precipitate\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaChemistry #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharma Chemistry English quiz: I…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-17-instagram-00-pharmaceutical-chemistry",
+      "date": "2026-11-17",
+      "file": "2026-11-17-instagram-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 13.63
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Dược học có trả lời được không?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "adverse drug reaction",
+          "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
+          "meaning": "phản ứng có hại của thuốc",
+          "definition": "An unintended harmful response to a medicine.",
+          "example": "The patient reported an adverse drug reaction."
+        }
+      ],
+      "quiz": {
+        "question": "An unintended harmful response to a medicine.",
+        "options": [
+          "indication",
+          "adverse drug reaction",
+          "compliance"
+        ],
+        "answer": "B"
+      },
+      "caption": "💊 Pharmacy English quiz: \"An unintended harmful response to a medicine.\"\nA) indication  B) adverse drug reaction  C) compliance\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmacyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Pharmacy English quiz: A…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-17-tiktok-00-pharmacy",
+      "date": "2026-11-17",
+      "file": "2026-11-17-tiktok-00-pharmacy.mp4",
+      "duration_s": 14.47
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-17-threads-00-pharmaceutical-chemistry",
+      "time": "11:45",
+      "discipline": "pharmaceutical-chemistry",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "⚗️ Pharma Chemistry English quiz: \"A molecule with the same formula but different structure.\"\nA) salt form  B) isomer  C) precipitate\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
