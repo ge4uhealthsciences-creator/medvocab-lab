@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-15",
-  "channel_id": "pharmacy",
-  "discipline": "Pharmacy English",
-  "topic": "Dược học · Pharmacy English",
-  "title": "GE4u Daily Practice: Pharmacy English",
-  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
+  "date": "2026-11-16",
+  "channel_id": "nursing",
+  "discipline": "Nursing English",
+  "topic": "Điều dưỡng · Nursing English",
+  "title": "GE4u Daily Practice: Nursing English",
+  "objective": "Review three core terms and practise one knowledge check in Nursing English.",
   "vocabulary": [
     {
-      "term": "contraindication",
-      "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
-      "meaning": "chống chỉ định",
-      "definition": "A factor that makes a treatment inadvisable.",
-      "example": "An allergy may be a contraindication."
+      "term": "wound dressing",
+      "ipa": "/wuːnd ˈdresɪŋ/",
+      "meaning": "băng vết thương",
+      "definition": "Material used to protect a wound.",
+      "example": "The nurse changed the wound dressing."
     },
     {
-      "term": "adverse drug reaction",
-      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
-      "meaning": "phản ứng có hại của thuốc",
-      "definition": "An unintended harmful response to a medicine.",
-      "example": "The patient reported an adverse drug reaction."
+      "term": "intake and output",
+      "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
+      "meaning": "lượng dịch vào và ra",
+      "definition": "A record of fluid intake and excretion.",
+      "example": "Intake and output were monitored."
     },
     {
-      "term": "dosage",
-      "ipa": "/ˈdəʊsɪdʒ/",
-      "meaning": "liều dùng",
-      "definition": "The amount and frequency of a medicine taken.",
-      "example": "Follow the prescribed dosage."
+      "term": "handover",
+      "ipa": "/ˈhændəʊvə/",
+      "meaning": "bàn giao ca",
+      "definition": "Transfer of relevant patient information.",
+      "example": "The nurse gave a structured handover."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A factor that makes a treatment inadvisable.",
+    "question": "Which term is defined as: Material used to protect a wound.",
     "options": [
-      "adverse drug reaction",
-      "dosage",
-      "contraindication"
+      "intake and output",
+      "handover",
+      "wound dressing"
     ],
-    "answer": "contraindication",
-    "explanation": "contraindication means A factor that makes a treatment inadvisable."
+    "answer": "wound dressing",
+    "explanation": "wound dressing means Material used to protect a wound."
   },
   "source_mode": "curated-channel-data"
 }
