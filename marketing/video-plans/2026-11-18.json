@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 15,
+  "items": [
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Nutrition English trong 30 giây",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "calorie",
+          "ipa": "/ˈkæləri/",
+          "meaning": "calo",
+          "definition": "A unit of energy in food.",
+          "example": "This snack has two hundred calories."
+        },
+        {
+          "term": "metabolism",
+          "ipa": "/məˈtæbəlɪzəm/",
+          "meaning": "chuyển hóa",
+          "definition": "Chemical processes that keep the body alive.",
+          "example": "Metabolism slows with age."
+        },
+        {
+          "term": "hydration",
+          "ipa": "/haɪˈdreɪʃən/",
+          "meaning": "bù nước / đủ nước",
+          "definition": "Having enough water in the body.",
+          "example": "Hydration is important in hot weather."
+        }
+      ],
+      "title": "3 Nutrition English words in 30 seconds: calorie, metabolism, hydration #Shorts",
+      "caption": "• calorie /ˈkæləri/ = calo\n• metabolism /məˈtæbəlɪzəm/ = chuyển hóa\n• hydration /haɪˈdreɪʃən/ = bù nước / đủ nước\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Nutrition English miễn phí mỗi ngày.\n\n#NutritionEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-18-youtube-00-nutrition",
+      "date": "2026-11-18",
+      "file": "2026-11-18-youtube-00-nutrition.mp4",
+      "duration_s": 18.67
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "GMP",
+          "ipa": "/ˌdʒiː em ˈpiː/",
+          "meaning": "thực hành sản xuất tốt",
+          "definition": "Good Manufacturing Practice: quality rules for production.",
+          "example": "The plant follows GMP."
+        }
+      ],
+      "quiz": {
+        "question": "Good Manufacturing Practice: quality rules for production.",
+        "options": [
+          "GMP",
+          "dosage form",
+          "excipient"
+        ],
+        "answer": "A"
+      },
+      "caption": "🏭 Pharma Technology English quiz: \"Good Manufacturing Practice: quality rules for production.\"\nA) GMP  B) dosage form  C) excipient\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaTech #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharma Technology English quiz: G…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-18-instagram-00-pharmaceutical-technology",
+      "date": "2026-11-18",
+      "file": "2026-11-18-instagram-00-pharmaceutical-technology.mp4",
+      "duration_s": 13.87
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "patient safety",
+          "ipa": "/ˈpeɪʃənt ˈseɪfti/",
+          "meaning": "an toàn người bệnh",
+          "definition": "Prevention of avoidable harm in healthcare.",
+          "example": "Patient safety is a priority."
+        }
+      ],
+      "quiz": {
+        "question": "Prevention of avoidable harm in healthcare.",
+        "options": [
+          "patient safety",
+          "observation chart",
+          "consent"
+        ],
+        "answer": "A"
+      },
+      "caption": "🩹 Nursing English quiz: \"Prevention of avoidable harm in healthcare.\"\nA) patient safety  B) observation chart  C) consent\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NursingEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Nursing English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-18-tiktok-00-nursing",
+      "date": "2026-11-18",
+      "file": "2026-11-18-tiktok-00-nursing.mp4",
+      "duration_s": 12.5
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-18-threads-00-nursing",
+      "time": "11:45",
+      "discipline": "nursing",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🩹 Nursing English quiz: \"Prevention of avoidable harm in healthcare.\"\nA) patient safety  B) observation chart  C) consent\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
