@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-16",
-  "channel_id": "nursing",
-  "discipline": "Nursing English",
-  "topic": "Điều dưỡng · Nursing English",
-  "title": "GE4u Daily Practice: Nursing English",
-  "objective": "Review three core terms and practise one knowledge check in Nursing English.",
+  "date": "2026-11-17",
+  "channel_id": "midwifery",
+  "discipline": "Midwifery English",
+  "topic": "Hộ sinh · Midwifery English",
+  "title": "GE4u Daily Practice: Midwifery English",
+  "objective": "Review three core terms and practise one knowledge check in Midwifery English.",
   "vocabulary": [
     {
-      "term": "wound dressing",
-      "ipa": "/wuːnd ˈdresɪŋ/",
-      "meaning": "băng vết thương",
-      "definition": "Material used to protect a wound.",
-      "example": "The nurse changed the wound dressing."
+      "term": "labour",
+      "ipa": "/ˈleɪbə/",
+      "meaning": "chuyển dạ",
+      "definition": "The process leading to childbirth.",
+      "example": "The midwife assessed labour."
     },
     {
-      "term": "intake and output",
-      "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
-      "meaning": "lượng dịch vào và ra",
-      "definition": "A record of fluid intake and excretion.",
-      "example": "Intake and output were monitored."
+      "term": "contraction",
+      "ipa": "/kənˈtrækʃən/",
+      "meaning": "cơn co tử cung",
+      "definition": "Tightening of uterine muscle, especially during labour.",
+      "example": "The patient described the contractions."
     },
     {
-      "term": "handover",
-      "ipa": "/ˈhændəʊvə/",
-      "meaning": "bàn giao ca",
-      "definition": "Transfer of relevant patient information.",
-      "example": "The nurse gave a structured handover."
+      "term": "postpartum",
+      "ipa": "/ˌpəʊstˈpɑːtəm/",
+      "meaning": "sau sinh",
+      "definition": "The period following childbirth.",
+      "example": "Postpartum care includes assessment."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Material used to protect a wound.",
+    "question": "Which term is defined as: The process leading to childbirth.",
     "options": [
-      "intake and output",
-      "handover",
-      "wound dressing"
+      "contraction",
+      "postpartum",
+      "labour"
     ],
-    "answer": "wound dressing",
-    "explanation": "wound dressing means Material used to protect a wound."
+    "answer": "labour",
+    "explanation": "labour means The process leading to childbirth."
   },
   "source_mode": "curated-channel-data"
 }
