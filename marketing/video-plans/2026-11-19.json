@@ -1,0 +1,171 @@
+{
+  "date": "2026-11-19",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 16,
+  "items": [
+    {
+      "discipline": "dentistry",
+      "discipline_vi": "Răng Hàm Mặt",
+      "discipline_en": "Dental English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Long, 22 · Răng Hàm Mặt",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 32,
+        "dept": "dent",
+        "er": false,
+        "cc": "Răng khôn mọc lệch, sưng lợi, khó há miệng",
+        "who": "Mr. Long, 22",
+        "vit": {
+          "hr": 88,
+          "bp": "118/72",
+          "sp": 99,
+          "t": 37.9
+        },
+        "says": "The gum at the back on the lower right is swollen and sore, and I can't open my mouth fully.",
+        "options": [
+          {
+            "en": "It's tonsillitis.",
+            "ok": false,
+            "vi": "Viêm amidan",
+            "why": "Sưng khu trú quanh răng 48."
+          },
+          {
+            "en": "Your wisdom tooth is stuck, and the gum over it is infected. This is called pericoronitis.",
+            "ok": true,
+            "vi": "Viêm quanh thân răng khôn",
+            "why": ""
+          },
+          {
+            "en": "You've broken your jaw.",
+            "ok": false,
+            "vi": "Gãy xương hàm",
+            "why": "Không có chấn thương."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Răng Hàm Mặt"
+      },
+      "title": "Răng khôn mọc lệch, sưng lợi, khó há miệng: bạn chẩn đoán gì? (Dental English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Long, 22 vào khoa Răng Hàm Mặt: \"The gum at the back on the lower right is swollen and sore, and I can't open my mouth fully.\"\n(Răng khôn mọc lệch, sưng lợi, khó há miệng)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Viêm amidan\nB) Viêm quanh thân răng khôn\nC) Gãy xương hàm\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#DentalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-19-youtube-00-dentistry",
+      "date": "2026-11-19",
+      "file": "2026-11-19-youtube-00-dentistry.mp4",
+      "duration_s": 28.57
+    },
+    {
+      "discipline": "traditional-medicine",
+      "discipline_vi": "Y học cổ truyền",
+      "discipline_en": "Traditional Medicine English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "tongue diagnosis",
+          "ipa": "/ˈtʌŋ daɪəɡˌnəʊsɪs/",
+          "meaning": "xem lưỡi",
+          "definition": "Assessing health by examining the tongue.",
+          "example": "Tongue diagnosis showed a pale tongue."
+        }
+      ],
+      "quiz": {
+        "question": "Assessing health by examining the tongue.",
+        "options": [
+          "yin and yang",
+          "qi",
+          "tongue diagnosis"
+        ],
+        "answer": "C"
+      },
+      "caption": "🌿 Traditional Medicine English quiz: \"Assessing health by examining the tongue.\"\nA) yin and yang  B) qi  C) tongue diagnosis\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#TraditionalMedicine #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Traditional Medicine English quiz: T…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-19-instagram-00-traditional-medicine",
+      "date": "2026-11-19",
+      "file": "2026-11-19-instagram-00-traditional-medicine.mp4",
+      "duration_s": 13.23
+    },
+    {
+      "discipline": "midwifery",
+      "discipline_vi": "Hộ sinh",
+      "discipline_en": "Midwifery English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Ngoc, 29 · Sản",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 10,
+        "dept": "ob",
+        "er": false,
+        "cc": "Thai 32 tuần, nhức đầu, phù mặt",
+        "who": "Ms. Ngoc, 29",
+        "vit": {
+          "hr": 90,
+          "bp": "165/110",
+          "sp": 98,
+          "t": 36.8
+        },
+        "says": "I'm thirty-two weeks pregnant. I have a bad headache and my face and hands are swollen.",
+        "options": [
+          {
+            "en": "It's a normal pregnancy headache.",
+            "ok": false,
+            "vi": "Đau đầu thai kỳ thông thường",
+            "why": "HA 165/110 + đạm niệu là tiền sản giật."
+          },
+          {
+            "en": "You have a migraine.",
+            "ok": false,
+            "vi": "Đau nửa đầu",
+            "why": "Có dấu hiệu nặng: rối loạn thị giác, đau hạ sườn phải."
+          },
+          {
+            "en": "You have preeclampsia. It's high blood pressure in pregnancy that is affecting your kidneys and liver.",
+            "ok": true,
+            "vi": "Tiền sản giật nặng",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Sản"
+      },
+      "title": "Thai 32 tuần, nhức đầu, phù mặt: bạn chẩn đoán gì? (Midwifery English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Ngoc, 29 vào khoa Sản: \"I'm thirty-two weeks pregnant. I have a bad headache and my face and hands are swollen.\"\n(Thai 32 tuần, nhức đầu, phù mặt)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Đau đầu thai kỳ thông thường\nB) Đau nửa đầu\nC) Tiền sản giật nặng\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MidwiferyEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-19-tiktok-00-midwifery",
+      "date": "2026-11-19",
+      "file": "2026-11-19-tiktok-00-midwifery.mp4",
+      "duration_s": 28.57
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-19-threads-00-traditional-medicine",
+      "time": "11:45",
+      "discipline": "traditional-medicine",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🌿 Traditional Medicine English quiz: \"Assessing health by examining the tongue.\"\nA) yin and yang  B) qi  C) tongue diagnosis\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
