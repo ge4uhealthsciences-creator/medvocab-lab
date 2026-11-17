@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-17",
-  "channel_id": "midwifery",
-  "discipline": "Midwifery English",
-  "topic": "Hộ sinh · Midwifery English",
-  "title": "GE4u Daily Practice: Midwifery English",
-  "objective": "Review three core terms and practise one knowledge check in Midwifery English.",
+  "date": "2026-11-18",
+  "channel_id": "social-work",
+  "discipline": "Healthcare Social Work",
+  "topic": "Công tác xã hội · Healthcare Social Work",
+  "title": "GE4u Daily Practice: Healthcare Social Work",
+  "objective": "Review three core terms and practise one knowledge check in Healthcare Social Work.",
   "vocabulary": [
     {
-      "term": "labour",
-      "ipa": "/ˈleɪbə/",
-      "meaning": "chuyển dạ",
-      "definition": "The process leading to childbirth.",
-      "example": "The midwife assessed labour."
+      "term": "needs assessment",
+      "ipa": "/niːdz əˈsesmənt/",
+      "meaning": "đánh giá nhu cầu",
+      "definition": "A process to identify needs and resources.",
+      "example": "The social worker completed a needs assessment."
     },
     {
-      "term": "contraction",
-      "ipa": "/kənˈtrækʃən/",
-      "meaning": "cơn co tử cung",
-      "definition": "Tightening of uterine muscle, especially during labour.",
-      "example": "The patient described the contractions."
+      "term": "confidentiality",
+      "ipa": "/ˌkɒnfɪdenʃiˈæləti/",
+      "meaning": "tính bảo mật",
+      "definition": "Protection of private information under applicable rules.",
+      "example": "Confidentiality matters in client discussions."
     },
     {
-      "term": "postpartum",
-      "ipa": "/ˌpəʊstˈpɑːtəm/",
-      "meaning": "sau sinh",
-      "definition": "The period following childbirth.",
-      "example": "Postpartum care includes assessment."
+      "term": "referral",
+      "ipa": "/rɪˈfɜːrəl/",
+      "meaning": "chuyển gửi",
+      "definition": "Directing a person to another service or professional.",
+      "example": "The client received a referral."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: The process leading to childbirth.",
+    "question": "Which term is defined as: A process to identify needs and resources.",
     "options": [
-      "contraction",
-      "postpartum",
-      "labour"
+      "confidentiality",
+      "referral",
+      "needs assessment"
     ],
-    "answer": "labour",
-    "explanation": "labour means The process leading to childbirth."
+    "answer": "needs assessment",
+    "explanation": "needs assessment means A process to identify needs and resources."
   },
   "source_mode": "curated-channel-data"
 }
