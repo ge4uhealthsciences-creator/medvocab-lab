@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-20",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 17,
+  "items": [
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "youtube",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Ly, 19 · Nội tiết",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [],
+      "case": {
+        "id": 56,
+        "dept": "endo",
+        "er": false,
+        "cc": "Nôn, đau bụng, thở sâu nhanh, khát nhiều",
+        "who": "Ms. Ly, 19",
+        "vit": {
+          "hr": 122,
+          "bp": "98/60",
+          "sp": 98,
+          "t": 37.2
+        },
+        "says": "I've been vomiting since last night, my stomach hurts, and I'm so thirsty. I feel terrible.",
+        "options": [
+          {
+            "en": "It's appendicitis.",
+            "ok": false,
+            "vi": "Viêm ruột thừa",
+            "why": "Đau bụng là triệu chứng của nhiễm toan ceton."
+          },
+          {
+            "en": "Your body has no insulin, so it's burning fat and making acids. This is diabetic ketoacidosis, and it's an emergency.",
+            "ok": true,
+            "vi": "Nhiễm toan ceton do đái tháo đường type 1",
+            "why": ""
+          },
+          {
+            "en": "It's food poisoning.",
+            "ok": false,
+            "vi": "Ngộ độc thực phẩm",
+            "why": "Đường huyết 28, ceton cao, pH 7,12."
+          }
+        ],
+        "src": null,
+        "answer": "B",
+        "dept_vi": "Nội tiết"
+      },
+      "title": "Nôn, đau bụng, thở sâu nhanh, khát nhiều: bạn chẩn đoán gì? (Medical English) #Shorts",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Ly, 19 vào khoa Nội tiết: \"I've been vomiting since last night, my stomach hurts, and I'm so thirsty. I feel terrible.\"\n(Nôn, đau bụng, thở sâu nhanh, khát nhiều)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Viêm ruột thừa\nB) Nhiễm toan ceton do đái tháo đường type 1\nC) Ngộ độc thực phẩm\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #Shorts #GE4u",
+      "id": "2026-11-20-youtube-00-medical",
+      "date": "2026-11-20",
+      "file": "2026-11-20-youtube-00-medical.mp4",
+      "duration_s": 30.93
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Y tế công cộng có trả lời được không?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "case-control study",
+          "ipa": "/ˌkeɪs kənˈtrəʊl ˌstʌdi/",
+          "meaning": "nghiên cứu bệnh chứng",
+          "definition": "A study comparing people with and without a disease.",
+          "example": "A case-control study examined smoking."
+        }
+      ],
+      "quiz": {
+        "question": "A study comparing people with and without a disease.",
+        "options": [
+          "health promotion",
+          "case-control study",
+          "risk factor"
+        ],
+        "answer": "B"
+      },
+      "caption": "🌍 Public Health English quiz: \"A study comparing people with and without a disease.\"\nA) health promotion  B) case-control study  C) risk factor\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PublicHealthEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Public Health English quiz: C…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-20-instagram-00-public-health",
+      "date": "2026-11-20",
+      "file": "2026-11-20-instagram-00-public-health.mp4",
+      "duration_s": 14.03
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Công tác xã hội có trả lời được không?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "community resources",
+          "ipa": "/kəˈmjuːnəti rɪˈzɔːsɪz/",
+          "meaning": "nguồn lực cộng đồng",
+          "definition": "Local services that can help people.",
+          "example": "We linked the family to community resources."
+        }
+      ],
+      "quiz": {
+        "question": "Local services that can help people.",
+        "options": [
+          "caseload",
+          "community resources",
+          "boundaries"
+        ],
+        "answer": "B"
+      },
+      "caption": "🤝 Social Work English quiz: \"Local services that can help people.\"\nA) caseload  B) community resources  C) boundaries\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#SocialWorkEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Social Work English quiz: C…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-20-tiktok-00-social-work",
+      "date": "2026-11-20",
+      "file": "2026-11-20-tiktok-00-social-work.mp4",
+      "duration_s": 13.63
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-20-threads-00-social-work",
+      "time": "11:45",
+      "discipline": "social-work",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🤝 Social Work English quiz: \"Local services that can help people.\"\nA) caseload  B) community resources  C) boundaries\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
