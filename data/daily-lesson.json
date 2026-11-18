@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-18",
-  "channel_id": "social-work",
-  "discipline": "Healthcare Social Work",
-  "topic": "Công tác xã hội · Healthcare Social Work",
-  "title": "GE4u Daily Practice: Healthcare Social Work",
-  "objective": "Review three core terms and practise one knowledge check in Healthcare Social Work.",
+  "date": "2026-11-19",
+  "channel_id": "pharmaceutical-chemistry",
+  "discipline": "Pharmaceutical Chemistry",
+  "topic": "Hóa dược · Pharmaceutical Chemistry",
+  "title": "GE4u Daily Practice: Pharmaceutical Chemistry",
+  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Chemistry.",
   "vocabulary": [
     {
-      "term": "needs assessment",
-      "ipa": "/niːdz əˈsesmənt/",
-      "meaning": "đánh giá nhu cầu",
-      "definition": "A process to identify needs and resources.",
-      "example": "The social worker completed a needs assessment."
+      "term": "active pharmaceutical ingredient",
+      "ipa": "/ˈæktɪv ˌfɑːməˈsuːtɪkəl ɪnˈɡriːdiənt/",
+      "meaning": "dược chất",
+      "definition": "Substance responsible for intended pharmacological activity.",
+      "example": "The active pharmaceutical ingredient was identified."
     },
     {
-      "term": "confidentiality",
-      "ipa": "/ˌkɒnfɪdenʃiˈæləti/",
-      "meaning": "tính bảo mật",
-      "definition": "Protection of private information under applicable rules.",
-      "example": "Confidentiality matters in client discussions."
+      "term": "solubility",
+      "ipa": "/ˌsɒljʊˈbɪləti/",
+      "meaning": "độ tan",
+      "definition": "Ability of a substance to dissolve in a solvent.",
+      "example": "Solubility affects formulation."
     },
     {
-      "term": "referral",
-      "ipa": "/rɪˈfɜːrəl/",
-      "meaning": "chuyển gửi",
-      "definition": "Directing a person to another service or professional.",
-      "example": "The client received a referral."
+      "term": "synthesis",
+      "ipa": "/ˈsɪnθəsɪs/",
+      "meaning": "sự tổng hợp",
+      "definition": "Production of a compound through chemical reactions.",
+      "example": "The synthesis route was documented."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A process to identify needs and resources.",
+    "question": "Which term is defined as: Substance responsible for intended pharmacological activity.",
     "options": [
-      "confidentiality",
-      "referral",
-      "needs assessment"
+      "solubility",
+      "synthesis",
+      "active pharmaceutical ingredient"
     ],
-    "answer": "needs assessment",
-    "explanation": "needs assessment means A process to identify needs and resources."
+    "answer": "active pharmaceutical ingredient",
+    "explanation": "active pharmaceutical ingredient means Substance responsible for intended pharmacological activity."
   },
   "source_mode": "curated-channel-data"
 }
