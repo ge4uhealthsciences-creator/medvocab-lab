@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-19",
-  "channel_id": "pharmaceutical-chemistry",
-  "discipline": "Pharmaceutical Chemistry",
-  "topic": "Hóa dược · Pharmaceutical Chemistry",
-  "title": "GE4u Daily Practice: Pharmaceutical Chemistry",
-  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Chemistry.",
+  "date": "2026-11-20",
+  "channel_id": "pharmaceutical-technology",
+  "discipline": "Pharmaceutical Technology",
+  "topic": "Công nghệ dược phẩm · Pharmaceutical Technology",
+  "title": "GE4u Daily Practice: Pharmaceutical Technology",
+  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Technology.",
   "vocabulary": [
     {
-      "term": "active pharmaceutical ingredient",
-      "ipa": "/ˈæktɪv ˌfɑːməˈsuːtɪkəl ɪnˈɡriːdiənt/",
-      "meaning": "dược chất",
-      "definition": "Substance responsible for intended pharmacological activity.",
-      "example": "The active pharmaceutical ingredient was identified."
+      "term": "excipient",
+      "ipa": "/ɪkˈsɪpiənt/",
+      "meaning": "tá dược",
+      "definition": "A formulation ingredient other than the active substance.",
+      "example": "The excipient supported product stability."
     },
     {
-      "term": "solubility",
-      "ipa": "/ˌsɒljʊˈbɪləti/",
-      "meaning": "độ tan",
-      "definition": "Ability of a substance to dissolve in a solvent.",
-      "example": "Solubility affects formulation."
+      "term": "dissolution",
+      "ipa": "/ˌdɪsəˈluːʃən/",
+      "meaning": "sự hòa tan",
+      "definition": "The process by which a substance goes into solution.",
+      "example": "Dissolution testing was performed."
     },
     {
-      "term": "synthesis",
-      "ipa": "/ˈsɪnθəsɪs/",
-      "meaning": "sự tổng hợp",
-      "definition": "Production of a compound through chemical reactions.",
-      "example": "The synthesis route was documented."
+      "term": "batch",
+      "ipa": "/bætʃ/",
+      "meaning": "lô sản xuất",
+      "definition": "A defined quantity made in one manufacturing cycle.",
+      "example": "Each batch was documented."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Substance responsible for intended pharmacological activity.",
+    "question": "Which term is defined as: A formulation ingredient other than the active substance.",
     "options": [
-      "solubility",
-      "synthesis",
-      "active pharmaceutical ingredient"
+      "dissolution",
+      "batch",
+      "excipient"
     ],
-    "answer": "active pharmaceutical ingredient",
-    "explanation": "active pharmaceutical ingredient means Substance responsible for intended pharmacological activity."
+    "answer": "excipient",
+    "explanation": "excipient means A formulation ingredient other than the active substance."
   },
   "source_mode": "curated-channel-data"
 }
