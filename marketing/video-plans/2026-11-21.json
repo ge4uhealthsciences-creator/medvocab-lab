@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-21",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 18,
+  "items": [
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Pharmacy English trong 30 giây",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "indication",
+          "ipa": "/ˌɪndɪˈkeɪʃən/",
+          "meaning": "chỉ định",
+          "definition": "A reason for using a medicine or treatment.",
+          "example": "The pharmacist checked the indication."
+        },
+        {
+          "term": "contraindication",
+          "ipa": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+          "meaning": "chống chỉ định",
+          "definition": "A factor that makes a treatment inadvisable.",
+          "example": "An allergy may be a contraindication."
+        },
+        {
+          "term": "adverse drug reaction",
+          "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
+          "meaning": "phản ứng có hại của thuốc",
+          "definition": "An unintended harmful response to a medicine.",
+          "example": "The patient reported an adverse drug reaction."
+        }
+      ],
+      "title": "3 Pharmacy English words in 30 seconds: indication, contraindication, adverse drug reaction #Shorts",
+      "caption": "• indication /ˌɪndɪˈkeɪʃən/ = chỉ định\n• contraindication /ˌkɒntrəˌɪndɪˈkeɪʃən/ = chống chỉ định\n• adverse drug reaction /ˈædvɜːs drʌɡ riˈækʃən/ = phản ứng có hại của thuốc\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharmacy English miễn phí mỗi ngày.\n\n#PharmacyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-21-youtube-00-pharmacy",
+      "date": "2026-11-21",
+      "file": "2026-11-21-youtube-00-pharmacy.mp4",
+      "duration_s": 23.3
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "memory",
+          "ipa": "/ˈmeməri/",
+          "meaning": "trí nhớ",
+          "definition": "The ability to store and recall information.",
+          "example": "Sleep supports memory."
+        }
+      ],
+      "quiz": {
+        "question": "The ability to store and recall information.",
+        "options": [
+          "memory",
+          "conditioning",
+          "personality"
+        ],
+        "answer": "A"
+      },
+      "caption": "🧠 Psychology English quiz: \"The ability to store and recall information.\"\nA) memory  B) conditioning  C) personality\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PsychologyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Psychology English quiz: M…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-21-instagram-00-psychology",
+      "date": "2026-11-21",
+      "file": "2026-11-21-instagram-00-psychology.mp4",
+      "duration_s": 12.87
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "synthesis",
+          "ipa": "/ˈsɪnθəsɪs/",
+          "meaning": "sự tổng hợp",
+          "definition": "Production of a compound through chemical reactions.",
+          "example": "The synthesis route was documented."
+        }
+      ],
+      "quiz": {
+        "question": "Production of a compound through chemical reactions.",
+        "options": [
+          "synthesis",
+          "yield",
+          "pH"
+        ],
+        "answer": "A"
+      },
+      "caption": "⚗️ Pharma Chemistry English quiz: \"Production of a compound through chemical reactions.\"\nA) synthesis  B) yield  C) pH\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaChemistry #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Pharma Chemistry English quiz: S…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-21-tiktok-00-pharmaceutical-chemistry",
+      "date": "2026-11-21",
+      "file": "2026-11-21-tiktok-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 13.07
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-21-threads-00-psychology",
+      "time": "11:45",
+      "discipline": "psychology",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🧠 Psychology English quiz: \"The ability to store and recall information.\"\nA) memory  B) conditioning  C) personality\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
