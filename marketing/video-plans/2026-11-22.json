@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-22",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 19,
+  "items": [
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Điều dưỡng",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "wound dressing",
+          "ipa": "/wuːnd ˈdresɪŋ/",
+          "meaning": "băng vết thương",
+          "definition": "Material used to protect a wound.",
+          "example": "The nurse changed the wound dressing."
+        },
+        {
+          "term": "intake and output",
+          "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
+          "meaning": "lượng dịch vào và ra",
+          "definition": "A record of fluid intake and excretion.",
+          "example": "Intake and output were monitored."
+        },
+        {
+          "term": "handover",
+          "ipa": "/ˈhændəʊvə/",
+          "meaning": "bàn giao ca",
+          "definition": "Transfer of relevant patient information.",
+          "example": "The nurse gave a structured handover."
+        }
+      ],
+      "title": "3 Nursing English words in 30 seconds: wound dressing, intake and output, handover #Shorts",
+      "caption": "• wound dressing /wuːnd ˈdresɪŋ/ = băng vết thương\n• intake and output /ˈɪnteɪk ən ˈaʊtpʊt/ = lượng dịch vào và ra\n• handover /ˈhændəʊvə/ = bàn giao ca\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Nursing English miễn phí mỗi ngày.\n\n#NursingEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-22-youtube-00-nursing",
+      "date": "2026-11-22",
+      "file": "2026-11-22-youtube-00-nursing.mp4",
+      "duration_s": 20.97
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "diet therapy",
+          "ipa": "/ˈdaɪət ˌθerəpi/",
+          "meaning": "liệu pháp dinh dưỡng",
+          "definition": "Dietary changes used to help manage a condition.",
+          "example": "Diet therapy was tailored to the patient."
+        }
+      ],
+      "quiz": {
+        "question": "Dietary changes used to help manage a condition.",
+        "options": [
+          "vitamin",
+          "mineral",
+          "diet therapy"
+        ],
+        "answer": "C"
+      },
+      "caption": "🥗 Nutrition English quiz: \"Dietary changes used to help manage a condition.\"\nA) vitamin  B) mineral  C) diet therapy\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NutritionEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Nutrition English quiz: D…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-22-instagram-00-nutrition",
+      "date": "2026-11-22",
+      "file": "2026-11-22-instagram-00-nutrition.mp4",
+      "duration_s": 13.57
+    },
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "disintegration",
+          "ipa": "/dɪsˌɪntɪˈɡreɪʃən/",
+          "meaning": "rã",
+          "definition": "Breaking apart into smaller pieces.",
+          "example": "Disintegration should occur within fifteen minutes."
+        }
+      ],
+      "quiz": {
+        "question": "Breaking apart into smaller pieces.",
+        "options": [
+          "GMP",
+          "validation",
+          "disintegration"
+        ],
+        "answer": "C"
+      },
+      "caption": "🏭 Pharma Technology English quiz: \"Breaking apart into smaller pieces.\"\nA) GMP  B) validation  C) disintegration\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaTech #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Pharma Technology English quiz: D…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-22-tiktok-00-pharmaceutical-technology",
+      "date": "2026-11-22",
+      "file": "2026-11-22-tiktok-00-pharmaceutical-technology.mp4",
+      "duration_s": 13.43
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-22-threads-00-pharmaceutical-technology",
+      "time": "11:45",
+      "discipline": "pharmaceutical-technology",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🏭 Pharma Technology English quiz: \"Breaking apart into smaller pieces.\"\nA) GMP  B) validation  C) disintegration\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
