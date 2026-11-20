@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-20",
-  "channel_id": "pharmaceutical-technology",
-  "discipline": "Pharmaceutical Technology",
-  "topic": "Công nghệ dược phẩm · Pharmaceutical Technology",
-  "title": "GE4u Daily Practice: Pharmaceutical Technology",
-  "objective": "Review three core terms and practise one knowledge check in Pharmaceutical Technology.",
+  "date": "2026-11-21",
+  "channel_id": "traditional-medicine",
+  "discipline": "Traditional Medicine English",
+  "topic": "Y học cổ truyền · Traditional Medicine English",
+  "title": "GE4u Daily Practice: Traditional Medicine English",
+  "objective": "Review three core terms and practise one knowledge check in Traditional Medicine English.",
   "vocabulary": [
     {
-      "term": "excipient",
-      "ipa": "/ɪkˈsɪpiənt/",
-      "meaning": "tá dược",
-      "definition": "A formulation ingredient other than the active substance.",
-      "example": "The excipient supported product stability."
+      "term": "herbal preparation",
+      "ipa": "/ˈhɜːbəl ˌprepəˈreɪʃən/",
+      "meaning": "chế phẩm thảo dược",
+      "definition": "A product prepared from herbal materials.",
+      "example": "The herbal preparation was described."
     },
     {
-      "term": "dissolution",
-      "ipa": "/ˌdɪsəˈluːʃən/",
-      "meaning": "sự hòa tan",
-      "definition": "The process by which a substance goes into solution.",
-      "example": "Dissolution testing was performed."
+      "term": "traditional diagnosis",
+      "ipa": "/trəˈdɪʃənəl ˌdaɪəɡˈnəʊsɪs/",
+      "meaning": "chẩn đoán theo y học cổ truyền",
+      "definition": "Assessment using a traditional medicine framework.",
+      "example": "The practitioner documented the traditional diagnosis."
     },
     {
-      "term": "batch",
-      "ipa": "/bætʃ/",
-      "meaning": "lô sản xuất",
-      "definition": "A defined quantity made in one manufacturing cycle.",
-      "example": "Each batch was documented."
+      "term": "decoction",
+      "ipa": "/dɪˈkɒkʃən/",
+      "meaning": "thuốc sắc",
+      "definition": "A preparation made by boiling plant material in liquid.",
+      "example": "The decoction was prepared as directed."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A formulation ingredient other than the active substance.",
+    "question": "Which term is defined as: A product prepared from herbal materials.",
     "options": [
-      "dissolution",
-      "batch",
-      "excipient"
+      "traditional diagnosis",
+      "decoction",
+      "herbal preparation"
     ],
-    "answer": "excipient",
-    "explanation": "excipient means A formulation ingredient other than the active substance."
+    "answer": "herbal preparation",
+    "explanation": "herbal preparation means A product prepared from herbal materials."
   },
   "source_mode": "curated-channel-data"
 }
