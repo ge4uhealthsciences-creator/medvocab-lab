@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-25",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 22,
+  "items": [
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Hóa dược",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "solubility",
+          "ipa": "/ˌsɒljʊˈbɪləti/",
+          "meaning": "độ tan",
+          "definition": "Ability of a substance to dissolve in a solvent.",
+          "example": "Solubility affects formulation."
+        },
+        {
+          "term": "synthesis",
+          "ipa": "/ˈsɪnθəsɪs/",
+          "meaning": "sự tổng hợp",
+          "definition": "Production of a compound through chemical reactions.",
+          "example": "The synthesis route was documented."
+        },
+        {
+          "term": "structure–activity relationship",
+          "ipa": "/ˈstrʌktʃə ækˈtɪvəti rɪˌleɪʃənʃɪp/",
+          "meaning": "mối liên hệ cấu trúc–tác dụng",
+          "definition": "Relationship between molecular structure and biological activity.",
+          "example": "The team discussed the structure–activity relationship."
+        }
+      ],
+      "title": "3 Pharma Chemistry English words in 30 seconds #Shorts",
+      "caption": "• solubility /ˌsɒljʊˈbɪləti/ = độ tan\n• synthesis /ˈsɪnθəsɪs/ = sự tổng hợp\n• structure–activity relationship /ˈstrʌktʃə ækˈtɪvəti rɪˌleɪʃənʃɪp/ = mối liên hệ cấu trúc–tác dụng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Chemistry English miễn phí mỗi ngày.\n\n#PharmaChemistry #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-25-youtube-00-pharmaceutical-chemistry",
+      "date": "2026-11-25",
+      "file": "2026-11-25-youtube-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 26.07
+    },
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "analgesic",
+          "ipa": "/ˌænəlˈdʒiːzɪk/",
+          "meaning": "thuốc giảm đau",
+          "definition": "A medicine that relieves pain.",
+          "example": "An analgesic was given after surgery."
+        }
+      ],
+      "quiz": {
+        "question": "A medicine that relieves pain.",
+        "options": [
+          "antibiotic",
+          "placebo",
+          "analgesic"
+        ],
+        "answer": "C"
+      },
+      "caption": "💊 Pharmacy English quiz: \"A medicine that relieves pain.\"\nA) antibiotic  B) placebo  C) analgesic\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmacyEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharmacy English quiz: A…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-25-instagram-00-pharmacy",
+      "date": "2026-11-25",
+      "file": "2026-11-25-instagram-00-pharmacy.mp4",
+      "duration_s": 13.2
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "perception",
+          "ipa": "/pəˈsepʃən/",
+          "meaning": "tri giác",
+          "definition": "How the brain interprets sensory information.",
+          "example": "Perception can be influenced by expectation."
+        }
+      ],
+      "quiz": {
+        "question": "How the brain interprets sensory information.",
+        "options": [
+          "burnout",
+          "mindfulness",
+          "perception"
+        ],
+        "answer": "C"
+      },
+      "caption": "🧠 Psychology English quiz: \"How the brain interprets sensory information.\"\nA) burnout  B) mindfulness  C) perception\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PsychologyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Psychology English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-25-tiktok-00-psychology",
+      "date": "2026-11-25",
+      "file": "2026-11-25-tiktok-00-psychology.mp4",
+      "duration_s": 13.53
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-25-threads-00-pharmacy",
+      "time": "11:45",
+      "discipline": "pharmacy",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "💊 Pharmacy English quiz: \"A medicine that relieves pain.\"\nA) antibiotic  B) placebo  C) analgesic\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
