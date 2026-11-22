@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-24",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 21,
+  "items": [
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "speed",
+      "hook": "3 từ Social Work English trong 30 giây",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "stigma",
+          "ipa": "/ˈstɪɡmə/",
+          "meaning": "kỳ thị",
+          "definition": "Negative attitudes towards a group or condition.",
+          "example": "Stigma stops people from seeking help."
+        },
+        {
+          "term": "risk assessment",
+          "ipa": "/ˈrɪsk əˌsesmənt/",
+          "meaning": "đánh giá nguy cơ",
+          "definition": "A structured review of possible harm.",
+          "example": "Complete a risk assessment before the visit."
+        },
+        {
+          "term": "community resources",
+          "ipa": "/kəˈmjuːnəti rɪˈzɔːsɪz/",
+          "meaning": "nguồn lực cộng đồng",
+          "definition": "Local services that can help people.",
+          "example": "We linked the family to community resources."
+        }
+      ],
+      "title": "3 Social Work English words in 30 seconds: stigma, risk assessment, community resources #Shorts",
+      "caption": "• stigma /ˈstɪɡmə/ = kỳ thị\n• risk assessment /ˈrɪsk əˌsesmənt/ = đánh giá nguy cơ\n• community resources /kəˈmjuːnəti rɪˈzɔːsɪz/ = nguồn lực cộng đồng\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Social Work English miễn phí mỗi ngày.\n\n#SocialWorkEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-24-youtube-00-social-work",
+      "date": "2026-11-24",
+      "file": "2026-11-24-youtube-00-social-work.mp4",
+      "duration_s": 21.37
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "instagram",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Mr. Tam, 76 · Cấp cứu",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [],
+      "case": {
+        "id": 24,
+        "dept": "er",
+        "er": true,
+        "cc": "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp",
+        "who": "Mr. Tam, 76",
+        "vit": {
+          "hr": 122,
+          "bp": "82/48",
+          "sp": 93,
+          "t": 39.2
+        },
+        "says": "(Daughter) My father has had a high fever since yesterday, and today he's very drowsy and confused.",
+        "options": [
+          {
+            "en": "Your father has a severe infection that started in his urine and has spread to his blood. His blood pressure is dangerously low. This is called septic shock.",
+            "ok": true,
+            "vi": "Sốc nhiễm khuẩn, nguồn nhiễm khuẩn tiết niệu",
+            "why": ""
+          },
+          {
+            "en": "He's just dehydrated from the fever.",
+            "ok": false,
+            "vi": "Mất nước đơn thuần",
+            "why": "Tụt huyết áp + lactat 4,6 + lơ mơ + nguồn nhiễm khuẩn → sốc nhiễm khuẩn, không chỉ là mất nước."
+          },
+          {
+            "en": "He's had a stroke.",
+            "ok": false,
+            "vi": "Đột quỵ",
+            "why": "Không có dấu thần kinh khu trú; lú lẫn kèm sốt và tụt huyết áp do nhiễm khuẩn."
+          }
+        ],
+        "src": [
+          "https://openaccess.sgul.ac.uk/id/eprint/109902/3/Figure%201.%20%20Hour-1%20Surviving%20Sepsis%20Campaign%20Bundle%20of%20Care%20Revised%2025%20Jan.pdf",
+          "https://www.vinmec.com/vie/bai-viet/phac-do-dieu-tri-va-chan-doan-soc-nhiem-trung-vi"
+        ],
+        "answer": "A",
+        "dept_vi": "Cấp cứu"
+      },
+      "title": "Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Mr. Tam, 76 vào khoa Cấp cứu: \"(Daughter) My father has had a high fever since yesterday, and today he's very drowsy and confused.\"\n(Cụ ông sốt cao, lơ mơ, tiểu đục, tụt huyết áp)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Sốc nhiễm khuẩn, nguồn nhiễm khuẩn tiết niệu\nB) Mất nước đơn thuần\nC) Đột quỵ\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #Reels #GE4u",
+      "id": "2026-11-24-instagram-00-medical",
+      "date": "2026-11-24",
+      "file": "2026-11-24-instagram-00-medical.mp4",
+      "duration_s": 33.07
+    },
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "question",
+      "hook": "Chỉ 1 đáp án đúng. Bạn chọn gì?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "quarantine",
+          "ipa": "/ˈkwɒrəntiːn/",
+          "meaning": "kiểm dịch / cách ly",
+          "definition": "Separating exposed people who may become ill.",
+          "example": "Travellers were placed in quarantine."
+        }
+      ],
+      "quiz": {
+        "question": "Separating exposed people who may become ill.",
+        "options": [
+          "quarantine",
+          "screening",
+          "determinants of health"
+        ],
+        "answer": "A"
+      },
+      "caption": "🌍 Public Health English quiz: \"Separating exposed people who may become ill.\"\nA) quarantine  B) screening  C) determinants of health\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PublicHealthEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Public Health English quiz: Q…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-24-tiktok-00-public-health",
+      "date": "2026-11-24",
+      "file": "2026-11-24-tiktok-00-public-health.mp4",
+      "duration_s": 12.8
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-24-threads-00-public-health",
+      "time": "11:45",
+      "discipline": "public-health",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🌍 Public Health English quiz: \"Separating exposed people who may become ill.\"\nA) quarantine  B) screening  C) determinants of health\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
