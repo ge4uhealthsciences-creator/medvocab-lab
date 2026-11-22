@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-22",
-  "channel_id": "public-health",
-  "discipline": "Public Health English",
-  "topic": "Y tế công cộng · Public Health English",
-  "title": "GE4u Daily Practice: Public Health English",
-  "objective": "Review three core terms and practise one knowledge check in Public Health English.",
+  "date": "2026-11-23",
+  "channel_id": "psychology",
+  "discipline": "Psychology English",
+  "topic": "Tâm lý học · Psychology English",
+  "title": "GE4u Daily Practice: Psychology English",
+  "objective": "Review three core terms and practise one knowledge check in Psychology English.",
   "vocabulary": [
     {
-      "term": "prevalence",
-      "ipa": "/ˈprevələns/",
-      "meaning": "tỷ lệ hiện mắc",
-      "definition": "Proportion of a population with a condition at a given time.",
-      "example": "Prevalence was estimated from survey data."
+      "term": "behaviour",
+      "ipa": "/bɪˈheɪvjə/",
+      "meaning": "hành vi",
+      "definition": "Observable actions or responses of a person.",
+      "example": "The study examined health-related behaviour."
     },
     {
-      "term": "risk factor",
-      "ipa": "/ˈrɪsk ˌfæktə/",
-      "meaning": "yếu tố nguy cơ",
-      "definition": "A characteristic associated with increased likelihood of an outcome.",
-      "example": "Smoking is a risk factor."
+      "term": "coping strategy",
+      "ipa": "/ˈkəʊpɪŋ ˌstrætədʒi/",
+      "meaning": "chiến lược ứng phó",
+      "definition": "A method used to manage stress or difficult situations.",
+      "example": "The counsellor discussed coping strategies."
     },
     {
-      "term": "health promotion",
-      "ipa": "/helθ prəˈməʊʃən/",
-      "meaning": "nâng cao sức khỏe",
-      "definition": "Enabling people to improve control over their health.",
-      "example": "Health promotion may include community education."
+      "term": "assessment",
+      "ipa": "/əˈsesmənt/",
+      "meaning": "đánh giá",
+      "definition": "A systematic process of gathering information.",
+      "example": "The assessment considered several sources."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Proportion of a population with a condition at a given time.",
+    "question": "Which term is defined as: Observable actions or responses of a person.",
     "options": [
-      "risk factor",
-      "health promotion",
-      "prevalence"
+      "coping strategy",
+      "assessment",
+      "behaviour"
     ],
-    "answer": "prevalence",
-    "explanation": "prevalence means Proportion of a population with a condition at a given time."
+    "answer": "behaviour",
+    "explanation": "behaviour means Observable actions or responses of a person."
   },
   "source_mode": "curated-channel-data"
 }
