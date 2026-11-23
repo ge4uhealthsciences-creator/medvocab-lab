@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-23",
-  "channel_id": "psychology",
-  "discipline": "Psychology English",
-  "topic": "Tâm lý học · Psychology English",
-  "title": "GE4u Daily Practice: Psychology English",
-  "objective": "Review three core terms and practise one knowledge check in Psychology English.",
+  "date": "2026-11-24",
+  "channel_id": "nutrition",
+  "discipline": "Nutrition English",
+  "topic": "Dinh dưỡng · Nutrition English",
+  "title": "GE4u Daily Practice: Nutrition English",
+  "objective": "Review three core terms and practise one knowledge check in Nutrition English.",
   "vocabulary": [
     {
-      "term": "behaviour",
-      "ipa": "/bɪˈheɪvjə/",
-      "meaning": "hành vi",
-      "definition": "Observable actions or responses of a person.",
-      "example": "The study examined health-related behaviour."
+      "term": "micronutrient",
+      "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
+      "meaning": "vi chất dinh dưỡng",
+      "definition": "A nutrient needed in small amounts.",
+      "example": "Iron is an essential micronutrient."
     },
     {
-      "term": "coping strategy",
-      "ipa": "/ˈkəʊpɪŋ ˌstrætədʒi/",
-      "meaning": "chiến lược ứng phó",
-      "definition": "A method used to manage stress or difficult situations.",
-      "example": "The counsellor discussed coping strategies."
+      "term": "malnutrition",
+      "ipa": "/ˌmælnjuːˈtrɪʃən/",
+      "meaning": "suy dinh dưỡng / rối loạn dinh dưỡng",
+      "definition": "A state caused by inadequate, excessive or imbalanced intake.",
+      "example": "Malnutrition can affect recovery."
     },
     {
-      "term": "assessment",
-      "ipa": "/əˈsesmənt/",
-      "meaning": "đánh giá",
-      "definition": "A systematic process of gathering information.",
-      "example": "The assessment considered several sources."
+      "term": "dietary intake",
+      "ipa": "/ˈdaɪətəri ˈɪnteɪk/",
+      "meaning": "lượng ăn vào",
+      "definition": "The food and nutrients consumed by a person.",
+      "example": "Dietary intake was assessed."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Observable actions or responses of a person.",
+    "question": "Which term is defined as: A nutrient needed in small amounts.",
     "options": [
-      "coping strategy",
-      "assessment",
-      "behaviour"
+      "malnutrition",
+      "dietary intake",
+      "micronutrient"
     ],
-    "answer": "behaviour",
-    "explanation": "behaviour means Observable actions or responses of a person."
+    "answer": "micronutrient",
+    "explanation": "micronutrient means A nutrient needed in small amounts."
   },
   "source_mode": "curated-channel-data"
 }
