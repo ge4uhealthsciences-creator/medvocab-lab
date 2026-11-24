@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-26",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 23,
+  "items": [
+    {
+      "discipline": "pharmaceutical-technology",
+      "discipline_vi": "Bào chế",
+      "discipline_en": "Pharma Technology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "disintegration",
+          "ipa": "/dɪsˌɪntɪˈɡreɪʃən/",
+          "meaning": "rã",
+          "definition": "Breaking apart into smaller pieces.",
+          "example": "Disintegration should occur within fifteen minutes."
+        },
+        {
+          "term": "GMP",
+          "ipa": "/ˌdʒiː em ˈpiː/",
+          "meaning": "thực hành sản xuất tốt",
+          "definition": "Good Manufacturing Practice: quality rules for production.",
+          "example": "The plant follows GMP."
+        },
+        {
+          "term": "validation",
+          "ipa": "/ˌvælɪˈdeɪʃən/",
+          "meaning": "thẩm định",
+          "definition": "Proving a process consistently gives the right result.",
+          "example": "Process validation is complete."
+        }
+      ],
+      "title": "3 Pharma Technology English words in 30 seconds: disintegration, GMP, validation #Shorts",
+      "caption": "• disintegration /dɪsˌɪntɪˈɡreɪʃən/ = rã\n• GMP /ˌdʒiː em ˈpiː/ = thực hành sản xuất tốt\n• validation /ˌvælɪˈdeɪʃən/ = thẩm định\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Pharma Technology English miễn phí mỗi ngày.\n\n#PharmaTech #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-26-youtube-00-pharmaceutical-technology",
+      "date": "2026-11-26",
+      "file": "2026-11-26-youtube-00-pharmaceutical-technology.mp4",
+      "duration_s": 22.7
+    },
+    {
+      "discipline": "nursing",
+      "discipline_vi": "Điều dưỡng",
+      "discipline_en": "Nursing English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Điều dưỡng có trả lời được không?",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "isolation",
+          "ipa": "/ˌaɪsəˈleɪʃən/",
+          "meaning": "cách ly",
+          "definition": "Separating a patient to prevent spread of infection.",
+          "example": "He is in isolation for a respiratory infection."
+        }
+      ],
+      "quiz": {
+        "question": "Separating a patient to prevent spread of infection.",
+        "options": [
+          "consent",
+          "isolation",
+          "observation chart"
+        ],
+        "answer": "B"
+      },
+      "caption": "🩹 Nursing English quiz: \"Separating a patient to prevent spread of infection.\"\nA) consent  B) isolation  C) observation chart\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NursingEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Nursing English quiz: I…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-26-instagram-00-nursing",
+      "date": "2026-11-26",
+      "file": "2026-11-26-instagram-00-nursing.mp4",
+      "duration_s": 14.23
+    },
+    {
+      "discipline": "nutrition",
+      "discipline_vi": "Dinh dưỡng",
+      "discipline_en": "Nutrition English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Dinh dưỡng có trả lời được không?",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "micronutrient",
+          "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
+          "meaning": "vi chất dinh dưỡng",
+          "definition": "A nutrient needed in small amounts.",
+          "example": "Iron is an essential micronutrient."
+        }
+      ],
+      "quiz": {
+        "question": "A nutrient needed in small amounts.",
+        "options": [
+          "saturated fat",
+          "micronutrient",
+          "glycaemic index"
+        ],
+        "answer": "B"
+      },
+      "caption": "🥗 Nutrition English quiz: \"A nutrient needed in small amounts.\"\nA) saturated fat  B) micronutrient  C) glycaemic index\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#NutritionEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Nutrition English quiz: M…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-26-tiktok-00-nutrition",
+      "date": "2026-11-26",
+      "file": "2026-11-26-tiktok-00-nutrition.mp4",
+      "duration_s": 13.1
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-26-threads-00-nutrition",
+      "time": "11:45",
+      "discipline": "nutrition",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🥗 Nutrition English quiz: \"A nutrient needed in small amounts.\"\nA) saturated fat  B) micronutrient  C) glycaemic index\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
