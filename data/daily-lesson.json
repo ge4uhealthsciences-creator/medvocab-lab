@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-24",
-  "channel_id": "nutrition",
-  "discipline": "Nutrition English",
-  "topic": "Dinh dưỡng · Nutrition English",
-  "title": "GE4u Daily Practice: Nutrition English",
-  "objective": "Review three core terms and practise one knowledge check in Nutrition English.",
+  "date": "2026-11-25",
+  "channel_id": "dentistry",
+  "discipline": "Dental English",
+  "topic": "Răng Hàm Mặt · Dental English",
+  "title": "GE4u Daily Practice: Dental English",
+  "objective": "Review three core terms and practise one knowledge check in Dental English.",
   "vocabulary": [
     {
-      "term": "micronutrient",
-      "ipa": "/ˌmaɪkrəʊˈnjuːtriənt/",
-      "meaning": "vi chất dinh dưỡng",
-      "definition": "A nutrient needed in small amounts.",
-      "example": "Iron is an essential micronutrient."
+      "term": "oral examination",
+      "ipa": "/ˈɔːrəl ɪɡˌzæmɪˈneɪʃən/",
+      "meaning": "khám miệng",
+      "definition": "An assessment of the oral cavity, teeth, gingiva and related structures.",
+      "example": "An oral examination is part of the initial dental assessment."
     },
     {
-      "term": "malnutrition",
-      "ipa": "/ˌmælnjuːˈtrɪʃən/",
-      "meaning": "suy dinh dưỡng / rối loạn dinh dưỡng",
-      "definition": "A state caused by inadequate, excessive or imbalanced intake.",
-      "example": "Malnutrition can affect recovery."
+      "term": "radiograph",
+      "ipa": "/ˈreɪdiəɡrɑːf/",
+      "meaning": "phim X-quang",
+      "definition": "An image produced using X-rays for diagnostic assessment.",
+      "example": "The dentist reviewed the dental radiograph."
     },
     {
-      "term": "dietary intake",
-      "ipa": "/ˈdaɪətəri ˈɪnteɪk/",
-      "meaning": "lượng ăn vào",
-      "definition": "The food and nutrients consumed by a person.",
-      "example": "Dietary intake was assessed."
+      "term": "restoration",
+      "ipa": "/ˌrestəˈreɪʃən/",
+      "meaning": "phục hồi răng",
+      "definition": "A filling or other material used to restore damaged tooth structure.",
+      "example": "The restoration was checked for marginal integrity."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: A nutrient needed in small amounts.",
+    "question": "What is a dental radiograph?",
     "options": [
-      "malnutrition",
-      "dietary intake",
-      "micronutrient"
+      "An X-ray image",
+      "A tooth-coloured filling",
+      "A medical history"
     ],
-    "answer": "micronutrient",
-    "explanation": "micronutrient means A nutrient needed in small amounts."
+    "answer": "An X-ray image",
+    "explanation": "A radiograph is an image produced using X-rays."
   },
   "source_mode": "curated-channel-data"
 }
