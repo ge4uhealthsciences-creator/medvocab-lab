@@ -44,8 +44,8 @@ Chủ sở hữu (owner) cho phép Claude **tự chạy mọi việc cần thi�
 | 06:50 | Báo cáo sáng |
 | 08:00–22:00, mỗi 20' | Tự đăng IG / FB / Threads / YouTube (GitHub Actions) |
 | 08:13, 20:13 | Bản nháp bộ học liệu |
-| 18:00 | Render video ngày mai |
-| 20:00 | **GE4u Autopilot** (1 tác vụ/ngày, gộp từ 12/11/2026): kiểm tra, sửa, chạy lại, cập nhật Hub, hẹn giờ 1 video TikTok ngày mai trên Studio |
+| Thứ 2, 05:30 | Render video cả tuần (Thứ 2 → Chủ nhật), `social-video-week.yml`. Giờ đăng theo từng thứ: `GOLDEN` trong `social-video/ge4u_video.py` (owner 26/11/2026) |
+| 20:00 | **GE4u Autopilot** (1 tác vụ/ngày, gộp từ 12/11/2026): kiểm tra, sửa, chạy lại, cập nhật Hub, hẹn giờ video TikTok trên Studio: **Thứ 2 hẹn cả tuần (Thứ 2 → Chủ nhật)**, các ngày khác chỉ bù ngày còn thiếu |
 | 14:13 | 2 mẫu Canva |
 
 ## 5. Báo cáo
