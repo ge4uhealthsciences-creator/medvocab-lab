@@ -2,9 +2,7 @@ name: Social video render
 # Separate from the daily-lesson/Pages workflow: a failure here never blocks lessons or the website.
 on:
   schedule:
-    # 11:00 UTC = 18:00 Asia/Ho_Chi_Minh: renders TOMORROW's videos (count = SLOTS in ge4u_video.py) the evening before,
-    # early enough that the 20:00 Autopilot can schedule them on TikTok Studio
-    - cron: '0 11 * * *'
+    # Render chính: social-video-week.yml (Chủ nhật 18:00 VN render cả tuần sau, owner 26/11/2026).
     # Back-up runs: GitHub sometimes skips a scheduled run (13 Nov 2026). Each back-up renders only what is missing:
     # today's release first, then tomorrow's. 15:10 UTC = 22:10 VN, 19:40 UTC = 02:40 VN, 23:20 UTC = 06:20 VN.
     - cron: '10 15 * * *'
