@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-28",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 25,
+  "items": [
+    {
+      "discipline": "public-health",
+      "discipline_vi": "Y tế công cộng",
+      "discipline_en": "Public Health English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "list",
+      "hook": "3 từ bạn sẽ gặp khi học Y tế công cộng",
+      "slot": 0,
+      "time": "14:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "morbidity",
+          "ipa": "/mɔːˈbɪdəti/",
+          "meaning": "tỷ lệ mắc bệnh",
+          "definition": "The state or rate of disease in a population.",
+          "example": "Morbidity from asthma is high."
+        },
+        {
+          "term": "screening",
+          "ipa": "/ˈskriːnɪŋ/",
+          "meaning": "sàng lọc",
+          "definition": "Testing people without symptoms for a disease.",
+          "example": "Screening for breast cancer saves lives."
+        },
+        {
+          "term": "quarantine",
+          "ipa": "/ˈkwɒrəntiːn/",
+          "meaning": "kiểm dịch / cách ly",
+          "definition": "Separating exposed people who may become ill.",
+          "example": "Travellers were placed in quarantine."
+        }
+      ],
+      "title": "3 Public Health English words in 30 seconds: morbidity, screening, quarantine #Shorts",
+      "caption": "• morbidity /mɔːˈbɪdəti/ = tỷ lệ mắc bệnh\n• screening /ˈskriːnɪŋ/ = sàng lọc\n• quarantine /ˈkwɒrəntiːn/ = kiểm dịch / cách ly\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Public Health English miễn phí mỗi ngày.\n\n#PublicHealthEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-28-youtube-00-public-health",
+      "date": "2026-11-28",
+      "file": "2026-11-28-youtube-00-public-health.mp4",
+      "duration_s": 20.73
+    },
+    {
+      "discipline": "social-work",
+      "discipline_vi": "Công tác xã hội",
+      "discipline_en": "Social Work English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "timer",
+      "hook": "3 giây. Chọn nhanh!",
+      "slot": 0,
+      "time": "17:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "home visit",
+          "ipa": "/ˌhəʊm ˈvɪzɪt/",
+          "meaning": "thăm hộ gia đình",
+          "definition": "A meeting with a client at their home.",
+          "example": "The home visit is on Friday."
+        }
+      ],
+      "quiz": {
+        "question": "A meeting with a client at their home.",
+        "options": [
+          "follow-up",
+          "case management",
+          "home visit"
+        ],
+        "answer": "C"
+      },
+      "caption": "🤝 Social Work English quiz: \"A meeting with a client at their home.\"\nA) follow-up  B) case management  C) home visit\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#SocialWorkEnglish #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Social Work English quiz: H…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-28-instagram-00-social-work",
+      "date": "2026-11-28",
+      "file": "2026-11-28-instagram-00-social-work.mp4",
+      "duration_s": 12.43
+    },
+    {
+      "discipline": "medical",
+      "discipline_vi": "Y khoa",
+      "discipline_en": "Medical English",
+      "platform": "tiktok",
+      "format": "case",
+      "hook_variant": "case",
+      "hook": "Ms. Thanh, 30 · Nội",
+      "slot": 0,
+      "time": "18:10",
+      "voice": 1,
+      "terms": [],
+      "case": {
+        "id": 51,
+        "dept": "im",
+        "er": false,
+        "cc": "Sốt rét run, đau hông lưng phải, tiểu buốt",
+        "who": "Ms. Thanh, 30",
+        "vit": {
+          "hr": 108,
+          "bp": "115/72",
+          "sp": 98,
+          "t": 39.1
+        },
+        "says": "I've got a high fever and shivers, pain in my right side, and it burns when I pee.",
+        "options": [
+          {
+            "en": "It's just a simple bladder infection.",
+            "ok": false,
+            "vi": "Viêm bàng quang đơn thuần",
+            "why": "Sốt cao, rét run, rung thận đau → viêm thận bể thận."
+          },
+          {
+            "en": "You have kidney stones.",
+            "ok": false,
+            "vi": "Sỏi thận",
+            "why": "Siêu âm không có sỏi, không giãn đài bể thận."
+          },
+          {
+            "en": "You have a kidney infection, called pyelonephritis.",
+            "ok": true,
+            "vi": "Viêm thận – bể thận cấp",
+            "why": ""
+          }
+        ],
+        "src": null,
+        "answer": "C",
+        "dept_vi": "Nội"
+      },
+      "title": "Sốt rét run, đau hông lưng phải, tiểu buốt: bạn chẩn đoán gì? (Medical English)",
+      "cta": true,
+      "primary_metric": "average watch time, comments with A/B/C, game trial starts",
+      "caption": "🚑 Ms. Thanh, 30 vào khoa Nội: \"I've got a high fever and shivers, pain in my right side, and it burns when I pee.\"\n(Sốt rét run, đau hông lưng phải, tiểu buốt)\n\nHỏi bệnh, khám và xét nghiệm xong, chẩn đoán đúng là gì?\nA) Viêm bàng quang đơn thuần\nB) Sỏi thận\nC) Viêm thận – bể thận cấp\n\nComment A, B hoặc C 👇 Đáp án ở cuối video.\n🎮 Chơi trọn ca này trong game GE4u English Ward (chơi thử miễn phí, không cần tài khoản): link ở bio GE4u.\n\n#MedicalEnglish #TiengAnhYKhoa #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "id": "2026-11-28-tiktok-00-medical",
+      "date": "2026-11-28",
+      "file": "2026-11-28-tiktok-00-medical.mp4",
+      "duration_s": 24.6
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-28-threads-00-social-work",
+      "time": "11:45",
+      "discipline": "social-work",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "🤝 Social Work English quiz: \"A meeting with a client at their home.\"\nA) follow-up  B) case management  C) home visit\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
