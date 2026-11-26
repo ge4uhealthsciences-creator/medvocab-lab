@@ -13,7 +13,7 @@
       "hook_variant": "speed",
       "hook": "3 từ Traditional Medicine English trong 30 giây",
       "slot": 0,
-      "time": "14:50",
+      "time": "16:00",
       "voice": 6,
       "terms": [
         {
@@ -44,7 +44,7 @@
       "id": "2026-11-27-youtube-00-traditional-medicine",
       "date": "2026-11-27",
       "file": "2026-11-27-youtube-00-traditional-medicine.mp4",
-      "duration_s": 20.23
+      "duration_s": 20.27
     },
     {
       "discipline": "midwifery",
@@ -55,7 +55,7 @@
       "hook_variant": "case",
       "hook": "Ms. Thao, 27 · Sản",
       "slot": 0,
-      "time": "17:30",
+      "time": "18:00",
       "voice": 3,
       "terms": [],
       "case": {
@@ -113,7 +113,7 @@
       "hook_variant": "case",
       "hook": "Ms. Thu, 35 · Răng Hàm Mặt",
       "slot": 0,
-      "time": "18:10",
+      "time": "20:10",
       "voice": 1,
       "terms": [],
       "case": {
@@ -166,7 +166,7 @@
   "threads": [
     {
       "id": "2026-11-27-threads-00-traditional-medicine",
-      "time": "11:45",
+      "time": "10:45",
       "discipline": "traditional-medicine",
       "format": "three_terms",
       "topic": "tienganh",
