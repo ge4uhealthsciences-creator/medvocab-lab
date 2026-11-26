@@ -1,0 +1,44 @@
+name: Social video render (weekly)
+# Owner 26/11/2026: render cả tuần 1 lần. Chủ nhật 18:00 VN (11:00 UTC) render Thứ 2 → Chủ nhật tuần sau,
+# lần lượt từng ngày (social-video.yml chỉ cho 1 lượt chờ, nên phải đợi lượt trước xong mới gọi lượt sau).
+on:
+  schedule:
+    - cron: '0 11 * * 0'
+  workflow_dispatch:
+    inputs:
+      start:
+        description: 'Ngày đầu (YYYY-MM-DD). Trống = Thứ 2 tới.'
+        required: false
+      days:
+        description: 'Số ngày cần render'
+        required: false
+        default: '7'
+permissions:
+  actions: write
+  contents: read
+concurrency:
+  group: social-video-week
+  cancel-in-progress: false
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Render each day in turn
+        env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+        run: |
+          S="${{ github.event.inputs.start }}"; N="${{ github.event.inputs.days }}"; N=${N:-7}
+          [ -z "$S" ] && S=$(TZ=Asia/Ho_Chi_Minh date -d 'next monday' +%F)
+          busy() { gh api "repos/$R/actions/workflows/social-video.yml/runs?per_page=10" \
+                     --jq '[.workflow_runs[] | select(.status != "completed")] | length'; }
+          for i in $(seq 0 $((N-1))); do
+            D=$(date -d "$S + $i day" +%F)
+            until [ "$(busy)" = "0" ]; do sleep 60; done
+            echo "Render $D"
+            gh api -X POST "repos/$R/actions/workflows/social-video.yml/dispatches" -f ref=main -f "inputs[date]=$D"
+            sleep 30
+          done
+          until [ "$(busy)" = "0" ]; do sleep 60; done
+          echo "Done: $N days from $S"
