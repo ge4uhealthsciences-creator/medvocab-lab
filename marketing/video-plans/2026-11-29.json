@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-29",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "phase": "quality: 12 videos, half clinical cases",
+  "rotation_day": 26,
+  "items": [
+    {
+      "discipline": "pharmacy",
+      "discipline_vi": "Dược học",
+      "discipline_en": "Pharmacy English",
+      "platform": "tiktok",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Dược học có trả lời được không?",
+      "slot": 0,
+      "time": "09:10",
+      "voice": 1,
+      "terms": [
+        {
+          "term": "overdose",
+          "ipa": "/ˈəʊvədəʊs/",
+          "meaning": "quá liều",
+          "definition": "Taking more of a drug than is safe.",
+          "example": "Keep medicines away from children to prevent overdose."
+        }
+      ],
+      "quiz": {
+        "question": "Taking more of a drug than is safe.",
+        "options": [
+          "bioavailability",
+          "overdose",
+          "half-life"
+        ],
+        "answer": "B"
+      },
+      "caption": "💊 Pharmacy English quiz: \"Taking more of a drug than is safe.\"\nA) bioavailability  B) overdose  C) half-life\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmacyEnglish #hoctienganh #sinhvien #LearnOnTikTok #xuhuong #GE4u",
+      "title": "Pharmacy English quiz: O…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-29-tiktok-00-pharmacy",
+      "date": "2026-11-29",
+      "file": "2026-11-29-tiktok-00-pharmacy.mp4",
+      "duration_s": 13.53
+    },
+    {
+      "discipline": "psychology",
+      "discipline_vi": "Tâm lý học",
+      "discipline_en": "Psychology English",
+      "platform": "youtube",
+      "format": "three_terms",
+      "hook_variant": "test",
+      "hook": "Bạn biết mấy từ trong 3 từ này?",
+      "slot": 0,
+      "time": "16:50",
+      "voice": 6,
+      "terms": [
+        {
+          "term": "perception",
+          "ipa": "/pəˈsepʃən/",
+          "meaning": "tri giác",
+          "definition": "How the brain interprets sensory information.",
+          "example": "Perception can be influenced by expectation."
+        },
+        {
+          "term": "memory",
+          "ipa": "/ˈmeməri/",
+          "meaning": "trí nhớ",
+          "definition": "The ability to store and recall information.",
+          "example": "Sleep supports memory."
+        },
+        {
+          "term": "attention",
+          "ipa": "/əˈtenʃən/",
+          "meaning": "sự chú ý",
+          "definition": "Focusing the mind on something.",
+          "example": "Attention drops when we multitask."
+        }
+      ],
+      "title": "3 Psychology English words in 30 seconds: perception, memory, attention #Shorts",
+      "caption": "• perception /pəˈsepʃən/ = tri giác\n• memory /ˈmeməri/ = trí nhớ\n• attention /əˈtenʃən/ = sự chú ý\n\nBạn đã biết mấy từ? Comment số 0–3 👇 Subscribe GE4u để học Psychology English miễn phí mỗi ngày.\n\n#PsychologyEnglish #hoctienganh #Shorts #GE4u",
+      "primary_metric": "views, average view duration",
+      "id": "2026-11-29-youtube-00-psychology",
+      "date": "2026-11-29",
+      "file": "2026-11-29-youtube-00-psychology.mp4",
+      "duration_s": 19.17
+    },
+    {
+      "discipline": "pharmaceutical-chemistry",
+      "discipline_vi": "Hóa dược",
+      "discipline_en": "Pharma Chemistry English",
+      "platform": "instagram",
+      "format": "quiz",
+      "hook_variant": "dare",
+      "hook": "Sinh viên Hóa dược có trả lời được không?",
+      "slot": 0,
+      "time": "19:30",
+      "voice": 3,
+      "terms": [
+        {
+          "term": "polarity",
+          "ipa": "/pəˈlærəti/",
+          "meaning": "độ phân cực",
+          "definition": "Uneven distribution of charge in a molecule.",
+          "example": "Polarity affects solubility in water."
+        }
+      ],
+      "quiz": {
+        "question": "Uneven distribution of charge in a molecule.",
+        "options": [
+          "chromatography",
+          "polarity",
+          "titration"
+        ],
+        "answer": "B"
+      },
+      "caption": "⚗️ Pharma Chemistry English quiz: \"Uneven distribution of charge in a molecule.\"\nA) chromatography  B) polarity  C) titration\n\nComment A, B hoặc C trước khi xem đáp án 👇 Gửi cho bạn học cùng ngành để thử thách!\n\n#PharmaChemistry #hoctienganh #sinhvien #Reels #GE4u",
+      "title": "Pharma Chemistry English quiz: P…?",
+      "primary_metric": "non-follower reach, shares",
+      "id": "2026-11-29-instagram-00-pharmaceutical-chemistry",
+      "date": "2026-11-29",
+      "file": "2026-11-29-instagram-00-pharmaceutical-chemistry.mp4",
+      "duration_s": 13.43
+    }
+  ],
+  "threads": [
+    {
+      "id": "2026-11-29-threads-00-pharmacy",
+      "time": "10:15",
+      "discipline": "pharmacy",
+      "format": "quiz",
+      "topic": "tienganh",
+      "text": "💊 Pharmacy English quiz: \"Taking more of a drug than is safe.\"\nA) bioavailability  B) overdose  C) half-life\n\nComment A, B hoặc C trước khi xem đáp án 👇\n\n#tienganh"
+    }
+  ]
+}
