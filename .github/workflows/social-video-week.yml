@@ -1,13 +1,13 @@
 name: Social video render (weekly)
-# Owner 26/11/2026: render cả tuần 1 lần. Chủ nhật 18:00 VN (11:00 UTC) render Thứ 2 → Chủ nhật tuần sau,
+# Owner 26/11/2026: render cả tuần 1 lần, sáng Thứ 2 05:30 VN (Chủ nhật 22:30 UTC) render Thứ 2 → Chủ nhật tuần đó,
 # lần lượt từng ngày (social-video.yml chỉ cho 1 lượt chờ, nên phải đợi lượt trước xong mới gọi lượt sau).
 on:
   schedule:
-    - cron: '0 11 * * 0'
+    - cron: '30 22 * * 0'
   workflow_dispatch:
     inputs:
       start:
-        description: 'Ngày đầu (YYYY-MM-DD). Trống = Thứ 2 tới.'
+        description: 'Ngày đầu (YYYY-MM-DD). Trống = Thứ 2 tuần này (hôm nay nếu là Thứ 2).'
         required: false
       days:
         description: 'Số ngày cần render'
@@ -30,7 +30,9 @@ jobs:
           R: ${{ github.repository }}
         run: |
           S="${{ github.event.inputs.start }}"; N="${{ github.event.inputs.days }}"; N=${N:-7}
-          [ -z "$S" ] && S=$(TZ=Asia/Ho_Chi_Minh date -d 'next monday' +%F)
+          if [ -z "$S" ]; then
+            T=$(TZ=Asia/Ho_Chi_Minh date +%F); S=$(date -d "$T - $(( $(date -d "$T" +%u) - 1 )) day" +%F)
+          fi
           busy() { gh api "repos/$R/actions/workflows/social-video.yml/runs?per_page=10" \
                      --jq '[.workflow_runs[] | select(.status != "completed")] | length'; }
           for i in $(seq 0 $((N-1))); do
