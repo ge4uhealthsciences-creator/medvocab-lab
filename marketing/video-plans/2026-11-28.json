@@ -13,7 +13,7 @@
       "hook_variant": "list",
       "hook": "3 từ bạn sẽ gặp khi học Y tế công cộng",
       "slot": 0,
-      "time": "14:50",
+      "time": "10:50",
       "voice": 6,
       "terms": [
         {
@@ -55,7 +55,7 @@
       "hook_variant": "timer",
       "hook": "3 giây. Chọn nhanh!",
       "slot": 0,
-      "time": "17:30",
+      "time": "19:30",
       "voice": 3,
       "terms": [
         {
@@ -92,7 +92,7 @@
       "hook_variant": "case",
       "hook": "Ms. Thanh, 30 · Nội",
       "slot": 0,
-      "time": "18:10",
+      "time": "20:10",
       "voice": 1,
       "terms": [],
       "case": {
@@ -139,13 +139,13 @@
       "id": "2026-11-28-tiktok-00-medical",
       "date": "2026-11-28",
       "file": "2026-11-28-tiktok-00-medical.mp4",
-      "duration_s": 24.6
+      "duration_s": 24.57
     }
   ],
   "threads": [
     {
       "id": "2026-11-28-threads-00-social-work",
-      "time": "11:45",
+      "time": "10:45",
       "discipline": "social-work",
       "format": "quiz",
       "topic": "tienganh",
