@@ -81,6 +81,14 @@ HOOKS = {  # rotated daily; variant id is logged for hook experiments
 SLOTS = {"tiktok": [("18:10", "rotate")],
          "instagram": [("17:30", "rotate")],
          "youtube": [("14:50", "rotate")]}
+# Giờ vàng theo từng thứ (owner 26/11/2026), giờ VN. 0 = Thứ 2 ... 6 = Chủ nhật. Ghi đè giờ trong SLOTS/THREADS_TIMES.
+GOLDEN = {0: {"threads": "11:45", "youtube": "12:50", "instagram": "18:30", "tiktok": "20:10"},
+          1: {"threads": "09:45", "youtube": "14:50", "instagram": "17:30", "tiktok": "18:10"},
+          2: {"threads": "09:15", "youtube": "16:50", "instagram": "12:30", "tiktok": "20:40"},
+          3: {"threads": "08:45", "youtube": "17:50", "instagram": "09:30", "tiktok": "19:10"},
+          4: {"threads": "10:45", "youtube": "16:00", "instagram": "18:00", "tiktok": "20:10"},
+          5: {"threads": "10:45", "youtube": "10:50", "instagram": "19:30", "tiktok": "20:10"},
+          6: {"threads": "10:15", "youtube": "16:50", "instagram": "19:30", "tiktok": "09:10"}}
 ROTATE_FMT = {"tiktok": "quiz", "instagram": "quiz", "youtube": "three_terms"}  # for disciplines without game cases
 CASE_DISC = {"dent": "dentistry", "ob": "midwifery"}  # every other department is shown as Medical English
 DEPT_VI = {"er": "Cấp cứu", "card": "Tim mạch", "ped": "Nhi", "dent": "Răng Hàm Mặt", "eye": "Mắt", "derm": "Da liễu",
@@ -267,10 +275,11 @@ def make_plan(date):
         it["caption"] = dedupe_tags(it["caption"])
         it["id"] = f"{date.isoformat()}-{it['platform']}-{it['slot']:02d}-{it['discipline']}"
         it["date"] = date.isoformat()
+        it["time"] = GOLDEN[date.weekday()][it["platform"]]
         items.append(it)
     items.sort(key=lambda x: (x["time"], x["platform"]))
     return {"date": date.isoformat(), "timezone": "Asia/Ho_Chi_Minh", "phase": "quality: 12 videos, half clinical cases",
-            "rotation_day": day, "items": items, "threads": make_threads(items, day)}
+            "rotation_day": day, "items": items, "threads": [dict(t, time=GOLDEN[date.weekday()]["threads"]) for t in make_threads(items, day)]}
 
 
 def _day_items(day, bank):
