@@ -103,12 +103,19 @@ def load_log(date, workdir):
 def save_log(date, log, workdir):
     p = workdir / "posted.json"
     p.write_text(json.dumps(log, ensure_ascii=False, indent=1))
-    rel = _release(date)
-    for a in rel["assets"]:
-        if a["name"] == "posted.json":
-            gh("api", "-X", "DELETE", f"repos/{REPO}/releases/assets/{a['id']}", check=False)
-    gh("api", "-X", "POST", "-H", "Content-Type: application/json",
-       f"https://uploads.github.com/repos/{REPO}/releases/{rel['id']}/assets?name=posted.json", "--input", str(p))
+    for attempt in range(4):  # upload can race with the previous delete (run #398, 26/11/2026): retry
+        rel = _release(date)
+        for a in rel["assets"]:
+            if a["name"] == "posted.json":
+                gh("api", "-X", "DELETE", f"repos/{REPO}/releases/assets/{a['id']}", check=False)
+        r = gh("api", "-X", "POST", "-H", "Content-Type: application/json",
+               f"https://uploads.github.com/repos/{REPO}/releases/{rel['id']}/assets?name=posted.json", "--input", str(p),
+               check=False)
+        if r.returncode == 0:
+            return
+        print(f"posted.json upload failed (try {attempt + 1}): {(r.stderr or r.stdout).strip()[:200]}")
+        time.sleep(5 * (attempt + 1))
+    raise ApiError("could not upload posted.json")
 
 
 def download_asset(date, name, workdir):
