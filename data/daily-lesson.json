@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-26",
-  "channel_id": "medical",
-  "discipline": "Medical English",
-  "topic": "Y khoa · Medical English",
-  "title": "GE4u Daily Practice: Medical English",
-  "objective": "Review three core terms and practise one knowledge check in Medical English.",
+  "date": "2026-11-27",
+  "channel_id": "pharmacy",
+  "discipline": "Pharmacy English",
+  "topic": "Dược học · Pharmacy English",
+  "title": "GE4u Daily Practice: Pharmacy English",
+  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
   "vocabulary": [
     {
-      "term": "medical history",
-      "ipa": "/ˈmedɪkəl ˈhɪstəri/",
-      "meaning": "tiền sử bệnh",
-      "definition": "Information about past and current health.",
-      "example": "The clinician reviewed the medical history."
+      "term": "adverse drug reaction",
+      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
+      "meaning": "phản ứng có hại của thuốc",
+      "definition": "An unintended harmful response to a medicine.",
+      "example": "The patient reported an adverse drug reaction."
     },
     {
-      "term": "physical examination",
-      "ipa": "/ˈfɪzɪkəl ɪɡˌzæmɪˈneɪʃən/",
-      "meaning": "khám thực thể",
-      "definition": "Assessment of the body for clinical signs.",
-      "example": "A physical examination was performed."
+      "term": "dosage",
+      "ipa": "/ˈdəʊsɪdʒ/",
+      "meaning": "liều dùng",
+      "definition": "The amount and frequency of a medicine taken.",
+      "example": "Follow the prescribed dosage."
     },
     {
-      "term": "prognosis",
-      "ipa": "/prɒɡˈnəʊsɪs/",
-      "meaning": "tiên lượng",
-      "definition": "The expected course or outcome of a condition.",
-      "example": "The physician explained the prognosis."
+      "term": "drug interaction",
+      "ipa": "/drʌɡ ˌɪntərˈækʃən/",
+      "meaning": "tương tác thuốc",
+      "definition": "An effect when one substance affects another medicine.",
+      "example": "The pharmacist checked for drug interactions."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: Information about past and current health.",
+    "question": "Which term is defined as: An unintended harmful response to a medicine.",
     "options": [
-      "prognosis",
-      "medical history",
-      "physical examination"
+      "drug interaction",
+      "adverse drug reaction",
+      "dosage"
     ],
-    "answer": "medical history",
-    "explanation": "medical history means Information about past and current health."
+    "answer": "adverse drug reaction",
+    "explanation": "adverse drug reaction means An unintended harmful response to a medicine."
   },
   "source_mode": "curated-channel-data"
 }
