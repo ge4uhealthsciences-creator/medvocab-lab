@@ -1,42 +1,42 @@
 {
-  "date": "2026-11-27",
-  "channel_id": "pharmacy",
-  "discipline": "Pharmacy English",
-  "topic": "Dược học · Pharmacy English",
-  "title": "GE4u Daily Practice: Pharmacy English",
-  "objective": "Review three core terms and practise one knowledge check in Pharmacy English.",
+  "date": "2026-11-28",
+  "channel_id": "nursing",
+  "discipline": "Nursing English",
+  "topic": "Điều dưỡng · Nursing English",
+  "title": "GE4u Daily Practice: Nursing English",
+  "objective": "Review three core terms and practise one knowledge check in Nursing English.",
   "vocabulary": [
     {
-      "term": "adverse drug reaction",
-      "ipa": "/ˈædvɜːs drʌɡ riˈækʃən/",
-      "meaning": "phản ứng có hại của thuốc",
-      "definition": "An unintended harmful response to a medicine.",
-      "example": "The patient reported an adverse drug reaction."
+      "term": "intake and output",
+      "ipa": "/ˈɪnteɪk ən ˈaʊtpʊt/",
+      "meaning": "lượng dịch vào và ra",
+      "definition": "A record of fluid intake and excretion.",
+      "example": "Intake and output were monitored."
     },
     {
-      "term": "dosage",
-      "ipa": "/ˈdəʊsɪdʒ/",
-      "meaning": "liều dùng",
-      "definition": "The amount and frequency of a medicine taken.",
-      "example": "Follow the prescribed dosage."
+      "term": "handover",
+      "ipa": "/ˈhændəʊvə/",
+      "meaning": "bàn giao ca",
+      "definition": "Transfer of relevant patient information.",
+      "example": "The nurse gave a structured handover."
     },
     {
-      "term": "drug interaction",
-      "ipa": "/drʌɡ ˌɪntərˈækʃən/",
-      "meaning": "tương tác thuốc",
-      "definition": "An effect when one substance affects another medicine.",
-      "example": "The pharmacist checked for drug interactions."
+      "term": "patient safety",
+      "ipa": "/ˈpeɪʃənt ˈseɪfti/",
+      "meaning": "an toàn người bệnh",
+      "definition": "Prevention of avoidable harm in healthcare.",
+      "example": "Patient safety is a priority."
     }
   ],
   "quiz": {
-    "question": "Which term is defined as: An unintended harmful response to a medicine.",
+    "question": "Which term is defined as: A record of fluid intake and excretion.",
     "options": [
-      "drug interaction",
-      "adverse drug reaction",
-      "dosage"
+      "patient safety",
+      "intake and output",
+      "handover"
     ],
-    "answer": "adverse drug reaction",
-    "explanation": "adverse drug reaction means An unintended harmful response to a medicine."
+    "answer": "intake and output",
+    "explanation": "intake and output means A record of fluid intake and excretion."
   },
   "source_mode": "curated-channel-data"
 }
